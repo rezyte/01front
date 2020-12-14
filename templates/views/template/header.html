@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<!--{% load utility_tags %}-->
+<html>
+	<head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KH5LKK69SL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-KH5LKK69SL');
+        </script>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="wzWhJaqpQniEGJwWeIMISdhq0AnDmqeTZ-tDFBpBB6Q" />
+		{% if request.user.is_authenticated %}
+			{% user_tag request.user.username as current_user %}
+		{% endif %}
+
+		  <meta name="user_tag" content="{{ current_user }}">
+		  {% csrf_token_tag %}
+
+		  <script>
+            let userInfo=document.querySelector('meta[name=user_tag]')
+            userInfo=userInfo.getAttribute('content')
+            if(userInfo!==''){
+                userInfo=JSON.parse(userInfo)
+            }
+            let csrf=document.querySelector('meta[name=csrf]')
+            csrf=csrf.getAttribute('content')
+                  </script>
+
+
+
+<!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+		<title>دمیرکو | فروش ماشین آلات صنعتی</title>
+<!--		<meta description='دمیرکو یک سایت خدمات صنعتی است یکی از فعالیت هایش فروش ماشین الات صنعتی در حوزه های بسته بندی خطوط تولید خطوط انتقال و غیره میباشد' >-->
+        {{tags|safe}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</head>
+	
+	<body>
+<div id="app">
+    <share-pop-up></share-pop-up>
+    <install-prompt></install-prompt>
+    <top-pre-page-for-phones></top-pre-page-for-phones>

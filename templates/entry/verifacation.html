@@ -1,0 +1,15 @@
+{% include "entry/template/header.html" %}
+<signup>
+    {% if messages %}
+    {% for message in messages %}
+    {% if forloop.counter0 == 0 %}
+    <verifacation error="{{ message }}"></verifacation>
+    {% else %}
+    {% endif %}
+    {% endfor %}
+    {% else %}
+    <verifacation error=""></verifacation>
+    {% endif %}
+
+</signup>
+{% include "entry/template/footer.html" %} 

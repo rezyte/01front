@@ -1,0 +1,8 @@
+
+<div class="main">
+    <div class="mainWrapper">
+        {% if messages%}
+            {% for message in messages %}
+                <error errors='{{ message }}'></error>
+            {% endfor %}
+        {% endif %}

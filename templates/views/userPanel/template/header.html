@@ -1,0 +1,70 @@
+{% load utility_tags %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+
+
+
+
+    {% if request.user.is_authenticated %}
+    {% user_tag request.user.username as current_user %}
+    {% endif %}
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="user_tag" content="{{ current_user }}">
+    {% csrf_token_tag %}
+
+<!--    <script src="https://cdn.tiny.cloud/1/rgapjojwao9ss65ir7gou5w5qgaf22kr3qmh8ww3ke75xnpl/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>-->
+<!--    <script type="application/javascript" src="/images/dropzone/min/dropzone.min.js"></script>-->
+    <title>Document</title>
+    <style>
+        /*.tox.tox-silver-sink.tox-tinymce-aux{*/
+        /*    display: none !important;*/
+        /*}*/
+        .wizard-icon-container{
+            transform: scale(1.2);
+        }
+    </style>
+    <script>
+        let userInfo=document.querySelector('meta[name=user_tag]')
+        userInfo=userInfo.getAttribute('content')
+        userInfo=JSON.parse(userInfo)
+
+        document.title=userInfo.username
+
+        let csrf=document.querySelector('meta[name=csrf]')
+        csrf=csrf.getAttribute('content')
+    </script>
+
+
+    <script src="{% static '/public/register.js' %}"></script>
+    <link rel="manifest" href="/images/manifest.json">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PWAGram">
+    <link rel="apple-touch-icon" href="/images/pwa/pwa57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="/images/pwa/pwa60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="/images/pwa/pwa72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="/images/pwa/pwa76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="/images/pwa/pwa114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="/images/pwa/pwa120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/images/pwa/pwa144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="/images/pwa/pwa152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/images/pwa/pwa180.png" sizes="180x180">
+    <meta name="msapplication-TileImage" content="/images/pwa/pwa144.png">
+    <meta name="msapplication-TileColor" content="#fff">
+    <meta name="theme-color" content="rgb(9,111,211)">
+
+
+
+</head>
+<body>
+<div id="userPanel">
+    <stick-menu></stick-menu>
+    <install-prompt></install-prompt>

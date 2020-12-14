@@ -1,0 +1,83 @@
+*{
+    font-family: 'iranSans' !important;
+}
+@font-face {
+    font-family: iranSans;
+    src: url(/static/IRANSansWeb_Light.woff2);
+}
+.signView{
+    max-width: 380px;
+}
+.logo{
+    width: 100%;
+
+}
+.logo img{
+    width: 200px;
+}
+.signView{
+    border-radius: 8px;
+    border: 1px solid #d0cdcd;
+    padding: 30px;
+    width: 380px;
+    margin: 10px;
+}
+.signViewWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.button{
+    width: 100%;
+    margin-top:20px
+}
+.submit{
+    width: 100%;
+}
+.outerForm{
+    width: 100%;
+}
+
+h1{
+    font-size: 1.429rem;
+    font-weight: 700;
+    color:#232933
+}
+.title{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top:50px
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top:20px
+}
+input{
+    padding: 9px 0;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #e0e0e2;
+    width: 100%;
+    padding-left: 0;
+}
+.input p{
+    text-align: right;
+    font-size: .857rem;
+    line-height: 21px;
+    color: #62666d;
+    margin-bottom: 16px;
+}
+
+input:focus{
+    outline: none;
+}

@@ -1,0 +1,22 @@
+
+{%  include "views/userpanel/template/header.html" %}
+{%  include "views/userpanel/template/head.html" %}
+{%  include "views/userpanel/template/sideBar.html" %}
+
+{% if request.session.redirect_info %}
+<user-panel-wrapper allmessages="{{request.session.message}}">
+    <edit-product
+            cats="{{ cats }}"
+            product="{{ product }}"
+    ></edit-product>
+</user-panel-wrapper>
+{% else %}
+<user-panel-wrapper allmessages="{{request.session.message}}">
+    <edit-product
+            cats="{{ cats }}"
+            product='{{ product }}'
+    ></edit-product>
+</user-panel-wrapper>
+{% endif %}
+
+{%  include "views/userpanel/template/footer.html" %}

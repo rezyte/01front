@@ -1,0 +1,31 @@
+{
+    "name":"damirco",
+    "short_name":"damirco",
+    "scople":".",
+    "display":"standalone",
+    "background_color":"rgb(11,11,211)",
+    "description":"دمیرکو",
+    "dir":"rtl",
+    "orientation":"portrait-primary",
+    "icons":[
+        {
+            "src":"/images/pwa48.jpg",
+            "type":"image/jpg",
+            "sizes":"48x48"
+        },
+        {
+            "src":"/images/pwa96.jpg",
+            "type":"image/jpg",
+            "sizes":"96x96"
+        },
+        {
+            "src":"/images/pwa144.jpg",
+            "type":"image/jpg",
+
+            "sizes":"144x144"
+        }
+    ],
+    "start_url":"./",
+    "scope":".",
+    "theme_color":"#3f51b5"
+}
