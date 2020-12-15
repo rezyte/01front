@@ -40,6 +40,7 @@
     "google-maps": "^4.3.2",
     "leaflet": "^1.6.0",
     "leaflet-geosearch": "^3.0.6",
+    "localtunnel": "^2.0.0",
     "lodash": "^4.17.20",
     "lozad": "^1.16.0",
     "nodemon": "^2.0.4",

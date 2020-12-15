@@ -17,4 +17,6 @@ app.get("/factor",(req,res,next)=>{
 })
 
 
-app.listen(3001)
+app.listen(3000, function() {
+    console.log('Listening to port:  ' + 3000);
+});

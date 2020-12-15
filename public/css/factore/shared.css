@@ -1,0 +1,18 @@
+:root{
+    --blue:#2d7cff
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'iranSans';
+    -webkit-print-color-adjust: exact;
+}
+@font-face {
+    font-family: iranSans;
+    src: url(/static/IRANSansWeb_Light.woff2);
+}
+
+#app{
+    display: flex;
+    justify-content: center;
+}

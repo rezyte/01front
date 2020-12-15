@@ -7,3 +7,5 @@ const factoreApp=new vue({
     }
 
 })
+
+// import "./css/shared.css"
