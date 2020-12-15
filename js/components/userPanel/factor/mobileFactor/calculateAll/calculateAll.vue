@@ -23,7 +23,7 @@
             <p>:معادل فارسی</p>
             <p>{{ NumToText }}</p>
           </div>
-          <button @click.prevent="sendFactor" class="submit">ساخت پیش فاکتور</button>
+          <a href="/userpanel/prefactore/upload" target="_blank"@click="sendFactor"> <button  class="submit">ساخت پیش فاکتور</button></a>
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@ export default {
     sendFactor(){
       axios.post("/userpanel/prefactore/upload",{factor:'this.$store.state.factoreItems'})
       .then(res=>{
-        console.log(res)
+        console.log(res.data)
       })
     }
   },
