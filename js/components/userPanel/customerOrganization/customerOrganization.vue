@@ -1,5 +1,5 @@
 <template>
-    <div id="customerOrganization">
+    <div id="customerOrganization" class="userPanelItem panelItem">
         <div class="table">
             <table>
                 <tr>

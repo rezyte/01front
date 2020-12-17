@@ -1,7 +1,7 @@
 <template>
   <div id="factorNum">
     <div id="factorNumWrapper">
-      <p>شماره پیش فاکتور : ت/34weq1</p>
+      <p>شماره پیش فاکتور :{{$store.state.factoreItems.factoreDetails.factoreNumber}}</p>
     </div>
     <div class="arrow-left"></div>
   </div>

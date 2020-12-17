@@ -5,25 +5,30 @@
       <div class="res">
         <div class="resWrapper">
           <div class="singleRow">
-            <p>:جمع قیمت کل</p>
+            <p>جمع قیمت کل:</p>
             <p>{{ getWholePrice }}</p>
           </div>
 
           <div class="singleRow">
-            <p>:{{ this.$store.state.factoreItems.off.title }}</p>
-            <p>{{ this.$store.state.factoreItems.off.affect ? this.$store.state.factoreItems.off.mount : 0 }}%</p>
-          </div>
-
-          <div class="singleRow sumWrapper">
-            <p>:حاصل</p>
-            <p>{{ calcRealPrice.toLocaleString('fi-FI') }}</p>
+            <p>{{ this.$store.state.factoreItems.off.title }}:</p>
+            <p>      {{calcOff.toLocaleString('fi-FI')}} تومان   </p>
           </div>
 
           <div class="singleRow">
-            <p>:معادل فارسی</p>
+            <p>{{ this.$store.state.factoreItems.tax.title }}:</p>
+            <p>  {{calcTax}} تومان </p>
+          </div>
+
+          <div class="singleRow sumWrapper">
+            <p>حاصل:</p>
+            <p> {{ calcRealPrice}} تومان </p>
+          </div>
+
+          <div class="singleRow">
+            <p>معادل فارسی:</p>
             <p>{{ NumToText }}</p>
           </div>
-          <a href="/userpanel/prefactore/upload" target="_blank"@click="sendFactor"> <button  class="submit">ساخت پیش فاکتور</button></a>
+          <a href="/userpanel/prefactore/upload" target="_blank" @click="sendFactor"> <button  class="submit">ساخت پیش فاکتور</button></a>
         </div>
       </div>
     </div>
@@ -43,13 +48,35 @@ export default {
   props: ['rows'],
   methods:{
     sendFactor(){
-      axios.post("/userpanel/prefactore/upload",{factor:'this.$store.state.factoreItems'})
+      axios.post("/userpanel/prefactore/upload",{factor:this.$store.state.factoreItems})
       .then(res=>{
-        console.log(res.data)
+        // console.log(JSON.parse(res.data))
       })
     }
   },
   computed: {
+    calcTax(){
+      if(!this.$store.state.factoreItems.tax.affect){
+        return 0
+      }
+      const taxPercent=this.$store.state.factoreItems.tax.mount
+      let res
+      res=this.wholePrice
+      res=res+(res*(taxPercent/100))
+      res=res-this.wholePrice
+      return res.toLocaleString('fi-FI')
+    },
+    calcOff(){
+      if(!this.$store.state.factoreItems.off.affect){
+        return 0
+      }
+      const offPercent=this.$store.state.factoreItems.off.mount
+      let res
+      res=this.wholePrice
+      res=res+(res*(offPercent/100))
+      res=res-this.wholePrice
+      return res.toLocaleString('fi-FI')
+    },
     getWholePrice() {
       let wholePrice = 0
       this.rows.forEach(row => {
@@ -66,24 +93,23 @@ export default {
       return wholePrice.toLocaleString('fi-FI')
     },
     calcRealPrice(text) {
-      const tax = this.$store.state.factoreItems.off.mount
+      let off = this.$store.state.factoreItems.off.affect ? this.$store.state.factoreItems.off.mount : 0
+      let tax = this.$store.state.factoreItems.tax.affect ? this.$store.state.factoreItems.tax.mount : 0
       const wholePrice = this.wholePrice
       let result
-      if (this.$store.state.factoreItems.off.affect) {
-        result = wholePrice - (wholePrice * (tax / 100))
-      } else {
-        result = wholePrice
-      }
+        result = wholePrice - (wholePrice * (off / 100)) + (wholePrice * (tax / 100))
       this.$store.state.factoreItems.realPrice=result
-      return result
+      return result.toLocaleString('fi-FI')
 
     },
     NumToText() {
-      const tax = this.$store.state.factoreItems.off.mount
+      const off = this.$store.state.factoreItems.off.mount
+      let tax = this.$store.state.factoreItems.tax.affect ? this.$store.state.factoreItems.tax.mount : 0
+
       const wholePrice = this.$store.state.factoreItems.wholePrice
       let result
       if (this.$store.state.factoreItems.off.affect) {
-        result = wholePrice - (+wholePrice * (+tax / 100))
+        result = wholePrice - (+wholePrice * (+off / 100)) + (+wholePrice * (+tax / 100))
       } else {
         result = wholePrice
       }
@@ -104,6 +130,7 @@ export default {
 
 p {
   text-align: right;
+  direction: rtl;
   font-weight: bold;
 }
 
@@ -114,5 +141,13 @@ p {
   margin-top: 20px;
   padding: 5px 10px 5px 10px;
 
+}
+.resWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.singleRow span{
+  display: flex;
 }
 </style>

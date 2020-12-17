@@ -33,10 +33,17 @@ export const store=new Vuex.Store({
                 mount:"0",
                 title:"تخفیف"
             },
+            tax:{
+                affect:false,
+                mount:"0",
+                title:"مالیات"
+            },
             wholePrice:0,
             realPrice:0,
-            persianPrice:""
-        }
+            persianPrice:"",
+            factorDescs:""
+        },
+        getPhoneId:{id:null,el:null}
     },
     getters:{
         isSubMenuOpen:state=>{

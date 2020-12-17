@@ -3,6 +3,7 @@
         <div id="phonefactorWrapper">
             <row1 @titleChanged="titleChanged($event)" @fileChanged="fileChanged($event)"></row1>
             <from-and-to></from-and-to>
+          <descs>descs</descs>
             <item-table></item-table>
         </div>
         <div id="factorSideBar">
@@ -17,6 +18,7 @@ import row1 from "./logoAndTitle/row1.vue";
 import fromAndTo from "./fromAndTo/fromAndTo.vue";
 import sideBar from "./sideBar/sideBar.vue";
 import itemTable from "./table/table.vue";
+import descs from "./descs/descs.vue"
 export default {
 name: "mobileFactor",
   data(){
@@ -52,7 +54,8 @@ name: "mobileFactor",
         row1,
         sideBar,
         fromAndTo,
-        itemTable
+        itemTable,
+      descs
     }
 }
 </script>
@@ -99,7 +102,10 @@ name: "mobileFactor",
 #phonefactorWrapper >>> .title p{
     text-align: right;
  }
-
+#factorSideBar{
+  position: relative;
+  margin-right: 220px;
+}
 @media (max-width: 380px) {
     #phonefactorWrapper >>> .row{
         flex-direction: column;
@@ -115,7 +121,12 @@ name: "mobileFactor",
 @media (max-width:1250px ) {
     #phoneFactor{
         flex-direction: column;
+
     }
+  #factorSideBar{
+    position: static;
+    margin-right: 0px;
+  }
 }
 @media (max-width: 1000px) {
     .panelItem{

@@ -29,13 +29,13 @@
         </tr>
         <div class="divider"></div>
 
-        <tr>
+        <tr v-for="(item,i) in getRows">
 
-          <td>1900000000000</td>
-          <td>1900000000000</td>
-          <td style="padding-right: 5px">1</td>
-          <td>بسته بندی دسته بندی خط تولید کلرتن شیرینگ پک کششی</td>
-          <td>1</td>
+          <td>{{item.wholePrice}}</td>
+          <td>{{item.singlePrice}}</td>
+          <td style="padding-right: 5px">{{item.count}}</td>
+          <td>{{item.title}}</td>
+          <td>{{i+1}}</td>
 
         </tr>
 
@@ -47,7 +47,12 @@
 
 <script>
 export default {
-  name: "rows"
+  name: "rows",
+  computed:{
+    getRows(){
+      return this.$store.state.factoreItems.tableItems
+    }
+  }
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div id="seller">
     <div id="sellerWrapper">
-      <p>مدیر فروش:روح انگیز ایمانی</p>
+      <p>مدیر فروش:{{$store.state.factoreItems.from.name}}</p>
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
 
 <style scoped>
 #seller{
-  margin-top: 20px;
+  margin-top: 100px;
   border-top:1px solid rgb(58,59,64);
   width: max-content;
   position: relative;

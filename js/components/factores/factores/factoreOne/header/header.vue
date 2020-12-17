@@ -11,7 +11,6 @@
 import bottomOfHeader from "./bottomOfHeader/bottomOfHeader.vue";
 import logoAndTitle from "./logoAndTitle/logoAndTitle.vue";
 export default {
-  name: "heading",
   components:{
     logoAndTitle,
     bottomOfHeader

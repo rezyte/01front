@@ -5,6 +5,7 @@ import userPanelWrapper from "./components/userPanel/userPanelWrapper.vue";
 import installPrompt from "./components/user/template/installPrompt/installPrompt.vue";
 import Vuex from 'vuex'
 import stickMenu from "./components/userPanel/template/stickMenu/stickMenu.vue";
+import accept from "./components/userPanel/miniOrders/accept.vue";
 vue.component('stickMenu', stickMenu);
 vue.use(Vuex)
 import {store} from "./userPanelStore"
@@ -20,9 +21,11 @@ vue.mixin({
 		}
 	}
 })
+const eventBus=new vue()
 const app=new vue({
 	el:"#userPanel",
 	components:{
+		accept,
 		stickMenu,
 		installPrompt,
 		userPanelHeader,

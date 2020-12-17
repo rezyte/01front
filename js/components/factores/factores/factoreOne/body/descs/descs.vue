@@ -1,11 +1,7 @@
 <template>
   <div id="descs">
     <div id="descsWrapper">
-      <ul>
-        <li> <span>*</span> &nbsp; <p>اعتبار پشی فاکتور تا 2 روز کاری</p> </li>
-        <li> <span>*</span> &nbsp; <p>اعتبار پشی فاکتور تا 2 روز کاری</p> </li>
-        <li> <span>*</span> &nbsp; <p>اعتبار پشی فاکتور تا 2 روز کاری</p> </li>
-      </ul>
+      <p v-text="$store.state.factoreItems.factorDescs"></p>
     </div>
   </div>
 </template>
@@ -34,5 +30,9 @@ li{
 span{
   font-weight: bold;
   font-size: 14pt;
+}
+p{
+  text-align: rtl;
+  text-align: right;
 }
 </style>

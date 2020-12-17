@@ -38,6 +38,8 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.2.0",
     "google-maps": "^4.3.2",
+    "jspdf": "^2.2.0",
+    "jspdf-html2canvas": "^1.3.2",
     "leaflet": "^1.6.0",
     "leaflet-geosearch": "^3.0.6",
     "localtunnel": "^2.0.0",

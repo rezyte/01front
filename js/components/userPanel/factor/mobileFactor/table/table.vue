@@ -23,15 +23,18 @@
               <td>
                 <!--                                <p v-text="row.wholePrice.toLocaleString('fi-FI') + ' تومان '" :wholePriceObjectId="row.id" class="wholePriceInput" disabled style="direction: rtl;background: transparent;border:none;width: 150px;font-size: 13px" type="text">-->
                 <p :wholePriceObjectId="row.id"
-                   class="wholePriceInput" disabled style="direction: rtl;background: transparent;border:none;width: 150px;font-size: 13px"
+                   class="wholePriceInput" disabled
+                   style="direction: rtl;background: transparent;border:none;width: 150px;font-size: 13px"
                    type="text" v-text="(getRows[i].count * getRows[i].singlePrice).toLocaleString('fi-FI')">
 
                 </p>
               </td>
               <td><input v-model="row.singlePrice" class="singlePriceInput"
-                         placeholder="قیمت واحد" style="width: 150px;font-size: 13px" type="text" @change="calcWholePriceForWholePriceInput($event)"></td>
+                         placeholder="قیمت واحد" style="width: 150px;font-size: 13px" type="text"
+                         @change="calcWholePriceForWholePriceInput($event)"></td>
               <td><input v-model="row.count" class="countInput"
-                         placeholder="تعداد" style="width: 50px;font-size: 13px" type="text" @change="calcWholePriceForWholePriceInput($event)"></td>
+                         placeholder="تعداد" style="width: 50px;font-size: 13px" type="text"
+                         @change="calcWholePriceForWholePriceInput($event)"></td>
               <td><input v-model="row.title" placeholder="عنوان" style="font-size: 13px" type="text"></td>
               <td>{{ getRowNumberFromId(row.id) }}</td>
             </tr>
@@ -67,7 +70,8 @@
 
           <div class="singleSudoRow">
             <label for="">قیمت کل</label>
-            <input v-model="row.wholePrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+' تومان '" :wholePriceObjectId="row.id" class="wholePriceInput"
+            <input v-model="row.wholePrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+' تومان '"
+                   :wholePriceObjectId="row.id" class="wholePriceInput"
                    disabled style="border: 0;background: transparent;"
                    type="text">
           </div>

@@ -1,14 +1,15 @@
 <template>
   <div id="logoAndTitle">
     <div id="logoAndTitleWrapper">
-
+<!--{{factor}}-->
       <div class="title">
-        <h1>پیش فاکتور</h1>
+        <h1>{{$store.state.factoreItems.title}}</h1>
       </div>
 
 
-      <div class="logo">
-        <img src="/images/mehri.png" alt="">
+      <div class="logo" >
+        <img v-if="$store.state.factoreItems.logo!==''" :src="factor.logo"     alt="">
+
       </div>
 
     </div>
@@ -17,7 +18,11 @@
 
 <script>
 export default {
-name: "logoAndTitle"
+name: "logoAndTitle",
+  props:['factor'],
+  created() {
+  console.log(this.factor,'dss')
+  }
 }
 </script>
 

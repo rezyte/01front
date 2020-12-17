@@ -2,13 +2,13 @@
   <div id="priceToText">
     <div id="priceToTextWrapper">
       <div class="price">
-        <p><span>قیمت کل:</span> 19000000000000000 </p>
+        <p> {{$store.state.factoreItems.realPrice}} <span> : قیمت کل</span></p>
       </div>
         <div class="text">
-          <p style="max-width: 360px;text-align: right"><span>قیمت کل به حروف:</span> یک میلیارد و نهصد میلیون ریال</p>
+          <p style="max-width: 485px;text-align: right"> <span>    قیمت کل به حروف :</span>{{$store.state.factoreItems.persianPrice}}</p>
         </div>
 
-      <div class="arrow-left"></div>
+<!--      <div class="arrow-left"></div>-->
 
     </div>
   </div>
@@ -37,8 +37,12 @@ margin-top: 20px;
 p{
   color: white;
 }
+.price p{
+  display: flex;
+}
 span{
   font-weight: bold;
+  width: max-content;
 }
 .arrow-left {
   width: 0;

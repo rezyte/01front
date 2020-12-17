@@ -8,7 +8,6 @@
                 </div>
                 <img src="" alt="" ref="imagePreview" class="imagePreview">
                 <input @change="fillPreview($event)" ref="filePicker" type="file" name="" id="">
-              {{$store.state.factoreItems.logo}}
             </div>
         </div>
         <div class="text">

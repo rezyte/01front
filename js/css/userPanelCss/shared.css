@@ -2,7 +2,7 @@
     --fontColorGray:#555;
     --grayBorderColor:#aaa;
     --splitter:#333;
-    --logoBlue:rgb(9,113,206)
+    --logoBlue: rgb(9, 113, 206)
 }
 *{
     box-sizing: border-box;
