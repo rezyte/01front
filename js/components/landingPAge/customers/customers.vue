@@ -15,7 +15,7 @@
                 <img src="/static/public/images/landing/countr1.jpg" alt="">
             </div>
             <div class="singleCustomer">
-                <img src="/static/public/images/landing/countr5.png" alt="">
+                <img src="/static/public/images/landing/mehri2.png" alt="">
             </div>
             <div class="singleCustomer">
                 <img src="/static/public/images/landing/countr6.png" alt="">
@@ -35,7 +35,7 @@
 
             <div class="cul3Customer">
                 <img src="/static/public/images/landing/countr1.jpg" alt="">
-                <img src="/static/public/images/landing/countr5.png" alt="">
+                <img src="/static/public/images/landing/mehri2.png" alt="">
                 <img src="/static/public/images/landing/countr6.png" alt="">
             </div>
 
@@ -52,7 +52,7 @@
 
 
           <img src="/static/public/images/landing/countr1.jpg" alt="">
-          <img src="/static/public/images/landing/countr5.png" alt="">
+          <img src="/static/public/images/landing/mehri2.png" alt="">
           <img src="/static/public/images/landing/countr6.png" alt="">
 
         </div>

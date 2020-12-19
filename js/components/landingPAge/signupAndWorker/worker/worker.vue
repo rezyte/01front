@@ -7,7 +7,7 @@
                 </div>
                 <div class="aditional culText firstShow">
                     <p>
-                       جناب مهندس  {{name}} {{fname}} شما با پر کردن فرم زیر میتوانید از خدمات فروش و ابزار های اماده شده ی صنف ماشین سازی استفاده نمایید
+                       {{gender}}  {{name}} {{fname}} شما  با پر کردن فرم زیر میتوانید از خدمات فروش و ابزار های اماده شده ی صنف ماشین سازی استفاده نمایید
                     </p>
                 </div>
             </div>
@@ -22,13 +22,34 @@ name: "worker",
         return{
             name:"",
             fname:"",
+            gender:"",
 
         }
     },
-    created() {
+    mounted() {
         const urlParams = new URLSearchParams(window.location.search);
         const name = urlParams.get('name');
         const fname = urlParams.get('fname');
+      const gender = urlParams.get('gender');
+      console.log("gender",gender)
+      // if(gender==null){
+      //   this.gender="شما"
+      // }
+      switch (gender){
+        case "female":
+          if(fname==null && name==null){
+            this.gender='سرکار خانم مهندس شما'
+          }else{
+            this.gender='سرکار خانم مهندس'
+          }
+
+              break;
+        case "male":
+          this.gender="جناب مهندس"
+              break
+        default:
+          this.gender=""
+      }
         if(name!=null){
             this.name=name
         }
