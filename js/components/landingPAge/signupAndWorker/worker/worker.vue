@@ -41,13 +41,13 @@ name: "worker",
       this.fname=fname
       this.name=name
       if(gender==null){
-        this.fullname="مهندس"+" "+fname+"" + name+" "+"شما"
+        this.fullname="مهندس"+" "+fname+" " + name+" "+"شما"
       }
       if(gender=="female"){
-        this.fullname="سرکار خانم مهندس" +" "+fname+"" + name+" "+"شما"
+        this.fullname="سرکار خانم مهندس" +" "+fname+" " + name+" "+"شما"
       }
       if(gender=="male"){
-        this.fullname="جناب مهندس" +" "+fname+"" + name+" "+"شما"
+        this.fullname="جناب مهندس" +" "+fname+" " + name+" "+"شما"
       }
 
       if(gender==null && name=='' && fname==''){
