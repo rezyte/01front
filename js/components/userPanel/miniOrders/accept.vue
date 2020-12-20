@@ -2,7 +2,7 @@
   <div ref="customer" id="myCustomersPopUp">
     <div id="myCustomersPopUpWrapper">
       <info></info>
-      <p> توجه : با تایید مشتری تایید میکنید که این مشتری توسط دمیرکو به شما معرفی شده است</p>
+      <p> توجه : با فشردن دکمه تایید قبول میکنید که این مشتری توسط دمیرکو به شما معرفی شده است</p>
       <div class="btns">
         <button class="cancel" @click="cancel">رد</button>
         <button class="submit" @click="emitGetPhone">تایید</button>
