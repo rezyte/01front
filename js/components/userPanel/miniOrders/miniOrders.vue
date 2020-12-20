@@ -187,6 +187,7 @@ export default {
 
       axios.get(`/merchandise-api/order/${id}/confirm/?csrfmiddlewaretoken=${csrf}`)
           .then(res => {
+            console.log(res)
             const data = res.data
             if (data.status) {
               parent.innerText = data.phone_number

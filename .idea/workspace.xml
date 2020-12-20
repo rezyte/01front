@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7a71869-63c5-40b4-b1ef-cb505a01c7d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/components/userPanel/factor/mobileFactor/stickTaxAndOff/off/arrow.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/components/userPanel/factor/mobileFactor/stickTaxAndOff/off/off.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/components/userPanel/factor/mobileFactor/stickTaxAndOff/sideBar.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/components/userPanel/factor/mobileFactor/stickTaxAndOff/tax/tax.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/components/factores/factores/factoreOne/body/priceToText/priceToText.vue" beforeDir="false" afterPath="$PROJECT_DIR$/js/components/factores/factores/factoreOne/body/priceToText/priceToText.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/components/factores/factores/factoreOne/body/rows/rows.vue" beforeDir="false" afterPath="$PROJECT_DIR$/js/components/factores/factores/factoreOne/body/rows/rows.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/components/factores/factores/factoreOne/header/bottomOfHeader/factoNum/factorNum.vue" beforeDir="false" afterPath="$PROJECT_DIR$/js/components/factores/factores/factoreOne/header/bottomOfHeader/factoNum/factorNum.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/components/userPanel/factor/mobileFactor/calculateAll/calculateAll.vue" beforeDir="false" afterPath="$PROJECT_DIR$/js/components/userPanel/factor/mobileFactor/calculateAll/calculateAll.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/components/userPanel/factor/mobileFactor/mobileFactor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/js/components/userPanel/factor/mobileFactor/mobileFactor.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/css/signup/shared.css" beforeDir="false" afterPath="$PROJECT_DIR$/js/css/signup/shared.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/css/userPanelCss/shared.css" beforeDir="false" afterPath="$PROJECT_DIR$/js/css/userPanelCss/shared.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/12.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/12.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/factoreApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/factoreApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/signupApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/signupApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userPanelApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/userPanelApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/views/template/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/template/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/components/userPanel/miniOrders/miniOrders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/js/components/userPanel/miniOrders/miniOrders.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/5.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.webmanifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pwa/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/pwa/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views/userPanel/template/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/userPanel/template/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +77,7 @@
       <workItem from="1608113822673" duration="14626000" />
       <workItem from="1608361025359" duration="6112000" />
       <workItem from="1608446450812" duration="5348000" />
-      <workItem from="1608466382064" duration="32000" />
+      <workItem from="1608466382064" duration="2169000" />
     </task>
     <servers />
   </component>

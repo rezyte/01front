@@ -38,7 +38,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/",
+  "start_url": "/admin",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "white",
