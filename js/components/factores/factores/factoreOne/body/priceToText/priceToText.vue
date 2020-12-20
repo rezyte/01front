@@ -4,12 +4,20 @@
       <div class="price">
         <p> {{$store.state.factoreItems.realPrice}} <span> : قیمت کل</span></p>
       </div>
-        <div class="text">
-          <p style="max-width: 485px;text-align: right"> <span>    قیمت کل به حروف :</span>{{$store.state.factoreItems.persianPrice}}</p>
+        <div class="text radif">
+
+          <p>{{$store.state.factoreItems.persianPrice}}</p>
+          <p>&nbsp;: &nbsp;</p>
+          <p>قیمت کل به حروف</p>
         </div>
 
 <!--      <div class="arrow-left"></div>-->
 
+    </div>
+    <div class="offAndTax radif">
+      <p style="font-weight: bold"> {{($store.state.factoreItems.wholePrice-($store.state.factoreItems.wholePrice-($store.state.factoreItems.wholePrice*($store.state.factoreItems.off.mount/100)))).toLocaleString('fi-FI')}} &nbsp; تومان</p>
+      <p>&nbsp; : &nbsp;</p>
+      <p>تخفیف</p>
     </div>
   </div>
 </template>
@@ -25,6 +33,14 @@ export default {
 margin-top: 20px;
   display: flex;
   justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.offAndTax{
+  margin-top: 20px;
+}
+.offAndTax p{
+  color: black;
 }
 #priceToTextWrapper{
   display: flex;
@@ -54,6 +70,14 @@ span{
   border-right: 25px solid var(--blue);
   left: -24px;
 
+}
+.radif{
+  display: flex;
+
+}
+p{
+  direction: rtl
+;
 }
 @media print {
   #priceToTextWrapper{

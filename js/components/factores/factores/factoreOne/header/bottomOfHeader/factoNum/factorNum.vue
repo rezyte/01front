@@ -1,7 +1,10 @@
 <template>
   <div id="factorNum">
     <div id="factorNumWrapper">
-      <p>شماره پیش فاکتور :{{$store.state.factoreItems.factoreDetails.factoreNumber}}</p>
+
+      <p style="direction: rtl;text-align: right">{{$store.state.factoreItems.factoreDetails.factoreNumber}}</p>
+      <p>:</p>
+      <p>شماره پیش فاکتور </p>
     </div>
     <div class="arrow-left"></div>
   </div>
@@ -18,6 +21,9 @@ export default {
 #factorNum{
   background: var(--blue);
   position: relative;
+}
+#factorNumWrapper{
+  display: flex;
 }
 p{
   color: white;

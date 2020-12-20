@@ -28,16 +28,17 @@
           <th style="background: var(--blue);color: white">شماره</th>
         </tr>
         <div class="divider"></div>
+<template v-for="(item,i) in getRows">
+  <tr>
+    <td>{{item.wholePrice}}</td>
+    <td>{{item.singlePrice}}</td>
+    <td style="padding-right: 5px">{{item.count}}</td>
+    <td>{{item.title ? "" : "بدون عنوان"}}</td>
+    <td>{{i+1}}</td>
 
-        <tr v-for="(item,i) in getRows">
+  </tr>
+</template>
 
-          <td>{{item.wholePrice}}</td>
-          <td>{{item.singlePrice}}</td>
-          <td style="padding-right: 5px">{{item.count}}</td>
-          <td>{{item.title}}</td>
-          <td>{{i+1}}</td>
-
-        </tr>
 
 
       </table>

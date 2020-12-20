@@ -235,7 +235,7 @@ tr:not(:last-child) {
 }
 .panelItem{
     margin-right: 230px;
-    min-height: 700px;
+    min-height: 860px;
 }
 @media (max-width: 1000px) {
     .panelItem{

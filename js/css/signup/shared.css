@@ -14,6 +14,9 @@
 }
 .logo img{
     width: 200px;
+    height: 50px;
+    -o-object-fit: contain;
+    object-fit: contain;
 }
 .signView{
     border-radius: 8px;
@@ -24,14 +27,25 @@
 }
 .signViewWrapper{
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 
 }
 .logo{
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 .button{
@@ -46,19 +60,31 @@
 }
 
 h1{
+    font-size: 22.864px;
     font-size: 1.429rem;
     font-weight: 700;
     color:#232933
 }
 .title{
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
     margin-top:50px
 }
 .input{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
     margin-top:20px
 }
@@ -72,6 +98,7 @@ input{
 }
 .input p{
     text-align: right;
+    font-size: 13.712px;
     font-size: .857rem;
     line-height: 21px;
     color: #62666d;

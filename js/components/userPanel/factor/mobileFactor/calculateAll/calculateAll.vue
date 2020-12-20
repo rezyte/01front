@@ -28,7 +28,7 @@
             <p>معادل فارسی:</p>
             <p>{{ NumToText }}</p>
           </div>
-          <a href="/userpanel/prefactore/upload" target="_blank" @click="sendFactor"> <button  class="submit">ساخت پیش فاکتور</button></a>
+
         </div>
       </div>
     </div>
