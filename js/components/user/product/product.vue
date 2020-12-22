@@ -43,23 +43,23 @@ export default {
   mounted() {
     console.log(JSON.parse(this.product))
   },
-  metaInfo() {
-    const product = JSON.parse(this.product);
-    return {
-      title: product.title + "-دمیرکو",
-      titleTemplate: null,
-      htmlAttrs: {
-        lang: "en",
-        amp: true,
-      },
-      meta: [
-        { charset: "utf-8" },
-        { name: "description", content: product.short_discription },
-        {name:"keywords",content:product.meta_keywords},
-        {name:"robots",content:'index,follow'},
-      ],
-    };
-  },
+  // metaInfo() {
+  //   const product = JSON.parse(this.product);
+  //   return {
+  //     title: product.title + "-دمیرکو",
+  //     titleTemplate: null,
+  //     htmlAttrs: {
+  //       lang: "en",
+  //       amp: true,
+  //     },
+  //     meta: [
+  //       { charset: "utf-8" },
+  //       { name: "description", content: product.short_discription },
+  //       {name:"keywords",content:product.meta_keywords},
+  //       {name:"robots",content:'index,follow'},
+  //     ],
+  //   };
+  // },
   name: "product",
 
   methods: {

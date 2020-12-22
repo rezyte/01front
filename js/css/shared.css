@@ -418,10 +418,7 @@ img.normal{
 	font-weight: bold !important;
 	font-size: 16px !important;
 }
-.seoPostContent h4,.seoPostContent h5,.seoPostContent h6{
-	font-weight: bold !important;
-	font-size: 14px !important;
-}
+
 .seoPost img{
 	max-width: 100% !important;
 	object-fit: contain;
@@ -438,8 +435,32 @@ img.normal{
 	line-height: 1.8rem;
 	margin-top: 18px;
 }
+.seoPostContent *{
+	max-width: 100% !important;
+	font-size: 16px !important;
+	font-family: 'iranSans' !important;
+	direction: rtl !important;
+	text-align: right !important;
+}
 .seoPost h1,.seoPost h2,.seoPost h3,.seoPost h4,.seoPost h5,.seoPost h6{
 	margin-top: 30px;
 	margin-bottom: 30px;
 }
+.seoPostContent h4,.seoPostContent h5,.seoPostContent h6,.seoPostContent h2,.seoPostContent h3{
+	font-weight: bold !important;
+	font-size: 18px !important;
+}
+.seoPostContent * {
+	max-width: 100% !important;
+	font-size: 16px !important;
+	font-family: 'iranSans' !important;
+	direction: rtl !important;
+	text-align: right !important;
+}
+.seoPostContent a *,.seoPostContent a {
+	color: var(--logoBlueUser) !important;
+}
 
+.seoPostContent a *:hover,.seoPostContent a:hover {
+	text-decoration: underline !important;
+}

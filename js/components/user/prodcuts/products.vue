@@ -173,6 +173,7 @@ h1{
 }
 .seoPostContent *{
   max-width: 100%;
+  font-size: 16px;
 }
 .seoPostContent img{
   object-fit: contain;
