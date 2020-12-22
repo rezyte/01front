@@ -40,9 +40,6 @@ export default {
       currentComponent: "productDescs",
     };
   },
-  mounted() {
-    console.log(JSON.parse(this.product))
-  },
   // metaInfo() {
   //   const product = JSON.parse(this.product);
   //   return {
