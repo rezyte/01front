@@ -204,7 +204,6 @@ export default {
     }
   },
   mounted() {
-    console.log("pppp", this.paginations=="")
     const allImages = document.querySelectorAll(".normal")
     allImages.forEach(img => {
       img.style.width = '100%'
