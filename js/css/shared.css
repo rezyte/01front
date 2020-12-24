@@ -464,3 +464,19 @@ img.normal{
 .seoPostContent a *:hover,.seoPostContent a:hover {
 	text-decoration: underline !important;
 }
+
+.postText p{
+	margin-top: 20px !important;
+	line-height: 1.7rem;
+}
+
+
+.postText ul{
+	line-height:2rem !important;
+
+}
+
+.postText ul li,.postText ol li{
+	margin-right:12px!important;
+
+}
