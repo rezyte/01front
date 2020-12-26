@@ -5,7 +5,7 @@
             <div class="singleOther" v-for="(s,i) in latests" :key="s.id" v-if="i<4" :id="'single'+i">
                 <div class="singleOtherOtherWrapper">
                     <div class="otherImg">
-                        <img :src="s.thumbnail" alt="">
+                      <a :href="'/blog/post/'+s.slug"><img :src="s.thumbnail" alt=""></a>
                     </div>
                     <div class="otherTitle">
                         <a :href="'/blog/post/'+s.slug">{{getText(s.title)}}</a>

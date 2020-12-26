@@ -3,6 +3,9 @@
         <feed-back :msgs="msg"></feed-back>
             <div class="signleBlogPostItemWrapper maxIs">
                 <h1>{{JSON.parse(post).title}}</h1>
+              <div style="margin-top: 50px;margin-bottom: 50px">
+                <img :src="JSON.parse(post).thumbnail" :alt="JSON.parse(post).image_alt" >
+              </div>
                 <div v-html="JSON.parse(post).content" class="postText">
                 </div>
                 <suggestin :latests="JSON.parse(latest_posts)"></suggestin>
@@ -63,6 +66,8 @@ h1{
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      background: white;
+      padding:20px;
     }
     .postText *{
       max-width: 100%;
@@ -71,7 +76,13 @@ h1{
       object-fit: contain;
     }
 
-
+img{
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  max-height: 550px;
+  object-fit: contain;
+}
 </style>
 
 <script>
