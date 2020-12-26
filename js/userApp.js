@@ -12,6 +12,7 @@ import topPrePageForPhones from "./components/user/template/topPrePageForPhones/
 import installPrompt from "./components/user/template/installPrompt/installPrompt.vue";
 import buttomIcons from "./components/user/template/bottomIconsforPhones/bottomIconsForPhones.vue"
 import sharePopUp from "./components/user/index/share/sharePopUp/sharePopUp.vue";
+import breadCrumb from "./components/user/breadCrunb/breadCrumb.vue";
 vue.use(VueMeta, {
   // optional pluginOptions
   refreshOnceOnNavigation: true,
@@ -47,6 +48,7 @@ const app = new vue({
     foot: footer,
     'product':()=>import("./components/user/product/product.vue"),
     productZoom,
+    breadCrumb,
     'signin':()=>import("./components/user/signup/signin.vue"),
     'signup':()=>import("./components/user/signup/signup.vue"),
     'products':()=>import("./components/user/prodcuts/products.vue"),

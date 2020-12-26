@@ -130,6 +130,8 @@ img {
   padding: 10px;
   background: white;
   min-height: 100px;
+  max-height: 200px;
+  overflow: auto;
 }
 h1{
   padding-right: 20px;
