@@ -21,6 +21,7 @@
     }
     #productDesc img{
       max-width: 100% !important;
+	  width:100% !important
     }
     #productDesc table {
       max-width: 100%;

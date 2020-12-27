@@ -1,18 +1,40 @@
 <template>
     <div class="bottomIconsWrapper" >
-        <profile-svg v-if="!user.is_logined"></profile-svg>
-        <img v-else :src="user.picture" >
-        <p>پروفایل</p>
+
+      <div class="logedAlso" v-if="user.is_logined">
+        <a href="/users/profile/orders/">
+          <img :src="user.picture" >
+          <p>پروفایل</p>
+        </a>
+      </div>
+
+      <div class="logedAlso" v-else>
+        <a href="/users/entry/">
+          <profile-svg ></profile-svg>
+          <p>ورود</p>
+        </a>
+      </div>
+
     </div>
 </template>
-
+<style scoped>
+.logedAlso a{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+</style>
 <script>
 import profileSvg from "./profileSvg.vue"
 export default {
     components:{
         profileSvg
     },
-    data(){
+  created() {
+      console.log(this.user)
+  },
+  data(){
         return{
             user:userInfo
         }

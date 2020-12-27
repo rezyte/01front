@@ -4,7 +4,8 @@
         <a href="/"><home></home></a>
         <a href="/blog/posts/"><blog></blog></a>
 <!--        <a v-if="user.is_logined" href="/users/entry/"><prifile></prifile></a>-->
-        <a v-if="!!userInfo.is_logined" href="/users/profile/orders/"><prifile></prifile></a>
+<!--        <a v-if="!!userInfo.is_logined" href="/users/profile/orders/"><prifile></prifile></a>-->
+        <div><prifile></prifile></div>
 
 <!--        <a v-else><prifile></prifile></a>-->
         <cats @click="toggleSubMenu()"></cats>

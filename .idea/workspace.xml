@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b7a71869-63c5-40b4-b1ef-cb505a01c7d8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/components/user/breadCrunb/breadCrumb.vue" beforeDir="false" afterPath="$PROJECT_DIR$/js/components/user/breadCrunb/breadCrumb.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/components/user/product/productDescs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/js/components/user/product/productDescs.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/components/user/template/bottomIconsforPhones/bottomIconsForPhones.vue" beforeDir="false" afterPath="$PROJECT_DIR$/js/components/user/template/bottomIconsforPhones/bottomIconsForPhones.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/components/user/template/bottomIconsforPhones/profile/profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/js/components/user/template/bottomIconsforPhones/profile/profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/15.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/15.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/userScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/userScript.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +81,8 @@
       <workItem from="1608621571788" duration="4168000" />
       <workItem from="1608733381105" duration="17000" />
       <workItem from="1608796209012" duration="507000" />
-      <workItem from="1608970464798" duration="7357000" />
+      <workItem from="1608970464798" duration="7957000" />
+      <workItem from="1609057836087" duration="611000" />
     </task>
     <servers />
   </component>
