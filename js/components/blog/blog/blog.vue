@@ -17,17 +17,25 @@
         </div>
       </div>
       <div class="paginationWrapper" v-if="JSON.parse(this.pagination).number_of_pages>1">
-        <paginate
-          :value="JSON.parse(this.pagination).current_page"
-          :page-count="JSON.parse(this.pagination).number_of_pages"
-          :page-range="3"
-          :margin-pages="2"
-          :click-handler="handleMargins"
-          :prev-text="'قبل'"
-          :next-text="'بعد'"
-          :container-class="'pagination'"
+<!--        <paginate-->
+<!--          :value="JSON.parse(this.pagination).current_page"-->
+<!--          :page-count="JSON.parse(this.pagination).number_of_pages"-->
+<!--          :page-range="3"-->
+<!--          :margin-pages="2"-->
+<!--          :click-handler="handleMargins"-->
+<!--          :prev-text="'قبل'"-->
+<!--          :next-text="'بعد'"-->
+<!--          :container-class="'pagination'"-->
 
-        ></paginate>
+<!--        ></paginate>-->
+        <pagination
+            :currentPage=JSON.parse(this.pagination).current_page
+            :padding=3
+            :pageNums=JSON.parse(this.pagination).number_of_pages
+            url="/blog/posts/?page="
+            :perPage=null
+            :items=null
+        ></pagination>
       </div>
     </div>
   </div>
@@ -37,11 +45,13 @@
 import singlePost from "./singlePost.vue";
 import {adjustElFromTop} from '../../user/mixIns/adjustElFromTop.js'
 import {toggleBodyOverFlow} from '../../user/mixIns/toggleBodyOverFlow.js'
-import Paginate from 'vuejs-paginate'
+// import Paginate from 'vuejs-paginate'
+
+import pagination from "../../pagination/pagination.vue";
 export default {
   components: {
     singlePost,
-    Paginate
+    pagination
   },
   props:['posts','pagination',],
   mounted(){
@@ -156,6 +166,12 @@ export default {
 
 .title p {
   color: rgb(236, 57, 68);
+}
+.paginationWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 .openCatsBtn{
     display:flex;

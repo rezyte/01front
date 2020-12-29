@@ -39,17 +39,14 @@
     </div>
     <template v-if='this.paginations!=null && this.paginations!=undefined && this.paginations!=""'>
       <div id="pagination" v-if="JSON.parse(this.paginations).number_of_pages>1 ">
-        <paginate
-            page-class="firstClass"
-            :page-range="3"
-            :margin-pages="2"
-            :value="JSON.parse(paginations).current_page"
-            :page-count="JSON.parse(paginations).number_of_pages"
-            :container-class="'pagination'"
-            :click-handler="changePage"
-            page-link-class="paginationLink"
-
-        ></paginate>
+        <pagination
+            :currentPage=JSON.parse(this.pagination).current_page
+            :padding=3
+            :pageNums=JSON.parse(this.pagination).number_of_pages
+            url="/blog/posts/?page="
+            :perPage=null
+            :items=null
+        ></pagination>
       </div>
     </template>
 
@@ -130,7 +127,7 @@ img {
   padding: 10px;
   background: white;
   min-height: 100px;
-  max-height: 200px;
+  max-height: 300px;
   overflow: auto;
 }
 h1{
@@ -196,10 +193,10 @@ import consulate from "./consulate.vue"
 import filtering from "./filtering.vue"
 import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
 import {toggleBodyOverFlow} from "../../user/mixIns/toggleBodyOverFlow.js"
-import Paginate from 'vuejs-paginate'
+import pagination from "../../pagination/pagination.vue";
 
 export default {
-  props: ['products', "paginations"],
+  props: ['products', "pagination"],
   computed:{
     getCats(){
       return this.$store.state.catsWithSubs
@@ -215,31 +212,10 @@ export default {
       zoom.style.width = "200%"
     })
   },
-  // metaInfo() {
-  //   if(JSON.parse(this.products).length>0)
-  //   {
-  //     const title = JSON.parse(this.products)[0].category[0].title
-  //     const description = JSON.parse(this.products)[0].category[0].meta_description
-  //     const keyWords = JSON.parse(this.products)[0].category[0].meta_keywords
-  //     console.log('metainfo', title)
-  //     // if no subcomponents specify a metaInfo.title, this title will be used
-  //     return {
-  //       title: title + "-دمیرکو",
-  //       meta: [
-  //         {vmid: 'description', name: "description", content: description},
-  //         {name: "keywords", content: keyWords},
-  //         {name: "robots", content: 'index,follow'},
-  //       ],
-  //     }
-  //   }
-  //
-  //   // all titles will be injected into this template
-  // },
-
   components: {
     consulate,
     filtering,
-    Paginate
+    pagination
   },
   mixins: [adjustElFromTop],
   created() {
