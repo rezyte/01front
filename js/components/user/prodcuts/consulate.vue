@@ -70,7 +70,7 @@
             },
             closeConsulate(e){
                     e.target.style.display="none"
-                    document.body.style.overflow=""
+                    // document.body.style.overflow=""
                     // cons.style.display='none'
             },
             consulateRequest(){

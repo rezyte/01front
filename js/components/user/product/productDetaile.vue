@@ -219,7 +219,7 @@ export default {
             const wrapper = document.querySelector(".consulateWrapper");
             consulet.style.display = "block";
             this.adjustFromTop(wrapper, false, true);
-            document.body.style.overflow = "hidden";
+            // document.body.style.overflow = "hidden";
         },
         sendPriceRequest() {
             const done = document.querySelector("#doneMessage");
