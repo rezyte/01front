@@ -480,3 +480,8 @@ img.normal{
 	margin-right:12px!important;
 
 }
+
+.postText img{
+	object-fit: contain;
+	max-width:100% !important;
+}

@@ -74,7 +74,7 @@ h1{
     }
     .postText img{
       object-fit: contain;
-      max-width:100%;
+      max-width:100% !important;
     }
 
 img{
