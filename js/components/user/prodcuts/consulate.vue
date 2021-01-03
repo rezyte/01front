@@ -90,10 +90,10 @@
                 
                 
                 if(res){
-                    error.style.display="none"
+                    error.style.visibility="hidden"
                     return
                 }
-                error.style.display="block"
+                error.style.visibility="visible"
                 
             }
         },

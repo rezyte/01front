@@ -20,7 +20,6 @@ export const validationRules = {
         },
         validateInput(rule, el) {
             let test=null
-            console.log(el,el.value)
             if(el.value==''){
                 test=false
             }
