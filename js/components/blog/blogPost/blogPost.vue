@@ -71,6 +71,7 @@ h1{
     }
     .postText *{
       max-width: 100%;
+      font-family: 'iranSans' !important;
     }
     .postText img{
       object-fit: contain;

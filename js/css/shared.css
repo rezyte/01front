@@ -479,9 +479,35 @@ img.normal{
 .postText ul li,.postText ol li{
 	margin-right:12px!important;
 
+
 }
 
 .postText img{
 	object-fit: contain;
 	max-width:100% !important;
+}
+
+.postText *{
+	max-width:100% !important;
+	font-family: 'iranSans' !important;
+	font-size: 18px !important;
+	color: black !important;
+}
+.postText h1 ,.postText h2,.postText h3{
+	font-size: 22px;
+	font-weight: bold;
+}
+.postText ol,.postText ul{
+	line-height: 1.8rem;
+}
+.postText span{
+	line-height: 1.8rem;
+	margin-top: 20px;
+}
+.postText a span,.postText a p,.postText p a ,.postText span a{
+	color:rgb(9,111,211) !important;
+
+}
+.postText a:hover{
+	text-decoration: underline rgb(9,111,211) !important;
 }
