@@ -1,0 +1,57 @@
+.longText > *{
+    margin-top: 25px;
+
+}
+.longText *{
+    font-size: 16px !important;
+    font-family: "A Iranian Sans"  !important;
+}
+.longText a,.longText p,.longText span,.longText h1,
+.longText h2,.longText h3,.longText h4,
+.longText h6,li,.longText h5{
+    direction: rtl;
+}
+.longText ul,.longText ol{
+    margin-right: 30px !important;
+    line-height: 0.4rem !important;
+}
+.longText p{
+    line-height: 2rem;
+}
+
+.longText img{
+    height: auto !important;
+    width: max-content !important;
+    max-width: 100% !important;
+    object-fit: contain;
+}
+.longText a{
+    color: rgb(9,111,211);
+}
+.longText a:hover{
+    text-decoration:underline rgb(9,111,211);
+}
+.longText h1 *,.longText h2 *,.longText h3 *,.longText h4 *,.longText h5 *,.longText h6 *{
+    font-size: inherit !important;
+}
+.longText h1,.longText h2,.longText h3,.longText h4,.longText h5,.longText h6{
+    font-weight: bold !important;
+    line-height: 2rem !important;
+
+}
+.longText h1{
+    font-size: 24px !important;
+
+}
+.longText h2{
+    font-size: 22px !important;
+}
+.longText h3{
+    font-size: 20px !important;
+}
+.longText h4{
+    font-size: 18px !important;
+}
+.longText h5,.longText h6{
+    font-size: 16px !important;
+}

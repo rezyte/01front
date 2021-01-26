@@ -78,4 +78,5 @@ import "./css/reset.css";
 import "./css/buttons.css";
 import "./css/shared.css";
 import "./css/leaflet.css";
+import "./css/longText.css";
 // import "./css/prettyCheckbox.css";

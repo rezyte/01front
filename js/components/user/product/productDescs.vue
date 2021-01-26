@@ -1,7 +1,7 @@
 <template>
     <div id="productDesc">
       <p class="title">توضیحات محصول</p>
-        <div class="descsWrapper" style="display: flex;flex-direction: column;align-items: flex-end;margin-bottom: 50px" v-html="product.description"></div>
+        <div class="descsWrapper longText" style="display: flex;flex-direction: column;align-items: flex-end;margin-bottom: 50px" v-html="product.description"></div>
     </div>
 </template>
 
@@ -16,8 +16,8 @@
       padding-bottom: 100px;
     }
     #productDesc p {
-        padding:10px;
-      padding-right: 0;
+        /*padding:10px;*/
+      /*padding-right: 0;*/
     }
     #productDesc img{
       max-width: 100% !important;

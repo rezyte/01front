@@ -410,104 +410,104 @@ img.normal{
 
 
 
-.seoPostContent h2{
-	font-weight: bold !important;
-	font-size: 18px !important;
-}
-.seoPostContent h3{
-	font-weight: bold !important;
-	font-size: 16px !important;
-}
+/*.seoPostContent h2{*/
+/*	font-weight: bold !important;*/
+/*	font-size: 18px !important;*/
+/*}*/
+/*.seoPostContent h3{*/
+/*	font-weight: bold !important;*/
+/*	font-size: 16px !important;*/
+/*}*/
 
-.seoPost img{
-	max-width: 100% !important;
-	object-fit: contain;
-}
-.seoPostContent a{
-	color:var(--logoBlue);
+/*.seoPost img{*/
+/*	max-width: 100% !important;*/
+/*	object-fit: contain;*/
+/*}*/
+/*.seoPostContent a{*/
+/*	color:var(--logoBlue);*/
 
-}
-.seoPostContent a:hover{
-	text-decoration: underline;
+/*}*/
+/*.seoPostContent a:hover{*/
+/*	text-decoration: underline;*/
 
-}
-.seoPost p{
-	line-height: 1.8rem;
-	margin-top: 18px;
-}
-.seoPostContent *{
-	max-width: 100% !important;
-	font-size: 16px !important;
-	font-family: 'iranSans' !important;
-	direction: rtl !important;
-	text-align: right !important;
-}
-.seoPost h1,.seoPost h2,.seoPost h3,.seoPost h4,.seoPost h5,.seoPost h6{
-	margin-top: 30px;
-	margin-bottom: 30px;
-}
-.seoPostContent h4,.seoPostContent h5,.seoPostContent h6,.seoPostContent h2,.seoPostContent h3{
-	font-weight: bold !important;
-	font-size: 18px !important;
-}
-.seoPostContent * {
-	max-width: 100% !important;
-	font-size: 16px !important;
-	font-family: 'iranSans' !important;
-	direction: rtl !important;
-	text-align: right !important;
-}
-.seoPostContent a *,.seoPostContent a {
-	color: var(--logoBlueUser) !important;
-}
+/*}*/
+/*.seoPost p{*/
+/*	line-height: 1.8rem;*/
+/*	margin-top: 18px;*/
+/*}*/
+/*.seoPostContent *{*/
+/*	max-width: 100% !important;*/
+/*	font-size: 16px !important;*/
+/*	font-family: 'iranSans' !important;*/
+/*	direction: rtl !important;*/
+/*	text-align: right !important;*/
+/*}*/
+/*.seoPost h1,.seoPost h2,.seoPost h3,.seoPost h4,.seoPost h5,.seoPost h6{*/
+/*	margin-top: 30px;*/
+/*	margin-bottom: 30px;*/
+/*}*/
+/*.seoPostContent h4,.seoPostContent h5,.seoPostContent h6,.seoPostContent h2,.seoPostContent h3{*/
+/*	font-weight: bold !important;*/
+/*	font-size: 18px !important;*/
+/*}*/
+/*.seoPostContent * {*/
+/*	max-width: 100% !important;*/
+/*	font-size: 16px !important;*/
+/*	font-family: 'iranSans' !important;*/
+/*	direction: rtl !important;*/
+/*	text-align: right !important;*/
+/*}*/
+/*.seoPostContent a *,.seoPostContent a {*/
+/*	color: var(--logoBlueUser) !important;*/
+/*}*/
 
-.seoPostContent a *:hover,.seoPostContent a:hover {
-	text-decoration: underline !important;
-}
+/*.seoPostContent a *:hover,.seoPostContent a:hover {*/
+/*	text-decoration: underline !important;*/
+/*}*/
 
-.postText p{
-	margin-top: 20px !important;
-	line-height: 1.7rem;
-}
-
-
-.postText ul{
-	line-height:2rem !important;
-
-}
-
-.postText ul li,.postText ol li{
-	margin-right:12px!important;
+/*.postText p{*/
+/*	margin-top: 20px !important;*/
+/*	line-height: 1.7rem;*/
+/*}*/
 
 
-}
+/*.postText ul{*/
+/*	line-height:2rem !important;*/
 
-.postText img{
-	object-fit: contain;
-	max-width:100% !important;
-}
+/*}*/
 
-.postText *{
-	max-width:100% !important;
-	font-family: 'iranSans' !important;
-	font-size: 18px !important;
-	color: black !important;
-}
-.postText h1 ,.postText h2,.postText h3{
-	font-size: 22px;
-	font-weight: bold;
-}
-.postText ol,.postText ul{
-	line-height: 1.8rem;
-}
-.postText span{
-	line-height: 1.8rem;
-	margin-top: 20px;
-}
-.postText a span,.postText a p,.postText p a ,.postText span a{
-	color:rgb(9,111,211) !important;
+/*.postText ul li,.postText ol li{*/
+/*	margin-right:12px!important;*/
 
-}
-.postText a:hover{
-	text-decoration: underline rgb(9,111,211) !important;
-}
+
+/*}*/
+
+/*.postText img{*/
+/*	object-fit: contain;*/
+/*	max-width:100% !important;*/
+/*}*/
+
+/*.postText *{*/
+/*	max-width:100% !important;*/
+/*	font-family: 'iranSans' !important;*/
+/*	font-size: 18px !important;*/
+/*	color: black !important;*/
+/*}*/
+/*.postText h1 ,.postText h2,.postText h3{*/
+/*	font-size: 22px;*/
+/*	font-weight: bold;*/
+/*}*/
+/*.postText ol,.postText ul{*/
+/*	line-height: 1.8rem;*/
+/*}*/
+/*.postText span{*/
+/*	line-height: 1.8rem;*/
+/*	margin-top: 20px;*/
+/*}*/
+/*.postText a span,.postText a p,.postText p a ,.postText span a{*/
+/*	color:rgb(9,111,211) !important;*/
+
+/*}*/
+/*.postText a:hover{*/
+/*	text-decoration: underline rgb(9,111,211) !important;*/
+/*}*/

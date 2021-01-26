@@ -51,7 +51,7 @@
     </template>
 
     <div class="seoPost" v-if="JSON.parse(products).length>0">
-      <div class="seoPostContent"  v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].seo_post : ''"></div>
+      <div class="seoPostContent longText"  v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].seo_post : ''"></div>
     </div>
 
 
@@ -170,15 +170,6 @@ h1{
   font-size: 17px;
   font-weight: bold;
 }
-.seoPostContent *{
-  max-width: 100%;
-  font-size: 16px;
-}
-.seoPostContent img{
-  object-fit: contain;
-
-}
-
 .stelam{
   font-size: 15px;
   font-weight: bold;
@@ -194,7 +185,7 @@ import filtering from "./filtering.vue"
 import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
 import {toggleBodyOverFlow} from "../../user/mixIns/toggleBodyOverFlow.js"
 import pagination from "../../pagination/pagination.vue";
-
+import longText from "../mixIns/longText"
 export default {
   props: ['products', "pagination"],
   computed:{
@@ -211,6 +202,7 @@ export default {
       zoom.style.width = "200%";
       zoom.style.width = "200%"
     })
+    longText()
   },
   components: {
     consulate,
