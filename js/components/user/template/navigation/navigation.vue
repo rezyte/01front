@@ -241,12 +241,12 @@ li:last-child{
 .titleWrapper li{
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-top: 10px;
   line-height: 2rem;
 }
 .titleWrapper li a{
-  width: 100%;
+  width: max-content;
   display: flex;
   justify-content: flex-end;
   margin: 0;
