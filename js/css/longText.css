@@ -8,12 +8,12 @@
 }
 .longText a,.longText p,.longText span,.longText h1,
 .longText h2,.longText h3,.longText h4,
-.longText h6,li,.longText h5{
+.longText h6,.longText li,.longText h5{
     direction: rtl;
 }
 .longText ul,.longText ol{
     margin-right: 30px !important;
-    line-height: 0.4rem !important;
+    line-height: 1.4rem !important;
 }
 .longText p{
     line-height: 2rem;
