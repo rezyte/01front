@@ -1,6 +1,12 @@
 <template>
   <div id="products" class='shouldCollapse maxIs'>
     <h1>{{getH1()}}</h1>
+    <div class="seoPost first" v-if="JSON.parse(products).length>0 && JSON.parse(this.products)[0].category[0].upper_content.length>0">
+      <div class="seoPostContent longText"  v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].upper_content : ''"></div>
+      <div class="showMore">
+        <button @click="expandIt($event)">مشاهده ادامه</button>
+      </div>
+    </div>
     <div id="productsWrapper">
 
 
@@ -52,6 +58,9 @@
 
     <div class="seoPost" v-if="JSON.parse(products).length>0">
       <div class="seoPostContent longText"  v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].seo_post : ''"></div>
+      <div class="showMore">
+        <button @click='expandIt($event)'>مشاهده ادامه</button>
+      </div>
     </div>
 
 
@@ -128,7 +137,32 @@ img {
   background: white;
   min-height: 100px;
   max-height: 300px;
-  overflow: auto;
+  position: relative;
+  overflow: hidden;
+}
+.showMore{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top,white,transparent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+.showMore button:hover{
+  color: var(--logoBlueUser);
+}
+.seoPost button{
+  width: max-content;
+  background: white;
+  padding: 10px 30px;
+  border: 2px solid var(--logoBlueUser);
+  border-radius:500px;
+  position: absolute;
+  bottom: 10px;
+  font-size: 13pt;
+  font-weight: bold;
 }
 h1{
   padding-right: 20px;
@@ -175,7 +209,9 @@ h1{
   font-weight: bold;
 }
 
-
+.first{
+  margin-top:20px;
+}
 </style>
 
 <script>
@@ -225,6 +261,15 @@ export default {
     })
   },
   methods: {
+    expandIt(e){
+      const element=e.target
+      const parent=element.parentElement
+      const seoPost=element.closest('.seoPost')
+      console.log(seoPost,parent)
+      parent.style.display='none'
+      seoPost.style.maxHeight='max-content'
+
+    },
     getH1(){
 
       if(JSON.parse(this.products).length>0){
