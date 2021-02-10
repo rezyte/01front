@@ -4,8 +4,12 @@
 {% include "views/template/navigation.html" %}			
 {% include "views/template/mainwrapper.html" %}
 
-<bread-crumb type="product" product="{{ product }}"></bread-crumb>
-<product related_products="{{related_products}}" product="{{ product }}"></product>
+<user>
+    <div class="userSectionWrapper">
+        <bread-crumb type="product" product="{{ product }}"></bread-crumb>
+        <product related_products="{{related_products}}" product="{{ product }}"></product>
+    </div>
+</user>
 
 				
 

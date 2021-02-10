@@ -2,8 +2,8 @@
 
 </div>
 </main>
-			<foot></foot>
-			<buttom-icons></buttom-icons>
+<!--			<foot></foot>-->
+<!--			<buttom-icons></buttom-icons>-->
 
 		</div>
 
@@ -21,6 +21,18 @@
 		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>-->
 <!--		<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
 		 <!-- <script type="application/javascript" src="/userPanelApp.js"></script> -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    window.addEventListener('load', (event) => {
+        const main=document.querySelector('.main')
+        const spinner=document.querySelector('.lds-roller')
+        const footer=document.querySelector('#footer')
+        main.style.visibility='visible'
+        footer.style.visibility='visible'
+        spinner.style.display="none"
+    });
+</script>
 		<script type="application/javascript"  src="{% static '/public/userScript.js' %}"></script>
 <script defer>
 
@@ -30,6 +42,8 @@
     if(error!==null){
         error.scrollIntoView()
     }
+
+
 </script>
 
 	</body>

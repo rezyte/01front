@@ -1,5 +1,5 @@
 <template>
-	<div id="footer">
+	<div id="footer" style="visibility: hidden">
         <profile-options v-if="isOptionsOpen"></profile-options>
 		
 		<div id="footerWrapper" class='maxIs'>
@@ -36,6 +36,9 @@
 
 
 <style scoped>
+#footer{
+  width: 100%;
+}
 .firstRow{
 	width:100%
 }

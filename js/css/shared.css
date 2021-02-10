@@ -406,10 +406,16 @@ img.normal{
 .zoom{
 	height: max-content !important;
 }
+.main{
+	min-height: 300px;
+}
 
 
-
-
+.userSectionWrapper{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 /*.seoPostContent h2{*/
 /*	font-weight: bold !important;*/
 /*	font-size: 18px !important;*/

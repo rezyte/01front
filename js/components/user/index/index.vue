@@ -12,7 +12,7 @@
     <div v-if="JSON.parse(this.comments).length>=20" style="width: 100%;overflow:hidden;">
       <comments :comments="comments"></comments>
     </div>
-     <div class="allCards shouldCollapse maxIs" v-for="label in JSON.parse(this.labeles)" :key="label.id">
+     <div class="allCards shouldCollapse maxIs" v-if="label.products.length>0" v-for="label in JSON.parse(this.labeles)" :key="label.id">
       <card
         :cardTitle="label.title"
         :products="label.products"
@@ -97,6 +97,7 @@ export default {
   width: 100%;
   flex-direction: column;
   align-items: center;
+  height: 530px;
 }
 #mostClicked {
   grid-area: mostClicked;

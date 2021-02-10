@@ -1,7 +1,7 @@
 import vue from "vue";
 import { store } from "./userStore.js";
 import slicer from "./components/user/template/slicer/slicer.vue";
-import footer from "./components/user/template/footer/footer.vue";
+// import footer from "./components/user/template/footer/footer.vue";
 import productZoom from "./components/user/product/productZoom.vue";
 import VueMeta from "vue-meta";
 import { toggleDisplayAndArrow } from "./components/user/mixIns/toggleDisplayAndArrow";
@@ -13,6 +13,8 @@ import installPrompt from "./components/user/template/installPrompt/installPromp
 import buttomIcons from "./components/user/template/bottomIconsforPhones/bottomIconsForPhones.vue"
 import sharePopUp from "./components/user/index/share/sharePopUp/sharePopUp.vue";
 import breadCrumb from "./components/user/breadCrunb/breadCrumb.vue";
+import user from "./components/user/user.vue";
+import loadingSpinner from "./components/user/template/loadingSpinner/loadingSpinner.vue";
 vue.use(VueMeta, {
   // optional pluginOptions
   refreshOnceOnNavigation: true,
@@ -37,6 +39,8 @@ vue.use(ZoomOnHover);
 const app = new vue({
   el: "#app",
   components: {
+    user,
+    loadingSpinner,
     topPrePageForPhones,
     heading,
     buttomIcons,
@@ -45,7 +49,7 @@ const app = new vue({
     navigation,
     slicer,
     installPrompt,
-    foot: footer,
+    // foot: footer,
     'product':()=>import("./components/user/product/product.vue"),
     productZoom,
     breadCrumb,

@@ -5,10 +5,15 @@
 {% include "views/template/mainwrapper.html" %}
 
 
-<bread-crumb type="category" products="{{ products }}"></bread-crumb>
+<user>
+    <div class="userSectionWrapper">
+        <bread-crumb type="category" products="{{ products }}"></bread-crumb>
 
 
-<done-message></done-message>
-{% comment %} <products products="{{ products }}"></products> {% endcomment %}
-<products  products="{{ products }}" paginations="{{page_data}}"></products>
+        <done-message></done-message>
+        {% comment %} <products products="{{ products }}"></products> {% endcomment %}
+        <products  products="{{ products }}" paginations="{{page_data}}"></products>
+    </div>
+
+</user>
 {% include "views/template/footer.html" %}
