@@ -3,9 +3,9 @@
         <profile-options v-if="isOptionsOpen"></profile-options>
 		
 		<div id="footerWrapper" class='maxIs'>
-			<!--<div class="firstRow">
+			<div class="firstRow">
 				<mega></mega>
-			</div>-->
+			</div>
 			<div class="secondRow">
 				<mission></mission>
 				<abouts></abouts>
