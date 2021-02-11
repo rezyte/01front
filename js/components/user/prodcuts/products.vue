@@ -1,11 +1,11 @@
 <template>
   <div id="products" class='shouldCollapse maxIs'>
     <h1>{{getH1()}}</h1>
-    <div class="seoPost first" v-if="JSON.parse(products).length>0 && JSON.parse(this.products)[0].category[0].upper_content">
+    <div class="seoPost first" v-if="JSON.parse(products).length>0 && JSON.parse(this.products)[0].category[0].upper_content!=''">
       <div class="seoPostContent longText"  v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].upper_content : ''"></div>
-      <div class="showMore">
-        <button @click="expandIt($event)">مشاهده ادامه</button>
-      </div>
+<!--      <div class="showMore">-->
+<!--        <button @click="expandIt($event)">مشاهده ادامه</button>-->
+<!--      </div>-->
     </div>
     <div id="productsWrapper">
 
@@ -84,6 +84,7 @@ h1 {
 #productsWrapper {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 100px;
   justify-content: center;
 }
 
@@ -211,6 +212,9 @@ h1{
 
 .first{
   margin-top:20px;
+  max-height: max-content;
+  height: max-content;
+  overflow: visible;
 }
 </style>
 
