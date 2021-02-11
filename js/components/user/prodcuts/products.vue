@@ -1,7 +1,7 @@
 <template>
   <div id="products" class='shouldCollapse maxIs'>
     <h1>{{getH1()}}</h1>
-    <div class="seoPost first" v-if="JSON.parse(products).length>0 && JSON.parse(this.products)[0].category[0].upper_content!=''">
+    <div class="seoPost first" v-if="JSON.parse(products).length>0 && JSON.parse(this.products)[0].category[0].upper_content">
       <div class="seoPostContent longText"  v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].upper_content : ''"></div>
       <div class="showMore">
         <button @click="expandIt($event)">مشاهده ادامه</button>
