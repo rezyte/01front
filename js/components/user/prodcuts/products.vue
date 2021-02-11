@@ -137,7 +137,7 @@ img {
   padding: 10px;
   background: white;
   min-height: 100px;
-  max-height: 300px;
+  max-height: 600px;
   position: relative;
   overflow: hidden;
 }
