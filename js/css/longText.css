@@ -21,7 +21,7 @@
 
 .longText img{
     height: auto !important;
-    width: max-content !important;
+    /*width: max-content !important;*/
     max-width: 100% !important;
     object-fit: contain;
 }
