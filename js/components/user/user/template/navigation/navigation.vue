@@ -350,7 +350,7 @@ hr{
   box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
   width: max-content;
   padding-top: 20px;
-  top: 51px;
+  top: 40px;
   right: -34px;
   padding: 10px;
   padding-left: 0;
