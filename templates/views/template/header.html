@@ -74,6 +74,19 @@
                 }
             }
         </script>
+		
+		
+		<script>
+    window.addEventListener('load', (event) => {
+        const main=document.querySelector('.main')
+        const spinner=document.querySelector('.lds-roller')
+        const footer=document.querySelector('#footer')
+        main.style.visibility='visible'
+        footer.style.visibility='visible'
+        spinner.style.display="none"
+    });
+</script>
+		<script defer type="application/javascript"  src="{% static '/public/userScript.js' %}"></script>
 
 
 	</head>

@@ -22,6 +22,14 @@
           <div class="title">
 
             <a :href="gethref(p.slug)"><p>{{ p.title }}</p></a>
+            <div class="priceList" v-if="p.price || p.second_price">
+              <p>قیمت:</p>
+              <p class="price">
+                {{p.price ? p.price.toLocaleString() : ''}} <span v-if="p.price && p.second_price">-</span> {{p.second_price ? p.second_price.toLocaleString() : ''}}
+
+                <span>میلون تومان</span>
+              </p>
+            </div>
           </div>
           <div class="contactUs">
             <button class="stelam" @click.prevent='showConsulate($event)'>مشاوره و استعلام قیمت</button>
@@ -91,14 +99,16 @@ h1 {
 .singleProduct {
   width: 23%;
   margin: 10px;
-  width: 200px;
+  width: 270px;
   background: white;
   border:1px solid #d9d9d8;
   padding-bottom: 5px;
 }
 
 .singleProductWrapper {
-  /*padding: 10px;*/
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 img {
@@ -108,27 +118,30 @@ img {
 }
 
 .title {
-  height: 80px;
+  height: 180px;
   padding-right: 5px;
+}
+.title a p {
+  color: #3b73cc;
+  height: 60px;
+}
+.title a{
+  height: 100px;
 }
 
 .contactUs {
   display: flex;
   justify-content: center;
   margin-top: 5px;
+  margin: auto;
 }
 
 #pagination {
   margin-top: 50px;
 }
 
-.title a p {
-  color: #3b73cc;
-}
 
-.title p {
-  margin-top: 20px;
-}
+
 
 .seoPost {
   margin-top: 100px;
@@ -215,6 +228,19 @@ h1{
   max-height: max-content;
   height: max-content;
   overflow: visible;
+}
+.priceList{
+  margin-top:20px;
+}
+.priceList >p{
+  font-weight: bold;
+}
+.price{
+  font-size: 18px;
+  font-weight: 700;
+  color: #707070;
+  padding-top: 18px;
+  height: 36px;
 }
 </style>
 
