@@ -21,7 +21,7 @@
           </a>
           <div class="title">
 
-            <a :href="gethref(p.slug)"><p>{{ p.title }}</p></a>
+            <a :href="gethref(p.slug)"><h3>{{ p.title }}</h3></a>
             <div class="priceList" v-if="p.price || p.second_price">
               <p>قیمت:</p>
               <p class="price">
@@ -121,8 +121,9 @@ img {
   height: 180px;
   padding-right: 5px;
 }
-.title a p {
+.title a h3 {
   color: #3b73cc;
+  direction: rtl;
   height: 60px;
 }
 .title a{

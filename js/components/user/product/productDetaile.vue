@@ -33,9 +33,14 @@
                             <div class="price singleDetail">
                                 <div class="order1"><p>قیمت:</p></div>
                                 <div class="order2">
-                                    <p>
-                                      {{getPrice()}}
+                                    <p v-if="productDet.price || productDet.price">
+                                      {{productDet.price ? productDet.price.toLocaleString() : ''}} <span v-if="productDet.price && productDet.second_price">-</span> {{productDet.second_price ? productDet.second_price.toLocaleString() : ''}}
+                                      (میلیون تومان)
+
                                     </p>
+                                  <p v-else>
+                                    -
+                                  </p>
                                 </div>
                             </div>
 <!--                            <div class="price singleDetail">-->
@@ -51,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="price singleDetail">
-                                <div class="order1"><p>امتیاز:</p></div>
+                                <div class="order1"><p>امتیاز:</p></divproductDet
                                 <div class="order2">
                                     <p>{{ getData(productDet.average_rating) }}</p>
                                 </div>
@@ -369,6 +374,7 @@ export default {
 }
 .order2 p{
   margin-right: 5px;
+  font-weight: bold;
 }
 .singleDetail {
     padding: 10px;
