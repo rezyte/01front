@@ -36,9 +36,9 @@
 
         <div class="swiper-container-topSite">
             <div class="swiper-wrapper"  id="sliderWrapper">
-                <div class="swiper-slide"><a href="/product-category/خط-تولید-سیم-و-کابل/"><img src="/static/public/images/slider1.jpg" alt=""></a></div>
-                <div class="swiper-slide"><a href="/product-category/خط-تولید-لنت-ترمز-دیسکی/"><img src="/static/public/images/slider2.jpg" alt=""></a></div>
-                <div class="swiper-slide"><a href="/product-category/دستگاه-شیرینگ/"><img src="/static/public/images/slider3.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href="/categories/خط-تولید/خط-تولید-لنت-ترمز-دیسکی/"><img src="/static/public/images/slider1.webp" alt=""></a></div>
+                <div class="swiper-slide"><a href="/categories/خط-تولید/خط-تولید-سیم-و-کابل/"><img src="/static/public/images/slider2.webp" alt=""></a></div>
+                <div class="swiper-slide"><a href="/categories/بسته-بندی/دستگاه-شیرینگ/"><img src="/static/public/images/slider3.webp" alt=""></a></div>
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination-topside"></div>
