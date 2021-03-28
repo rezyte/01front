@@ -2,6 +2,7 @@
   <div id="index" class="mainItemPerPage">
     <div id="topOfIndex" class="shouldCollapse maxIs">
       <div id="topOfIndexWrapper">
+        <comment-wrapper />
         <slider></slider>
         <categorie :mainCats="JSON.parse(main_categories)"></categorie>
       </div>
@@ -35,6 +36,9 @@ import flipCard from "./flipCard/flipCard.vue";
 import categorie from "./categorie/categorie.vue";
 import customers from "./customers/customers.vue";
 import comments from "./comments/comments.vue";
+
+import CommentsMy from 'frontend/js/components/user/product/comments/CommentsMy'
+
 export default {
   components: {
     slider,
@@ -44,6 +48,7 @@ export default {
     // digiCard,
     customers,
     comments,
+    CommentsMy
   },
     created(){
       console.log('this.products',JSON.parse(this.labeles))

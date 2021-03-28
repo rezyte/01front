@@ -1,15 +1,1 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[45],{
-
-/***/ "./js/components/userPanel/eventBus.js":
-/*!*********************************************!*\
-  !*** ./js/components/userPanel/eventBus.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n\nconst eventBus = new vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n/* harmony default export */ __webpack_exports__[\"default\"] = (eventBus);\n\n//# sourceURL=webpack:///./js/components/userPanel/eventBus.js?");
-
-/***/ })
-
-}]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[45],{1282:function(s,t,o){"use strict";o.r(t);var e=function(){var s=this.$createElement;return(this._self._c||s)("div",{staticClass:"aboutUs aboutsWidth maxIs",domProps:{innerHTML:this._s(JSON.parse(this.aboutus).about_us_content)}})};e._withStripped=!0;var a={name:"aboutUs",props:["aboutus"],created(){console.log(this.aboutus)}},u=o(0),n=Object(u.a)(a,e,[],!1,null,"6fc33735",null);n.options.__file="js/components/user/abouts/aboutUs.vue";t.default=n.exports}}]);

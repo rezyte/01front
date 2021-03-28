@@ -1,26 +1,28 @@
 <template>
-<div class="user" >
-  <slot></slot>
+  <div class="user">
+    <comment-wrapper />
+    <slot></slot>
 
-  <foot></foot>
-  <buttom-icons></buttom-icons>
-</div>
+    <foot></foot>
+    <buttom-icons></buttom-icons>
+  </div>
 </template>
 
 <script>
+
 import footer from "./template/footer/footer.vue";
-import buttomIcons from "./template/bottomIconsforPhones/bottomIconsForPhones.vue"
+import buttomIcons from "./template/bottomIconsforPhones/bottomIconsForPhones.vue";
 export default {
-name: "user",
-  components:{
-  foot:footer,
+  name: "user",
+  components: {
+    foot: footer,
     buttomIcons
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
-.user{
+.user {
   display: flex;
   flex-direction: column;
   align-items: center;
