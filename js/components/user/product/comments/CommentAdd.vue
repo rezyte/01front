@@ -47,7 +47,8 @@
                 :disabled="btnStatus"
                
               >
-                <img src="/static/public/images/icons/icons8-send-letter-48.png" width="48" height="48" title="ارسال">
+                <!-- <img src="/static/public/images/icons/icons8-send-letter-48.png" width="48" height="48" title="ارسال"> -->
+                ارسال
               </button>
             </div>
           </div>
