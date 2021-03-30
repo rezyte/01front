@@ -1,12 +1,12 @@
 <template>
-  <div class="row comment">
+  <div class="comment">
     <div class="col-sm-12">
       <div class="content_add">
         <form action="/comments/save" method="post">
           <div id="form">
             <div>
               <textarea
-              rows="1"
+              rows="2"
               cols="50"
               maxlength="500"
               class="form-control"
@@ -47,7 +47,7 @@
                 :disabled="btnStatus"
                
               >
-                <img src="/static/public/images/icons/icons8-send-letter-48.png" width="48" height="48">
+                <img src="/static/public/images/icons/icons8-send-letter-48.png" width="48" height="48" title="ارسال">
               </button>
             </div>
           </div>
@@ -98,14 +98,13 @@ export default {
 <style scoped>
 .comment {
   width: 100%;
-  margin: auto;
   padding: auto;
   direction: rtl;
 }
 .content_add {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 #form{

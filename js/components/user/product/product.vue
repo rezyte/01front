@@ -3,14 +3,15 @@
     <div id="productWrapper" class="maxIs">
       <prudctDetail :productDet="JSON.parse(product)"></prudctDetail>
       <hr>
-
       <technical-detail :product="JSON.parse(product)"></technical-detail>
       <hr>
       <product-descs :product="JSON.parse(product)"></product-descs>
       <hr>
         <related :related="JSON.parse(related_products)"></related>
       <hr>
-      <comment-my></comment-my>
+      <div class="w-100">
+        <comment-my></comment-my>
+      </div>
       <!-- <comment-section
         :action="''"
         :comments="JSON.parse(product).comments"
