@@ -10,35 +10,41 @@
       <hr>
         <related :related="JSON.parse(related_products)"></related>
       <hr>
-      <comment-section
+      <comment-my></comment-my>
+      <!-- <comment-section
         :action="''"
         :comments="JSON.parse(product).comments"
-      ></comment-section>
+      ></comment-section> -->
     </div>
   </div>
 </template>
 
 <script>
 import prudctDetail from "./productDetaile.vue";
-import commentSection from "./commentSection.vue";
+// import commentSection from "./commentSection.vue";
 import productDescs from "./productDescs.vue";
 import componyDetali from "./componyDetail.vue";
 import technicalDetail from "./technicalDetatil.vue";
 import related from "./related.vue";
+import CommentMy from './comments/CommentMy.vue';
 export default {
   components: {
     prudctDetail,
-    commentSection,
+    // commentSection,
     productDescs,
     componyDetali,
     technicalDetail,
     related,
+    CommentMy,
   },
   props: ["product", "related_products"],
   data() {
     return {
       currentComponent: "productDescs",
     };
+  },
+  created(){
+   
   },
   // metaInfo() {
   //   const product = JSON.parse(this.product);

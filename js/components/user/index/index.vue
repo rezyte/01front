@@ -2,7 +2,6 @@
   <div id="index" class="mainItemPerPage">
     <div id="topOfIndex" class="shouldCollapse maxIs">
       <div id="topOfIndexWrapper">
-        <comment-wrapper />
         <slider></slider>
         <categorie :mainCats="JSON.parse(main_categories)"></categorie>
       </div>
@@ -10,10 +9,18 @@
     <div class="shouldCollapse maxIs">
       <flip-card></flip-card>
     </div>
-    <div v-if="JSON.parse(this.comments).length>=20" style="width: 100%;overflow:hidden;">
+    <div
+      v-if="JSON.parse(this.comments).length >= 20"
+      style="width: 100%; overflow: hidden"
+    >
       <comments :comments="comments"></comments>
     </div>
-     <div class="allCards shouldCollapse maxIs" v-if="label.products.length>0" v-for="label in JSON.parse(this.labeles)" :key="label.id">
+    <div
+      class="allCards shouldCollapse maxIs"
+      v-if="label.products.length > 0"
+      v-for="label in JSON.parse(this.labeles)"
+      :key="label.id"
+    >
       <card
         :cardTitle="label.title"
         :products="label.products"
@@ -21,7 +28,6 @@
         :classr="makeid(10)"
       ></card>
     </div>
-
 
     <div class="maxIs shouldCollapse">
       <customers></customers>
@@ -37,8 +43,6 @@ import categorie from "./categorie/categorie.vue";
 import customers from "./customers/customers.vue";
 import comments from "./comments/comments.vue";
 
-import CommentsMy from 'frontend/js/components/user/product/comments/CommentsMy'
-
 export default {
   components: {
     slider,
@@ -48,31 +52,28 @@ export default {
     // digiCard,
     customers,
     comments,
-    CommentsMy
   },
-    created(){
-      console.log('this.products',JSON.parse(this.labeles))
-    },
-  props: [
-    "products",
-    "main_categories",
-    "comments",
-    'labeles'
-  ],
-  methods:{
+  created() {
+    console.log("heyyyy");
+    console.log(this.userInfo + 'ty');
+    
+    console.log("this.products", JSON.parse(this.labeles));
+    
+  }, 
+  props: ["products", "main_categories", "comments", "labeles"],
+  methods: {
     makeid(length) {
       var result = "";
-      var characters =
-          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+      var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
       var charactersLength = characters.length;
       for (var i = 0; i < length; i++) {
         result += characters.charAt(
-            Math.floor(Math.random() * charactersLength)
+          Math.floor(Math.random() * charactersLength)
         );
       }
       return result;
-    }
-  }
+    },
+  },
 };
 </script>
 

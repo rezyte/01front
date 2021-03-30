@@ -2,43 +2,45 @@
 {% load static %}
 <!--{% load utility_tags %}-->
 <html>
-	<head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KH5LKK69SL"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
 
-            gtag('config', 'G-KH5LKK69SL');
-        </script>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="google-site-verification" content="wzWhJaqpQniEGJwWeIMISdhq0AnDmqeTZ-tDFBpBB6Q" />
-		{% if request.user.is_authenticated %}
-			{% user_tag request.user.username as current_user %}
-		{% endif %}
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KH5LKK69SL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-		  <meta name="user_tag" content="{{ current_user }}">
-		  {% csrf_token_tag %}
+        gtag('config', 'G-KH5LKK69SL');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="wzWhJaqpQniEGJwWeIMISdhq0AnDmqeTZ-tDFBpBB6Q" />
+    {% if request.user.is_authenticated %}
+    {% user_tag request.user.username as current_user %}
+    {% endif %}
 
-		  <script>
-            let userInfo=document.querySelector('meta[name=user_tag]')
-            userInfo=userInfo.getAttribute('content')
-            if(userInfo!==''){
-                userInfo=JSON.parse(userInfo)
-            }
-            let csrf=document.querySelector('meta[name=csrf]')
-            csrf=csrf.getAttribute('content')
-                  </script>
+    <meta name="user_tag" content="{{ current_user }}">
+    {% csrf_token_tag %}
+
+    <script>
+        // this.$store.dispatch
+        let userInfo = document.querySelector('meta[name=user_tag]')
+        userInfo = userInfo.getAttribute('content')
+        if (userInfo !== '') {
+            userInfo = JSON.parse(userInfo)
+        }
+        let csrf = document.querySelector('meta[name=csrf]')
+        csrf = csrf.getAttribute('content')
+    </script>
 
 
 
-<!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+    <!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
 
-<!--		<title>دمیرکو | فروش ماشین آلات صنعتی</title>-->
-<!--		<meta description='دمیرکو یک سایت خدمات صنعتی است یکی از فعالیت هایش فروش ماشین الات صنعتی در حوزه های بسته بندی خطوط تولید خطوط انتقال و غیره میباشد' >-->
-        {{tags|safe}}
-        <script type="application/ld+json">
+    <!--		<title>دمیرکو | فروش ماشین آلات صنعتی</title>-->
+    <!--		<meta description='دمیرکو یک سایت خدمات صنعتی است یکی از فعالیت هایش فروش ماشین الات صنعتی در حوزه های بسته بندی خطوط تولید خطوط انتقال و غیره میباشد' >-->
+    {{tags|safe}}
+    <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "HardwareStore",
@@ -74,25 +76,27 @@
                 }
             }
         </script>
-		
-		
-		<script>
-    window.addEventListener('load', (event) => {
-        const main=document.querySelector('.main')
-        const spinner=document.querySelector('.lds-roller')
-        const footer=document.querySelector('#footer')
-        main.style.visibility='visible'
-        footer.style.visibility='visible'
-        spinner.style.display="none"
-    });
-</script>
-		<script defer type="application/javascript"  src="{% static '/public/userScript.js' %}"></script>
 
 
-	</head>
-	
-	<body>
-<div id="app">
-    <share-pop-up></share-pop-up>
-    <install-prompt></install-prompt>
-    <top-pre-page-for-phones></top-pre-page-for-phones>
+    <script>
+        window.addEventListener('load', (event) => {
+            const main = document.querySelector('.main')
+            const spinner = document.querySelector('.lds-roller')
+            const footer = document.querySelector('#footer')
+            main.style.visibility = 'visible'
+            footer.style.visibility = 'visible'
+            spinner.style.display = "none"
+        });
+    </script>
+    <script defer type="application/javascript" src="{% static '/public/userScript.js' %}"></script>
+
+  
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" /> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+        <share-pop-up></share-pop-up>
+        <install-prompt></install-prompt>
+        <top-pre-page-for-phones></top-pre-page-for-phones>

@@ -1,50 +1,36 @@
 <template>
   <!-- <transition name="fade" enter-to-class="animate__animated animate__bounceIn"> -->
   <div id="comments">
-    <div id="info">
-      <div class="profile"></div>
-      <div class="name" v-text="name"></div>
-      <div class="replay" @click="replay(id)">پاسخ</div>
+    <div class="info">
+      <div id="info">
+        <div class="profile"></div>
+        <div class="name" v-text="name"></div>
+      </div>
+      <div>
+        <div class="rep" @click="replay(id_comment)">پاسخ</div>
+      </div>
     </div>
     <div id="body">
       <p v-text="body"></p>
     </div>
-    <div class="subComments" v-for="subComment in subComments" v-bind:key="subComment.id">
-      <comments-replay :id="subComment.id" :body="subComment.body" :name="subComment.name" :id_comment="id"/>
-    </div>
+    <!-- <div class="subComment" v-for="comment in subComments" v-bind:key="comment.id">
+      <comment :body="comment.body" :id="comment.id" :name="comment.name" />
+    </div> -->
   </div>
-  <!-- <transition name="fade" enter-to-class="animate__animated animate__bounceIn" leave-active-class="animate__animated animate__bounceOut">
-      <div class="replay"  v-if="replayStatus" >
-         <comment-replay-my />
-      </div>
-     
-    </transition> -->
   <!-- </transition> -->
 </template>
 
 <script>
-import commentsReplay from './CommentReplay.vue';
 export default {
-  props: ["body","id","name"],
-  components: {commentsReplay},
+  props: ["id", "body", "name","id_comment"],
   data() {
-    return {
-      replayStatus: false,
-    };
-  },
-  computed:{
-    subComments(){
-      return this.$store.getters.get_subComments(this.id);
-    }
+    return {};
   },
   methods: {
-    replay(id) {
-      // console.log(id)
-      let comment_box=document.getElementById("commentBox");
+    replay(id_comment) {
+      let comment_box = document.getElementById("commentBox");
       comment_box.focus();
-      comment_box.value='@'+(id)+ ': '; 
-      // this.replayStatus = true;
-      // this.$store.commit("CHANGE_CLOSE_REPLAY_COMMENT", true);
+      comment_box.value = "@" + id_comment + ": ";
     },
   },
 };
@@ -59,9 +45,15 @@ export default {
   margin-right: 3%;
   box-sizing: border-box;
   border-radius: 4px;
+  /* box-shadow: 0px 0px 1px 0px; */
   display: flex;
   flex-direction: column;
   text-align: right;
+}
+.info {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 #info {
   width: 100%;
@@ -92,24 +84,19 @@ export default {
   /* background-color: green; */
   margin-right: 1%;
 }
-.replay {
+.rep {
   width: auto;
-  /* margin:4px 20px; */
-  position: absolute;
-  /* background-color: crimson; */
-  left: 2.5%;
-  top: 10%;
   padding: 3px;
   text-align: center;
   color: rgba(0, 0, 0, 0.815);
   font-size: 16px;
 }
-.replay:hover {
+.rep:hover {
   cursor: pointer;
   color: black;
   font-weight: bold;
 }
-.subComments{
+.subComments {
   width: 94%;
   margin: auto;
 }
