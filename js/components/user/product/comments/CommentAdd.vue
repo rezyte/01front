@@ -14,7 +14,7 @@
               id="commentBox"
               placeholder="نظر خود را وارد کنید"
               ref="comment"
-              name="comment"
+              name="content"
               @input="change()"
             >
             </textarea>
