@@ -2,7 +2,7 @@
   <div class="comment">
     <div class="col-sm-12">
       <div class="content_add">
-        <form action="/comments/save" method="post">
+        <form action="" method="post">
           <div id="form">
             <div>
               <textarea
