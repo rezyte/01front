@@ -23,7 +23,7 @@ name: "information",
   },
     props:['profile'],
   created() {
-  console.log(userInfo)
+  console.log(userInfo);
   }
 }
 </script>

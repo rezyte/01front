@@ -13,5 +13,11 @@ export default{
         })
         let obj = Object.assign({}, newarr)
         return obj;
+    },
+    regularExpression:state=>{
+        return state.regularExpression
+    },
+    messages_response:state =>{
+        return state.messages_response
     }
 }

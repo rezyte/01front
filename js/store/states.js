@@ -1,6 +1,12 @@
 
 
 export default{
+    regularExpression: {
+        regName: /^[ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو]{3,15}$/,
+        regUsername: /^[a-zA_Zضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو0-9]{4,20}$/gi,
+        regPassword: /^[a-zA-Z0-9ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو ]{4,20}$/g,
+        reg_phoneNumber: /^09+[0-9]{9}$/gi,
+    },
     // comments:null,
     // subComments:null,
     comments:[
@@ -34,5 +40,11 @@ export default{
             name:'jafar',
             body:'eihaslkljhlkgfdhfowgsd'
         }
-    ]
+    ],
+    messages_response: {
+        exist_user: {
+            username: null,
+            phoneNumber: null
+        }
+    }
 }

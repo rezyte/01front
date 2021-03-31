@@ -14,8 +14,8 @@ module.exports = {
       // publicPath:"/"
     publicPath:"/static/public/"
   },
-  // mode: 'development',
-    mode: 'production',
+  mode: 'development',
+    // mode: 'production',
   module: {
     rules: [
       {

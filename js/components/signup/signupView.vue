@@ -2,7 +2,7 @@
   <div id="signupView" class="signView">
     <div id="signupViewWrapper" class="signViewWrapper">
       <div class="logo">
-        <img src="/static/public/images/logo.png" alt="">
+        <img src="/static/public/images/logo.png" alt="تصویر ناقص است">
       </div>
       <div class="title">
         <h1>ورود</h1>

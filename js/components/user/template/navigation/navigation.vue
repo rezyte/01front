@@ -48,6 +48,7 @@
               </div>
             </div>
           </li>
+          <li ><a href="/users/register/">ثبت نام</a></li>
           <li v-if="!user.is_logined"><a href="/users/entry/">ورود</a></li>
 					<li><a href="/">خانه</a></li>
 					<li><a href="/about_us/">درباره ما</a></li>

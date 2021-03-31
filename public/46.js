@@ -1,1 +1,15 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[46],{1300:function(i,s,n){"use strict";n.r(s);var t=function(){var i=this.$createElement;return(this._self._c||i)("div",{staticClass:"buyInDamir aboutsWidth maxIs",domProps:{innerHTML:this._s(JSON.parse(this.buyindamir).buy_from_damir)}})};t._withStripped=!0;var r={name:"buyInDamir",props:["buyindamir"]},a=n(0),e=Object(a.a)(r,t,[],!1,null,"47cd6c74",null);e.options.__file="js/components/user/abouts/buyInDamir.vue";s.default=e.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[46],{
+
+/***/ "./js/components/userPanel/eventBus.js":
+/*!*********************************************!*\
+  !*** ./js/components/userPanel/eventBus.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n\nconst eventBus = new vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n/* harmony default export */ __webpack_exports__[\"default\"] = (eventBus);\n\n//# sourceURL=webpack:///./js/components/userPanel/eventBus.js?");
+
+/***/ })
+
+}]);
