@@ -1,6 +1,6 @@
 <template>
     <div id="productDesc">
-      <p class="title">توضیحات محصول</p>
+      <h2 class="font-weight-bold text-right">توضیحات محصول</h2>
         <div class="descsWrapper longText" style="display: flex;flex-direction: column;align-items: flex-end;margin-bottom: 50px" v-html="product.description"></div>
     </div>
 </template>

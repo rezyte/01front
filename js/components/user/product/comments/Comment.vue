@@ -7,7 +7,7 @@
       <div class="replay" @click="replay(id)">پاسخ</div>
     </div>
     <div id="body">
-      <p v-text="body"></p>
+      <p v-text="content"></p>
     </div>
     <div class="subComments" v-for="subComment in subComments" v-bind:key="subComment.id">
       <comments-replay :id="subComment.id" :body="subComment.body" :name="subComment.name" :id_comment="id"/>
@@ -25,7 +25,7 @@
 <script>
 import commentsReplay from './CommentReplay.vue';
 export default {
-  props: ["body","id","name"],
+  props: ["content","id","name"],
   components: {commentsReplay},
   data() {
     return {
@@ -79,8 +79,8 @@ export default {
   box-sizing: border-box;
 }
 .profile {
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
   background-color: black;
   border-radius: 50%;
 }

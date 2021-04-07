@@ -3,7 +3,7 @@
     <div id="productDetail">
         <div class="productDetailWrapper">
             <div class="prodcuctName">
-                <h1>{{ productDet.title }}</h1>
+                <h1 class="color">{{ productDet.title }}</h1>
             </div>
             <div class="productDetails">
                 <div class="productDetailsWrap">
@@ -484,5 +484,8 @@ div#actualImage img {
 }
 .ShouldZoomImage{
     height: 100%;
+}
+.color{
+  color: var(--blue);
 }
 </style>

@@ -2,15 +2,15 @@
   <div id="product" class="mainItemPerPage shouldCollapse">
     <div id="productWrapper" class="maxIs">
       <prudctDetail :productDet="JSON.parse(product)"></prudctDetail>
-      <hr>
+      <hr />
       <technical-detail :product="JSON.parse(product)"></technical-detail>
-      <hr>
+      <hr />
       <product-descs :product="JSON.parse(product)"></product-descs>
-      <hr>
-        <related :related="JSON.parse(related_products)"></related>
-      <hr>
+      <hr />
+      <related :related="JSON.parse(related_products)"></related>
+      <hr />
       <div class="w-100">
-        <comment-my></comment-my>
+        <comment-my :comments="JSON.parse(product)"></comment-my>
       </div>
       <!-- <comment-section
         :action="''"
@@ -27,7 +27,7 @@ import productDescs from "./productDescs.vue";
 import componyDetali from "./componyDetail.vue";
 import technicalDetail from "./technicalDetatil.vue";
 import related from "./related.vue";
-import CommentMy from './comments/CommentMy.vue';
+import CommentMy from "./comments/CommentMy.vue";
 export default {
   components: {
     prudctDetail,
@@ -42,10 +42,12 @@ export default {
   data() {
     return {
       currentComponent: "productDescs",
+      // comments:null
     };
   },
-  created(){
-   
+   beforeCreate(){
+    // let product = JSON.parse(this.product);
+    // this.comments = product.comments;
   },
   // metaInfo() {
   //   const product = JSON.parse(this.product);
@@ -70,24 +72,25 @@ export default {
     changeButtonColor(e) {
       const secs = document.querySelectorAll(".section");
       secs.forEach((sec) => {
-        sec.querySelector('p').style.color = "black";
-        sec.querySelector('p').style.fontWeight='100'
-        sec.style.transform="scale(1)"
+        sec.querySelector("p").style.color = "black";
+        sec.querySelector("p").style.fontWeight = "100";
+        sec.style.transform = "scale(1)";
       });
-      if(e.target.classList.contains('sectionButton')){
-        const par=e.target.parentNode
-        e.target.style.color="rgb(9, 111, 211)"
-        par.style.transform="scale(1.3)"
-      }else{
-        e.target.childNodes[0].style.color="rgb(9, 111, 211)"
-        e.target.style.transform="scale(1.3)"
+      if (e.target.classList.contains("sectionButton")) {
+        const par = e.target.parentNode;
+        e.target.style.color = "rgb(9, 111, 211)";
+        par.style.transform = "scale(1.3)";
+      } else {
+        e.target.childNodes[0].style.color = "rgb(9, 111, 211)";
+        e.target.style.transform = "scale(1.3)";
       }
+
       // e.target.style.color = "rgb(9,111,211)";
       // e.target.style.fontWeight='800'
     },
-    changeComponent(comp){
-      this.currentComponent=comp
-    }
+    changeComponent(comp) {
+      this.currentComponent = comp;
+    },
   },
 };
 </script>
@@ -156,22 +159,21 @@ export default {
     opacity: 0;
   }
 }
-#product{
-  width:90%
+#product {
+  width: 90%;
 }
-#productWrapper >>> #productComments{
+#productWrapper >>> #productComments {
   margin-top: 70px !important;
   margin-bottom: 20px;
 }
-hr{
+hr {
   height: 2px;
   background: #bfcaca;
   width: 100%;
 }
 @media (max-width: 400px) {
-  #product{
+  #product {
     width: 100%;
   }
-
 }
 </style>

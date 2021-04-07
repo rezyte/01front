@@ -2,7 +2,7 @@
   <div id="singleBlogPostItem">
     <feed-back :msgs="msg"></feed-back>
     <div class="signleBlogPostItemWrapper maxIs">
-      <h1>{{ JSON.parse(post).title }}</h1>
+      <h1 class="color font-weight-bold">{{ JSON.parse(post).title }}</h1>
       <div style="margin-top: 50px;margin-bottom: 50px">
         <img :src="JSON.parse(post).thumbnail" :alt="JSON.parse(post).image_alt">
       </div>
@@ -19,6 +19,9 @@
 h1 {
   font-weight: 800;
   text-align: right
+}
+.color{
+  color: var(--blue);
 }
 
 .comments {

@@ -57,10 +57,10 @@
           </li>
 
 				</ul>
-		
+
 		</div>
 
-		
+
 	</div>
     <!-- <transition name='toggleSubMenu' mode='out-in'> -->
     <side-menu v-if="isSubMenuOpen"></side-menu>
@@ -174,7 +174,7 @@ export default {
 }
 .sikhWrapper{
 	display:none;
-	
+
 }
 ul{
 	background:#f6f6f4;

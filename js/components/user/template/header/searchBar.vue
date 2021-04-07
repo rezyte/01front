@@ -1,10 +1,10 @@
 <template>
   <div class="searchBar">
     <div class="searchBarWrapper">
-      <form action="/search" method="get">
-        <input type="" placeholder="جست و جو ..." name="q">
+      <form ref="form" @mousedown="changeColor('active')" action="/search" method="get">
+        <input @blur="changeColor('inactive')" type="" placeholder="جست و جو ..." name="q">
         <button class='magnifier'>
-          <img src="/static/public/images/mag.png" alt="">
+          <img src="/static/public/images/mag2.webp" alt="">
         </button>
       </form>
     </div>
@@ -13,7 +13,16 @@
 
 <script>
 export default {
-  name: "searchBar"
+  name: "searchBar",
+  methods:{
+    changeColor(id){
+      if(id==='active'){
+        this.$refs.form.style.border ='2px solid #007BFF';
+      }else if (id==='inactive'){
+        this.$refs.form.style.border ='2px solid #5da0de';
+      }
+    }
+  }
 }
 </script>
 
@@ -57,8 +66,12 @@ input{
 form{
   display: flex;
   align-items: center;
-  border:2px solid rgb(9,111,211);
+  border:2px solid #5da0de;
   border-radius:28px;
-
+  transition: border 0.2s;
+}
+form:focus{
+  /*border:2px solid var(--blue);*/
+  border:2px solid red;
 }
 </style>

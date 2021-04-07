@@ -7,7 +7,7 @@
     <buttom-icons></buttom-icons>
   </div>
 </template>
- 
+
 <script>
 
 import footer from "./template/footer/footer.vue";

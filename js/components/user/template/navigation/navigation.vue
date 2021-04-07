@@ -1,15 +1,15 @@
 <template>
   <div id="navigation">
-    <div class="naviagtionWrapper maxIs">
-		<div class="hamIcon">
-			<div class="sikhWrapper" @click="toggleNavigation($event)">
-				<div @click="toggleNavigation($event)" class="sikh1 sikh"></div>
-				<div @click="toggleNavigation($event)" class="sikh2 sikh"></div>
-				<div @click="toggleNavigation($event)" class="sikh3 sikh"></div>
-			</div>
-				<ul v-if="showNavigation">
+    <div class="naviagtionWrapper">
+      <div class="hamIcon">
+        <div class="sikhWrapper" @click="toggleNavigation($event)">
+          <div @click="toggleNavigation($event)" class="sikh1 sikh"></div>
+          <div @click="toggleNavigation($event)" class="sikh2 sikh"></div>
+          <div @click="toggleNavigation($event)" class="sikh3 sikh"></div>
+        </div>
+        <ul v-if="showNavigation">
           <li v-if="user.is_logined" @click="showProf=true" class="profileList">
-            <img  id="profImg" :src="user.picture" alt="">
+            <img id="profImg" :src="user.picture" alt="">
             <div v-if="showProf" class="profile">
               <div class="profileWrapper">
                 <div class="triangle-up"></div>
@@ -20,7 +20,7 @@
 
                       <ul>
                         <li>
-                            <p v-text="user.username"></p>
+                          <p v-text="user.username"></p>
 
 
                         </li>
@@ -48,25 +48,24 @@
               </div>
             </div>
           </li>
-          <li ><a href="/users/register/">ثبت نام</a></li>
-          <li v-if="!user.is_logined"><a href="/users/entry/">ورود</a></li>
-					<li><a href="/">خانه</a></li>
-					<li><a href="/about_us/">درباره ما</a></li>
-					<li><a href="/blog/posts/">وبلاگ</a></li>
-					<li class="myMenu" @click="toggleSubMenu()">
-
-           <p> دسته بندی محصولات</p>
+          <li class="new"><a href="/users/register/">ثبت نام</a></li>
+          <li class="new" v-if="!user.is_logined"><a href="/users/entry/">ورود</a></li>
+          <li class="new"><a href="/">خانه</a></li>
+          <li class="new"><a href="/about_us/">درباره ما</a></li>
+          <li class="new"><a href="/blog/posts/">وبلاگ</a></li>
+          <li class="myMenu" @click="toggleSubMenu()">
+            <p> دسته بندی محصولات</p>
             <ul class="ulWrapper">
-              <li class="firstLi"><flat-menu></flat-menu></li>
+              <li class="firstLi">
+                <flat-menu></flat-menu>
+              </li>
             </ul>
           </li>
+        </ul>
+      </div>
 
-				</ul>
-		
-		</div>
 
-		
-	</div>
+    </div>
     <!-- <transition name='toggleSubMenu' mode='out-in'> -->
     <side-menu v-if="isSubMenuOpen"></side-menu>
     <!-- </transition> -->
@@ -76,8 +75,8 @@
 <script>
 import ham from "../hamIcon/ham.vue";
 import flatMenu from "../flatMenu/flatMenu.vue";
-import { mapGetters } from 'vuex'
-import { mapActions } from "vuex";
+import {mapGetters} from 'vuex'
+import {mapActions} from "vuex";
 import sideMenu from "../sideMenu/sideMenu.vue";
 
 export default {
@@ -86,167 +85,200 @@ export default {
     sideMenu
   },
   computed: {
-	  ...mapGetters([
-		  'isSubMenu'
-	  ]),
-	  isSubMenuOpen(){
-		  return this.isSubMenu
-	  }
+    ...mapGetters([
+      'isSubMenu'
+    ]),
+    isSubMenuOpen() {
+      return this.isSubMenu
+    }
   },
-  data(){
-	  return{
-		  showNavigation:false,
-      showProf:false,
-      user:userInfo
-	  }
+  data() {
+    return {
+      showNavigation: false,
+      showProf: false,
+      user: userInfo
+    }
   },
-  mounted(){
-	  window.addEventListener("resize",this.checkNavigation)
-    window.addEventListener("click",e=>{
-      if(!e.target.classList.contains('profileList') && e.target.id!=='profImg'){
-        this.showProf=false
+  mounted() {
+    window.addEventListener("resize", this.checkNavigation)
+    window.addEventListener("click", e => {
+      if (!e.target.classList.contains('profileList') && e.target.id !== 'profImg') {
+        this.showProf = false
       }
     })
-	  this.checkNavigation()
+    this.checkNavigation()
   },
-  methods:{
-	  checkNavigation(){
+  methods: {
+    checkNavigation() {
 
-		if(window.innerWidth>650){
-		  this.showNavigation=true
-		}else{
-			this.showNavigation=false
-		}
-		this.changeSikhStyles()
-	},
-	toggleSubMenu(){
-	    if(window.innerWidth>=799){
-	      return
+      if (window.innerWidth > 650) {
+        this.showNavigation = true
+      } else {
+        this.showNavigation = false
       }
-		this.$store.dispatch("toggleSubMenu")
-	},
-	toggleNavigation(e){
-    this.showProf=false
-		e.stopPropagation()
-	  	e.preventDefault()
-		this.showNavigation=!this.showNavigation
-		this.changeSikhStyles()
-	},
-	changeSikhStyles(){
-		const sikh1=document.querySelector(".sikh1")
-		const sikh2=document.querySelector(".sikh2")
-		const sikh3=document.querySelector(".sikh3")
-		const wrapper=document.querySelector(".sikhWrapper")
-		if(this.showNavigation){
-			sikh2.style.transform="rotate(135deg) translate(-6px, 7px)"
-			sikh1.style.transform="rotate(-135deg) translate(-4px,-4px)"
-			sikh2.style.webkitTransform ="rotate(135deg) translate(-6px, 7px)"
-			sikh1.style.webkitTransform ="rotate(-135deg)translate(-4px,-5px)"
-			sikh3.style.display="none"
-			// wrapper.style.marginTop="5px"
-		}else{
-			wrapper.style.marginTop="0"
-			sikh3.style.display="block"
-			sikh2.style.transform="rotate(0) translate(0, 0)"
-			sikh1.style.transform="rotate(0)"
-			sikh2.style.webkitTransform ="rotate(0) translate(0, 0)"
-			sikh1.style.webkitTransform ="rotate(0)"
-		}
-	}
+      this.changeSikhStyles()
+    },
+    toggleSubMenu() {
+      if (window.innerWidth >= 799) {
+        return
+      }
+      this.$store.dispatch("toggleSubMenu")
+    },
+    toggleNavigation(e) {
+      this.showProf = false
+      e.stopPropagation()
+      e.preventDefault()
+      this.showNavigation = !this.showNavigation
+      this.changeSikhStyles()
+    },
+    changeSikhStyles() {
+      const sikh1 = document.querySelector(".sikh1")
+      const sikh2 = document.querySelector(".sikh2")
+      const sikh3 = document.querySelector(".sikh3")
+      const wrapper = document.querySelector(".sikhWrapper")
+      if (this.showNavigation) {
+        sikh2.style.transform = "rotate(135deg) translate(-6px, 7px)"
+        sikh1.style.transform = "rotate(-135deg) translate(-4px,-4px)"
+        sikh2.style.webkitTransform = "rotate(135deg) translate(-6px, 7px)"
+        sikh1.style.webkitTransform = "rotate(-135deg)translate(-4px,-5px)"
+        sikh3.style.display = "none"
+        // wrapper.style.marginTop="5px"
+      } else {
+        wrapper.style.marginTop = "0"
+        sikh3.style.display = "block"
+        sikh2.style.transform = "rotate(0) translate(0, 0)"
+        sikh1.style.transform = "rotate(0)"
+        sikh2.style.webkitTransform = "rotate(0) translate(0, 0)"
+        sikh1.style.webkitTransform = "rotate(0)"
+      }
+    }
   }
 };
 </script>
 <style scoped>
-.hamIcon{
+.hamIcon {
   display: flex;
 }
-#navigation{
-  border-bottom:1px solid #d9d9d8;
-  border-top:1px solid #d9d9d8;
+
+#navigation {
+  border-bottom: 1px solid #d9d9d8;
+  border-top: 1px solid #d9d9d8;
   display: flex;
   justify-content: center;
 }
-.naviagtionWrapper{
-  width: 95%;
+
+.naviagtionWrapper {
+  width: 100%;
 }
-.hamIcon{
-	position: relative;
-	height:50px;
+
+.hamIcon {
+  position: relative;
+  height: 50px;
 
 }
-.sikhWrapper{
-	display:none;
-	
+
+.sikhWrapper {
+  display: none;
+
 }
-ul{
-	background:#f6f6f4;
-	display:flex;
-	justify-content: flex-end;
+
+ul {
+  background: #f6f6f4;
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
-	width:100%;
+  width: 100%;
   position: relative;
 }
-li{
+
+li {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
-li:last-child{
+
+li:last-child {
   margin-right: 0;
 }
-.sikh1{
-	width:40px;
-	height:4px;
-	border-radius:5px;
-	position:relative;
-	transition:all 0.4s
+
+.sikh1 {
+  width: 40px;
+  height: 4px;
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.4s
 }
-.sikh2{
-	width:40px;
-	height:4px;
-	border-radius:5px;
-	transition:all 0.4s
+
+.sikh2 {
+  width: 40px;
+  height: 4px;
+  border-radius: 5px;
+  transition: all 0.4s
 }
-.sikh3{
-	width:40px;
-	height:4px;
-	border-radius:5px;
-	position:relative;
+
+.sikh3 {
+  width: 40px;
+  height: 4px;
+  border-radius: 5px;
+  position: relative;
 }
-.sikh{
-	background:#096fd3;
+.new{
+  /*background-color: chocolate;*/
+  text-align: center;
+  width: 80px;
+  height: 50px;
+  transition: background-color 0.2s;
+  /*background-color: #A2AFD0;*/
 }
-.profileList{
+.new:hover{
+  background-color: rgb(9, 111, 211);
+  cursor: pointer;
+}
+.new:hover a{
+  color: white;
+  text-decoration: none;
+}
+.sikh {
+  background: #096fd3;
+}
+
+.profileList {
   position: absolute;
   left: 100px;
   cursor: pointer;
 }
-.titleWrapper{
+
+.titleWrapper {
   display: flex;
   justify-content: center;
   position: relative;
   align-content: center;
 
 }
-.titleWrapper ul{
+
+.titleWrapper ul {
   position: absolute;
   background: white !important;
   padding: 1rem;
-  box-shadow:  0 0px 0px rgba(0,0,0,.45), 0 0px 1px 1px rgba(0,0,0,.45);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, .45), 0 0px 1px 1px rgba(0, 0, 0, .45);
   width: 250px !important;
   flex-direction: column;
   border-radius: 10px;
 }
-.titleWrapper ul *{
+
+.titleWrapper ul * {
   font-size: 14px;
 }
-.titleWrapper li{
+
+.titleWrapper li {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   margin-top: 10px;
   line-height: 2rem;
 }
-.titleWrapper li a{
+
+.titleWrapper li a {
   width: max-content;
   display: flex;
   justify-content: flex-end;
@@ -254,30 +286,34 @@ li:last-child{
   font-weight: bold;
   line-height: 2rem;
 }
-.profileList img{
+
+.profileList img {
   width: 40px;
   height: 40px;
   margin-right: 5px;
   border-radius: 50%;
 }
 
-.profile{
+.profile {
   position: absolute;
   top: 64px;
   z-index: 55;
   left: 124px;
   transform: translateX(-50%);
 }
-.profileList a{
+
+.profileList a {
   color: #0972ce;
 }
-hr{
+
+hr {
   height: 1px;
   width: 100%;
   margin: 0;
   border: 0;
   background: #d9d8d8;
 }
+
 .triangle-up {
   content: "";
   position: absolute;
@@ -290,21 +326,23 @@ hr{
   -ms-transform: rotate(45deg) translateX(-50%);
   transform: rotate(45deg) translateX(-50%);
   z-index: -1;
-  box-shadow: -1px -1px 1px -1px rgba(0,0,0,.54);
+  box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, .54);
 }
 
 
-.myMenu{
+.myMenu {
   position: relative;
   cursor: pointer;
+  width: 217px;
+  transition: background-color 0.2s;
 }
-.myMenu ul{
-   display: none;
+
+.myMenu ul {
+  display: none;
   position: absolute;
-  top: 70px;
   z-index: 13;
   background: white;
-  box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
   width: max-content;
   padding-top: 20px;
   top: 51px;
@@ -313,88 +351,112 @@ hr{
   padding-left: 0;
   padding-right: 0;
 }
+
 @media (min-width: 800px) {
-  .myMenu:hover ul{
+  .myMenu:hover ul {
     display: block;
     width: 250px;
   }
-  .myMenu:hover{
-    background: white;
+
+  .myMenu:hover {
+    background-color: rgb(9, 111, 211);
+  }
+
+  .myMenu:hover p {
+    color: white;
   }
 }
-.myMenu ul li{
-width: 220px;
+
+.myMenu ul li {
+  width: 220px;
   text-align: right;
   display: flex;
   justify-content: flex-end;
   padding-left: 0;
+
 }
-.myMenu li{
+
+.myMenu li {
   margin: 0;
 }
-li,.myMenu{
+
+li, .myMenu {
   padding: 14px;
 }
-.firstLi{
+
+.firstLi {
   padding-right: 0;
 }
-.ulWrapper{
+
+.ulWrapper {
   padding-right: 0;
 }
-@media (max-width:650px){
-  .naviagtionWrapper{
+
+@media (max-width: 650px) {
+  .naviagtionWrapper {
     width: 100%;
   }
-  .hamIcon{
-    display:flex;
-    flex-direction:column;
-    align-items:center	;
-    position:relative;
+
+  .hamIcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
     justify-content: center;
   }
-  ul{
-    position:absolute;
-    top:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    background:#251f1f;
-    z-index:6;
+
+  ul {
+    position: absolute;
+    top: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #251f1f;
+    z-index: 6;
   }
-  li,li p{
-    color:white;
+
+  li, li p {
+    color: white;
   }
-  a{
-    color:white;
+
+  a {
+    color: white;
   }
-  .sikhWrapper{
+
+  .sikhWrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height:40px;
+    height: 40px;
   }
-  .profileList{
+
+  .profileList {
     position: static;
   }
-  .profile{
+
+  .profile {
     top: 60px;
     left: 50%;
     transform: translateX(-50%);
   }
-  .triangle-up{
+
+  .triangle-up {
     left: -4px;
 
   }
-  li,p,.myMenu{
+
+  li, p, .myMenu {
     margin: 0;
-    padding:10px;
+    padding: 10px;
   }
 }
-.titleWrapper li{
-    padding: 0;
+
+.titleWrapper li {
+  padding: 0;
 }
+
 @media (max-width: 800px) {
-  #navigation{
+  #navigation {
     display: none;
   }
 }

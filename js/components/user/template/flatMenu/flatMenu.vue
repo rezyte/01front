@@ -1,24 +1,24 @@
 <template>
-  <div id="flatMenu" >
+  <div id="flatMenu">
     <div id="flatMenuWrapper">
       <ul ref="ul">
         <li class="parentLi" v-for="(item, i) in getCats" :key="i">
-          <div class="link" >
+          <div class="link">
             <svg viewBox="0 0 100 100">
               <path
-                d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z"
-                class="arrow"
-                transform="rotate(180deg)"
+                  d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z"
+                  class="arrow"
+                  transform="rotate(180deg)"
               ></path>
             </svg>
-            <p>{{ item.title }}</p>
+            <h4>{{ item.title }}</h4>
           </div>
 
           <div class="subMenu">
             <ul class="subMenuWrapper">
-              
+
               <li v-for="(sub, ind) in item.subs" :key="ind">
-                <a class="prog" :href="getHref(sub.slug)">{{ sub.title }}</a>
+                <h3><a class="prog" :href="getHref(sub.slug)">{{ sub.title }}</a></h3>
               </li>
             </ul>
           </div>
@@ -29,77 +29,93 @@
 </template>
 
 <style scoped>
-#flatMenu{
+#flatMenu {
   width: 100%;
   min-height: 100vh;
 }
-#flatMenuWrapper ul{
+
+#flatMenuWrapper ul {
   padding-right: 10px;
 }
-li{
+
+li {
   cursor: pointer;
   margin: 0;
   width: 100%;
 }
-.parentLi{
-    padding: 10px 0px 10px 0px;
+
+.parentLi {
+  padding: 10px 0px 10px 0px;
 }
-.subMenu{
+
+.subMenu {
   position: absolute;
-min-height: 100vh;
+  min-height: 100vh;
   right: 250px;
-  top:-9px;
+  top: -9px;
   background: white;
   display: none;
-  box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
-  padding:10px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  padding: 10px;
   flex-direction: column;
   flex-wrap: wrap;
-  top:0
+  top: 0
 
 }
-ul{
+
+ul {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-ul.subMenu li{
+
+ul.subMenu li {
   width: max-content;
-            }
-.parentLi:hover .subMenu{
+}
+
+.parentLi:hover .subMenu {
   display: block;
 }
-li{
+
+li {
   text-align: right;
 }
-.parentLi:hover svg{
+
+.parentLi:hover svg {
   fill: #0872cd;
   transition: all 0.3s;
   transform: translateX(-5px);
 }
-svg{
+
+svg {
   width: 15px;
   margin-left: 10px;
 }
-.link{
+
+.link {
   display: flex;
   justify-content: space-between;
 }
-a{
-  color:#0872cd
+
+a {
+  color: #0872cd
 }
-.subMenuWrapper li{
+
+.subMenuWrapper li {
   width: 220px;
   margin: 10px;
 }
-#flatMenu:hover,.subMenu:hover{
+
+#flatMenu:hover, .subMenu:hover {
   cursor: default;
 }
-.subMenuWrapper li:hover a{
+
+.subMenuWrapper li:hover a {
   color: #284c6b;
 }
-.subMenuWrapper{
+
+.subMenuWrapper {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -108,17 +124,19 @@ a{
   justify-content: flex-end;
 
 }
-.parentLi:hover{
+
+.parentLi:hover {
   /*border-top: 1px solid rgba(0,0,0,0.2);*/
   /*border-bottom: 1px solid rgba(0,0,0,0.2);*/
-  box-shadow:0px 1px 1px -1px rgb(0,0,0), 0px -1px 1px -1px black;
+  box-shadow: 0px 1px 1px -1px rgb(0, 0, 0), 0px -1px 1px -1px black;
 }
 </style>
 
 <script>
-import { mapActions } from "vuex";
-import { mapGetters } from "vuex";
+import {mapActions} from "vuex";
+import {mapGetters} from "vuex";
 import axios from "axios";
+
 export default {
   methods: {
     getHref(title) {
@@ -137,12 +155,12 @@ export default {
     },
   },
   mounted() {
-    const subs=document.querySelectorAll('.subMenu')
-    console.log('subs',subs)
-    const ul=this.$refs.ul
-    const top=ul.getClientRects().top
-    subs.forEach(s=>{
-      s.style.top=top
+    const subs = document.querySelectorAll('.subMenu')
+    console.log('subs', subs)
+    const ul = this.$refs.ul
+    const top = ul.getClientRects().top
+    subs.forEach(s => {
+      s.style.top = top
     })
   }
 };

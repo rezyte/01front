@@ -108,7 +108,7 @@
                   :disabled="this.btnStatus"
                   :class="[
                     btnStatus ? 'disabled' : null,
-                    'form-control w-50 m-auto btn-primary',
+                    'form-control w-50 m-auto btn-re',
                   ]"
                   type="submit"
                   value="ثبت"
@@ -326,5 +326,8 @@ export default {
   pointer-events: none;
   opacity: 0.94;
   padding-right: 10px;
+}
+.btn-re{
+  background-color: rgb(9,111,211);
 }
 </style>

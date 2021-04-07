@@ -1,6 +1,6 @@
 <template>
     <div id="related" v-if="getRelated.length>0">
-      <p class="titler">محصولات مشابه</p>
+      <h2 class="font-weight-bold text-right">محصولات مشابه</h2>
         <div id="relatedWrapper">
             <div
                 class="singleRelated"

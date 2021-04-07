@@ -12,3 +12,4 @@ const landing=new vue({
     }
 })
 import "./css/landing/shared.css";
+ 

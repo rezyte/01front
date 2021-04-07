@@ -1,6 +1,6 @@
 <template>
-  <div id="products" class='shouldCollapse maxIs'>
-    <h1>{{getH1()}}</h1>
+  <div id="products" class='shouldCollapse'>
+    <h1 class="color">{{getH1()}}</h1>
     <div class="seoPost first" v-if="JSON.parse(products).length>0 && JSON.parse(this.products)[0].category[0].upper_content!=''">
       <div class="seoPostContent longText"  v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].upper_content : ''"></div>
 <!--      <div class="showMore">-->
@@ -31,9 +31,14 @@
               </p>
             </div>
           </div>
-          <div class="contactUs">
-            <button class="stelam" @click.prevent='showConsulate($event)'>مشاوره و استعلام قیمت</button>
+          <div id="showProduct">
+            <a :href="gethref(p.slug)">
+              <button class="showProduct">مشاهده محصول</button>
+            </a>
           </div>
+<!--          <div class="contactUs">-->
+<!--            <button class="stelam" @click.prevent='showConsulate($event)'>مشاهده محصول</button>-->
+<!--          </div>-->
           <consulate :productId="p.slug"></consulate>
         </div>
       </div>
@@ -129,21 +134,9 @@ img {
 .title a{
   height: 100px;
 }
-
-.contactUs {
-  display: flex;
-  justify-content: center;
-  margin-top: 5px;
-  margin: auto;
-}
-
 #pagination {
   margin-top: 50px;
 }
-
-
-
-
 .seoPost {
   margin-top: 100px;
   width: 100%;
@@ -219,11 +212,34 @@ h1{
   font-size: 17px;
   font-weight: bold;
 }
-.stelam{
+.contactUs {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  margin: auto;
+  /*background-color: cadetblue;*/
+}
+.showProduct{
+  width: 150px;
+  height: 45px;
   font-size: 15px;
   font-weight: bold;
+  border-radius: 20px;
+  border: #5da0de 2px solid;
+  background-color: #92b4dd;
+  transition: all 0.2s;
 }
-
+.showProduct:hover{
+  border: #0969D3 2px solid;
+  background-color: var(--blue);
+  color: white;
+}
+#showProduct{
+  width: auto;
+  position: relative;
+  bottom: 40px;
+  right: 19%;
+}
 .first{
   margin-top:20px;
   max-height: max-content;
@@ -242,6 +258,9 @@ h1{
   color: #707070;
   padding-top: 18px;
   height: 36px;
+}
+.color{
+  color: var(--blue);
 }
 </style>
 

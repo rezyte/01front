@@ -4,7 +4,7 @@
             <div id="allCats">
                 <ul>
                     <template v-for="(c,i) in getAllcats">
-                        <li v-if="i<11"  class="parentLi"><arrow></arrow>  <p>{{c.title}} </p>
+                        <li v-if="i<11"  class="parentLi"><arrow></arrow>  <p>4{{c.title}} </p>
                             <div class="sideSliderSubmenu">
                                 <div class="subTitleWrapper">
                                     <div class="SubTitle"><p>{{c.title}}</p></div>
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                         </li> -->
-                    
+
                 </ul>
             </div>
         </div>
@@ -86,19 +86,19 @@
         components:{
             ham,
             arrow,
-            
+
         },
         data(){
             return {
                 catsList:null,
                 num:null
-            }  
+            }
         },
         props:['mainCats'],
         mounted(){
             this.catsList=this.mainCats
             window.addEventListener("resie",this.findNum)
-            
+
             this.findNum()
         },
         methods:{
@@ -120,14 +120,14 @@
             },
             sliceCats(){
                 this.catsList=this.catsList.slice(0,this.num)
-            }  
-            
+            }
+
         },
         computed:{
             getAllcats(){
-                return this.catsList  
+                return this.catsList
             },
-               
+
         }
     }
 </script>
@@ -147,7 +147,7 @@
         }
         to{
             opacity:1;
-        } 
+        }
     }
     ul li:hover{
         border-top:1px solid rgb(129, 129, 129);
@@ -183,7 +183,7 @@
     }
     .arrow{
         width:20px;
-        height:20px;   
+        height:20px;
     }
     #sideSlidesCatsWrapper{
         width:100%;

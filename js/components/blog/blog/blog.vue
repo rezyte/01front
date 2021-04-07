@@ -5,7 +5,7 @@
         <div v-for="(p,i) in JSON.parse(posts)" :key="i">
           <a :href="getSlugn(p)">
               <single-post
-              
+
               :title="p.title"
               :descs="p.short_description"
               :author="p.author"

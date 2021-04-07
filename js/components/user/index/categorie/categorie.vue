@@ -4,12 +4,12 @@
             <div id="allCats">
                 <ul>
                     <template v-for="(c,i) in getAllcats">
-                        <li v-if="i<11"  class="parentLi"><arrow></arrow>  <p>{{c.title}} </p>
+                        <li v-if="i<11"  class="parentLi"><arrow></arrow><h4>{{c.title}} </h4>
                             <div class="sideSliderSubmenu">
                                 <div class="subTitleWrapper">
-                                    <div class="SubTitle"><p>{{c.title}}</p></div>
+                                    <div class="SubTitle"><h4>{{c.title}}</h4></div>
                                     <ul>
-                                        <li v-if="subI<=5" v-for="(sub,subI) in c.subs" :key="subI"><a :href="getUrl(sub.slug)">{{sub.title}}</a></li>
+                                        <li v-if="subI<=5" v-for="(sub,subI) in c.subs" :key="subI"><h3><a :href="getUrl(sub.slug)">{{sub.title}}</a></h3></li>
                                     </ul>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                         </li> -->
-                    
+
                 </ul>
             </div>
         </div>
@@ -86,20 +86,20 @@
         components:{
             ham,
             arrow,
-            
+
         },
         data(){
             return {
                 catsList:null,
                 num:null
-            }  
+            }
         },
         props:['mainCats'],
         mounted(){
           console.log("mainCats",this.mainCats)
             this.catsList=this.mainCats
             window.addEventListener("resize",this.findNum)
-            
+
             this.findNum()
         },
         methods:{
@@ -121,14 +121,14 @@
             },
             sliceCats(){
                 this.catsList=this.catsList.slice(0,this.num)
-            }  
-            
+            }
+
         },
         computed:{
             getAllcats(){
-                return this.catsList  
+                return this.catsList
             },
-               
+
         }
     }
 </script>
@@ -148,7 +148,7 @@
         }
         to{
             opacity:1;
-        } 
+        }
     }
     ul li:hover{
         border-top:1px solid rgb(129, 129, 129);
@@ -184,7 +184,7 @@
     }
     .arrow{
         width:20px;
-        height:20px;   
+        height:20px;
     }
     #sideSlidesCatsWrapper{
         width:100%;

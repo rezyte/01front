@@ -1,8 +1,6 @@
 <template>
     <div id="products" class='shouldCollapse maxIs'>
         <div id="productsWrapper">
-
-
             <div class="singleProduct" v-for='p in JSON.parse(this.products)' :key='p.slug'>
                 <div class="img">
                     <!-- <img src="/images/1.jpg" alt=""> -->

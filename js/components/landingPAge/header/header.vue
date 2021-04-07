@@ -16,10 +16,12 @@ name: "headers"
 #header{
     width: 100%;
     margin:10px;
+    /* background-color: ; */
 }
 #headerWrapper{
     max-width: 300px;
-    width: 100%;
+    /* width: 100%; */
+    margin: auto;
 }
 img{
     width: 100%;

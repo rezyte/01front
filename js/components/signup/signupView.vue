@@ -3,10 +3,10 @@
     <div id="signupViewWrapper" class="signViewWrapper">
       <div class="logo">
         <img src="/static/public/images/logo.png" alt="تصویر ناقص است">
-      </div>
-      <div class="title">
+      </div> 
+      <div class="title"> 
         <h1>ورود</h1>
-      </div>
+      </div> 
       <div class="outerForm">
         <form action="" method="post">
           <input type="hidden" name="csrfmiddlewaretoken" :value="csrf">

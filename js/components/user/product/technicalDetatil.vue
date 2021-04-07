@@ -1,6 +1,7 @@
 <template>
   <div id="technicalDetail">
-    <p class="title">مشخصات فنی محصول</p>
+<!--    <p class="title">مشخصات فنی محصول</p>-->
+    <h2 class="font-weight-bold">مشخصات فنی محصول</h2>
     <table>
       <tbody>
         <tr v-for="p in product.detail">

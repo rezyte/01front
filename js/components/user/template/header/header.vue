@@ -2,11 +2,11 @@
 	<div id="header" >
 		<div id="headerWrapper" class="maxIs">
 			<div class="logo">
-        <a href="/"><img src="/static/public/images/logo.png" alt=""></a>
+        <a href="/"><img src="/static/public/images/logo2.webp" alt=""></a>
 			</div>
       <search-bar></search-bar>
 			<div class="phone">
-				<p>تلفن :</p>
+				<h4>تلفن:</h4>
         <p>021-77569156</p>
         <p>021-77542719</p>
 			</div>
@@ -33,11 +33,6 @@
 		justify-content: space-between;
 		align-items: center;
 	}
-
-
-
-
-
 	input{
 
 		border: 0;
