@@ -5,29 +5,20 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">نام</th>
-          <th scope="col"><span>نام خانوادگی</span></th>
           <th scope="col">نام شرکت</th>
           <th scope="col">شماره تماس</th>
           <th scope="col" class="comme-d">توضیحات</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
+        <tr v-if="info">
+          <th scope="row"></th>
+          <td v-text="info[0].name"></td>
+          <td class="name_company"> رادیس </td>
+          <td v-text="info[0].phone_number"></td>
           <td>
             <div class="comments d-none d-sm-block" ref="comments" @mouseout="showCommentsLess()" @mouseover="showCommentsMore()">
-              <p id="content_momments" ref="content_momments">
-                2 به دوستان و آشنایان خود روابط عاطفی خود را با او بهبود ببخشید
-                و به دوستان و آشنایان خود روابط عاطفی خود را با او بهبود ببخشید
-                و حال خوبی به او هدیه دهید شاید هم این پیام شما الهام بخش زندگی
-                عزیزانتان باشد و دیدگاه آنها را به کل در مورد زندگی تغییر
-                دهد.حال خوبی به او هدیه دهید شاید هم این پیام شما الهام بخش
-                زندگی عزیزانتان باشد و دیدگاه آنها را به کل در مورد زندگی تغییر
-                دهد.
+              <p id="content_momments" ref="content_momments" v-text="info[0].extra_discription">
               </p>
             </div>
           </td>
@@ -40,6 +31,7 @@
 <script>
 export default {
   name: "Suppliers",
+  props:["info"],
   methods: {
     showCommentsMore() {
       // let content=this.$refs.content_momments
@@ -52,6 +44,11 @@ export default {
       com.classList.remove("comments2")
     }
   },
+  created() {
+    // let me=JSON.stringify(this.info);
+    // console.log(JSON.parse(this.info))
+    // console.log(JSON.stringify(this.info))
+  }
 };
 </script>
 
@@ -63,7 +60,7 @@ export default {
 }
 #suppliers table {
   width: 98%;
-  margin-top: 4%;
+  margin-top: 5%;
   /* margin-right: 2%; */
   padding: 5px;
   border: none;
@@ -89,6 +86,11 @@ export default {
   border-radius: 5px;
   padding: 10px;
   overflow: hidden;
+}
+.name_company{
+  filter: blur(3.5px);
+  /*filter: blur(8px);*/
+  /*-webkit-filter: blur(8px);*/
 }
 @media screen and (max-width:576px) {
   .comme-d{

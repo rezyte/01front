@@ -9,7 +9,10 @@
               <p>تماس با ما</p>
             </div>
             <div class="singlePhone">
-              <p><a href="https://api.whatsapp.com/send?phone=989124242066">09124242066</a></p>
+              <p>
+                09107545479
+<!--                <a href="https://api.whatsapp.com/send?phone=989124242066"></a>-->
+              </p>
               <p>واتس اپ</p>
 
             </div>

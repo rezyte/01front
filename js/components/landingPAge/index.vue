@@ -10,7 +10,7 @@
               <videos />
             </div>
             <div class="table">
-              <suppliers />
+              <suppliers :info="JSON.parse(objects).orders" />
             </div>
           </div>
         </div>
@@ -58,7 +58,11 @@ export default {
     CustomersList,
     Suppliers,
   },
-  props: ["errors"],
+  props: ["errors","objects"],
+  mounted() {
+    // let object = JSON.parse(document.getElementsByTagName('body')[0].getAttribute('data') || '{}');
+    // console.log(this.objects);
+  }
 };
 </script>
 

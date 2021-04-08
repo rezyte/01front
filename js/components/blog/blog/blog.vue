@@ -1,5 +1,6 @@
 <template>
   <div id="blog">
+    1111111
     <div id="blogWrapper">
       <div class="blogPostWrapper">
         <div v-for="(p,i) in JSON.parse(posts)" :key="i">
@@ -53,8 +54,9 @@ export default {
     singlePost,
     pagination
   },
-  props:['posts','pagination',],
+  props:['posts','pagination','me'],
   mounted(){
+    // console.log(this.me)
     const href=window.location.href.split("/")
     console.log()
     this.page=+href[href.length-1]

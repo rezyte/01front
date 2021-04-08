@@ -10,8 +10,11 @@
 <body>
 
 <div id="app">
-    <landing-page errors="{{request.session.message}}"></landing-page>
+    <landing-page errors="{{ request.session.message }}" objects="{{  objects }}">
+
+    </landing-page>
 </div>
+
 <script type="application/javascript"  src='/static/public/landingPage.js'></script>
 </body>
 </html>
