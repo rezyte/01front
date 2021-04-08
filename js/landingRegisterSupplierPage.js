@@ -10,8 +10,8 @@ new Vue({
     el:'#app',
     store,
     components:{
-        Company,
-        Register,
-        Product
+        company:Company,
+        register:Register,
+        product:Product
     }
 })

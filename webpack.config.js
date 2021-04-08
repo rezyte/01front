@@ -6,7 +6,8 @@ module.exports = {
     "userPanelApp":"./js/userPanelApp.js",
     "signupApp":"./js/signup.js",
     "landingPage":"./js/landingPageApp.js",
-    'factoreApp':"./js/components/factores/factoreApp.js"
+    "landingRegisterSupplier":"./js/landingRegisterSupplierPage.js",
+    'factoreApp':"./js/components/factores/factoreApp.js",
   },
   output:{
       path:path.resolve(__dirname,"public"),

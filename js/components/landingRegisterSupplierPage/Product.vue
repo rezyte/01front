@@ -7,7 +7,7 @@
           <div class="d-flex flex-row justify-content-between flex-wrap">
             <div class="form-group h-100">
               <label for="picture">عکس محصول</label>
-              <img src="@/assets/icons/star-16.jpg" class="mr-2 mb-1" alt="تصویر ناقص است">
+              <img src="/static/public/images/star-16.jpg" class="mr-2 mb-1" alt="تصویر ناقص است">
 <!--              <div class="required">*</div>-->
               <div class="m-1 mb-3">
                 <small class="text-primary">می توانید هرتعداد عکسی که از محصول میخواهید آپلود کنید</small>
@@ -67,7 +67,7 @@
             </div>
             <div class="form-group mt-5">
               <label>قیمت</label>
-              <img src="@/assets/icons/star-16.jpg" class="mr-2 mb-1"/>
+              <img src="/static/public/images/star-16.jpg" class="mr-2 mb-1"/>
               <input
                   type="text"
                   :class="[
