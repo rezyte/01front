@@ -14,8 +14,8 @@
         <tr v-if="info">
           <th scope="row"></th>
           <td v-text="info[0].name"></td>
-          <td class="name_company"> رادیس </td>
-          <td v-text="info[0].phone_number"></td>
+          <td class="blur"> ثبت نام کنید </td>
+          <td class="">xxx54619xxx</td>
           <td>
             <div class="comments d-none d-sm-block" ref="comments" @mouseout="showCommentsLess()" @mouseover="showCommentsMore()">
               <p id="content_momments" ref="content_momments" v-text="info[0].extra_discription">
@@ -87,8 +87,8 @@ export default {
   padding: 10px;
   overflow: hidden;
 }
-.name_company{
-  filter: blur(3.5px);
+.blur{
+  filter: blur(0.5px);
   /*filter: blur(8px);*/
   /*-webkit-filter: blur(8px);*/
 }

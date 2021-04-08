@@ -20,6 +20,13 @@ export default{
         if(payload==='phoneNumber'){
             state.messages_response.exist_user.phoneNumber=null;
         }
+    },
+    EXIST_USER(state,payload){
+        console.log('username')
+        state.messages_response.exist_user.username=payload
+    },
+    EXIST_USER_PHONE(state,payload){
+        state.messages_response.exist_user.phoneNumber=payload
     }
-    
+
 }

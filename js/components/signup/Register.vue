@@ -22,11 +22,11 @@
                   ref="username"
                   type="text"
                   maxlength="20"
-                  minlength="4"
+                  minlength="3"
                   placeholder="نام کاربری خود را وارد کنید"
-                  @blur="check_user_exist('username')"
-                  @input="changest('username')"
+                  @input="changest('username'),check_user_exist('username')"
                   :class="[
+                    messages_response.exist_user.username ?['is-invalid', validated.username=false] : null,
                     notValidated.username ? 'is-invalid' : null,
                     validated.username ? 'is-valid' : null,
                     'form-control',
@@ -43,13 +43,13 @@
                 <input
                   type="text"
                   id="phoneNumber"
-                  @blur="check_user_exist('phoneNumber')"
                   maxlength="11"
                   name="phoneNumber"
                   ref="phoneNumber"
                   placeholder="09xxxxxxxxx"
-                  @input="changest('phoneNumber')"
+                  @input="changest('phoneNumber'),check_user_exist('phoneNumber')"
                   :class="[
+                    messages_response.exist_user.phoneNumber ? ['is-invalid', validated.phoneNumber=false] : null,
                     notValidated.phoneNumber ? 'is-invalid' : null,
                     validated.phoneNumber ? 'is-valid' : null,
                     'form-control',
@@ -159,6 +159,9 @@ export default {
     },
     messages_response(){
       return this.$store.getters.messages_response
+    },
+    exist_user(){
+      return this.$store.state.exist_user;
     }
   },
   methods: {
@@ -256,10 +259,12 @@ export default {
       }
     },
     check_user_exist(id) {
+      // let form=new FormData;
       if (id === "username") {
         if (this.validated.username) {
           let username = this.$refs.username.value;
-          this.$store.dispatch("check_user_exist", username);
+          // form.append('username',username)
+          this.$store.dispatch("check_user_exist",username);
         }
       } else {
         if (this.validated.phoneNumber) {
@@ -308,7 +313,6 @@ export default {
 .is-invalid {
   border: 1px solid #e3356f;
 }
-
 .is-valid {
   border: 1px solid #34ce57 !important;
 }

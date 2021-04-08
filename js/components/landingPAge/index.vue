@@ -43,6 +43,7 @@ import copy from "./copy/copy.vue";
 import Diagram from "./diagram/Diagram.vue";
 import CustomersList from "./list_customers/Customers.vue";
 import Suppliers from "./suppliers/Suppliers.vue";
+import Register from "../signup/Register.vue";
 export default {
   name: "index.vue",
   components: {
@@ -57,6 +58,7 @@ export default {
     Diagram,
     CustomersList,
     Suppliers,
+    Register
   },
   props: ["errors","objects"],
   mounted() {

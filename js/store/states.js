@@ -3,7 +3,7 @@
 export default{
     regularExpression: {
         regName: /^[ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو]{3,15}$/,
-        regUsername: /^[a-zA_Zضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو0-9]{4,20}$/gi,
+        regUsername: /^[a-zA_Zضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو0-9]{3,20}$/gi,
         regPassword: /^[a-zA-Z0-9ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو ]{4,20}$/g,
         reg_phoneNumber: /^09+[0-9]{9}$/gi,
     },
@@ -47,5 +47,9 @@ export default{
             phoneNumber: null
         }
     },
-    objects:''
+    objects:'',
+    exist_user:{
+        username:'',
+        phone_number:''
+    }
 }

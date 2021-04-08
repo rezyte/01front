@@ -1,4 +1,4 @@
-
+import axios from "axios";
 export default{
     record_comment({commit},payload){
         commit('RECORD_COMMENTS',payload);
@@ -9,11 +9,19 @@ export default{
         commit('RECORD_REPLAY_COMMENT',mount);
     },
     check_user_exist({commit},payload){
-        axios.post('/users/checkExist',payload)
+        axios.get('/check-user-exists/?username='+payload)
         .then(response =>{
-            commit("CHECK_USER_EXIST",JSON.parse(response.data));
+           console.log("ttt")
+
+            // commit("CHECK_USER_EXIST",JSON.parse(response.data));
         }).catch(error=>{
             console.log(error.response);
+            if (error.response.data.is_taken_username === true){
+                commit('EXIST_USER',error.response.data.error_msg);
+            }
+            if (error.response.data.is_taken_phoneNumber === true){
+                commit('EXIST_USER_PHONE',error.response.data.error_msg);
+            }
         })
     }
 
