@@ -14,6 +14,8 @@
                 inValidated.name ? 'is-invalid' : null,
                 validated.name ? 'is-valid' : null,
                 'form-control']"
+                     :pattern="$store.state.regularExpression.regName"
+                     title="نام درست وارد نشده است"
               >
             </div>
             <div class="form-group h-100">
@@ -214,11 +216,11 @@ export default {
         video: "",
       },
       validated: {
-        name:false,
+        name: false,
         cost: false
       },
       inValidated: {
-        name:false,
+        name: false,
         cost: false
       }
     };
@@ -293,7 +295,7 @@ export default {
           if (res) {
             this.validated.name = true;
             this.inValidated.name = false;
-          }else{
+          } else {
             this.validated.name = false;
             this.inValidated.name = true;
           }
