@@ -161,6 +161,8 @@ export default {
 <style scoped>
 form {
   padding: 20px;
+  direction: rtl;
+  text-align: right;
 }
 
 .--blue {

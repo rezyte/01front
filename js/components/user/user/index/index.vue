@@ -2,6 +2,7 @@
   <div id="index" class="mainItemPerPage">
     <div id="topOfIndex" class="shouldCollapse maxIs">
       <div id="topOfIndexWrapper">
+
         <slider></slider>
         <categorie :mainCats="JSON.parse(main_categories)"></categorie>
         <!-- <categorie></categorie> -->
@@ -13,11 +14,11 @@
     <div style="width: 100%;overflow:hidden;">
       <comments :comments="comments"></comments>
     </div>
-	
 
 
 
-    <!-- <expanding-card></expanding-card> 
+
+    <!-- <expanding-card></expanding-card>
 
     <extra-sign-up></extra-sign-up>  -->
      <div class="allCards shouldCollapse maxIs" v-for="label in JSON.parse(this.labeles)" :key="label.id">
@@ -33,7 +34,7 @@
       <digi-card
         :imgs='JSON.stringify(["/images/shrink.png","/images/shrink2.png","/images/digi1.jpg","/images/digi2.jpg"])'
       ></digi-card>
-      
+
     </div> -->
 
 <!--    <div class="allCards shouldCollapse maxIs">-->

@@ -10,7 +10,7 @@
                     <div class="productImgAndOther">
                         <div class="productImg">
                             <div id="actualImage">
-                                <div   class="swiper-container">
+                                <div class="swiper-container">
                                     <div   class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <img :title="getAlt(productDet.image_alt)" :alt="getAlt(productDet.image_alt)" class="ShouldZoomImage" :src="productDet.product_image">

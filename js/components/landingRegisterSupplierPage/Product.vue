@@ -5,10 +5,21 @@
         <legend>ثبت محصول</legend>
         <div class="m-3">
           <div class="d-flex flex-row justify-content-between flex-wrap">
+            <div class="form-group">
+              <label for="name">نام محصول</label>
+              <img src="/static/public/images/star-16.jpg" class="mr-2 mb-1" alt="تصویر ناقص است">
+              <input type="text" name="name" id="name" ref="name" placeholder="نام محصول خود را وراد کنید"
+                     @input="validate" required
+                     :class="[
+                inValidated.name ? 'is-invalid' : null,
+                validated.name ? 'is-valid' : null,
+                'form-control']"
+              >
+            </div>
             <div class="form-group h-100">
               <label for="picture">عکس محصول</label>
               <img src="/static/public/images/star-16.jpg" class="mr-2 mb-1" alt="تصویر ناقص است">
-<!--              <div class="required">*</div>-->
+              <!--              <div class="required">*</div>-->
               <div class="m-1 mb-3">
                 <small class="text-primary">می توانید هرتعداد عکسی که از محصول میخواهید آپلود کنید</small>
               </div>
@@ -203,9 +214,11 @@ export default {
         video: "",
       },
       validated: {
+        name:false,
         cost: false
       },
       inValidated: {
+        name:false,
         cost: false
       }
     };
@@ -275,26 +288,37 @@ export default {
         if (el.value === '') {
           el.classList.remove('is-invalid');
         }
-        let res = el.value.match(/^[0-9]{6,11}$/);
-        if (res) {
-          this.validated.cost = true;
-          this.inValidated.cost = false;
+        if (el.name === 'name') {
+          let res = el.value.match(this.$store.state.regularExpression.regName);
+          if (res) {
+            this.validated.name = true;
+            this.inValidated.name = false;
+          }else{
+            this.validated.name = false;
+            this.inValidated.name = true;
+          }
         } else {
-          this.validated.cost = false;
-          this.inValidated.cost = true;
+          let res = el.value.match(/^[0-9]{6,11}$/);
+          if (res) {
+            this.validated.cost = true;
+            this.inValidated.cost = false;
+          } else {
+            this.validated.cost = false;
+            this.inValidated.cost = true;
+          }
         }
       } else {
         console.log(el);
       }
-    },send(){
-      let form=new FormData();
-      let pics=[];
+    }, send() {
+      let form = new FormData();
+      let pics = [];
       // console.log(this.picture)
-      for (var i=0 ; i < this.picture.length ; i++) {
-        pics[i]=this.picture[i]
+      for (var i = 0; i < this.picture.length; i++) {
+        pics[i] = this.picture[i]
         // form.append('pics[' + i + ']',pic);
       }
-      this.$refs.picture=pics;
+      this.$refs.picture = pics;
       document.querySelector('form').submit();
     }
   },
@@ -311,6 +335,8 @@ form {
 
 #form {
   background-color: whitesmoke;
+  direction: rtl;
+  text-align: right;
 }
 
 .picture {
@@ -344,11 +370,12 @@ form {
   width: 300px;
   height: 200px;
 }
+
 /*.required{*/
 /*  color: red;*/
 /*  width: 20px;*/
 /*}*/
-.texter{
+.texter {
   width: 400px;
 }
 </style>

@@ -11,8 +11,7 @@ export default{
         let newarr = arr.filter(() => {
             return true;
         })
-        let obj = Object.assign({}, newarr)
-        return obj;
+        return Object.assign({}, newarr);
     },
     regularExpression:state=>{
         return state.regularExpression

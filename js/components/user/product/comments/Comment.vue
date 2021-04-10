@@ -9,7 +9,7 @@
     <div id="body">
       <p v-text="content"></p>
     </div>
-    <div class="subComments" v-for="subComment in subComments" v-bind:key="subComment.id">
+    <div class="subComments" v-if="subComments" v-for="subComment in subComments" v-bind:key="subComment.id">
       <comments-replay :id="subComment.id" :body="subComment.body" :name="subComment.name" :id_comment="id"/>
     </div>
   </div>
@@ -17,32 +17,33 @@
       <div class="replay"  v-if="replayStatus" >
          <comment-replay-my />
       </div>
-     
+
     </transition> -->
   <!-- </transition> -->
 </template>
 
 <script>
 import commentsReplay from './CommentReplay.vue';
+
 export default {
-  props: ["content","id","name"],
+  props: ["content", "id", "name"],
   components: {commentsReplay},
   data() {
     return {
       replayStatus: false,
     };
   },
-  computed:{
-    subComments(){
+  computed: {
+    subComments() {
       return this.$store.getters.get_subComments(this.id);
     }
   },
   methods: {
     replay(id) {
       // console.log(id)
-      let comment_box=document.getElementById("commentBox");
+      let comment_box = document.getElementById("commentBox");
       comment_box.focus();
-      comment_box.value='@'+(id)+ ': '; 
+      comment_box.value = '@' + (id) + ': ';
       // this.replayStatus = true;
       // this.$store.commit("CHANGE_CLOSE_REPLAY_COMMENT", true);
     },
@@ -63,6 +64,7 @@ export default {
   flex-direction: column;
   text-align: right;
 }
+
 #info {
   width: 100%;
   height: 100px;
@@ -72,18 +74,21 @@ export default {
   justify-content: flex-start;
   align-items: center;
 }
+
 #body {
   width: 100%;
   /* padding: 10px; */
   padding-right: 15px;
   box-sizing: border-box;
 }
+
 .profile {
   width: 70px;
   height: 70px;
   background-color: black;
   border-radius: 50%;
 }
+
 .name {
   width: 100px;
   height: 50px;
@@ -92,6 +97,7 @@ export default {
   /* background-color: green; */
   margin-right: 1%;
 }
+
 .replay {
   width: auto;
   /* margin:4px 20px; */
@@ -104,12 +110,14 @@ export default {
   color: rgba(0, 0, 0, 0.815);
   font-size: 16px;
 }
+
 .replay:hover {
   cursor: pointer;
   color: black;
   font-weight: bold;
 }
-.subComments{
+
+.subComments {
   width: 94%;
   margin: auto;
 }

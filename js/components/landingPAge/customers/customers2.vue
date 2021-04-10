@@ -1,8 +1,8 @@
 <template>
   <div id="customers">
     <div id="customersWrapper">
-      <div class="title">
-        <p>مشتریان ما</p>
+      <div class="title m-auto">
+        <h2>مشتریان ما</h2>
       </div>
       <div class="swiper-container-customers">
         <div class="swiper-wrapper">
@@ -10,7 +10,7 @@
             <img alt="گلرنگ" title="گلرنگ" src="/static/public/images/ours1.png">
           </div>
           <div class="swiper-slide">
-            <img alt="شرکت نفت" title="شرکت نفتت" src="/static/public/images/ours2.png">
+            <img alt="شرکت نفتت" title="شرکت نفتت" src="/static/public/images/ours2.png">
           </div>
           <div class="swiper-slide">
             <img alt="سایپا" title="سایپا" src="/static/public/images/ours3.png">
@@ -34,9 +34,10 @@
             <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/mina.png">
           </div>
         </div>
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        <!--         Add Arrows-->
+        <!--                <div class="swiper-button-next"></div>-->
+        <!--
+                     <div class="swiper-button-prev"></div>-->
       </div>
     </div>
   </div>
@@ -46,80 +47,67 @@
 <script>
 export default {
   mounted() {
-    var mySwiper = new Swiper('.swiper-container', {
-      // Optional parameters
-      direction: 'horizontal',
+    var swiper = new Swiper('.swiper-container-customers', {
+      slidesPerView: 3,
+      loopAdditionalSlides: 100,
       loop: true,
-      slidesPerView:1,
-      // Navigation arrows
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      keyboard: {
-        enabled: true,
-        onlyInViewport: true,
-      },
-      // And if we need scrollbar
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
-      preventClicksPropagation: false,
-      preventClicks: false,
-    })
-
-    window.addEventListener('click',e=>{
-      if(e.target.classList.contains('ShouldZoomImage')){
-        this.zoomInOnPhoto()
+      breakpoints: {
+        // // when window width is >= 480px
+        1000: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+          slidesPerGroup: 4
+        },
+        // // when window width is >= 640px
+        660: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          slidesPerGroup: 3
+        },
+        430: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+          slidesPerGroup: 3
+        },
+        1: {
+          slidesPerView: 1, slidesPerGroup: 1
+        }
       }
-    })
+    });
   }
 }
 </script>
 
 <style scoped>
 #customers {
-  background: #ffffff;
+  width: 100%;
+  background-color: whitesmoke;
   margin-top: 50px;
 }
 
 #customersWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 10px;
   width: 100%;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*justify-content: center;*/
+  padding: 10px;
+
 }
 
-.title p {
+.title h2 {
   text-align: center;
-  font-size: 29px;
-  font-weight: 800;
-}
-
-.cusImgs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.cusImgs img {
-  filter: grayscale(1);
-  width: 200px;
-  transition: all 0.4s;
-  margin: 10px;
-}
-
-@media (max-width: 400px) {
-  .cusImgs {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 425px) {
-  .cusImgs {
-    justify-content: center;
-  }
+  /*font-size: 29px;*/
+  font-weight: 700;
+  color: var(--blue);
 }
 
 img:hover {
@@ -133,16 +121,28 @@ img:hover {
   overflow: hidden;
 }
 
-.swiper-slide {
+.swiper-wrapper {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  width: 200px;
-  height: 200px;
+  justify-content: space-between;
+  /*overflow: hidden;*/
+  flex-wrap: wrap;
+}
+
+.swiper-slide {
+  width: 150px;
+  height: 150px;
+  margin: 40px;
 }
 
 .swiper-slide img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  top: calc(40% - -25px);
 }
 </style>

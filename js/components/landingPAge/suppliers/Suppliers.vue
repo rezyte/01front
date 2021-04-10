@@ -57,10 +57,11 @@ export default {
   width: 100%;
   direction: rtl;
   text-align: right;
+  padding: 10px;
 }
 #suppliers table {
   width: 98%;
-  margin-top: 5%;
+  margin-top: 4%;
   /* margin-right: 2%; */
   padding: 5px;
   border: none;

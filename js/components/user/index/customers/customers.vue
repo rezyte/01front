@@ -104,6 +104,7 @@ export default {
   text-align: center;
   font-size: 29px;
   font-weight: 800;
+  color: var(--blue);
 }
 
 .cusImgs {

@@ -56,10 +56,10 @@ export default {
   created() {
     console.log("heyyyy");
     console.log(this.userInfo + 'ty');
-    
+
     console.log("this.products", JSON.parse(this.labeles));
-    
-  }, 
+
+  },
   props: ["products", "main_categories", "comments", "labeles"],
   methods: {
     makeid(length) {

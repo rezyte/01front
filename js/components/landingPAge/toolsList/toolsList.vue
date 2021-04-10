@@ -1,7 +1,7 @@
 <template>
     <div id="tootlsList">
         <div class="title">
-            <p>خدمات دمیرکو برای شما</p>
+            <h2>خدمات دمیرکو برای شما</h2>
         </div>
         <div id="toolsListWrapper">
             <sell></sell>
@@ -32,6 +32,7 @@ name: "toolsList",
     flex-direction: column;
     margin-top: 60px;
     align-items: center;
+  background-color: whitesmoke;
 }
 #toolsListWrapper{
 
@@ -69,16 +70,16 @@ name: "toolsList",
     width: 100%;
 }
 .title{
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.title p:first-child{
-    font-size: 25px;
-    font-weight: bold;
-    text-align: center;
-    padding: 5px;
-    color: var(--logoBlue);
+.title h2{
+  text-align: center;
+  /*font-size: 29px;*/
+  font-weight: 700;
+  color: var(--blue);
 }
 .title p:nth-child(2){
     text-align: center;
