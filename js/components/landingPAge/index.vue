@@ -14,9 +14,9 @@
                 <suppliers :info="JSON.parse(objects).orders"/>
               </div>
             </div>
-            <div class="w-100 text-right mm">
-              <a class="" :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
-                <button class="btn register m-5">مشاهده مشتریان</button>
+            <div class="w-100 text-center">
+              <a :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
+                <button class="btn register m-auto w-25">مشاهده مشتریان</button>
               </a>
             </div>
             <div class="w-100 mm">
@@ -36,6 +36,13 @@
       <!--    <customers></customers>-->
       <tools-list></tools-list>
       <shirbarghi></shirbarghi>
+      <div class="row">
+        <div class="mt-4">
+          <a class="text-decoration-none" :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
+            <p class="color-dam">ثبت نام کنید</p>
+          </a>
+        </div>
+      </div>
       <addressee></addressee>
       <copy></copy>
     </div>
@@ -115,7 +122,14 @@ export default {
   background-color: var(--blue);
   border: solid 0.5px var(--blue);
 }
-
+.color-dam{
+  color: var(--blue);
+  font-size: 19px;
+  transition: color 0.2s;
+}
+.color-dam:hover{
+  color: #006dea;
+}
 @media only screen and (max-width: 768px) {
   .table {
     width: 100%;

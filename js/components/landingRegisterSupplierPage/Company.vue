@@ -1,5 +1,13 @@
 <template>
   <div class="col">
+    <div class="d-flex flex-row justify-content-start m-3">
+      <div class="ml-4 bg-warning">
+        <progress-bar
+            :options="options"
+            :value="62"
+        />
+      </div>
+    </div>
     <form action="" method="post">
       <fieldset>
         <legend>ثبت اطلاعات شرکت</legend>
@@ -77,8 +85,11 @@
 </template>
 
 <script>
+import ProgressBar from 'vuejs-progress-bar'
+
 export default {
   name: "Compoany",
+  components: {ProgressBar},
   data() {
     return {
       btnStatus: true,
@@ -92,6 +103,31 @@ export default {
         address: false,
         semat: false,
       },
+      options: {
+        text: {
+          color: '#FFFFFF',
+          shadowEnable: true,
+          shadowColor: '#000000',
+          fontSize: 14,
+          fontFamily: 'Helvetica',
+          dynamicPosition: false,
+          hideText: false
+        },
+        progress: {
+          color: '#2dbd2d',
+          backgroundColor: '#C0C0C0'
+        },
+        layout: {
+          height: 35,
+          width: 420,
+          verticalTextAlign: 61,
+          horizontalTextAlign: 43,
+          zeroOffset: 0,
+          strokeWidth: 30,
+          progressPadding: 0,
+          type: 'line'
+        }
+      }
     };
   },
   computed: {

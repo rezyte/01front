@@ -135,11 +135,14 @@ img:hover {
   width: 150px;
   height: 150px;
   margin: 40px;
+  text-align: center;
 }
 
 .swiper-slide img {
   width: 150px;
   height: 150px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .swiper-button-next, .swiper-button-prev {

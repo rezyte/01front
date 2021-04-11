@@ -7,17 +7,17 @@
           <th scope="col">نام</th>
           <th scope="col">نام شرکت</th>
           <th scope="col">شماره تماس</th>
-          <th scope="col" class="comme-d">توضیحات</th>
+          <th scope="col">توضیحات</th>
         </tr>
       </thead>
       <tbody>
         <tr v-if="info">
           <th scope="row"></th>
           <td v-text="info[0].name"></td>
-          <td class="blur"> ثبت نام کنید </td>
+          <td class="blur"> برای مشاهده ثبت نام کنید </td>
           <td class="">xxx54619xxx</td>
           <td>
-            <div class="comments d-none d-sm-block" ref="comments" @mouseout="showCommentsLess()" @mouseover="showCommentsMore()">
+            <div class="comments" ref="comments" @mouseout="showCommentsLess()" @mouseover="showCommentsMore()">
               <p id="content_momments" ref="content_momments" v-text="info[0].extra_discription">
               </p>
             </div>

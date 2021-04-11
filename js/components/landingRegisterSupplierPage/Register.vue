@@ -1,10 +1,10 @@
 <template>
   <div class="w-100">
-    <div class="mt-4">
-      <div class="m-auto w-50">
-        <progress-bar class="m-auto"
-                      :options="options"
-                      :value="62"
+    <div class="d-flex flex-row justify-content-start m-3">
+      <div class="ml-4 bg-warning">
+        <progress-bar
+            :options="options"
+            :value="62"
         />
       </div>
     </div>
@@ -119,7 +119,7 @@ export default {
         },
         layout: {
           height: 35,
-          width: 685,
+          width: 420,
           verticalTextAlign: 61,
           horizontalTextAlign: 43,
           zeroOffset: 0,

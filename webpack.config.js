@@ -8,6 +8,7 @@ module.exports = {
     "landingPage":"./js/landingPageApp.js",
     "landingRegisterSupplier":"./js/landingRegisterSupplierPage.js",
     'factoreApp':"./js/components/factores/factoreApp.js",
+    "testMy":"./js/test.js"
   },
   output:{
       path:path.resolve(__dirname,"public"),
