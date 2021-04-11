@@ -33,12 +33,22 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.css$/,
+        // test: /\.css$/,
+        // use: [
+        //   'vue-style-loader',
+        //   {
+        //     loader: 'css-loader'
+        //   }
+        // ]
+        // test: /\.css$/i,
+        // loader: "css-loader",
+        // options: {
+        //   import: true,
+        // },
+        test: /.css$/,
         use: [
           'vue-style-loader',
-          {
-            loader: 'css-loader'
-          }
+          'css-loader',
         ]
       },
       {
@@ -67,6 +77,7 @@ module.exports = {
           }
         ]
       },
+
     ]
   },
   resolve: { alias: { vue: 'vue/dist/vue.esm.js' } },

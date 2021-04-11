@@ -1,6 +1,5 @@
 <template>
   <div id="blog">
-    1111111
     <div id="blogWrapper">
       <div class="blogPostWrapper">
         <div v-for="(p,i) in JSON.parse(posts)" :key="i">

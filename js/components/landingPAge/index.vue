@@ -3,32 +3,35 @@
     <div id="index">
       <headers></headers>
       <div class="w-100">
-        <div class="row">
-          <!--        //لیست مشتری ها(مشاهده اطلاعات کامل بعد از ثبت نام)-->
-          <div class="col">
-            <div class="w-100 d-flex flex-column flex-md-row flex-wrap mm">
-              <div class="video">
-                <videos/>
-              </div>
-              <div class="table">
-                <suppliers :info="JSON.parse(objects).orders"/>
-              </div>
+
+        <!--        //لیست مشتری ها(مشاهده اطلاعات کامل بعد از ثبت نام)-->
+        <div class="col">
+          <div class="w-100 d-flex flex-column flex-md-row flex-wrap mm">
+            <div class="video">
+              <videos/>
             </div>
-            <div class="w-100 text-center">
-              <a :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
-                <button class="btn register m-auto w-25">مشاهده مشتریان</button>
-              </a>
+            <div class="table">
+              <suppliers :info="JSON.parse(objects).orders"/>
             </div>
-            <div class="w-100 mm">
-              <diagram/>
-            </div>
+          </div>
+          <div class="w-100 text-center">
+            <a :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
+              <button class="btn register m-auto  w-25">مشاهده مشتریان</button>
+            </a>
+          </div>
+          <div class="w-100 mm">
+            <diagram/>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <customers2></customers2>
-          <!--        <customers-list />-->
+      <div class="col-12 customers-us mt-3">
+        <!--          <customers2></customers2>-->
+        <!--        <customers-list />-->
+        <div class="text-center p-3 ">
+          <h2>مشتریان ما</h2>
+        </div>
+        <div>
+          <slider></slider>
         </div>
       </div>
       <!-- <signup-and-worker :errors="errors"></signup-and-worker> -->
@@ -53,7 +56,7 @@
 import headers from "./header/header.vue";
 import signupAndWorker from "./signupAndWorker/signupAndWorker.vue";
 import video from "./video/video.vue";
-import customers2 from "./customers/customers2.vue";
+// import customers2 from "./customers/customers2.vue";
 import toolsList from "./toolsList/toolsList.vue";
 import shirbarghi from "./shirbarghi/shirbarghi.vue";
 import address from "./address/address.vue";
@@ -62,6 +65,7 @@ import Diagram from "./diagram/Diagram.vue";
 import CustomersList from "./list_customers/Customers.vue";
 import Suppliers from "./suppliers/Suppliers.vue";
 import Register from "../signup/Register.vue";
+import Slider from './customers/Slider.vue';
 
 export default {
   name: "index.vue",
@@ -69,7 +73,7 @@ export default {
     headers,
     signupAndWorker,
     videos: video,
-    customers2,
+    // customers2,
     toolsList,
     shirbarghi,
     addressee: address,
@@ -77,7 +81,8 @@ export default {
     Diagram,
     CustomersList,
     Suppliers,
-    Register
+    Register,
+    Slider
   },
   props: ["errors", "objects"],
   mounted() {
@@ -106,8 +111,8 @@ export default {
 }
 
 .mm {
-   background-color: whitesmoke;
-   margin:10px 0;
+  background-color: whitesmoke;
+  margin: 10px 0;
   /*margin: 5% 0;*/
 }
 
@@ -122,13 +127,21 @@ export default {
   background-color: var(--blue);
   border: solid 0.5px var(--blue);
 }
-.color-dam{
+
+.color-dam {
   color: var(--blue);
   font-size: 19px;
   transition: color 0.2s;
 }
-.color-dam:hover{
+
+.color-dam:hover {
   color: #006dea;
+}
+.customers-us{
+  background-color: whitesmoke;
+}
+.customers-us>div>h2{
+  color: var(--blue);
 }
 @media only screen and (max-width: 768px) {
   .table {

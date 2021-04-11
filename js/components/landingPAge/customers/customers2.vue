@@ -1,151 +1,130 @@
 <template>
-  <div id="customers">
-    <div id="customersWrapper">
-      <div class="title m-auto">
-        <h2>مشتریان ما</h2>
-      </div>
-      <div class="swiper-container-customers">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img alt="گلرنگ" title="گلرنگ" src="/static/public/images/ours1.png">
-          </div>
-          <div class="swiper-slide">
-            <img alt="شرکت نفتت" title="شرکت نفتت" src="/static/public/images/ours2.png">
-          </div>
-          <div class="swiper-slide">
-            <img alt="سایپا" title="سایپا" src="/static/public/images/ours3.png">
-          </div>
-          <div class="swiper-slide">
-            <img alt="شیرین عسل" title="شیرین عسل" src="/static/public/images/ours4.png">
-          </div>
-          <div class="swiper-slide">
-            <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/ours5.png">
-          </div>
-          <div class="swiper-slide">
-            <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/pakshoo.png">
-          </div>
-          <div class="swiper-slide">
-            <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/pishgaman.png">
-          </div>
-          <div class="swiper-slide">
-            <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/delveseh.png">
-          </div>
-          <div class="swiper-slide">
-            <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/mina.png">
-          </div>
-        </div>
-        <!--         Add Arrows-->
-        <!--                <div class="swiper-button-next"></div>-->
-        <!--
-                     <div class="swiper-button-prev"></div>-->
-      </div>
+  <!--  <div id="customers">-->
+  <!--    <div id="customersWrapper">-->
+  <!--      <div class="title m-auto">-->
+  <!--        <h2>مشتریان ما</h2>-->
+  <!--      </div>-->
+  <div>
+    <div class="example-3d">
+      <swiper ref="mySwiper" class="swiper" :options="swiperOptions">
+        <swiper-slide>
+          <img alt="گلرنگ" title="گلرنگ" src="/static/public/images/ours1.png">
+        </swiper-slide>
+        <swiper-slide>
+<!--          4-->
+                    <img alt="شرکت نفتت" title="شرکت نفتت" src="/static/public/images/ours2.png">
+        </swiper-slide>
+        <swiper-slide>
+          4
+          <!--          <img alt="سایپا" title="سایپا" src="/static/public/images/ours3.png">-->
+        </swiper-slide>
+        <swiper-slide>
+          4
+          <!--          <img alt="شیرین عسل" title="شیرین عسل" src="/static/public/images/ours4.png">-->
+        </swiper-slide>
+        <swiper-slide>
+          4
+          <!--          <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/ours5.png">-->
+        </swiper-slide>
+        <swiper-slide>
+          4
+          <!--          <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/pakshoo.png">-->
+        </swiper-slide>
+        <swiper-slide>
+          4
+          <!--          <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/pishgaman.png">-->
+        </swiper-slide>
+        <swiper-slide>
+          4
+          <!--          <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/delveseh.png">-->
+        </swiper-slide>
+        <swiper-slide>
+          4
+          <!--          <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/mina.png">-->
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
     </div>
   </div>
-
 </template>
 
 <script>
+import {Swiper, SwiperSlide, directive} from 'vue-awesome-swiper'
+import 'swiper/swiper-bundle.css'
+
+// import styles from 'styles.scss'
+
 export default {
-  mounted() {
-    var swiper = new Swiper('.swiper-container-customers', {
-      slidesPerView: 3,
-      loopAdditionalSlides: 100,
-      loop: true,
-      spaceBetween: 30,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      breakpoints: {
-        // // when window width is >= 480px
-        1000: {
-          slidesPerView: 4,
-          spaceBetween: 30,
-          slidesPerGroup: 4
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+  directives: {
+    swiper: directive
+  },
+  data() {
+    return {
+      swiperOptions: {
+        pagination: {
+          el: '.swiper-pagination'
         },
-        // // when window width is >= 640px
-        660: {
-          slidesPerView: 3,
-          spaceBetween: 10,
-          slidesPerGroup: 3
-        },
-        430: {
-          slidesPerView: 2,
-          spaceBetween: 10,
-          slidesPerGroup: 3
-        },
-        1: {
-          slidesPerView: 1, slidesPerGroup: 1
-        }
+        // Some Swiper option/callback...
       }
-    });
+    }
+  },
+  computed: {
+    // swiper() {
+    //   return this.$refs.mySwiper.$swiper
+    // }
+  },
+  mounted() {
+    // this.swiper.slideTo(3, 1000, false)
   }
 }
 </script>
 
-<style scoped>
-#customers {
+<style lang="scss" scoped>
+.example-3d {
   width: 100%;
-  background-color: whitesmoke;
-  margin-top: 50px;
+  height: 400px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-#customersWrapper {
-  width: 100%;
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*justify-content: center;*/
-  padding: 10px;
-
-}
-
-.title h2 {
-  text-align: center;
-  /*font-size: 29px;*/
-  font-weight: 700;
-  color: var(--blue);
-}
-
-img:hover {
-  filter: grayscale(0)
-}
-
-.swiper-container-customers {
-  width: 100%;
-  margin-top: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.swiper-wrapper {
+.swiper {
+  height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  /*overflow: hidden;*/
-  flex-wrap: wrap;
-}
 
-.swiper-slide {
-  width: 150px;
-  height: 150px;
-  margin: 40px;
-  text-align: center;
-}
+  .swiper-slide {
+    //display: flex;
+    //justify-content: center;
+    //align-items: center;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: #2C8DFB;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    margin: 2%;
 
-.swiper-slide img {
-  width: 150px;
-  height: 150px;
-  margin-right: auto;
-  margin-left: auto;
-}
+    img{
+      width: 100%;
+      height: 100%;
+      background-size: 100% 100%;
+      //background-position: ;
+    }
+  }
 
-.swiper-button-next, .swiper-button-prev {
-  top: calc(40% - -25px);
+  .swiper-pagination {
+    /deep/ .swiper-pagination-bullet.swiper-pagination-bullet-active {
+      background-color: #ffffff;
+    }
+  }
 }
 </style>
