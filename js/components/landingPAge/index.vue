@@ -142,6 +142,7 @@ export default {
 }
 .customers-us>div>h2{
   color: var(--blue);
+  font-weight: bold;
 }
 @media only screen and (max-width: 768px) {
   .table {
