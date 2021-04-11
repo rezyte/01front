@@ -15,7 +15,7 @@
               </div>
             </div>
             <div class="w-100 text-right mm">
-              <a class="" :href="'/landings/intro/'+objects.id+'/signup'">
+              <a class="" :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
                 <button class="btn register m-5">مشاهده مشتریان</button>
               </a>
             </div>
@@ -75,7 +75,7 @@ export default {
   props: ["errors", "objects"],
   mounted() {
     // let object = JSON.parse(document.getElementsByTagName('body')[0].getAttribute('data') || '{}');
-    console.log(this.objects, "mm");
+    console.log(JSON.parse(this.objects), "mmmm");
   }
 };
 </script>
