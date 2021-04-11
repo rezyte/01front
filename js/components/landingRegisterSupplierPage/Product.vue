@@ -1,12 +1,7 @@
 <template>
   <div class="w-100" id="form">
-    <div class="d-flex flex-row justify-content-start m-3">
-      <div class="ml-4 bg-warning">
-        <progress-bar
-            :options="options"
-            :value="62"
-        />
-      </div>
+    <div class="w-50 m-auto p-3">
+      <progress-bar text-position="middle" size="huge" val="58" text="58%"></progress-bar>
     </div>
     <form v-on:submit.prevent="send()" method="post" name="form" enctype="multipart/form-data">
       <fieldset>
@@ -212,7 +207,7 @@
 
 
 <script>
-import ProgressBar from 'vuejs-progress-bar'
+import ProgressBar from 'vue-simple-progress';
 export default {
   name: "Product",
   components:{ProgressBar},
@@ -233,31 +228,6 @@ export default {
         name: false,
         cost: false
       },
-      options: {
-        text: {
-          color: '#FFFFFF',
-          shadowEnable: true,
-          shadowColor: '#000000',
-          fontSize: 14,
-          fontFamily: 'Helvetica',
-          dynamicPosition: false,
-          hideText: false
-        },
-        progress: {
-          color: '#2dbd2d',
-          backgroundColor: '#C0C0C0'
-        },
-        layout: {
-          height: 35,
-          width: 420,
-          verticalTextAlign: 61,
-          horizontalTextAlign: 43,
-          zeroOffset: 0,
-          strokeWidth: 30,
-          progressPadding: 0,
-          type: 'line'
-        }
-      }
     };
   },
   methods: {

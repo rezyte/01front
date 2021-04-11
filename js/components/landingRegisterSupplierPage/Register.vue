@@ -1,13 +1,8 @@
 <template>
   <div class="w-100">
-    <div class="d-flex flex-row justify-content-start m-3">
-      <div class="ml-4 bg-warning">
-        <progress-bar
-            :options="options"
-            :value="62"
-        />
+      <div class="w-50 m-auto p-3">
+        <progress-bar text-position="middle" size="huge" val="58" text="58%"></progress-bar>
       </div>
-    </div>
     <form action="" method="post">
       <fieldset>
         <legend>ثبت اطلاعات شخصی</legend>
@@ -86,7 +81,7 @@
 
 
 <script>
-import ProgressBar from 'vuejs-progress-bar'
+import ProgressBar from 'vue-simple-progress';
 
 export default {
   name: "Register",
@@ -103,31 +98,6 @@ export default {
         lastname: false,
         phoneNumber: false,
       },
-      options: {
-        text: {
-          color: '#FFFFFF',
-          shadowEnable: true,
-          shadowColor: '#000000',
-          fontSize: 14,
-          fontFamily: 'Helvetica',
-          dynamicPosition: false,
-          hideText: false
-        },
-        progress: {
-          color: '#2dbd2d',
-          backgroundColor: '#C0C0C0'
-        },
-        layout: {
-          height: 35,
-          width: 420,
-          verticalTextAlign: 61,
-          horizontalTextAlign: 43,
-          zeroOffset: 0,
-          strokeWidth: 30,
-          progressPadding: 0,
-          type: 'line'
-        }
-      }
     };
   },
   components: {
@@ -208,5 +178,10 @@ form {
   direction: rtl;
   text-align: right;
   padding: 20px;
+}
+.pro-bar{
+  /*padding-left: 100%;*/
+  /*margin: auto!important;*/
+  margin-left: 33% !important;
 }
 </style>
