@@ -48,11 +48,11 @@
             </div>
           </div>
           <div class="main-center">
-            <div class="w-100">
+            <div class="w-100 p-2">
               <div class="title-blog">
                 <h2>عنوان برای بلاگ ها</h2>
               </div>
-              <div id="blogs">
+              <div id="blogs" class="mt-3">
                 <blog />
                 <blog />
                 <blog />
