@@ -17,8 +17,10 @@
                 inValidated.name ? 'is-invalid' : null,
                 validated.name ? 'is-valid' : null,
                 'form-control']"
-                     :pattern="$store.state.regularExpression.regName"
+                     :pattern="regexName"
                      title="نام درست وارد نشده است"
+                     minlength="3"
+                     maxlength="100"
               >
             </div>
             <div class="form-group h-100">
@@ -220,6 +222,7 @@ export default {
         picture: "",
         video: "",
       },
+      regexName:/^[ًٌٍ،؛َُِّۀآـ«»:"ةيژؤإأء<>؟ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-z]{3,100}$/,
       validated: {
         name: false,
         cost: false
@@ -296,7 +299,7 @@ export default {
           el.classList.remove('is-invalid');
         }
         if (el.name === 'name') {
-          let res = el.value.match(this.$store.state.regularExpression.regName);
+          let res = el.value.match(this.regexName);
           if (res) {
             this.validated.name = true;
             this.inValidated.name = false;

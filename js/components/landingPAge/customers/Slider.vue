@@ -44,15 +44,15 @@ name: "Slider",
 
 <style scoped>
 .slideMe{
-  width: 20%;
+  width: 18%;
   /*background-color: rgba(161,52,21,0.89);*/
   margin-left: 50px;
   text-align: center;
   padding: 10px;
 }
 .slideMe img{
-  width: 100%;
-  height: 180px;
+  width: 85%;
+  height: 130px;
   background-position: center;
   background-repeat: no-repeat;
   /*background-size: 100% 100%;*/

@@ -30,7 +30,7 @@
         <div class="text-center p-3 ">
           <h2>مشتریان ما</h2>
         </div>
-        <div>
+        <div class="slider">
           <slider></slider>
         </div>
       </div>
@@ -42,7 +42,7 @@
       <div class="row">
         <div class="mt-4">
           <a class="text-decoration-none" :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
-            <p class="color-dam">ثبت نام کنید</p>
+            <button class="btn register m-auto">ثبت نام کنید</button>
           </a>
         </div>
       </div>
@@ -117,8 +117,8 @@ export default {
 }
 
 .register {
-  background-color: #92b4dd;
-  border: #70abde 0.5px solid;
+  background-color: #598edb;
+  border: #3589cd 0.5px solid;
   transition: background-color, color 0.2s;
 }
 
@@ -129,6 +129,8 @@ export default {
 }
 
 .color-dam {
+  width: 120px;
+  background-color: #8fffdb;
   color: var(--blue);
   font-size: 19px;
   transition: color 0.2s;

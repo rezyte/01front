@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { store } from './store'
 import Company from "./components/landingRegisterSupplierPage/Company.vue";
 import Product from "./components/landingRegisterSupplierPage/Product.vue";
