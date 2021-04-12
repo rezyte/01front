@@ -2,13 +2,13 @@
   <div class="container-fluid pt-5">
     <div class="row">
       <div class="col-10 m-auto">
-        <div class="row bg-white">
+        <div class="row">
           <div class="main-top">
             <div class="main-category">
-              <div class="top-main-category text-center">
+              <div class="top-main-category text-center bg-white">
                 Slider/text
               </div>
-              <div class="center-main-category mt-4">
+              <div class="center-main-category mt-4 bg-white">
                 <div class="items-categories">
                   <category />
                   <category />
@@ -19,7 +19,7 @@
                 </div>
               </div>
             </div>
-            <div class="categories">
+            <div class="categories bg-white">
               <div class="title-category">
                 <h1>دسته بندی ها</h1>
               </div>
@@ -183,11 +183,9 @@ export default {
 }
 .main-center{
   width:100%;
-  height: 400px;
-  background-color: #c1ffb3;
   margin-top: 5%;
   border-radius: 8px;
-  box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
+  /*box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);*/
 }
 #blogs{
   width: 100%;
