@@ -17,7 +17,7 @@
                 inValidated.name ? 'is-invalid' : null,
                 validated.name ? 'is-valid' : null,
                 'form-control']"
-                     :pattern="regexName"
+                     pattern="[a-zA-Z0-9ةيژؤإأ-_ ءـآۀًٌٍَُِّضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو]{3,100}"
                      title="نام درست وارد نشده است"
                      minlength="3"
                      maxlength="100"
