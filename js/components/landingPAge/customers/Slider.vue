@@ -46,7 +46,7 @@ name: "Slider",
 .slideMe{
   width: 18%;
   /*background-color: rgba(161,52,21,0.89);*/
-  margin-left: 50px;
+  margin-left: 80px;
   text-align: center;
   padding: 10px;
 }

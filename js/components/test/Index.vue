@@ -50,27 +50,12 @@
           <div class="main-center">
             <div class="w-100">
               <div class="title-blog">
-                <h2></h2>
+                <h2>عنوان برای بلاگ ها</h2>
               </div>
               <div id="blogs">
-                <div class="blog">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ex
-                    facilis maxime quas reiciendis voluptate voluptatum! Deleniti excepturi exercitationem
-                    , explicabo facilis fuga id illum odit placeat saepe suscipit! Optio, sit.
-                  </p>
-                </div>
-                <div class="blog">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aperiam assumenda corporis culpa deleniti doloribus excepturi explicabo magni nostrum
-                    optio porro provident qui quis quod, rem, saepe sint soluta voluptatibus?
-                  </p>
-                </div>
-                <div class="blog">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dolore doloremque dolorum ducimus eaque esse facilis fuga fugit, ipsa ipsam magni obcaecati, pariatur porro quasi reprehenderit tempora ut voluptatibus voluptatum?
-                  </p>
-                </div>
+                <blog />
+                <blog />
+                <blog />
               </div>
             </div>
           </div>
@@ -82,10 +67,12 @@
 
 <script>
 import Category from "./categories/Category.vue";
+import Blog from "./blogs/Blog.vue";
 export default {
   name: "index",
   components:{
-    Category
+    Category,
+    Blog
   }
 }
 </script>
@@ -212,17 +199,15 @@ export default {
   justify-content: space-around;
   flex-wrap: wrap;
 }
-.blog{
-  width: 30%;
-  background-color: #8fffdb;
-  text-align: center;
-
-}
-.blog p{
+.title-blog{
   text-align: right;
-  direction: rtl;
-  font-size: 17px;
-
+  padding: 10px;
 }
+.title-blog h2{
+  font-size: 17px;
+  font-weight: bold;
+  color: var(--blue);
+}
+
 
 </style>

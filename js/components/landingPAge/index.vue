@@ -1,53 +1,62 @@
 <template>
-  <div class="row">
-    <div id="index">
-      <headers></headers>
-      <div class="w-100">
-
-        <!--        //لیست مشتری ها(مشاهده اطلاعات کامل بعد از ثبت نام)-->
-        <div class="col">
-          <div class="w-100 d-flex flex-column flex-md-row flex-wrap mm">
-            <div class="video">
-              <videos/>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <headers></headers>
+        <div class="w-100">
+          <!--        //لیست مشتری ها(مشاهده اطلاعات کامل بعد از ثبت نام)-->
+          <div class="col">
+            <div class="row">
+              <div class="d-flex flex-column flex-md-row flex-wrap mm">
+                <div class="video">
+                  <videos/>
+                </div>
+                <div class="table">
+                  <suppliers :info="JSON.parse(objects).orders"/>
+                </div>
+              </div>
             </div>
-            <div class="table">
-              <suppliers :info="JSON.parse(objects).orders"/>
+            <div class="w-100 text-center">
+              <a :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
+                <button class="btn register m-auto  w-25">مشاهده مشتریان</button>
+              </a>
+            </div>
+            <div class="row">
+              <div class="w-100 mm">
+                <diagram/>
+              </div>
             </div>
           </div>
-          <div class="w-100 text-center">
-            <a :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
-              <button class="btn register m-auto  w-25">مشاهده مشتریان</button>
+        </div>
+        <div class="col-12 customers-us mt-3">
+          <!--          <customers2></customers2>-->
+          <!--        <customers-list />-->
+          <div class="text-center p-3 ">
+            <h2>مشتریان ما</h2>
+          </div>
+          <div class="slider">
+            <slider></slider>
+          </div>
+        </div>
+        <!-- <signup-and-worker :errors="errors"></signup-and-worker> -->
+        <!--        <videos></videos>-->
+        <!--    <customers></customers>-->
+        <tools-list></tools-list>
+        <div class="row">
+          <div class="m-auto">
+            <shirbarghi></shirbarghi>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="m-auto">
+            <a class="text-decoration-none" :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
+              <button class="btn register m-auto">ثبت نام کنید</button>
             </a>
           </div>
-          <div class="w-100 mm">
-            <diagram/>
-          </div>
         </div>
+        <addressee></addressee>
+        <copy></copy>
       </div>
-      <div class="col-12 customers-us mt-3">
-        <!--          <customers2></customers2>-->
-        <!--        <customers-list />-->
-        <div class="text-center p-3 ">
-          <h2>مشتریان ما</h2>
-        </div>
-        <div class="slider">
-          <slider></slider>
-        </div>
-      </div>
-      <!-- <signup-and-worker :errors="errors"></signup-and-worker> -->
-      <!--        <videos></videos>-->
-      <!--    <customers></customers>-->
-      <tools-list></tools-list>
-      <shirbarghi></shirbarghi>
-      <div class="row">
-        <div class="mt-4">
-          <a class="text-decoration-none" :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
-            <button class="btn register m-auto">ثبت نام کنید</button>
-          </a>
-        </div>
-      </div>
-      <addressee></addressee>
-      <copy></copy>
     </div>
   </div>
 </template>
@@ -95,9 +104,10 @@ export default {
 <style scoped>
 #index {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
 }
 
 .video {

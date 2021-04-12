@@ -32,14 +32,14 @@ a{
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  transition: all 0.1s;
+  transition: all 0.3s;
   cursor: pointer;
 }
 .category:hover .text p{
   color: var(--blue);
 }
 .category:hover .pic img{
-  transform: scale(1.01,1.01);
+  transform: scale(1.03,1.03);
 }
 .pic{
   width: 100%;

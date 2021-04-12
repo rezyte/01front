@@ -33,7 +33,6 @@ export default {
 <style scoped>
 #header {
   width: 100%;
-  margin: 10px;
   overflow: hidden;
 }
 
@@ -83,6 +82,15 @@ export default {
   font-weight: bold;
 }
 
+@media screen and (max-width: 768px){
+.text{
+  /*width: 60%;*/
+  margin-bottom: 5px;
+}
+  .text p{
+    font-size: 17px;
+  }
+}
 .workderImage img {
   width: 100%;
 }
