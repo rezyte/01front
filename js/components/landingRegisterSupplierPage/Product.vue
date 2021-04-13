@@ -68,6 +68,7 @@
                   @change="amount('video')"
                   class="form-control-file"
                   accept="video/*"
+                  size="100"
               />
               <small
                   class="text text-danger"

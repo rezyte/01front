@@ -12,7 +12,7 @@
     <slide class="slideMe1">
       <img alt="شرکت نفتت" title="شیرین عسل" src="/static/public/images/ours4.png">
     </slide>
-    <slide class="slideMe">
+    <slide class="slideMe ml-5">
       <img alt="شرکت نفتت" title="ایران خودرو" src="/static/public/images/ours5.png">
     </slide>
     <slide class="slideMe1">
@@ -43,24 +43,25 @@ name: "Slider",
 
 <style scoped>
 .slideMe{
-  width: 19%;
+  width: 13%;
   /*background-color: rgba(161,52,21,0.89);*/
-  /*margin-left:10%;*/
+  margin-left:2%;
   text-align: center;
-  padding: 10px;
+  /*padding: 10px;*/
 }
 .slideMe1{
-  width: 19%;
+  width: 13%;
   /*background-color: rgba(161,52,21,0.89);*/
-  margin-left:8%;
+  margin-left:14.7%;
   text-align: center;
-  padding: 10px;
+  /*padding: 10px;*/
+  /*background-color: red;*/
 }
 .slideMe img,.slideMe1 img{
-  width: 87%;
-  height: 130px;
+  width: 100%;
+  height: 133px;
   background-position: center;
   background-repeat: no-repeat;
-  /*background-size: 100% 100%;*/
+  background-size: 100% 100%;
 }
 </style>
