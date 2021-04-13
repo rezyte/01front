@@ -13,7 +13,13 @@
 
 <script>
 export default {
-  name: "Category"
+  name: "Category",
+  created() {
+    // this.$emit('subCategories',)
+  },
+  methods:{
+
+  }
 }
 </script>
 

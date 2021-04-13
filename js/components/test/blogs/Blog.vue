@@ -9,8 +9,8 @@
           <p>;hdvgsdbvgdsu;fgusbcao
             ;ug;suivbsjkdbvsdvs</p>
         </div>
-        <div class="text" id="text-bottom">
-          <p>rhgerhgoirh</p>
+        <div class="text " id="text-bottom">
+          <small class="float-right">rhgerhgoirh</small>
         </div>
       </div>
     </div>
@@ -66,7 +66,7 @@ a:hover{
   width: 100%;
   padding: 15px;
 }
-.text p{
+.text p,.text small{
   direction: rtl;
   text-align: right;
 }
@@ -78,8 +78,5 @@ a:hover{
 }
 #text-bottom{
   height: 60px;
-}
-#text-bottom p{
-  font-size: 14px;
 }
 </style>

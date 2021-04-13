@@ -1,33 +1,32 @@
 <template>
-  <carousel adjustableHeight="true" perPage="3" class="mt-3" paginationColor="#047EFF">
+  <carousel adjustableHeight="true" perPage="4" class="mt-3" paginationColor="#047EFF">
     <slide class="slideMe">
       <img alt="گلرنگ" title="گلرنگ" src="/static/public/images/ours1.png">
     </slide>
-    <slide class="slideMe">
+    <slide class="slideMe1">
       <img alt="شرکت نفتت" title="شرکت نفتت" src="/static/public/images/ours2.png">
     </slide>
-    <slide class="slideMe">
-      <img alt="شرکت نفتت" title="شرکت نفتت" src="/static/public/images/ours3.png">
+    <slide class="slideMe1">
+      <img alt="شرکت نفتت" title="سایپا" src="/static/public/images/ours3.png">
+    </slide>
+    <slide class="slideMe1">
+      <img alt="شرکت نفتت" title="شیرین عسل" src="/static/public/images/ours4.png">
     </slide>
     <slide class="slideMe">
-      <img alt="شرکت نفتت" title="شرکت نفتت" src="/static/public/images/ours4.png">
+      <img alt="شرکت نفتت" title="ایران خودرو" src="/static/public/images/ours5.png">
     </slide>
-    <slide class="slideMe">
-      <img alt="شرکت نفتت" title="شرکت نفتت" src="/static/public/images/ours5.png">
-    </slide>
-    <slide class="slideMe">
+    <slide class="slideMe1">
       <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/pakshoo.png">
     </slide>
-    <slide class="slideMe">
+    <slide class="slideMe1">
       <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/pishgaman.png">
     </slide>
-    <slide class="slideMe">
+    <slide class="slideMe1">
       <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/delveseh.png">
-      <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/mina.png">
     </slide>
-    <slide class="slideMe">
-      <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/mina.png">
-    </slide>
+<!--    <slide class="slideMe1">-->
+<!--      <img alt="ایران خودرو" title="ایران خودرو" src="/static/public/images/mina.png">-->
+<!--    </slide>-->
   </carousel>
 </template>
 
@@ -44,14 +43,21 @@ name: "Slider",
 
 <style scoped>
 .slideMe{
-  width: 18%;
+  width: 19%;
   /*background-color: rgba(161,52,21,0.89);*/
-  margin-left: 80px;
+  /*margin-left:10%;*/
   text-align: center;
   padding: 10px;
 }
-.slideMe img{
-  width: 85%;
+.slideMe1{
+  width: 19%;
+  /*background-color: rgba(161,52,21,0.89);*/
+  margin-left:8%;
+  text-align: center;
+  padding: 10px;
+}
+.slideMe img,.slideMe1 img{
+  width: 87%;
   height: 130px;
   background-position: center;
   background-repeat: no-repeat;

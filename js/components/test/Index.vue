@@ -3,50 +3,53 @@
     <div class="row">
       <div class="col-10 m-auto">
         <div class="row">
-          <div class="main-top">
-            <div class="main-category">
-              <div class="top-main-category text-center bg-white">
-                Slider/text
-              </div>
-              <div class="center-main-category mt-4 bg-white">
-                <div class="items-categories">
-                  <category />
-                  <category />
-                  <category />
-                  <category />
-                  <category />
-<!--                  <category />-->
-                </div>
-              </div>
-            </div>
-            <div class="categories bg-white">
-              <div class="title-category">
-                <h1>دسته بندی ها</h1>
-              </div>
-              <div class="menu">
-                <a href="">
-                  <div class="items-menu">
-                    <p>خط تولید کمپوت</p>
-                  </div>
-                </a>
-                <a href="">
-                  <div class="items-menu">
-                    <p>خط تولید بیسکوئیت</p>
-                  </div>
-                </a>
-                <a href="">
-                  <div class="items-menu">
-                    <p>خط توبید ترشی</p>
-                  </div>
-                </a>
-                <a href="">
-                  <div class="items-menu">
-                    <p>خط تولید پاستیل</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+         <div class="w-100 d-flex flex-column align-items-end">
+           <div class="main-top">
+             <div class="main-category">
+               <div class="top-main-category text-center bg-white">
+                 Slider/text
+               </div>
+               <div class="center-main-category mt-4 bg-white">
+                 <div class="items-categories">
+                   <category />
+                   <category />
+                   <category />
+                   <category />
+                   <category />
+                   <!--                  <category />-->
+                 </div>
+               </div>
+             </div>
+             <div class="categories bg-white">
+               <div class="title-category">
+                 <h1>دسته بندی ها</h1>
+               </div>
+               <div class="menu">
+                 <a href="" @mouseover="show_subCategories(1)" @mouseout="show_subCategories(0)">
+                   <div class="items-menu">
+                     <p>خط تولید کمپوت</p>
+                   </div>
+                 </a>
+                 <a href="">
+                   <div class="items-menu">
+                     <p>خط تولید بیسکوئیت</p>
+                   </div>
+                 </a>
+                 <a href="">
+                   <div class="items-menu">
+                     <p>خط توبید ترشی</p>
+                   </div>
+                 </a>
+                 <a href="">
+                   <div class="items-menu">
+                     <p>خط تولید پاستیل</p>
+                   </div>
+                 </a>
+               </div>
+             </div>
+             <div class="subCategories" ref="subCategories"></div>
+           </div>
+         </div>
           <div class="main-center">
             <div class="w-100 p-2">
               <div class="title-blog">
@@ -73,6 +76,15 @@ export default {
   components:{
     Category,
     Blog
+  },
+  methods:{
+    show_subCategories(x){
+      if (x===1){
+        this.$refs.subCategories.style.opacity='1';
+      }else {
+        this.$refs.subCategories.style.opacity='0';
+      }
+    }
   }
 }
 </script>
@@ -86,25 +98,40 @@ export default {
 }
 .main-top {
   width: 100%;
+  position: relative;
   display: flex;
+
 }
 
 .main-category {
-  width: 80%;
+  width: 900px;
   height: 500px;
   border-radius: 8px;
+  position: relative;
+  box-sizing: border-box;
   /*background-color: red;*/
 }
 
 .categories {
-  width: 18.9%;
+  width: 220px;
   height: 500px;
   margin-left: 1%;
   border-radius: 8px;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
+  box-sizing: border-box;
+
   /*background-color: blue;*/
 }
-
+.subCategories{
+  width: 220px;
+  height: 500px;
+  position: absolute;
+  right: 19.5%;
+  border-radius: 8px;
+  opacity: 0;
+  box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
+  background-color: white;
+}
 .title-category {
   width: 100%;
   text-align: right;
@@ -141,7 +168,7 @@ export default {
   /*background-color: rgba(153,87,161,0.89);*/
   text-align: right;
   padding: 5px 8px;
-  transition: all 0.1s;
+  transition: all 0.2s;
 }
 
 .items-menu p {
@@ -149,17 +176,20 @@ export default {
 }
 
 .items-menu:hover {
-  box-shadow: 0 1px 1px 1px rgba(136, 140, 141, 0.89);
+  box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
   cursor: pointer;
 }
 
 .items-menu:hover p {
   color: var(--blue);
 }
+/*.items-menu:hover .subCategories{*/
+/*  opacity: 1!important;*/
+/*}*/
 
 .top-main-category {
   width: 100%;
-  height: 240px;
+  height: 260px;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
   border-radius: 8px;
   /*background-color: rgba(20, 141, 120, 0.89);*/
@@ -167,7 +197,7 @@ export default {
 
 .center-main-category {
   width: 100%;
-  height: 236px;
+  height: 216px;
   border-radius: 8px;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
   /*background-color: #fff585;*/
@@ -185,6 +215,7 @@ export default {
   width:100%;
   margin-top: 5%;
   border-radius: 8px;
+  position: relative;
   /*box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);*/
 }
 #blogs{
