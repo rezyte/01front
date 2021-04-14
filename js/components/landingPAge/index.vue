@@ -7,7 +7,7 @@
           <!--        //لیست مشتری ها(مشاهده اطلاعات کامل بعد از ثبت نام)-->
           <div class="col">
             <div class="row">
-              <div class="d-flex flex-column flex-md-row flex-wrap mm">
+              <div class="w-100 d-flex flex-column flex-md-row flex-wrap mm justify-content-around">
                 <div class="video">
                   <videos/>
                 </div>

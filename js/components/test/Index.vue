@@ -9,14 +9,9 @@
                <div class="top-main-category text-center bg-white">
                  Slider/text
                </div>
-               <div class="center-main-category mt-4 bg-white">
+               <div class="center-main-category bg-white">
                  <div class="items-categories">
-                   <category />
-                   <category />
-                   <category />
-                   <category />
-                   <category />
-                   <!--                  <category />-->
+                   <category v-for="category in categories" :name="category.name" v-bind:key="category.index" :picture="category.picture" />
                  </div>
                </div>
              </div>
@@ -25,29 +20,25 @@
                  <h1>دسته بندی ها</h1>
                </div>
                <div class="menu">
-                 <a href="" @mouseover="show_subCategories(1)" @mouseout="show_subCategories(0)">
+                 <a v-for="category in categories" href="" @mouseover="show_subCategories(1,category.id)" @mouseout="show_subCategories(0)">
                    <div class="items-menu">
-                     <p>خط تولید کمپوت</p>
-                   </div>
-                 </a>
-                 <a href="">
-                   <div class="items-menu">
-                     <p>خط تولید بیسکوئیت</p>
-                   </div>
-                 </a>
-                 <a href="">
-                   <div class="items-menu">
-                     <p>خط توبید ترشی</p>
-                   </div>
-                 </a>
-                 <a href="">
-                   <div class="items-menu">
-                     <p>خط تولید پاستیل</p>
+<!--                     <i class="far fa-angle-left"></i>-->
+<!--                     <i class="fal fa-angle-left"></i>-->
+                     <i id="arrow-left" class="fas fa-angle-left"></i>
+                     <p v-text="category.name"></p>
                    </div>
                  </a>
                </div>
              </div>
-             <div class="subCategories" ref="subCategories"></div>
+             <div class="subCategories" ref="subCategories">
+               <nav>
+                 <ul>
+                   <li v-for="sub in subCategories">
+                     <a href="" v-text="sub.name"></a>
+                   </li>
+                 </ul>
+               </nav>
+             </div>
            </div>
          </div>
           <div class="main-center">
@@ -73,18 +64,91 @@ import Category from "./categories/Category.vue";
 import Blog from "./blogs/Blog.vue";
 export default {
   name: "index",
+  data(){
+    return{
+      categories:[
+        {
+          id:1,
+          name:'خط تولید کمپوت',
+          picture: '/static/public/images/startFrame.jpg',
+          sub_categories:[
+            {
+              name:'خط تولید کمپوت درجه یک'
+            },
+            {
+              name:'خط تولید کمپوت درجه دو'
+            }
+          ]
+        },
+        {
+          id:2,
+          name:'خط تولید بیسکوئیت',
+          picture: '/static/public/images/startFrame.jpg',
+          sub_categories:[
+            {
+              name:'خط تولید بیسکوئیت درجه یک'
+            },
+            {
+              name:'خط تولید بیسکوئیت درجه دو'
+            },
+            {
+              name:'خط تولید بیسکوئیت درجه سه'
+            }
+          ]
+        },
+        {
+          id:3,
+          name:'خط تولید ترشی',
+          picture: '/static/public/images/startFrame.jpg',
+          sub_categories:[
+            {
+              name:'خط تولید ترشی درجه یک'
+            }
+          ]
+        },
+        {
+          id:4,
+          name:'خط تولید توتن و تنباکو',
+          picture: '/static/public/images/startFrame.jpg',
+          sub_categories:[
+            {
+              name:'خط تولید توتن درجه یک'
+            }
+          ]
+        }
+      ],
+      subCategories:''
+    }
+  },
   components:{
     Category,
     Blog
   },
   methods:{
-    show_subCategories(x){
+    show_subCategories(x,y=null){
       if (x===1){
-        this.$refs.subCategories.style.opacity='1';
+        if (y!==null){
+          let cat= this.categories.find(
+              category => category.id===y
+          )
+         let data=JSON.stringify(cat)
+          this.subCategories=JSON.parse(data).sub_categories
+        }
+        // y!=null ? this.id_subCategory=y : y='';
+        this.$refs.subCategories.style.display='block';
       }else {
-        this.$refs.subCategories.style.opacity='0';
+        this.$refs.subCategories.style.display='none';
       }
     }
+  },
+  computed:{
+    // subCategories(id){
+    //   let cat= this.categories.find(
+    //       category => category.id===id
+    //   )
+    //   console.log(cat)
+    //   return cat.sub_categories;
+    // }
   }
 }
 </script>
@@ -126,11 +190,41 @@ export default {
   width: 220px;
   height: 500px;
   position: absolute;
-  right: 19.5%;
+  right: 19.2%;
   border-radius: 8px;
-  opacity: 0;
+  display: none;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
   background-color: white;
+}
+.subCategories:hover{
+  display: block!important;
+}
+.subCategories ul{
+  width: 100%;
+  /*background-color: red;*/
+  padding: 0;
+  margin: 0;
+}
+.subCategories ul li{
+  width: 100%;
+  /*height: 30px;*/
+  /*margin: 5px 0;*/
+  padding:5px;
+  /*background-color: #13ff7f;*/
+  text-align: right;
+  list-style: none;
+}
+.subCategories ul li a{
+  width: 100%;
+  height: 100%;
+  color: black;
+  text-decoration: none;
+}
+.subCategories ul li a:hover{
+  color: var(--blue);
+  /*text-decoration:underline;*/
+  /*text-decoration-color: var(--blue)!important;*/
+  /*text-decoration-style:dashed;*/
 }
 .title-category {
   width: 100%;
@@ -156,40 +250,38 @@ export default {
 
 .menu a {
   width: 100%;
-  height: 100%;
+  height: 40px;
   text-decoration: none;
   color: black;
 }
 
 .items-menu {
   width: 100%;
-  height: 40px;
-  margin: 2px 0;
-  /*background-color: rgba(153,87,161,0.89);*/
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   text-align: right;
   padding: 5px 8px;
   transition: all 0.2s;
 }
 
 .items-menu p {
+  padding-top: 9px;
   font-size: 17px;
 }
 
 .items-menu:hover {
-  box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
+  box-shadow: 6px 4px 12px 1px rgba(175, 179, 180, 0.89);
   cursor: pointer;
 }
-
-.items-menu:hover p {
-  color: var(--blue);
+.items-menu:hover p ,.items-menu:hover #arrow-left {
+  color: var(--blue)!important;
 }
-/*.items-menu:hover .subCategories{*/
-/*  opacity: 1!important;*/
-/*}*/
-
 .top-main-category {
   width: 100%;
-  height: 260px;
+  height: 271px;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
   border-radius: 8px;
   /*background-color: rgba(20, 141, 120, 0.89);*/
@@ -199,13 +291,14 @@ export default {
   width: 100%;
   height: 216px;
   border-radius: 8px;
+  margin-top: 1.4%;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
   /*background-color: #fff585;*/
 }
 .items-categories{
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;

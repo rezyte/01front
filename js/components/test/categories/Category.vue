@@ -1,11 +1,11 @@
 <template>
-  <a href="">
+  <a id="category" href="">
     <div class="category">
       <div class="pic">
-        <img src="/static/public/images/عکس-کمپوت-1.jpg" alt="تصویر ناقص است">
+        <img :src="picture" alt="تصویر ناقص است">
       </div>
       <div class="text">
-        <p>دستگاه کمپوت</p>
+        <p v-text="name"></p>
       </div>
     </div>
   </a>
@@ -14,6 +14,7 @@
 <script>
 export default {
   name: "Category",
+  props:['name','picture'],
   created() {
     // this.$emit('subCategories',)
   },
@@ -24,12 +25,13 @@ export default {
 </script>
 
 <style scoped>
-a{
-  width:100px ;
+#category{
+  width:auto ;
   height: 150px;
   text-decoration: none!important;
   color: black;
   margin: 10px;
+  cursor: pointer;
 }
 .category{
   width: 100%;
@@ -39,7 +41,6 @@ a{
   align-items: center;
   justify-content: space-between;
   transition: all 0.3s;
-  cursor: pointer;
 }
 .category:hover .text p{
   color: var(--blue);

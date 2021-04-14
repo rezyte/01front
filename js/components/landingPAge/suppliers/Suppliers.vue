@@ -13,12 +13,12 @@
       <tbody>
         <tr v-if="info">
           <th scope="row"></th>
-          <td v-text="info[0].name"></td>
+          <td v-text="info.name"></td>
           <td class="blur"> برای مشاهده ثبت نام کنید </td>
           <td class="">xxx54619xxx</td>
           <td>
             <div class="comments" ref="comments" @mouseout="showCommentsLess()" @mouseover="showCommentsMore()">
-              <p id="content_momments" ref="content_momments" v-text="info[0].extra_discription">
+              <p id="content_momments" ref="content_momments" v-text="info.extra_discription">
               </p>
             </div>
           </td>
@@ -45,6 +45,7 @@ export default {
     }
   },
   created() {
+    console.log(this.info)
     // let me=JSON.stringify(this.info);
     // console.log(JSON.parse(this.info))
     // console.log(JSON.stringify(this.info))
