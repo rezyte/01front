@@ -11,7 +11,7 @@
             <div class="option">
                 <ul>
                     <li> <indicator></indicator>فروش و بازاریابی داخلی    </li>
-                    <li>   <indicator></indicator>روش و بازاریابی بین المللی    </li>
+                    <li class="mt-1">   <indicator></indicator>روش و بازاریابی بین المللی    </li>
                 </ul>
             </div>
         </div>

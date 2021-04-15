@@ -35,10 +35,9 @@ name: "toolsList",
   background-color: whitesmoke;
 }
 #toolsListWrapper{
-
     display: flex;
-    padding: 5px;
-    margin-top: 50px;
+    padding: 3px;
+    margin-top: 20px;
     max-width: 1000px;
     width: 100%;
     justify-content: space-between;
@@ -70,7 +69,7 @@ name: "toolsList",
     width: 100%;
 }
 .title{
-    margin-top: 10px;
+    margin-top: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,7 +78,7 @@ name: "toolsList",
   text-align: center;
   /*font-size: 29px;*/
   font-weight: 700;
-  color: var(--blue);
+  color: black;
 }
 .title p:nth-child(2){
     text-align: center;

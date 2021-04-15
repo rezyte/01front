@@ -11,8 +11,8 @@
             <div class="option">
                 <ul>
                     <li> <indicator></indicator>ساخت بروشور انگلیسی و زبان های دیگر </li>
-                    <li> <indicator></indicator>طراحی بروشور اختصاصی فارسی </li>
-                    <li><indicator></indicator>پیگیری مشتریان برقراری ارتباط با آنان </li>
+                    <li class="mt-1"> <indicator></indicator>طراحی بروشور اختصاصی فارسی </li>
+                    <li class="mt-1"><indicator></indicator>پیگیری مشتریان برقراری ارتباط با آنان </li>
                 </ul>
             </div>
         </div>

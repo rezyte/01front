@@ -11,8 +11,8 @@
             <div class="option">
                 <ul>
                     <li><indicator></indicator>نرم افزار محاسبه قیمت تمام شده </li>
-                    <li><indicator></indicator>نرم افزار انبارداری و مدیریت مشتریان </li>
-                    <li><indicator></indicator>نرم افزار مدیریت مشتریان(crm)</li>
+                    <li class="mt-1"><indicator></indicator>نرم افزار انبارداری و مدیریت مشتریان </li>
+                    <li class="mt-1"><indicator></indicator>نرم افزار مدیریت مشتریان(crm)</li>
                 </ul>
             </div>
         </div>

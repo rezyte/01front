@@ -2,55 +2,36 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col">
-        <headers></headers>
-        <div class="w-100">
+          <headers></headers>
+        <div class="p-2">
+         <div class="mb-2 bgg p-2">
+           <p class="titr">
+             <span class="damirco"> دمیرکو چیست؟</span>
+             دمیرکو پلتفرم فروش ماشین آلات صنعتی در ایران و شکور های همسایه است
+             <br>
+             در سال قبل ما نزدیک به 300،000 بازدید کننده و 16،325 مشتری داخلی و خارجی داشتیم که حدود یک سوم آنها خارج از
+             ایران بودند
+           </p>
+         </div>
           <div class="col">
             <div class="row">
-              <div class="w-100 d-flex flex-column flex-md-row flex-wrap mm justify-content-around">
-                <div class="video">
-                  <videos/>
-                </div>
-                <div class="table">
+              <div class="w-100">
+                <div class="table bgg">
                   <suppliers :info="JSON.parse(objects).orders"/>
                 </div>
               </div>
             </div>
             <div class="w-100 text-center">
               <a :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
-                <button class="btn register m-auto">مشاهده مشتریان</button>
+                <h1 class="btn register m-auto ">مشاهده مشتریان</h1>
               </a>
             </div>
-            <div class="row">
-              <div class="w-100 mm">
-                <diagram/>
-              </div>
-            </div>
           </div>
         </div>
-        <div class="col-12 customers-us mt-3">
-          <!--          <customers2></customers2>-->
-          <!--        <customers-list />-->
-          <div class="text-center p-3 ">
-            <h2>مشتریان ما</h2>
-          </div>
-          <div class="slider">
-            <slider></slider>
-          </div>
-        </div>
-        <!-- <signup-and-worker :errors="errors"></signup-and-worker> -->
-        <!--        <videos></videos>-->
-        <!--    <customers></customers>-->
         <tools-list></tools-list>
         <div class="row">
           <div class="m-auto">
             <shirbarghi></shirbarghi>
-          </div>
-        </div>
-        <div class="row mt-5">
-          <div class="m-auto">
-            <a class="text-decoration-none" :href="'/landings/intro/'+JSON.parse(objects).id+'/signup'">
-              <button class="btn register m-auto">ثبت نام کنید</button>
-            </a>
           </div>
         </div>
         <div class="row">
@@ -124,17 +105,11 @@ export default {
 }
 
 .table {
-  width: 65%;
-}
-
-.mm {
-  background-color: whitesmoke;
-  margin: 10px 0;
-  /*margin: 5% 0;*/
+  width: 100%;
 }
 
 .register {
-  background-color: #598edb;
+  color: black;
   border: #3589cd 0.5px solid;
   transition: background-color, color 0.2s;
 }
@@ -156,20 +131,33 @@ export default {
 .color-dam:hover {
   color: #006dea;
 }
-.customers-us{
+
+.customers-us {
   background-color: whitesmoke;
 }
-.customers-us>div>h2{
+
+.customers-us > div > h2 {
   color: var(--blue);
   font-weight: bold;
 }
+.bgg{
+  background-color: whitesmoke;
+}
+.damirco{
+  color: var(--blue);
+  font-weight: bold;
+}
+.titr{
+  text-align: right;
+  direction: rtl;
+  padding-right: 4px;
+}
 @media only screen and (max-width: 768px) {
-  .table {
-    width: 100%;
-  }
-
-  .video {
-    width: 100%;
-  }
+  /*.table {*/
+  /*  width: 100%;*/
+  /*}*/
+  /*.video {*/
+  /*  width: 100%;*/
+  /*}*/
 }
 </style>

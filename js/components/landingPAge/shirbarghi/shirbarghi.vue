@@ -33,9 +33,9 @@ name: "shirbarghi",
 <style scoped>
 #shirbarghi{
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     max-width: 900px;
-    margin-top: 50px;
+    margin-top: 20px;
 
 }
 #shirbarghiWrapper{
@@ -44,8 +44,7 @@ name: "shirbarghi",
     border-radius: 5px;
     align-items: center;
     border:1px solid #b3b3b3;
-    padding-top: 10px;
-    padding-bottom: 0px;
+    padding-top: 5px;
 }
 .shirbarghiImg{
     margin-right: 10px;
