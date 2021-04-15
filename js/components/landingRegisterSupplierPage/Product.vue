@@ -58,7 +58,7 @@
                 </div>
               </div>
             </div>
-            <div class="form-group mt-5">
+            <div class="form-group">
               <label for="video">فیلم محصول</label>
               <input
                   type="file"
@@ -84,7 +84,7 @@
                 </button>
               </div>
             </div>
-            <div class="form-group mt-5">
+            <div class="form-group">
               <label>قیمت</label>
               <img src="/static/public/images/star-16.jpg" class="mr-2 mb-1"/>
               <input
