@@ -51,5 +51,46 @@ export default{
     exist_user:{
         username:'',
         phone_number:''
-    }
+    },
+    transactions:[]
+    // data_paginations:{
+    //     "transactions": [
+    //         {
+    //             "id": "1",
+    //             "date": "26.10.2019",
+    //             "amount": "100",
+    //             "type": "success"
+    //         },
+    //         {
+    //             "id": "2",
+    //             "date": "26.10.2019",
+    //             "amount": "200",
+    //             "type": "error"
+    //         },
+    //         {
+    //             "id": "3",
+    //             "date": "26.10.2019",
+    //             "amount": "200",
+    //             "type": "error"
+    //         },
+    //         {
+    //             "id": "4",
+    //             "date": "26.10.2019",
+    //             "amount": "200",
+    //             "type": "error"
+    //         },
+    //         {
+    //             "id": "5",
+    //             "date": "26.10.2019",
+    //             "amount": "200",
+    //             "type": "error"
+    //         },
+    //         {
+    //             "id": "6",
+    //             "date": "26.10.2019",
+    //             "amount": "300",
+    //             "type": "processing"
+    //         }
+    //     ]
+    // }
 }

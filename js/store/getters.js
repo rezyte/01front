@@ -18,5 +18,6 @@ export default{
     },
     messages_response:state =>{
         return state.messages_response
-    }
+    },
+    trans : state => state.transactions
 }

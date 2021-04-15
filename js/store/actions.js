@@ -23,6 +23,12 @@ export default{
                 commit('EXIST_USER_PHONE',error.response.data.error_msg);
             }
         })
+    },
+    loadTrans(context){
+        axios.get('https://my-json-server.typicode.com/Sunpacker/vue_pagination/db').then((response) =>{
+            let reversed=response.data.transactions.reverse();
+            context.commit('loadTransactions',reversed)
+        })
     }
 
 }
