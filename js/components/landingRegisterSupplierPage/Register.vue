@@ -1,7 +1,7 @@
 <template>
   <div class="w-100">
-      <div class="w-50 m-auto p-3">
-        <progress-bar text-position="middle" size="huge" val="58" text="58%"></progress-bar>
+      <div class="w-50 m-auto p-3" id="progress">
+        <progress-bar text-position="middle" size="huge" val="0" text="0%"></progress-bar>
       </div>
     <form action="" method="post">
       <fieldset>
@@ -179,9 +179,10 @@ form {
   text-align: right;
   padding: 20px;
 }
-.pro-bar{
-  /*padding-left: 100%;*/
-  /*margin: auto!important;*/
-  margin-left: 33% !important;
+@media screen and (max-width: 576px){
+  #progress{
+    width: 90% !important;
+
+  }
 }
 </style>

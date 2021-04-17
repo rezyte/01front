@@ -1,6 +1,6 @@
 <template>
   <div class="col">
-    <div class="w-50 m-auto p-3">
+    <div class="w-50 m-auto p-3" id="progress">
       <progress-bar text-position="middle" size="huge" val="58" text="58%"></progress-bar>
     </div>
     <form action="" method="post">
@@ -56,7 +56,7 @@
               maxlength="11"
               name="semat"
               ref="semat"
-              placeholder=""
+              placeholder="به فارسی وارد کنید"
               @input="validate('semat')"
               :class="[
                 inValidated.semat ? 'is-invalid' : null,
@@ -173,5 +173,10 @@ form {
 
 .--blue {
   background-color: var(--blue) !important;
+}
+@media screen and (max-width: 576px){
+  #progress{
+    width: 90% !important;
+  }
 }
 </style>

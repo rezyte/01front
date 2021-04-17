@@ -1,16 +1,16 @@
 <template>
   <div class="w-100" id="form">
-    <div class="w-50 m-auto p-3">
-      <progress-bar text-position="middle" size="huge" val="58" text="58%"></progress-bar>
+    <div class="w-50 m-auto p-3" id="progress">
+      <progress-bar text-position="middle" size="huge" val="86" text="86%" bg-color="#b6b3ff"></progress-bar>
     </div>
     <form v-on:submit.prevent="send()" method="post" name="form" enctype="multipart/form-data">
       <fieldset>
-        <legend>ثبت محصول</legend>
+        <legend><h1>ثبت محصول</h1></legend>
         <div class="m-3">
           <div class="d-flex flex-row justify-content-between flex-wrap">
             <div class="form-group">
               <label for="name">نام محصول</label>
-              <img src="/static/public/images/star-16.jpg" class="mr-2 mb-1" alt="تصویر ناقص است">
+              <i class="fas fa-asterisk fa-xs"></i>
               <input type="text" name="name" id="name" ref="name" placeholder="نام محصول خود را وراد کنید"
                      @input="validate" required
                      :class="[
@@ -25,11 +25,7 @@
             </div>
             <div class="form-group h-100">
               <label for="picture">عکس محصول</label>
-              <img src="/static/public/images/star-16.jpg" class="mr-2 mb-1" alt="تصویر ناقص است">
-              <!--              <div class="required">*</div>-->
-              <div class="m-1 mb-3">
-                <small class="text-primary">می توانید هرتعداد عکسی که از محصول میخواهید آپلود کنید</small>
-              </div>
+              <i class="fas fa-asterisk fa-xs"></i>
               <input
                   type="file"
                   class="form-control-file"
@@ -41,6 +37,7 @@
                   accept="image/*"
                   multiple="multiple"
               />
+              <small v-if="image.length <1 " class="text-primary">می توانید هرتعداد عکسی که از محصول میخواهید آپلود کنید</small>
               <small
                   class="text text-danger"
                   v-if="errors.picture"
@@ -86,7 +83,7 @@
             </div>
             <div class="form-group">
               <label>قیمت</label>
-              <img src="/static/public/images/star-16.jpg" class="mr-2 mb-1"/>
+              <i class="fas fa-asterisk fa-xs"></i>
               <input
                   type="text"
                   :class="[
@@ -104,73 +101,82 @@
               />
             </div>
           </div>
-          <div class="d-flex flex-row justify-content-between flex-wrap">
-            <div class="form-group">
-              <lable
-              >می خواهید مشتریان در مورد محصول شما چه چیزی را بدانند؟
-              </lable
-              >
-              <textarea
-                  rows="10"
-                  ref="com1"
-                  name="com1"
-                  @input="validate"
-                  class="form-control mt-4 texter"
-                  placeholder="مشخصات دسنگاه را ذکر کنید"
-              ></textarea>
+          <div>
+            <hr>
+          </div>
+          <div class="w-100 my-4">
+            <div class="w-100">
+              <div class="form-group float-right w-50 comments-response">
+                <label for="com1"
+                >می خواهید مشتریان در مورد محصول شما چه چیزی را بدانند؟
+                </label
+                >
+                <textarea
+                    rows="10"
+                    id="com1"
+                    ref="com1"
+                    name="com1"
+                    @input="validate"
+                    class="form-control mt-4 texter"
+                    placeholder="مشخصات دسنگاه را ذکر کنید"
+                ></textarea>
+              </div>
+              <div class="form-group float-left w-50 comments-response">
+                <label for="com2"
+                >دستگاه شما در کدام قسمت هااز بقیه دستگاه های هم رده بهتراست؟
+                </label
+                >
+                <textarea
+                    rows="10"
+                    ref="com2"
+                    id="com2"
+                    name="com2"
+                    @input="validate"
+                    class="form-control mt-4 texter"
+                    placeholder="تفاوت ها و مزیت های دستگاه خودتان را بنویسید"
+                ></textarea>
+              </div>
             </div>
-            <div class="form-group">
-              <lable
-              >دستگاه شما در کدام قسمت ها از بقیه دستگاه های هم رده بهتر
-                است؟
-              </lable
-              >
-              <textarea
-                  rows="10"
-                  ref="com2"
-                  name="com2"
-                  @input="validate"
-                  class="form-control mt-4 texter"
-                  placeholder="تفاوت ها و مزیت های دستگاه خودتان را بنویسید"
-              ></textarea>
-            </div>
-            <div class="form-group">
-              <lable for="com3">چرا مردم دستگاه شما را خریداری می کنند؟</lable>
-              <textarea
-                  cols="10"
-                  rows="10"
-                  ref="com3"
-                  id="com3"
-                  name="com3"
-                  @input="validate"
-                  class="form-control mt-4 texter"
-                  placeholder="موارد استفاده یا کاربردهای دستگاه خودتان را اینجا بنویسید"
-              ></textarea>
-            </div>
-            <div class="form-group">
-              <lable
-              >کدام نکته است که اگه مشتری بداند حتما دستگاه شما را انتخاب می
-                کند؟
-              </lable
-              >
-              <textarea
-                  rows="10"
-                  ref="com4"
-                  name="com4"
-                  @input="validate"
-                  class="form-control mt-4 texter"
-                  placeholder="کمبود های رقبا و برتری های خودرا نسبت به آن هارا ذکر کنید"
-              ></textarea>
+            <div class="w-100">
+              <div class="form-group mt-4 float-right w-50 comments-response">
+                <label class="label" for="com3">چرا مردم دستگاه شما را خریداری می کنند؟</label>
+                <textarea
+                    cols="10"
+                    rows="10"
+                    ref="com3"
+                    id="com3"
+                    name="com3"
+                    @input="validate"
+                    class="form-control mt-4 texter"
+                    placeholder="موارد استفاده یا کاربردهای دستگاه خودتان را اینجا بنویسید"
+                ></textarea>
+              </div>
+              <div class="form-group mt-4  float-left w-50 comments-response">
+                <label class="label" for="com4"
+                >کدام نکته است که اگه مشتری بداند حتما دستگاه شما را انتخاب می
+                  کند؟
+                </label
+                >
+                <textarea
+                    rows="10"
+                    id="com4"
+                    ref="com4"
+                    name="com4"
+                    @input="validate"
+                    class="form-control mt-4 texter"
+                    placeholder="کمبود های رقبا و برتری های خودرا نسبت به آن هارا ذکر کنید"
+                ></textarea>
+              </div>
             </div>
           </div>
           <div class="form-group">
-            <lable>موارد استفاده دستگاه خودتان را بنویسید</lable>
+            <label class="label mt-3">موارد استفاده دستگاه خودتان را بنویسید</label>
             <div class="d-sm-flex flex-wrap justify-content-around mt-4">
               <div class="form-inline m-2">
                 <span>1:</span>
                 <textarea
                     cols="18"
-                    rows="3"
+                    rows="1"
                     ref="com5"
                     name="com5"
                     @input="validate"
@@ -181,7 +187,7 @@
                 <span>2:</span>
                 <textarea
                     cols="18"
-                    rows="3"
+                    rows="1"
                     ref="com6"
                     name="com6"
                     @input="validate"
@@ -192,7 +198,7 @@
                 <span>3:</span>
                 <textarea
                     cols="18"
-                    rows="3"
+                    rows="1"
                     ref="com7"
                     name="com7"
                     @input="validate"
@@ -201,7 +207,9 @@
               </div>
             </div>
           </div>
-          <input type="submit" class="btn btn-primary" value="ثبت"/>
+          <div class="mt-5 w-100">
+            <input type="submit" class="btn btn-primary register" value="ثبت"/>
+          </div>
         </div>
       </fieldset>
     </form>
@@ -211,9 +219,10 @@
 
 <script>
 import ProgressBar from 'vue-simple-progress';
+
 export default {
   name: "Product",
-  components:{ProgressBar},
+  components: {ProgressBar},
   data() {
     return {
       picture: [],
@@ -223,7 +232,7 @@ export default {
         picture: "",
         video: "",
       },
-      regexName:/^[ًٌٍ،؛َُِّۀآـ«»:"ةيژؤإأء<> ؟ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-z]{3,100}$/,
+      regexName: /^[ًٌٍ،؛َُِّۀآـ«»:"ةيژؤإأء<> ؟ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-z]{3,100}$/,
       validated: {
         name: false,
         cost: false
@@ -340,14 +349,22 @@ export default {
 </script>
 
 <style scoped>
+* {
+  font-family: iranSans !important;
+}
+
 form {
   padding: 20px;
 }
 
 #form {
-  background-color: whitesmoke;
   direction: rtl;
   text-align: right;
+}
+
+#form legend h1 {
+  font-size: 24px;
+  font-weight: 550;
 }
 
 .picture {
@@ -388,5 +405,42 @@ form {
 /*}*/
 .texter {
   width: 400px;
+}
+
+.fa-asterisk {
+  color: red;
+  margin-bottom: 6px;
+  margin-right: 2px;
+}
+
+label {
+  font-size: 19px;
+}
+
+::placeholder {
+  font-size: 14.4px;
+  font-weight: 550;
+}
+.register{
+  width: 70px;
+  position: relative;
+  z-index: 999;
+  margin-right: 3%;
+  /*background-color: var(--blue);*/
+  font-size: 21px;
+}
+@media screen and (max-width: 933px){
+  .comments-response{
+    width: 100%!important;
+  }
+  .comments-response textarea{
+    width: 80%;
+  }
+}
+@media screen and (max-width: 576px){
+  #progress{
+    width: 90% !important;
+
+  }
 }
 </style>

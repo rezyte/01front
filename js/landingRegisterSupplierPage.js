@@ -5,6 +5,8 @@ import { store } from './store'
 import Company from "./components/landingRegisterSupplierPage/Company.vue";
 import Product from "./components/landingRegisterSupplierPage/Product.vue";
 import Register from "./components/landingRegisterSupplierPage/Register.vue";
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/js/all.js';
 
 new Vue({
     el:'#app',
