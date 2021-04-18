@@ -17,7 +17,7 @@
                 inValidated.name ? 'is-invalid' : null,
                 validated.name ? 'is-valid' : null,
                 'form-control']"
-                     pattern="[a-zA-Z0-9ةيژؤإأ-_ ءـآۀًٌٍَُِّضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو]{3,100}"
+                     pattern="[\u06F0-\u06F90-9a-zA-Z0-9ةيژؤإأ-_ ءـآۀًٌٍَُِّضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو]{3,100}"
                      title="نام درست وارد نشده است"
                      minlength="3"
                      maxlength="100"
@@ -93,12 +93,13 @@
                   id="cost"
                   name="cost"
                   ref="cost"
-                  pattern="[0-9]{6,11}"
+                  pattern="[\u06F0-\u06F90-90-9/]{7,14}"
                   title="قیمت در رنج معتبری وارد نشده است"
                   placeholder="قیمت به تومان وارد شود"
                   required
                   @input="validate"
               />
+              <small class="text-primary">مثال:700/000/000</small>
             </div>
           </div>
           <div>
@@ -237,7 +238,7 @@ export default {
         picture: "",
         video: "",
       },
-      regexName: /^[ًٌٍ،؛َُِّۀآـ«»:"ةيژؤإأء<> ؟ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-z0-9]{3,100}$/,
+      regexName: /^[ًٌٍ،؛َُِّۀآـ«»:"ةيژؤإأء<> ؟ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-z0-9\u06F0-\u06F90-9]{3,100}$/,
       validated: {
         name: false,
         cost: false
@@ -327,7 +328,7 @@ export default {
             this.inValidated.name = true;
           }
         } else {
-          let res = el.value.match(/^[0-9]{6,11}$/);
+          let res = el.value.match(/^[\u06F0-\u06F90-90-9/]{7,14}$/);
           if (res) {
             this.validated.cost = true;
             this.inValidated.cost = false;
@@ -450,6 +451,9 @@ label {
   margin-right: 3%;
   /*background-color: var(--blue);*/
   font-size: 21px;
+}
+::placeholder{
+  height: 100%;
 }
 @media screen and (max-width: 933px){
   .comments-response{

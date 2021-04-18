@@ -95,10 +95,8 @@ h1 {
 }
 
 #productsWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 100px;
-  justify-content: center;
+  width: 100%;
+  /*background-color: blue;*/
 }
 
 .singleProduct {

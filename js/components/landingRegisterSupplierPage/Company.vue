@@ -129,7 +129,7 @@ export default {
           case "address": {
             // this.$store.commit("RESET_EXIST_USER",'username');
             let address = this.$refs.address.value;
-            let res = address.match(this.$store.state.regularExpression.regAddress);
+            let res = address.match(this.$store.state.regularExpression.regPassword);
             if (res) {
               this.validated.address = true;
               this.inValidated.address = false;
@@ -170,7 +170,9 @@ form {
   direction: rtl;
   text-align: right;
 }
-
+::placeholder{
+  height: 100%;
+}
 .--blue {
   background-color: var(--blue) !important;
 }

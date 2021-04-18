@@ -1,6 +1,5 @@
 <template>
   <div id="pagination">
-    22222
     <div class="content">
       <div class="col-10 m-auto">
         <h3 class="title">عنوان</h3>
