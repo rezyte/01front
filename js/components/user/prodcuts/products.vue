@@ -9,50 +9,50 @@
     </div>
     <div id="productsWrapper">
 
+      <products-me :products="JSON.parse(products)" />
+<!--      <div v-if="JSON.parse(products).length>0" class="singleProduct" v-for='p in JSON.parse(this.products)'-->
+<!--           :key='p.slug'>-->
+<!--        <div class="singleProductWrapper">-->
+<!--          <a :href="gethref(p.slug)">-->
+<!--            <div class="img">-->
+<!--              &lt;!&ndash; <img src="/images/1.jpg" alt=""> &ndash;&gt;-->
+<!--              <zoom-on-hover :img-normal="getImage(p.product_image)"></zoom-on-hover>-->
+<!--            </div>-->
+<!--          </a>-->
+<!--          <div class="title">-->
 
-      <div v-if="JSON.parse(products).length>0" class="singleProduct" v-for='p in JSON.parse(this.products)'
-           :key='p.slug'>
-        <div class="singleProductWrapper">
-          <a :href="gethref(p.slug)">
-            <div class="img">
-              <!-- <img src="/images/1.jpg" alt=""> -->
-              <zoom-on-hover :img-normal="getImage(p.product_image)"></zoom-on-hover>
-            </div>
-          </a>
-          <div class="title">
+<!--            <a :href="gethref(p.slug)"><h3>{{ p.title }}</h3></a>-->
+<!--            <div class="priceList" v-if="p.price || p.second_price">-->
+<!--              <p>قیمت:</p>-->
+<!--              <p class="price">-->
+<!--                {{p.price ? p.price.toLocaleString() : ''}} <span v-if="p.price && p.second_price">-</span> {{p.second_price ? p.second_price.toLocaleString() : ''}}-->
 
-            <a :href="gethref(p.slug)"><h3>{{ p.title }}</h3></a>
-            <div class="priceList" v-if="p.price || p.second_price">
-              <p>قیمت:</p>
-              <p class="price">
-                {{p.price ? p.price.toLocaleString() : ''}} <span v-if="p.price && p.second_price">-</span> {{p.second_price ? p.second_price.toLocaleString() : ''}}
-
-                <span>میلون تومان</span>
-              </p>
-            </div>
-          </div>
-          <div id="showProduct">
-            <a :href="gethref(p.slug)">
-              <button class="showProduct">مشاهده محصول</button>
-            </a>
-          </div>
-<!--          <div class="contactUs">-->
-<!--            <button class="stelam" @click.prevent='showConsulate($event)'>مشاهده محصول</button>-->
+<!--                <span>میلون تومان</span>-->
+<!--              </p>-->
+<!--            </div>-->
 <!--          </div>-->
-          <consulate :productId="p.slug"></consulate>
-        </div>
-      </div>
-      <div style="width: 100%" v-if="JSON.parse(products).length==0">
-        <div class="catsWrapper" >
-          <ul v-for="cat in getCats">
-            <li>{{ cat.title }}</li>
-              <li v-for="subCat in cat.subs"><a :href="'/product-category/'+subCat.slug">{{subCat.title}}</a></li>
+<!--          <div id="showProduct">-->
+<!--            <a :href="gethref(p.slug)">-->
+<!--              <button class="showProduct">مشاهده محصول</button>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--&lt;!&ndash;          <div class="contactUs">&ndash;&gt;-->
+<!--&lt;!&ndash;            <button class="stelam" @click.prevent='showConsulate($event)'>مشاهده محصول</button>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--          <consulate :productId="p.slug"></consulate>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div style="width: 100%" v-if="JSON.parse(products).length==0">-->
+<!--        <div class="catsWrapper" >-->
+<!--          <ul v-for="cat in getCats">-->
+<!--            <li>{{ cat.title }}</li>-->
+<!--              <li v-for="subCat in cat.subs"><a :href="'/product-category/'+subCat.slug">{{subCat.title}}</a></li>-->
 
 
-          </ul>
+<!--          </ul>-->
 
-        </div>
-      </div>
+<!--        </div>-->
+<!--      </div>-->
 
 
     </div>
@@ -272,6 +272,7 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
 import {toggleBodyOverFlow} from "../../user/mixIns/toggleBodyOverFlow.js"
 import pagination from "../../pagination/pagination.vue";
 import longText from "../mixIns/longText"
+import ProductsMe from "./product-me/Index.vue"
 export default {
   props: ['products', "pagination"],
   computed:{
@@ -293,7 +294,8 @@ export default {
   components: {
     consulate,
     filtering,
-    pagination
+    pagination,
+    ProductsMe
   },
   mixins: [adjustElFromTop],
   created() {

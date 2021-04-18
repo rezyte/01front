@@ -35,6 +35,7 @@ vue.mixin({
   }
 })
 import ZoomOnHover from "vue-zoom-on-hover";
+import ProductsMe from "./components/user/prodcuts/product-me/Index.vue"
 vue.use(ZoomOnHover);
 const app = new vue({
   el: "#app",
@@ -50,6 +51,7 @@ const app = new vue({
     slicer,
     installPrompt,
     // foot: footer,
+    ProductsMe,
     'product':()=>import("./components/user/product/product.vue"),
     productZoom,
     breadCrumb,
@@ -57,7 +59,7 @@ const app = new vue({
     'signup':()=>import("./components/user/signup/signup.vue"),
     'products':()=>import("./components/user/prodcuts/products.vue"),
     'filtering':()=>import("./components/user/prodcuts/filtering.vue"),
-    'category':()=>import("./components/user/category/category.vue"),
+    // 'category':()=>import("./components/user/category/category.vue"),
     'blog':()=>import("./components/blog/blog/blog.vue"),
     'singleBlogPost':()=>import("./components/blog/blogPost/blogPost.vue"),
     'feedBack':()=>import("./components/user/template/feedback/feddback.vue"),

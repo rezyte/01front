@@ -1,5 +1,6 @@
 <template>
   <div id="pagination">
+    22222
     <div class="content">
       <div class="col-10 m-auto">
         <h3 class="title">عنوان</h3>
@@ -49,6 +50,7 @@ import JwPagination from 'jw-vue-pagination';
 const exampleItems = [2, 9, 8, 52, 56, 89, 4, 5, 6, 0, 8, 6]
 export default {
   name: "Pagination",
+  props:['products'],
   components: {
     JwPagination
   },
@@ -64,7 +66,12 @@ export default {
       this.pageOfItems = pageOfItems;
     }
   },
-  mounted() {
+  created() {
+    if (this.products.legend >1 ){
+      console.log("yes")
+    }else {
+      console.log("noo")
+    }
     console.log(this.exampleItems.length)
   }
 }

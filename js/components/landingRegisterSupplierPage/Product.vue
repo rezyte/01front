@@ -46,7 +46,6 @@
               <div class="d-flex flex-column justify-content-center align-items-center">
                 <div class="picture" v-if="image.length > 0  && !errors.picture">
                   <img v-for="img of image" :src="img" width="100" height="100" alt="تصویر ناقص است"/>
-
                 </div>
                 <div>
                   <button v-if="image.length !== 0" class="btn btn-secondary m-2" @click="removeImage">
@@ -67,6 +66,7 @@
                   accept="video/*"
                   size="100"
               />
+              <small class="text-primary">حجم ویدیو کمتراز 10Mb باشد</small>
               <small
                   class="text text-danger"
                   v-if="errors.video"
@@ -104,108 +104,113 @@
           <div>
             <hr>
           </div>
-          <div class="w-100 my-4">
-            <div class="w-100">
-              <div class="form-group float-right w-50 comments-response">
-                <label for="com1"
-                >می خواهید مشتریان در مورد محصول شما چه چیزی را بدانند؟
-                </label
-                >
-                <textarea
-                    rows="10"
-                    id="com1"
-                    ref="com1"
-                    name="com1"
-                    @input="validate"
-                    class="form-control mt-4 texter"
-                    placeholder="مشخصات دسنگاه را ذکر کنید"
-                ></textarea>
-              </div>
-              <div class="form-group float-left w-50 comments-response">
-                <label for="com2"
-                >دستگاه شما در کدام قسمت هااز بقیه دستگاه های هم رده بهتراست؟
-                </label
-                >
-                <textarea
-                    rows="10"
-                    ref="com2"
-                    id="com2"
-                    name="com2"
-                    @input="validate"
-                    class="form-control mt-4 texter"
-                    placeholder="تفاوت ها و مزیت های دستگاه خودتان را بنویسید"
-                ></textarea>
-              </div>
+          <div dir="rtl" class="w-100 my-4 dir-rtl">
+            <div class="form-group">
+              <label for="editor">اطلاعات محصول</label>
+              <ckeditor @input="validate2"  v-model="description"  id="editor"></ckeditor>
             </div>
-            <div class="w-100">
-              <div class="form-group mt-4 float-right w-50 comments-response">
-                <label class="label" for="com3">چرا مردم دستگاه شما را خریداری می کنند؟</label>
-                <textarea
-                    cols="10"
-                    rows="10"
-                    ref="com3"
-                    id="com3"
-                    name="com3"
-                    @input="validate"
-                    class="form-control mt-4 texter"
-                    placeholder="موارد استفاده یا کاربردهای دستگاه خودتان را اینجا بنویسید"
-                ></textarea>
-              </div>
-              <div class="form-group mt-4  float-left w-50 comments-response">
-                <label class="label" for="com4"
-                >کدام نکته است که اگه مشتری بداند حتما دستگاه شما را انتخاب می
-                  کند؟
-                </label
-                >
-                <textarea
-                    rows="10"
-                    id="com4"
-                    ref="com4"
-                    name="com4"
-                    @input="validate"
-                    class="form-control mt-4 texter"
-                    placeholder="کمبود های رقبا و برتری های خودرا نسبت به آن هارا ذکر کنید"
-                ></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="label mt-3">موارد استفاده دستگاه خودتان را بنویسید</label>
-            <div class="d-sm-flex flex-wrap justify-content-around mt-4">
-              <div class="form-inline m-2">
-                <span>1:</span>
-                <textarea
-                    cols="18"
-                    rows="1"
-                    ref="com5"
-                    name="com5"
-                    @input="validate"
-                    class="form-control mr-2"
-                ></textarea>
-              </div>
-              <div class="form-inline m-2">
-                <span>2:</span>
-                <textarea
-                    cols="18"
-                    rows="1"
-                    ref="com6"
-                    name="com6"
-                    @input="validate"
-                    class="form-control mr-2"
-                ></textarea>
-              </div>
-              <div class="form-inline m-2">
-                <span>3:</span>
-                <textarea
-                    cols="18"
-                    rows="1"
-                    ref="com7"
-                    name="com7"
-                    @input="validate"
-                    class="form-control mr-2"
-                ></textarea>
-              </div>
-            </div>
+            <input type="hidden" ref="description" name="description">
+<!--            <div class="w-100">-->
+<!--              <div class="form-group float-right w-50 comments-response">-->
+<!--                <label for="com1"-->
+<!--                >می خواهید مشتریان در مورد محصول شما چه چیزی را بدانند؟-->
+<!--                </label-->
+<!--                >-->
+<!--                <textarea-->
+<!--                    rows="10"-->
+<!--                    id="com1"-->
+<!--                    ref="com1"-->
+<!--                    name="com1"-->
+<!--                    @input="validate"-->
+<!--                    class="form-control mt-4 texter"-->
+<!--                    placeholder="مشخصات دسنگاه را ذکر کنید"-->
+<!--                ></textarea>-->
+<!--              </div>-->
+<!--              <div class="form-group float-left w-50 comments-response">-->
+<!--                <label for="com2"-->
+<!--                >دستگاه شما در کدام قسمت هااز بقیه دستگاه های هم رده بهتراست؟-->
+<!--                </label-->
+<!--                >-->
+<!--                <textarea-->
+<!--                    rows="10"-->
+<!--                    ref="com2"-->
+<!--                    id="com2"-->
+<!--                    name="com2"-->
+<!--                    @input="validate"-->
+<!--                    class="form-control mt-4 texter"-->
+<!--                    placeholder="تفاوت ها و مزیت های دستگاه خودتان را بنویسید"-->
+<!--                ></textarea>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="w-100">-->
+<!--              <div class="form-group mt-4 float-right w-50 comments-response">-->
+<!--                <label class="label" for="com3">چرا مردم دستگاه شما را خریداری می کنند؟</label>-->
+<!--                <textarea-->
+<!--                    cols="10"-->
+<!--                    rows="10"-->
+<!--                    ref="com3"-->
+<!--                    id="com3"-->
+<!--                    name="com3"-->
+<!--                    @input="validate"-->
+<!--                    class="form-control mt-4 texter"-->
+<!--                    placeholder="موارد استفاده یا کاربردهای دستگاه خودتان را اینجا بنویسید"-->
+<!--                ></textarea>-->
+<!--              </div>-->
+<!--              <div class="form-group mt-4  float-left w-50 comments-response">-->
+<!--                <label class="label" for="com4"-->
+<!--                >کدام نکته است که اگه مشتری بداند حتما دستگاه شما را انتخاب می-->
+<!--                  کند؟-->
+<!--                </label-->
+<!--                >-->
+<!--                <textarea-->
+<!--                    rows="10"-->
+<!--                    id="com4"-->
+<!--                    ref="com4"-->
+<!--                    name="com4"-->
+<!--                    @input="validate"-->
+<!--                    class="form-control mt-4 texter"-->
+<!--                    placeholder="کمبود های رقبا و برتری های خودرا نسبت به آن هارا ذکر کنید"-->
+<!--                ></textarea>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label class="label mt-3">موارد استفاده دستگاه خودتان را بنویسید</label>-->
+<!--            <div class="d-sm-flex flex-wrap justify-content-around mt-4">-->
+<!--              <div class="form-inline m-2">-->
+<!--                <span>1:</span>-->
+<!--                <textarea-->
+<!--                    cols="18"-->
+<!--                    rows="1"-->
+<!--                    ref="com5"-->
+<!--                    name="com5"-->
+<!--                    @input="validate"-->
+<!--                    class="form-control mr-2"-->
+<!--                ></textarea>-->
+<!--              </div>-->
+<!--              <div class="form-inline m-2">-->
+<!--                <span>2:</span>-->
+<!--                <textarea-->
+<!--                    cols="18"-->
+<!--                    rows="1"-->
+<!--                    ref="com6"-->
+<!--                    name="com6"-->
+<!--                    @input="validate"-->
+<!--                    class="form-control mr-2"-->
+<!--                ></textarea>-->
+<!--              </div>-->
+<!--              <div class="form-inline m-2">-->
+<!--                <span>3:</span>-->
+<!--                <textarea-->
+<!--                    cols="18"-->
+<!--                    rows="1"-->
+<!--                    ref="com7"-->
+<!--                    name="com7"-->
+<!--                    @input="validate"-->
+<!--                    class="form-control mr-2"-->
+<!--                ></textarea>-->
+<!--              </div>-->
+<!--            </div>-->
           </div>
           <div class="mt-5 w-100">
             <input type="submit" class="btn btn-primary register" value="ثبت"/>
@@ -232,7 +237,7 @@ export default {
         picture: "",
         video: "",
       },
-      regexName: /^[ًٌٍ،؛َُِّۀآـ«»:"ةيژؤإأء<> ؟ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-z]{3,100}$/,
+      regexName: /^[ًٌٍ،؛َُِّۀآـ«»:"ةيژؤإأء<> ؟ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-z0-9]{3,100}$/,
       validated: {
         name: false,
         cost: false
@@ -241,6 +246,10 @@ export default {
         name: false,
         cost: false
       },
+      editorConfig:{
+
+      }
+      ,description:''
     };
   },
   methods: {
@@ -329,9 +338,22 @@ export default {
         }
       } else {
         console.log(el);
+        alert("yes")
       }
-    }, send() {
-      let form = new FormData();
+    },
+    validate2(e){
+      // var des = e.substring(
+      //     e.lastIndexOf("<p>"),
+      //     e.lastIndexOf("</p>")
+      // );
+      e.split('/>')
+      let one=e.split('</')[0];
+      this.description=one.split('>')[1];
+    },
+    send() {
+      this.$refs.description.value=this.description;
+      console.log(this.$refs.description.value)
+      // let form = new FormData();
       let pics = [];
       // console.log(this.picture)
       for (var i = 0; i < this.picture.length; i++) {
@@ -442,5 +464,8 @@ label {
     width: 90% !important;
 
   }
+}
+#editor{
+  font-size: 21px!important;
 }
 </style>
