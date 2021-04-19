@@ -53,10 +53,10 @@
           <input
               type="text"
               id="phoneNumber"
-              maxlength="12"
+              maxlength="11"
               name="phoneNumber"
               ref="phoneNumber"
-              placeholder="09xx-xxxxxxx"
+              placeholder="09xxxxxxxxx"
               @input="validate('phoneNumber')"
               :class="[
                 inValidated.phoneNumber ? 'is-invalid' : null,

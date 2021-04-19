@@ -6,37 +6,40 @@
         <div id="content">
           <div v-for="item in pageOfItems" :key="item.id">
             <div class="item">
-              <a href="" class="link-item">
+              <a :href="'/product/'+item.slug" class="link-item">
                 <div class="item-origin">
                   <div class="pic">
                     <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است">
+<!--                    <img :src="'/static/public/images/'+item.product_image" alt="تصویر ناقص است">-->
                   </div>
                   <div class="text">
-                    <h1 class="name">
-<!--                      دستگاه شیرینگ پگ {{ item }}-->
-                      jdicbvmdjsikrjfhdmsjciqogldmsjcz.5pdloseuiloi526894253698710
+                    <h1 class="name" v-text="item.title">
+
+<!--                      jdicbvmdjsikrjfhdmsjciqogldmsjcz.5pdloseuiloi526894253698710-->
                     </h1>
-                    <p class="info">jifhguriopamvk111forqwjfiormbkshhhhhhhhhhhhhhhhhh75698hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcskdclfvpdjflroewhnfkvpahskehdn,lashvkociejrfvhsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</p>
+                    <p class="info" v-text="item.description">
+<!--                      jifhguriopamvk111forqwjfiormbkshhhhhhhhhhhhhhhhhh75698hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcskdclfvpdjflroewhnfkvpahskehdn,lashvkociejrfvhsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq-->
+                    </p>
                   </div>
                 </div>
                 <div class="cost">
                   <p>
                     <span>قیمت:</span>
-                    1500000 تومان
+                    {{item.cost || 200000}} تومان
                   </p>
                 </div>
               </a>
             </div>
             <hr class="line">
-<!--            <div class="w-75 m-auto">-->
-<!--            </div>-->
+            <!--            <div class="w-75 m-auto">-->
+            <!--            </div>-->
           </div>
         </div>
       </div>
     </div>
     <div class="pt-3 text-center">
 
-      <jw-pagination  class="m-auto" :items="exampleItems"
+      <jw-pagination  class="m-auto" :items="products"
                      @changePage="onChangePage"></jw-pagination>
 
     </div>
@@ -46,17 +49,21 @@
 <script>
 import JwPagination from 'jw-vue-pagination';
 // const exampleItems = [...Array(15).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
-const exampleItems = [5, 6, 0, 8, 6];
+// const exampleItems = [2, 9, 8, 52, 56, 89, 4, 5, 6, 0, 8, 6]
 export default {
   name: "Pagination",
+  props:['products'],
   components: {
     JwPagination
   },
   data() {
     return {
-      exampleItems,
+      // exampleItems,
       pageOfItems: []
     };
+  },
+  beforeCreate() {
+    // this.exampleItems.push(this.products).bind(this)
   },
   methods: {
     onChangePage(pageOfItems) {
@@ -64,6 +71,8 @@ export default {
       this.pageOfItems = pageOfItems;
     }
   },
+  // computed:{
+  // },
   mounted() {
     console.log(this.exampleItems.length)
   }
@@ -106,12 +115,14 @@ export default {
 .item a:hover .name {
   color: var(--blue);
 }
-.link-item{
+
+.link-item {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: start;
 }
+
 .name {
   font-size: 17px;
   font-weight: bold;
@@ -124,7 +135,8 @@ export default {
   /*overflow-wrap: break-word;*/
   text-overflow: ellipsis;
 }
-.info{
+
+.info {
   display: block;
   width: 400px;
   height: 110px;
@@ -136,6 +148,7 @@ export default {
   overflow-wrap: break-word;
   text-overflow: ellipsis;
 }
+
 .item-origin {
   width: 750px;
   display: flex;
@@ -173,23 +186,48 @@ export default {
   justify-content: flex-start;
   align-items: flex-start;
 }
-.cost{
+
+.cost {
   width: auto;
   /*background-color: rgba(255,11,189,0.44);*/
   margin-right: 2%;
   text-align: right;
   padding-top: 7px;
 }
-.cost span{
+
+.cost span {
   font-size: 17px;
   font-weight: bold;
 }
-.line{
+
+.line {
   width: 95.3%;
   /*background-color: #a7ceff;*/
 }
-@media screen and (max-width: 1018px){
-  .name{
+.pagination{
+  /*width: 100%;*/
+  /*width: 250px;*/
+  text-align: right;
+  overflow: hidden;
+  padding-left: 20%;
+  /*background-color: red;*/
+  border: none!important;
+  margin-left: 20%;
+  left: 5%;
+  display: block;
+  position: relative;
+}
+.pagination li{
+  width: 0!important;
+  height: 0!important;
+  border: none!important;
+}
+/*.pagination li{*/
+/*  display: block!important;*/
+/*  margin-left: 100px;*/
+/*}*/
+@media screen and (max-width: 1018px) {
+  .name {
     /*background-color: rgba(46,255,41,0.44);*/
     width: 350px;
     height: 60px;
@@ -199,38 +237,44 @@ export default {
     /*white-space: pre-wrap;*/
   }
 }
-@media screen and (max-width: 868px){
-  .item-origin{
+
+@media screen and (max-width: 868px) {
+  .item-origin {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin: 0;
     padding: 0;
   }
-  .text{
+
+  .text {
     padding: 10px;
     margin: 0;
   }
-  .name{
+
+  .name {
     /*width: 350px;*/
     height: 85px;
     padding: 0;
     margin: 0;
   }
-  .info{
+
+  .info {
     width: 350px;
     padding: 10px;
     margin: 0;
   }
 }
-@media screen  and (max-width: 564px){
-.cost{
-  display: none;
+
+@media screen  and (max-width: 564px) {
+  .cost {
+    display: none;
+  }
 }
-}
+
 @media screen and (max-width: 459px) {
-.name,.info{
-  width: 220px;
-}
+  .name, .info {
+    width: 220px;
+  }
 }
 </style>

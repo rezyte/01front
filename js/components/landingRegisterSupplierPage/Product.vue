@@ -93,13 +93,13 @@
                   id="cost"
                   name="cost"
                   ref="cost"
-                  pattern="[\u06F0-\u06F90-90-9/]{7,14}"
+                  pattern="[\u06F0-\u06F90-90-9]{6,11}"
                   title="قیمت در رنج معتبری وارد نشده است"
                   placeholder="قیمت به تومان وارد شود"
                   required
                   @input="validate"
               />
-              <small class="text-primary">مثال:700/000/000</small>
+              <small class="text-primary">مثال:700000000</small>
             </div>
           </div>
           <div>
@@ -328,7 +328,7 @@ export default {
             this.inValidated.name = true;
           }
         } else {
-          let res = el.value.match(/^[\u06F0-\u06F90-90-9/]{7,14}$/);
+          let res = el.value.match(/^[\u06F0-\u06F90-90-9]{6,11}$/);
           if (res) {
             this.validated.cost = true;
             this.inValidated.cost = false;

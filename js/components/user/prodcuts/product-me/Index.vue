@@ -1,5 +1,5 @@
 <template>
-  <pagination></pagination>
+  <pagination :products="products"></pagination>
 </template>
 
 <script>
@@ -7,6 +7,7 @@ import Pagination from "./Pagination.vue";
 
 export default {
   name: "Index",
+  props:['products'],
   components: {
     Pagination
   },
@@ -21,7 +22,7 @@ export default {
     next.innerHTML = 'بعدی'
     // console.log(previous.style.innerHTML=!important قبلی")
     // console.log(previous.style.nthChild(2))
-    console.log(previous.style.all)
+    // console.log(previous.style.all)
     // const emojis = require("emojis-list");
     // console.log(emojis[0]);
   },

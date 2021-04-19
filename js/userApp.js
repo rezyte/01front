@@ -35,7 +35,6 @@ vue.mixin({
   }
 })
 import ZoomOnHover from "vue-zoom-on-hover";
-import ProductsMe from "./components/user/prodcuts/product-me/Index.vue"
 vue.use(ZoomOnHover);
 const app = new vue({
   el: "#app",
@@ -51,7 +50,6 @@ const app = new vue({
     slicer,
     installPrompt,
     // foot: footer,
-    ProductsMe,
     'product':()=>import("./components/user/product/product.vue"),
     productZoom,
     breadCrumb,

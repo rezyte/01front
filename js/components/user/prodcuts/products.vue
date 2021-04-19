@@ -1,58 +1,60 @@
 <template>
   <div id="products" class='shouldCollapse'>
-    <h1 class="color">{{getH1()}}</h1>
-    <div class="seoPost first" v-if="JSON.parse(products).length>0 && JSON.parse(this.products)[0].category[0].upper_content!=''">
-      <div class="seoPostContent longText"  v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].upper_content : ''"></div>
-<!--      <div class="showMore">-->
-<!--        <button @click="expandIt($event)">مشاهده ادامه</button>-->
-<!--      </div>-->
+    <h1 class="color">{{ getH1() }}</h1>
+    <div class="seoPost first"
+         v-if="JSON.parse(products).length>0 && JSON.parse(this.products)[0].category[0].upper_content!=''">
+      <div class="seoPostContent longText"
+           v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].upper_content : ''"></div>
+      <!--      <div class="showMore">-->
+      <!--        <button @click="expandIt($event)">مشاهده ادامه</button>-->
+      <!--      </div>-->
     </div>
     <div id="productsWrapper">
 
-      <products-me :products="JSON.parse(products)" />
-<!--      <div v-if="JSON.parse(products).length>0" class="singleProduct" v-for='p in JSON.parse(this.products)'-->
-<!--           :key='p.slug'>-->
-<!--        <div class="singleProductWrapper">-->
-<!--          <a :href="gethref(p.slug)">-->
-<!--            <div class="img">-->
-<!--              &lt;!&ndash; <img src="/images/1.jpg" alt=""> &ndash;&gt;-->
-<!--              <zoom-on-hover :img-normal="getImage(p.product_image)"></zoom-on-hover>-->
-<!--            </div>-->
-<!--          </a>-->
-<!--          <div class="title">-->
+      <index :products="JSON.parse(products)" title=""/>
+      <!--      <div v-if="JSON.parse(products).length>0" class="singleProduct" v-for='p in JSON.parse(this.products)'-->
+      <!--           :key='p.slug'>-->
+      <!--        <div class="singleProductWrapper">-->
+      <!--          <a :href="gethref(p.slug)">-->
+      <!--            <div class="img">-->
+      <!--              &lt;!&ndash; <img src="/images/1.jpg" alt=""> &ndash;&gt;-->
+      <!--              <zoom-on-hover :img-normal="getImage(p.product_image)"></zoom-on-hover>-->
+      <!--            </div>-->
+      <!--          </a>-->
+      <!--          <div class="title">-->
 
-<!--            <a :href="gethref(p.slug)"><h3>{{ p.title }}</h3></a>-->
-<!--            <div class="priceList" v-if="p.price || p.second_price">-->
-<!--              <p>قیمت:</p>-->
-<!--              <p class="price">-->
-<!--                {{p.price ? p.price.toLocaleString() : ''}} <span v-if="p.price && p.second_price">-</span> {{p.second_price ? p.second_price.toLocaleString() : ''}}-->
+      <!--            <a :href="gethref(p.slug)"><h3>{{ p.title }}</h3></a>-->
+      <!--            <div class="priceList" v-if="p.price || p.second_price">-->
+      <!--              <p>قیمت:</p>-->
+      <!--              <p class="price">-->
+      <!--                {{p.price ? p.price.toLocaleString() : ''}} <span v-if="p.price && p.second_price">-</span> {{p.second_price ? p.second_price.toLocaleString() : ''}}-->
 
-<!--                <span>میلون تومان</span>-->
-<!--              </p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div id="showProduct">-->
-<!--            <a :href="gethref(p.slug)">-->
-<!--              <button class="showProduct">مشاهده محصول</button>-->
-<!--            </a>-->
-<!--          </div>-->
-<!--&lt;!&ndash;          <div class="contactUs">&ndash;&gt;-->
-<!--&lt;!&ndash;            <button class="stelam" @click.prevent='showConsulate($event)'>مشاهده محصول</button>&ndash;&gt;-->
-<!--&lt;!&ndash;          </div>&ndash;&gt;-->
-<!--          <consulate :productId="p.slug"></consulate>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div style="width: 100%" v-if="JSON.parse(products).length==0">-->
-<!--        <div class="catsWrapper" >-->
-<!--          <ul v-for="cat in getCats">-->
-<!--            <li>{{ cat.title }}</li>-->
-<!--              <li v-for="subCat in cat.subs"><a :href="'/product-category/'+subCat.slug">{{subCat.title}}</a></li>-->
+      <!--                <span>میلون تومان</span>-->
+      <!--              </p>-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--          <div id="showProduct">-->
+      <!--            <a :href="gethref(p.slug)">-->
+      <!--              <button class="showProduct">مشاهده محصول</button>-->
+      <!--            </a>-->
+      <!--          </div>-->
+      <!--&lt;!&ndash;          <div class="contactUs">&ndash;&gt;-->
+      <!--&lt;!&ndash;            <button class="stelam" @click.prevent='showConsulate($event)'>مشاهده محصول</button>&ndash;&gt;-->
+      <!--&lt;!&ndash;          </div>&ndash;&gt;-->
+      <!--          <consulate :productId="p.slug"></consulate>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--      <div style="width: 100%" v-if="JSON.parse(products).length==0">-->
+      <!--        <div class="catsWrapper" >-->
+      <!--          <ul v-for="cat in getCats">-->
+      <!--            <li>{{ cat.title }}</li>-->
+      <!--              <li v-for="subCat in cat.subs"><a :href="'/product-category/'+subCat.slug">{{subCat.title}}</a></li>-->
 
 
-<!--          </ul>-->
+      <!--          </ul>-->
 
-<!--        </div>-->
-<!--      </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
 
 
     </div>
@@ -70,7 +72,8 @@
     </template>
 
     <div class="seoPost" v-if="JSON.parse(products).length>0">
-      <div class="seoPostContent longText"  v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].seo_post : ''"></div>
+      <div class="seoPostContent longText"
+           v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].seo_post : ''"></div>
       <div class="showMore">
         <button @click='expandIt($event)'>مشاهده ادامه</button>
       </div>
@@ -80,201 +83,19 @@
   </div>
 </template>
 
-<style scoped>
-#products {
-  margin-top: 50px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-h1 {
-  text-align: right;
-  font-size: 20px !important;
-  font-weight: bold !important;
-}
-
-#productsWrapper {
-  width: 100%;
-  /*background-color: blue;*/
-}
-
-.singleProduct {
-  width: 23%;
-  margin: 10px;
-  width: 270px;
-  background: white;
-  border:1px solid #d9d9d8;
-  padding-bottom: 5px;
-}
-
-.singleProductWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-img {
-  height: 200px;
-  width: 300px;
-
-}
-
-.title {
-  height: 180px;
-  padding-right: 5px;
-}
-.title a h3 {
-  color: #3b73cc;
-  direction: rtl;
-  height: 60px;
-}
-.title a{
-  height: 100px;
-}
-#pagination {
-  margin-top: 50px;
-}
-.seoPost {
-  margin-top: 100px;
-  width: 100%;
-  font-size: 16px;
-  padding: 10px;
-  background: white;
-  min-height: 100px;
-  max-height: 600px;
-  position: relative;
-  overflow: hidden;
-}
-.showMore{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(to top,white,transparent);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-}
-.showMore button:hover{
-  color: var(--logoBlueUser);
-}
-.seoPost button{
-  width: max-content;
-  background: white;
-  padding: 10px 30px;
-  border: 2px solid var(--logoBlueUser);
-  border-radius:500px;
-  position: absolute;
-  bottom: 10px;
-  font-size: 13pt;
-  font-weight: bold;
-}
-h1{
-  padding-right: 20px;
-}
-
-.seoPost > div {
-  padding: 30px;
-}
-
-.seoPost div {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-}
-.catsWrapper{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: flex-end;
-}
-.catsWrapper ul{
-  width:max-content;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  margin-top: 20px;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-.catsWrapper li{
-  text-align: right;
-  margin:15px;
-  width: 180px;
-
-}
-.catsWrapper ul li a{
-  color: rgb(9,111,211);
-  font-size: 17px;
-  font-weight: bold;
-}
-.contactUs {
-  display: flex;
-  justify-content: center;
-  margin-top: 5px;
-  margin: auto;
-  /*background-color: cadetblue;*/
-}
-.showProduct{
-  width: 150px;
-  height: 45px;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 20px;
-  border: #5da0de 2px solid;
-  background-color: #92b4dd;
-  transition: all 0.2s;
-}
-.showProduct:hover{
-  border: #0969D3 2px solid;
-  background-color: var(--blue);
-  color: white;
-}
-#showProduct{
-  width: auto;
-  position: relative;
-  bottom: 40px;
-  right: 19%;
-}
-.first{
-  margin-top:20px;
-  max-height: max-content;
-  height: max-content;
-  overflow: visible;
-}
-.priceList{
-  margin-top:20px;
-}
-.priceList >p{
-  font-weight: bold;
-}
-.price{
-  font-size: 18px;
-  font-weight: 700;
-  color: #707070;
-  padding-top: 18px;
-  height: 36px;
-}
-.color{
-  color: var(--blue);
-}
-</style>
-
 <script>
 import {mapActions} from 'vuex'
 import consulate from "./consulate.vue"
 import filtering from "./filtering.vue"
 import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
 import {toggleBodyOverFlow} from "../../user/mixIns/toggleBodyOverFlow.js"
-import pagination from "../../pagination/pagination.vue";
 import longText from "../mixIns/longText"
-import ProductsMe from "./product-me/Index.vue"
+import Index from "./product-me/Index.vue"
+// import Paginate from 'vuejs-paginate'
 export default {
   props: ['products', "pagination"],
-  computed:{
-    getCats(){
+  computed: {
+    getCats() {
       return this.$store.state.catsWithSubs
     }
   },
@@ -292,8 +113,8 @@ export default {
   components: {
     consulate,
     filtering,
-    pagination,
-    ProductsMe
+    Index,
+    // Paginate
   },
   mixins: [adjustElFromTop],
   created() {
@@ -311,18 +132,18 @@ export default {
     })
   },
   methods: {
-    expandIt(e){
-      const element=e.target
-      const parent=element.parentElement
-      const seoPost=element.closest('.seoPost')
-      console.log(seoPost,parent)
-      parent.style.display='none'
-      seoPost.style.maxHeight='max-content'
+    expandIt(e) {
+      const element = e.target
+      const parent = element.parentElement
+      const seoPost = element.closest('.seoPost')
+      console.log(seoPost, parent)
+      parent.style.display = 'none'
+      seoPost.style.maxHeight = 'max-content'
 
     },
-    getH1(){
+    getH1() {
 
-      if(JSON.parse(this.products).length>0){
+      if (JSON.parse(this.products).length > 0) {
         return JSON.parse(this.products)[0].category[0].title
       }
       return "محصولی وجود ندارد شما میتواند از دسته بندی های زیر انتخاب کنید"
@@ -380,3 +201,201 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#products {
+  margin-top: 50px;
+  width: 100%;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+}
+
+h1 {
+  text-align: right;
+  font-size: 20px !important;
+  font-weight: bold !important;
+}
+
+#productsWrapper {
+  width: 100%;
+  /*background-color: blue;*/
+}
+
+.singleProduct {
+  width: 23%;
+  margin: 10px;
+  width: 270px;
+  background: white;
+  border: 1px solid #d9d9d8;
+  padding-bottom: 5px;
+}
+
+
+img {
+  height: 200px;
+  width: 300px;
+
+}
+
+.title {
+  height: 180px;
+  padding-right: 5px;
+}
+
+.title a h3 {
+  color: #3b73cc;
+  direction: rtl;
+  height: 60px;
+}
+
+.title a {
+  height: 100px;
+}
+
+#pagination {
+  margin-top: 50px;
+}
+
+.seoPost {
+  margin-top: 100px;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  background: white;
+  min-height: 100px;
+  max-height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.showMore {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, white, transparent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.showMore button:hover {
+  color: var(--logoBlueUser);
+}
+
+.seoPost button {
+  width: max-content;
+  background: white;
+  padding: 10px 30px;
+  border: 2px solid var(--logoBlueUser);
+  border-radius: 500px;
+  position: absolute;
+  bottom: 10px;
+  font-size: 13pt;
+  font-weight: bold;
+}
+
+h1 {
+  padding-right: 20px;
+}
+
+.seoPost > div {
+  padding: 30px;
+}
+
+.seoPost div {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.catsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.catsWrapper ul {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-top: 20px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.catsWrapper li {
+  text-align: right;
+  margin: 15px;
+  width: 180px;
+
+}
+
+.catsWrapper ul li a {
+  color: rgb(9, 111, 211);
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.contactUs {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  margin: auto;
+  /*background-color: cadetblue;*/
+}
+
+.showProduct {
+  width: 150px;
+  height: 45px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 20px;
+  border: #5da0de 2px solid;
+  background-color: #92b4dd;
+  transition: all 0.2s;
+}
+
+.showProduct:hover {
+  border: #0969D3 2px solid;
+  background-color: var(--blue);
+  color: white;
+}
+
+#showProduct {
+  width: auto;
+  position: relative;
+  bottom: 40px;
+  right: 19%;
+}
+
+.first {
+  margin-top: 20px;
+  max-height: max-content;
+  height: max-content;
+  overflow: visible;
+}
+
+.priceList {
+  margin-top: 20px;
+}
+
+.priceList > p {
+  font-weight: bold;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #707070;
+  padding-top: 18px;
+  height: 36px;
+}
+
+.color {
+  color: var(--blue);
+}
+</style>

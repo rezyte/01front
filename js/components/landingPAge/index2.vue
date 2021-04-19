@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import headers from "./header/header.vue";
+import headers from "./header/header2.vue";
 import signupAndWorker from "./signupAndWorker/signupAndWorker.vue";
 import video from "./video/video.vue";
 // import customers2 from "./customers/customers2.vue";
