@@ -213,22 +213,25 @@ export default {
   /*background-color: #a7ceff;*/
 }
 .pagination{
-  /*width: 100%;*/
-  /*width: 250px;*/
+  display: list-item!important;
   text-align: right;
-  overflow: hidden;
-  padding-left: 20%;
-  /*background-color: red;*/
-  border: none!important;
-  margin-left: 20%;
-  left: 5%;
-  display: block;
+  overflow: hidden!important;
+  padding-left: 50px;
+  left: 44%;
   position: relative;
+  border-left: solid 1px #DEE2E6;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
-.pagination li{
-  width: 0!important;
-  height: 0!important;
-  border: none!important;
+.pagination .page-number {
+  height: 60px!important;
+  position: relative;
+  margin-top: 5px;
+  top: 5px;
+}
+.pagination:nth-child(2){
+ color: red!important;
+  border:red 1px solid!important;
 }
 /*.pagination li{*/
 /*  display: block!important;*/
