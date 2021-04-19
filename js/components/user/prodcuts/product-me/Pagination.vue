@@ -17,7 +17,7 @@
 
 <!--                      jdicbvmdjsikrjfhdmsjciqogldmsjcz.5pdloseuiloi526894253698710-->
                     </h1>
-                    <p class="info" v-text="item.description">
+                    <p class="info mt-1" v-text="getDescription(item.description)">
 <!--                      jifhguriopamvk111forqwjfiormbkshhhhhhhhhhhhhhhhhh75698hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcskdclfvpdjflroewhnfkvpahskehdn,lashvkociejrfvhsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq-->
                     </p>
                   </div>
@@ -69,6 +69,14 @@ export default {
     onChangePage(pageOfItems) {
       // update page of items
       this.pageOfItems = pageOfItems;
+    },
+    getDescription(e){
+      console.log(e)
+      let m=e.split('<p>');
+      return m[1].split('<')[0]
+
+      // let one=m[1].split('</')[0];
+      // return m;
     }
   },
   // computed:{

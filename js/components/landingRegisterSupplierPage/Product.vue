@@ -347,14 +347,12 @@ export default {
       //     e.lastIndexOf("<p>"),
       //     e.lastIndexOf("</p>")
       // );
-      e.split('/>')
-      let one=e.split('</')[0];
-      this.description=one.split('>')[1];
+      // e.split('/>')
+      // let one=e.split('</')[0];
+      this.description=e
     },
     send() {
       this.$refs.description.value=this.description;
-      console.log(this.$refs.description.value)
-      // let form = new FormData();
       let pics = [];
       // console.log(this.picture)
       for (var i = 0; i < this.picture.length; i++) {
