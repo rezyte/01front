@@ -2,31 +2,31 @@
   <div id="pagination">
     <div class="content">
       <div class="col-10 m-auto">
-<!--        <h3 class="title">عنوان</h3>-->
+        <!--        <h3 class="title">عنوان</h3>-->
         <div id="content">
           <div v-for="item in pageOfItems" :key="item.id">
             <div class="item">
               <a :href="'/product/'+item.slug" class="link-item">
                 <div class="item-origin">
                   <div class="pic">
-<!--                    <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
+                    <!--                    <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
                     <img :src="item.product_image" alt="تصویر ناقص است">
                   </div>
                   <div class="text">
                     <h1 class="name" v-text="item.title">
 
-<!--                      jdicbvmdjsikrjfhdmsjciqogldmsjcz.5pdloseuiloi526894253698710-->
+                      <!--                      jdicbvmdjsikrjfhdmsjciqogldmsjcz.5pdloseuiloi526894253698710-->
                     </h1>
                     <p class="info mt-1" v-text="item.short_description">
-<!--                      jifhguriopamvk111forqwjfiormbkshhhhhhhhhhhhhhhhhh75698hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcskdclfvpdjflroewhnfkvpahskehdn,lashvkociejrfvhsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq-->
+                      <!--                      jifhguriopamvk111forqwjfiormbkshhhhhhhhhhhhhhhhhh75698hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcskdclfvpdjflroewhnfkvpahskehdn,lashvkociejrfvhsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq-->
                     </p>
                   </div>
                 </div>
                 <div class="cost">
-<!--                  /images/products/2021/02/None_VhXLXMd.webp-->
+                  <!--                  /images/products/2021/02/None_VhXLXMd.webp-->
                   <p>
                     <span>قیمت:</span>
-                    {{item.cost}} تومان
+                    {{ item.cost }} تومان
                   </p>
                 </div>
               </a>
@@ -38,11 +38,8 @@
         </div>
       </div>
     </div>
-    <div class="pt-3 text-center">
-
-      <jw-pagination  class="m-auto" :items="products"
-                     @changePage="onChangePage"></jw-pagination>
-
+    <div class="text-center">
+      <jw-pagination class="m-auto" :items="exampleItems" @changePage="onChangePage"></jw-pagination>
     </div>
   </div>
 </template>
@@ -50,16 +47,16 @@
 <script>
 import JwPagination from 'jw-vue-pagination';
 // const exampleItems = [...Array(15).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
-// const exampleItems = [2, 9, 8, 52, 56, 89, 4, 5, 6, 0, 8, 6]
+const exampleItems = [2, 9, 8, 52, 5, 7, 0, 6, 8, 9, 1, 5, 6, 5, 2, 5, 56, 89, 4, 5, 6, 0, 8, 6]
 export default {
   name: "Pagination",
-  props:['products'],
+  props: ['products'],
   components: {
     JwPagination
   },
   data() {
     return {
-      // exampleItems,
+      exampleItems,
       pageOfItems: []
     };
   },
@@ -213,31 +210,15 @@ export default {
   width: 95.3%;
   /*background-color: #a7ceff;*/
 }
-.pagination{
-  display: list-item!important;
+
+.pagination {
+  display: inline-flex !important;
   text-align: right;
-  overflow: hidden!important;
-  padding-left: 50px;
-  left: 44%;
-  position: relative;
-  border-left: solid 1px #DEE2E6;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  overflow: hidden !important;
+  margin: 0!important;
+  padding: 0!important;
 }
-.pagination .page-number {
-  height: 60px!important;
-  position: relative;
-  margin-top: 5px;
-  top: 5px;
-}
-.pagination:nth-child(2){
- color: red!important;
-  border:red 1px solid!important;
-}
-/*.pagination li{*/
-/*  display: block!important;*/
-/*  margin-left: 100px;*/
-/*}*/
+
 @media screen and (max-width: 1018px) {
   .name {
     /*background-color: rgba(46,255,41,0.44);*/

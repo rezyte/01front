@@ -218,6 +218,8 @@ h1 {
 
 #productsWrapper {
   width: 100%;
+  padding-top: 10px;
+  background-color: white;
   /*background-color: blue;*/
 }
 
