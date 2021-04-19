@@ -29,8 +29,8 @@ export default {
       list.getElementsByClassName("page-item")[i].style.paddingRight = '0!important';
       list.getElementsByClassName("page-item")[i].style.paddingLeft = '0important';
       let child=list.getElementsByClassName("page-item")[i].children[0]
-      child.style.padding='5px'
-      child.style.margin='2px!important'
+      child.style.padding='7px'
+      // child.style.margin='2px!important'
       // list.getElementsByClassName("page-item page-link")[i].style.paddingValue='0';
       // list.getElementsByClassName("page-item")[i].style.paddingTop = "";
     }
