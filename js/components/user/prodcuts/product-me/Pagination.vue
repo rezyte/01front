@@ -9,15 +9,15 @@
               <a :href="'/product/'+item.slug" class="link-item">
                 <div class="item-origin">
                   <div class="pic">
-                    <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است">
-<!--                    <img :src="'/static/public/images/'+item.product_image" alt="تصویر ناقص است">-->
+<!--                    <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
+                    <img :src="'/static/public/images/'+item.product_image" alt="تصویر ناقص است">
                   </div>
                   <div class="text">
                     <h1 class="name" v-text="item.title">
 
 <!--                      jdicbvmdjsikrjfhdmsjciqogldmsjcz.5pdloseuiloi526894253698710-->
                     </h1>
-                    <p class="info mt-1" v-text="getDescription(item.description)">
+                    <p class="info mt-1" v-text="item.short_description">
 <!--                      jifhguriopamvk111forqwjfiormbkshhhhhhhhhhhhhhhhhh75698hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcskdclfvpdjflroewhnfkvpahskehdn,lashvkociejrfvhsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq-->
                     </p>
                   </div>
@@ -70,14 +70,14 @@ export default {
       // update page of items
       this.pageOfItems = pageOfItems;
     },
-    getDescription(e){
-      console.log(e)
-      let m=e.split('<p>');
-      return m[1].split('<')[0]
-
-      // let one=m[1].split('</')[0];
-      // return m;
-    }
+    // getDescription(e){
+    //   console.log(e)
+    //   let m=e.split('<p>');
+    //   return m[1].split('<')[0]
+    //
+    //   // let one=m[1].split('</')[0];
+    //   // return m;
+    // }
   },
   // computed:{
   // },
