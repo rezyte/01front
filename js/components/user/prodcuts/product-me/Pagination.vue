@@ -10,7 +10,7 @@
                 <div class="item-origin">
                   <div class="pic">
 <!--                    <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
-                    <img :src="'/static/public/images/'+item.product_image" alt="تصویر ناقص است">
+                    <img :src="item.product_image" alt="تصویر ناقص است">
                   </div>
                   <div class="text">
                     <h1 class="name" v-text="item.title">
@@ -23,9 +23,10 @@
                   </div>
                 </div>
                 <div class="cost">
+<!--                  /images/products/2021/02/None_VhXLXMd.webp-->
                   <p>
                     <span>قیمت:</span>
-                    {{item.cost || 200000}} تومان
+                    {{item.cost}} تومان
                   </p>
                 </div>
               </a>
