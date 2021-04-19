@@ -2,7 +2,7 @@
   <div id="pagination">
     <div class="content">
       <div class="col-10 m-auto">
-        <h3 class="title">عنوان</h3>
+<!--        <h3 class="title">عنوان</h3>-->
         <div id="content">
           <div v-for="item in pageOfItems" :key="item.id">
             <div class="item">
