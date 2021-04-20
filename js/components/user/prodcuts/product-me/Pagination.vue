@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="text-center">
-      <jw-pagination class="m-auto" :items="exampleItems" @changePage="onChangePage"></jw-pagination>
+      <jw-pagination class="m-auto" :items="products" @changePage="onChangePage"></jw-pagination>
     </div>
   </div>
 </template>
