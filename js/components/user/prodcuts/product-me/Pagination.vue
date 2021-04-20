@@ -9,7 +9,7 @@
               <a :href="'/product/'+item.slug" class="link-item">
                 <div class="item-origin">
                   <div class="pic">
-                    <!--                    <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
+                    <!--                                        <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
                     <img :src="item.product_image" alt="تصویر ناقص است">
                   </div>
                   <div class="text">
@@ -19,6 +19,12 @@
                     </h1>
                     <p class="info mt-1" v-text="item.short_description">
                       <!--                      jifhguriopamvk111forqwjfiormbkshhhhhhhhhhhhhhhhhh75698hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcskdclfvpdjflroewhnfkvpahskehdn,lashvkociejrfvhsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq-->
+                    </p>
+                  </div>
+                  <div class="cost2">
+                    <p>
+                      <span>قیمت:</span>
+                      {{ item.cost }} تومان
                     </p>
                   </div>
                 </div>
@@ -195,6 +201,8 @@ export default {
 
 .cost {
   width: auto;
+  position: relative;
+  right: 0;
   /*background-color: rgba(255,11,189,0.44);*/
   margin-right: 2%;
   text-align: right;
@@ -206,6 +214,10 @@ export default {
   font-weight: bold;
 }
 
+.cost2 {
+  display: none;
+}
+
 .line {
   width: 95.3%;
   /*background-color: #a7ceff;*/
@@ -215,8 +227,8 @@ export default {
   display: inline-flex !important;
   text-align: right;
   overflow: hidden !important;
-  margin: 0!important;
-  padding: 0!important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 @media screen and (max-width: 1018px) {
@@ -233,6 +245,7 @@ export default {
 
 @media screen and (max-width: 868px) {
   .item-origin {
+    width: 100%;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -240,34 +253,47 @@ export default {
     padding: 0;
   }
 
+  .pic {
+    width: 90%;
+    height: 240px;
+  }
+
   .text {
-    padding: 10px;
+    width: 90%;
+    text-align: center;
     margin: 0;
   }
 
   .name {
+    width: 100%;
     /*width: 350px;*/
+    text-align: center;
     height: 85px;
-    padding: 0;
-    margin: 0;
+    padding-top: 10px;
+    margin: auto;
+  }
+
+  .cost {
+    width: auto;
+    display: none;
+  }
+
+  .cost2 {
+    display: block;
   }
 
   .info {
-    width: 350px;
+    width: 100%;
     padding: 10px;
     margin: 0;
   }
 }
 
-@media screen  and (max-width: 564px) {
-  .cost {
-    display: none;
-  }
-}
+/*@media screen  and (max-width: 564px) {*/
 
-@media screen and (max-width: 459px) {
-  .name, .info {
-    width: 220px;
-  }
-}
+/*}*/
+
+/*@media screen and (max-width: 459px) {*/
+/*  */
+/*}*/
 </style>
