@@ -209,7 +209,7 @@ export default {
   padding-top: 7px;
 }
 
-.cost span {
+.cost span,.cost2 span {
   font-size: 17px;
   font-weight: bold;
 }
