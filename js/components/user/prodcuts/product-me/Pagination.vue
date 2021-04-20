@@ -9,8 +9,8 @@
               <a :href="'/product/'+item.slug" class="link-item">
                 <div class="item-origin">
                   <div class="pic">
-                    <!--                    <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
-                    <img :src="item.product_image" alt="تصویر ناقص است">
+                                        <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است">
+<!--                    <img :src="item.product_image" alt="تصویر ناقص است">-->
                   </div>
                   <div class="text">
                     <h1 class="name" v-text="item.title">
