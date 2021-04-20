@@ -9,13 +9,8 @@
               <a :href="'/product/'+item.slug" class="link-item">
                 <div class="item-origin">
                   <div class="pic">
-<<<<<<< HEAD
-                                        <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است">
-<!--                    <img :src="item.product_image" alt="تصویر ناقص است">-->
-=======
-                    <!--                                        <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
+<!--                                       <mg src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
                     <img :src="item.product_image" alt="تصویر ناقص است">
->>>>>>> fixPaginatePage
                   </div>
                   <div class="text">
                     <h1 class="name" v-text="item.title">
