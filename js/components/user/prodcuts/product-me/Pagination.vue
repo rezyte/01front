@@ -80,7 +80,7 @@ export default {
   // computed:{
   // },
   mounted() {
-    console.log(this.exampleItems.length)
+    // console.log(this.exampleItems.length)
   }
 }
 </script>

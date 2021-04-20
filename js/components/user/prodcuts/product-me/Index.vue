@@ -34,7 +34,15 @@ export default {
       // list.getElementsByClassName("page-item page-link")[i].style.paddingValue='0';
       // list.getElementsByClassName("page-item")[i].style.paddingTop = "";
     }
-
+    let link=document.querySelectorAll('.pagination:nth-child(n+1)');
+    console.log(link)
+    // for (let i=0 ; i< link.length ; i++){
+    //   let li=link[i];
+    //   console.log(li)
+    //   // let a=li.getElementsByClassName("page-link")[i];
+    //   // console.log(a)
+    // }
+    // console.log(link.getElementByClassName("page-link"))
     // pageItem.style.width="10%";
     // previous.style.borderColor="white";
     // pageNumber.style.borderColor="white";
