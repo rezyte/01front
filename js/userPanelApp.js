@@ -6,6 +6,8 @@ import installPrompt from "./components/user/template/installPrompt/installPromp
 import Vuex from 'vuex'
 import stickMenu from "./components/userPanel/template/stickMenu/stickMenu.vue";
 import accept from "./components/userPanel/miniOrders/accept.vue";
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 vue.component('stickMenu', stickMenu);
 vue.use(Vuex)
 import {store} from "./userPanelStore"

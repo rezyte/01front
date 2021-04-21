@@ -2,7 +2,7 @@
 {%  include "views/userpanel/template/head.html" %}
 {%  include "views/userpanel/template/sideBar.html" %}
 <user-panel-wrapper allmessages="{{request.session.message}}">
-    <index></index>
+    <index  user="{{user_info}}"></index>
 </user-panel-wrapper>
 
 
