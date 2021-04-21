@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="m-auto">
+          <div class="m-auto w-100">
             <addressee></addressee>
           </div>
         </div>

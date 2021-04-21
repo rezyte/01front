@@ -1,5 +1,5 @@
 <template>
-  <carousel adjustableHeight="true" perPage="4" class="mt-3" paginationColor="#047EFF">
+  <carousel adjustableHeight="true" perPage="4" class="mt-3 grab" paginationColor="#047EFF">
     <slide class="slideMe">
       <img alt="گلرنگ" title="گلرنگ" src="/static/public/images/ours1.png">
     </slide>
@@ -37,6 +37,15 @@ name: "Slider",
   components: {
     Carousel,
     Slide
+  },
+  mounted() {
+    let grab=document.querySelector('.grab');
+    grab.onmousedown=function (){
+      grab.style.cursor='grabbing';
+    }
+    grab.onmouseup=function (){
+      grab.style.cursor='grab';
+    }
   }
 }
 </script>

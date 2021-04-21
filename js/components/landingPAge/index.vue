@@ -54,7 +54,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="m-auto">
+          <div class="m-auto w-100">
             <addressee></addressee>
           </div>
         </div>
@@ -163,6 +163,9 @@ export default {
   color: var(--blue);
   font-weight: bold;
 }
+/*.address{*/
+/*  width: 90%;*/
+/*}*/
 @media only screen and (max-width: 768px) {
   .table {
     width: 100%;
