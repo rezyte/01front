@@ -4,7 +4,7 @@
              <comment-add />
         </div>
         <div class="struct_comment" v-for="comment in comments.comments" v-bind:key="comment.id">
-            <comment v-if="!comments.comments =='None'" :content="comment.content" :id="comment.id" :name="comment.name" />
+            <comment :comment="comment" />
         </div>
     </div>
 </template>
@@ -12,6 +12,8 @@
 <script>
 import Comment from './Comment.vue';
 import CommentAdd from './CommentAdd.vue';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 export default {
     props:["id","comments"],
    components:{Comment,CommentAdd},
@@ -21,7 +23,7 @@ export default {
     //    }
    },
    mounted(){
-       console.log(this.comments.comments,"hiii")
+       console.log(this.comments,"hiii")
    }
 }
 </script>
@@ -30,6 +32,7 @@ export default {
 .comment_my{
     width: 100%;
     padding-top: 5px;
+  /*background-color: whitesmoke;*/
 }
 .struct_comment{
     padding: 10px;
@@ -45,7 +48,6 @@ export default {
     /* margin: auto; */
     float: right;
     opacity: 0.92;
-    padding: auto;
     z-index: 5;
 }
 </style>

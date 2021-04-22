@@ -22,7 +22,6 @@ name: "index",
     InfoUser
   },
   created() {
-  console.log(this.user,'11')
   }
 
 }

@@ -97,7 +97,6 @@ export default {
 <style scoped>
 .comment {
   width: 100%;
-  padding: auto;
   direction: rtl;
 }
 .content_add {

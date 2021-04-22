@@ -3,15 +3,14 @@
   <div id="comments">
     <div class="info">
       <div id="info">
-        <div class="profile"></div>
-        <div class="name" v-text="name"></div>
-      </div>
-      <div>
-        <div class="rep" @click="replay(id_comment)">پاسخ</div>
+        <div class="profile">
+          <img src="/static/public/images/profile_fake.jpg" alt="تصویر ناقص است">
+        </div>
+        <div class="name" v-text="subComment.username"></div>
       </div>
     </div>
-    <div id="body">
-      <p v-text="body"></p>
+    <div id="body" class="p-1 pr-5">
+      <p v-text="subComment.content"></p>
     </div>
     <!-- <div class="subComment" v-for="comment in subComments" v-bind:key="comment.id">
       <comment :body="comment.body" :id="comment.id" :name="comment.name" />
@@ -22,7 +21,7 @@
 
 <script>
 export default {
-  props: ["id", "body", "name","id_comment"],
+  props: ["subComment"],
   data() {
     return {};
   },
@@ -49,6 +48,7 @@ export default {
   display: flex;
   flex-direction: column;
   text-align: right;
+  background-color: white;
 }
 .info {
   display: flex;
@@ -71,10 +71,22 @@ export default {
   box-sizing: border-box;
 }
 .profile {
-  width: 75px;
-  height: 75px;
-  background-color: black;
+  width: 70px;
+  height: 70px;
+  /*background-color: black;*/
   border-radius: 50%;
+  text-align: center;
+
+}
+.profile img{
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px 0 #C6D5D0;
+  /*border: 1px solid #DBEAE5;*/
 }
 .name {
   width: 100px;

@@ -2,15 +2,20 @@
   <!-- <transition name="fade" enter-to-class="animate__animated animate__bounceIn"> -->
   <div id="comments">
     <div id="info">
-      <div class="profile"></div>
-      <div class="name" v-text="name"></div>
-      <div class="replay" @click="replay(id)">پاسخ</div>
+      <div class="profile">
+        <img src="/static/public/images/profile_fake.jpg" alt="تصویر ناقص است">
+      </div>
+      <div class="name" v-text="comment.username"></div>
+      <div class="replay" @click="replay(comment.id)">پاسخ</div>
     </div>
-    <div id="body">
-      <p v-text="content"></p>
+    <div id="body" class="p-1 pr-5">
+      <p v-text="comment.content"></p>
     </div>
-    <div class="subComments" v-if="subComments" v-for="subComment in subComments" v-bind:key="subComment.id">
-      <comments-replay :id="subComment.id" :body="subComment.body" :name="subComment.name" :id_comment="id"/>
+<!--    <div>-->
+<!--      {{sub_comments(comment.id)}}-->
+<!--    </div>-->
+    <div class="subComments" v-if="comment.subs !=='None'" v-for="subComment in comment.subs" v-bind:key="subComment.id">
+      <comments-replay :subComment="subComment" />
     </div>
   </div>
   <!-- <transition name="fade" enter-to-class="animate__animated animate__bounceIn" leave-active-class="animate__animated animate__bounceOut">
@@ -26,7 +31,7 @@
 import commentsReplay from './CommentReplay.vue';
 
 export default {
-  props: ["content", "id", "name"],
+  props: ["comment"],
   components: {commentsReplay},
   data() {
     return {
@@ -34,9 +39,13 @@ export default {
     };
   },
   computed: {
-    subComments() {
-      return this.$store.getters.get_subComments(this.id);
-    }
+
+    // subComments() {
+    //   return this.$store.getters.get_subComments(this.id);
+    // }
+  },
+  created() {
+    // console.log(this.comment)
   },
   methods: {
     replay(id) {
@@ -47,6 +56,9 @@ export default {
       // this.replayStatus = true;
       // this.$store.commit("CHANGE_CLOSE_REPLAY_COMMENT", true);
     },
+    // sub_comments(id){
+    //
+    // }
   },
 };
 </script>
@@ -63,6 +75,7 @@ export default {
   display: flex;
   flex-direction: column;
   text-align: right;
+  background-color: white;
 }
 
 #info {
@@ -85,8 +98,20 @@ export default {
 .profile {
   width: 70px;
   height: 70px;
-  background-color: black;
+  /*background-color: black;*/
   border-radius: 50%;
+  text-align: center;
+
+}
+.profile img{
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px 0 #C6D5D0;
+  /*border: 1px solid #DBEAE5;*/
 }
 
 .name {

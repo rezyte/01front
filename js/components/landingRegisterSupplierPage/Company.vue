@@ -165,6 +165,10 @@ export default {
 </script>
 
 <style scoped>
+* {
+  font-family: iranSans !important;
+}
+
 form {
   padding: 20px;
   direction: rtl;

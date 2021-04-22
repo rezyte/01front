@@ -174,6 +174,10 @@ export default {
 </script>
 
 <style scoped>
+* {
+  font-family: iranSans !important;
+}
+
 form {
   direction: rtl;
   text-align: right;
