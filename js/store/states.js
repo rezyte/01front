@@ -6,6 +6,7 @@ export default{
         regUsername: /^[a-zA_Zضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو0-9]{3,20}$/gi,
         regPassword: /^[\u06F0-\u06F90-9a-zA-Z0-9ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو ]{4,20}$/g,
         reg_phoneNumber: /^[0-9\u06F0-\u06F90-9]{11}$/gi,
+        regNameCompany:/^[ًٌٍ،؛َُِّۀآـ«»:"ةيژؤإأء<> ؟ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-z0-9\u06F0-\u06F90-9]{3,100}$/
     },
     // comments:null,
     // subComments:null,
