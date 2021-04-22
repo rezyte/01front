@@ -22,7 +22,10 @@ name: "userPanelWrapper",
         stickMenu,
       userPanelMesages
     },
-  props:['allmessages']
+  props:['allmessages','user'],
+  mounted() {
+  // console.log(this.user,'888')
+  }
 }
 </script>
 
