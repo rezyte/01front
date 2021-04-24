@@ -1,7 +1,7 @@
 <template>
 	<div id="header" >
 		<div id="headerWrapper" class="maxIs">
-			<div class="logo bg-danger">
+			<div class="logo">
         <a href="/"><img src="/static/public/images/logo2.webp" alt=""></a>
 			</div>
       <div>
@@ -72,6 +72,10 @@
 	.logo{
 		max-width:220px;
 
+	}
+	.logo img{
+		width:100%;
+        height: 100%;
 	}
   @media (max-width: 480px){
     #header{
