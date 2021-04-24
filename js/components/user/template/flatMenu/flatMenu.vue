@@ -187,10 +187,10 @@ a {
   color: var(--blue)!important;
 }
 h4{
-  font-size: 16px;
+  font-size: 17px;
 }
 h5{
-  font-size: 14px;
+  font-size: 15.5px;
 }
 </style>
 
