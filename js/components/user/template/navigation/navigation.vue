@@ -323,7 +323,7 @@ hr {
 .triangle-up {
   content: "";
   position: absolute;
-  top: 0px;
+  top: 0;
   left: -91px;
   display: block;
   width: 14px;
@@ -358,7 +358,6 @@ hr {
   padding-top: 20px;
   top: 51px;
   right: -34px;
-  padding: 10px;
   padding-left: 0;
   padding-right: 0;
 }
