@@ -54,7 +54,7 @@
           <li class="new"><a href="/about_us/">درباره ما</a></li>
           <li class="new"><a href="/blog/posts/">وبلاگ</a></li>
           <li class="myMenu" @click="toggleSubMenu()">
-            <p> دسته بندی محصولات</p>
+            <p class="mt-3"> دسته بندی محصولات</p>
             <ul class="ulWrapper">
               <li class="firstLi">
                 <flat-menu></flat-menu>
@@ -63,7 +63,6 @@
           </li>
         </ul>
       </div>
-
 
     </div>
     <!-- <transition name='toggleSubMenu' mode='out-in'> -->
@@ -188,6 +187,7 @@ ul {
   justify-content: flex-end;
   align-items: center;
   width: 100%;
+  height: 100%!important;
   position: relative;
 }
 
@@ -225,10 +225,14 @@ li:last-child {
 .new{
   /*background-color: chocolate;*/
   text-align: center;
-  width: 80px;
+  width: 90px;
   height: 50px;
   transition: background-color 0.2s;
   /*background-color: #A2AFD0;*/
+}
+.new a{
+  color: black;
+  font-size: 17px;
 }
 .new:hover{
   background-color: rgb(9, 111, 211);
@@ -335,14 +339,17 @@ hr {
   cursor: pointer;
   width: 217px;
   transition: background-color 0.2s;
+  height: 50.5px;
 }
-
+.myMenu p{
+  font-size: 17px!important;
+}
 .myMenu ul {
   display: none;
   position: absolute;
   z-index: 13;
   background: white;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   width: max-content;
   padding-top: 20px;
   top: 51px;

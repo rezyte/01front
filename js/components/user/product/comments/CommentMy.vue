@@ -3,7 +3,7 @@
         <div class="add_comment">
              <comment-add />
         </div>
-        <div class="struct_comment" v-for="comment in comments.comments" v-bind:key="comment.id">
+        <div v-if="comment.comments !=='None'" class="struct_comment" v-for="comment in comments.comments" v-bind:key="comment.id">
             <comment :comment="comment" />
         </div>
     </div>

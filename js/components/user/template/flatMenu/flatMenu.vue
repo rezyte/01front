@@ -3,17 +3,18 @@
     <div id="flatMenuWrapper">
       <ul ref="ul">
         <li class="parentLi" v-for="(item, i) in getCats" :key="i">
-          <div class="link">
-            <svg viewBox="0 0 100 100">
-              <path
-                  d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z"
-                  class="arrow"
-                  transform="rotate(180deg)"
-              ></path>
-            </svg>
-            <h4>{{ item.title }}</h4>
-          </div>
-
+          <a :href="'/'+item.title">
+            <div class="link">
+              <svg viewBox="0 0 100 100">
+                <path
+                    d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z"
+                    class="arrow"
+                    transform="rotate(180deg)"
+                ></path>
+              </svg>
+              <h4 class="text-dark">{{ item.title }}</h4>
+            </div>
+          </a>
           <div class="subMenu">
             <ul class="subMenuWrapper">
 
@@ -28,10 +29,47 @@
   </div>
 </template>
 
+<script>
+import {mapActions} from "vuex";
+import {mapGetters} from "vuex";
+import axios from "axios";
+
+export default {
+  methods: {
+    getHref(title) {
+      return `/product-category/${title}`;
+    },
+  },
+  data() {
+    return {
+      cats: null,
+    };
+  },
+  computed: {
+    ...mapGetters(["isSubMenu"]),
+    getCats() {
+      return this.$store.getters.getCatsWithSubs;
+    },
+  },
+  mounted() {
+    const subs = document.querySelectorAll('.subMenu')
+    console.log('subs', subs)
+    const ul = this.$refs.ul
+    const top = ul.getClientRects().top
+    subs.forEach(s => {
+      s.style.top = top
+    })
+  }
+};
+</script>
+
 <style scoped>
 #flatMenu {
   width: 100%;
-  min-height: 100vh;
+  /*background-color: red;*/
+  min-height: 150px;
+  background-color: white;
+  opacity: 0.9;
 }
 
 #flatMenuWrapper ul {
@@ -45,7 +83,9 @@ li {
 }
 
 .parentLi {
-  padding: 10px 0px 10px 0px;
+  width: 100%;
+  height: 40px;
+  /*background-color: blue;*/
 }
 
 .subMenu {
@@ -94,8 +134,12 @@ svg {
 }
 
 .link {
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
+  /*background-color: red;*/
 }
 
 a {
@@ -130,38 +174,19 @@ a {
   /*border-bottom: 1px solid rgba(0,0,0,0.2);*/
   box-shadow: 0px 1px 1px -1px rgb(0, 0, 0), 0px -1px 1px -1px black;
 }
+.parentLi a{
+  text-decoration: none;
+  transition: all 0.3s;
+  margin: 0;
+}
+.parentLi a:hover .link h4{
+  color: var(--blue)!important;
+}
+h4{
+  font-size: 19px;
+}
+h3{
+  font-size: 17px;
+}
 </style>
 
-<script>
-import {mapActions} from "vuex";
-import {mapGetters} from "vuex";
-import axios from "axios";
-
-export default {
-  methods: {
-    getHref(title) {
-      return `/product-category/${title}`;
-    },
-  },
-  data() {
-    return {
-      cats: null,
-    };
-  },
-  computed: {
-    ...mapGetters(["isSubMenu"]),
-    getCats() {
-      return this.$store.getters.getCatsWithSubs;
-    },
-  },
-  mounted() {
-    const subs = document.querySelectorAll('.subMenu')
-    console.log('subs', subs)
-    const ul = this.$refs.ul
-    const top = ul.getClientRects().top
-    subs.forEach(s => {
-      s.style.top = top
-    })
-  }
-};
-</script>

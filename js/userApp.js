@@ -15,6 +15,7 @@ import sharePopUp from "./components/user/index/share/sharePopUp/sharePopUp.vue"
 import breadCrumb from "./components/user/breadCrunb/breadCrumb.vue";
 import user from "./components/user/user.vue";
 import loadingSpinner from "./components/user/template/loadingSpinner/loadingSpinner.vue";
+import SubCategories from "./components/user/subCategories/Index.vue"
 vue.use(VueMeta, {
   // optional pluginOptions
   refreshOnceOnNavigation: true,
@@ -47,6 +48,7 @@ const app = new vue({
     'indexUserPanel':()=>import("./components/userPanel/index/index.vue"),
     'index':()=>import("./components/user/index/index.vue"),
     navigation,
+    SubCategories,
     slicer,
     installPrompt,
     // foot: footer,
