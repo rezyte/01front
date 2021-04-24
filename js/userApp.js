@@ -4,6 +4,8 @@ import slicer from "./components/user/template/slicer/slicer.vue";
 // import footer from "./components/user/template/footer/footer.vue";
 import productZoom from "./components/user/product/productZoom.vue";
 import VueMeta from "vue-meta";
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/js/all.js';
 import { toggleDisplayAndArrow } from "./components/user/mixIns/toggleDisplayAndArrow";
 import heading from "./components/user/template/header/header.vue"
 import navigation from "./components/user/template/navigation/navigation.vue"

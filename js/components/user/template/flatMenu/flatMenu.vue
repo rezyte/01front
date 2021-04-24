@@ -19,7 +19,7 @@
             <ul class="subMenuWrapper">
 
               <li v-for="(sub, ind) in item.subs" :key="ind">
-                <h3><a class="prog" :href="getHref(sub.slug)">{{ sub.title }}</a></h3>
+                <h5><a class="prog" :href="getHref(sub.slug)">{{ sub.title }}</a></h5>
               </li>
             </ul>
           </div>
@@ -84,8 +84,12 @@ li {
 
 .parentLi {
   width: 100%;
-  height: 40px;
+  height: 45px;
   /*background-color: blue;*/
+}
+.parentLi a{
+  width: 100%;
+  height: 100%;
 }
 
 .subMenu {
@@ -183,10 +187,10 @@ a {
   color: var(--blue)!important;
 }
 h4{
-  font-size: 19px;
-}
-h3{
   font-size: 17px;
+}
+h5{
+  font-size: 15px;
 }
 </style>
 
