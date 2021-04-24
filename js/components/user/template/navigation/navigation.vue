@@ -54,7 +54,7 @@
           <li class="new"><a href="/about_us/">درباره ما</a></li>
           <li class="new"><a href="/blog/posts/">وبلاگ</a></li>
           <li class="myMenu" @click="toggleSubMenu()">
-            <p class="mt-3"> دسته بندی محصولات</p>
+            <p > دسته بندی محصولات</p>
             <ul class="ulWrapper">
               <li class="firstLi">
                 <flat-menu></flat-menu>
