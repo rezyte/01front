@@ -4,11 +4,15 @@
 			<div class="logo">
         <a href="/"><img src="/static/public/images/logo2.webp" alt=""></a>
 			</div>
-      <search-bar></search-bar>
+      <div>
+        <search-bar></search-bar>
+      </div>
 			<div class="phone">
-				<h4>تلفن:</h4>
-        <p>021-77569156</p>
-        <p>021-77542719</p>
+        <div class="icon_phone"><i class="fas fa-phone fa-2x" title="شماره تلفن"></i></div>
+       <div class="number_phone">
+         <p>021-77569156</p>
+         <p>021-77542719</p>
+       </div>
 			</div>
 
 		</div>
@@ -23,12 +27,26 @@
 		display: flex;
 		justify-content: center;
 	}
-	p{
-		color:black
-	}
+  .phone{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    direction: rtl;
+    text-align: right;
+  }
+  .number_phone{
+    margin-right: 10px;
+  }
+  .number_phone p{
+    margin: 5px 0;
+    text-align: start;
+    /*padding-bottom: 1px;*/
+  }
 	#headerWrapper{
 		width: 95%;
+    margin: auto;
 		display: flex;
+    flex-direction: row-reverse;
 		flex-wrap:wrap;
 		justify-content: space-between;
 		align-items: center;
@@ -58,11 +76,7 @@
 	.logo img{
 		width:100%;
         height: 100%;
-    margin-top: 10px;
 	}
-  .phone p{
-    text-align: center;
-  }
   @media (max-width: 480px){
     #header{
       display: none;

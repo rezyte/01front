@@ -54,7 +54,7 @@
           <li class="new"><a href="/about_us/">درباره ما</a></li>
           <li class="new"><a href="/blog/posts/">وبلاگ</a></li>
           <li class="myMenu" @click="toggleSubMenu()">
-            <p class="mt-3"> دسته بندی محصولات</p>
+            <p > دسته بندی محصولات</p>
             <ul class="ulWrapper">
               <li class="firstLi">
                 <flat-menu></flat-menu>
@@ -233,6 +233,7 @@ li:last-child {
 .new a{
   color: black;
   font-size: 17px;
+  font-weight: bold;
 }
 .new:hover{
   background-color: rgb(9, 111, 211);
@@ -342,7 +343,9 @@ hr {
   height: 50.5px;
 }
 .myMenu p{
+  margin-top: 14px;
   font-size: 17px!important;
+  font-weight: bold;
 }
 .myMenu ul {
   display: none;

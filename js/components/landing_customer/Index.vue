@@ -2,8 +2,8 @@
   <div>
     <div class="landing row">
       <header>
-        <h2>Header</h2>
         <div class="img">
+          <img src="/static/public/images/لندینگ-مشتری.webp" alt="">
         </div>
       </header>
     </div>
@@ -119,7 +119,18 @@ header {
   background-color: #7BFF75;
   text-align: center;
 }
-
+.img{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.img img{
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 #body {
   width: 100%;
 }
@@ -187,6 +198,7 @@ h3{
 }
 .info-damirco h1{
   font-size: 18px;
+  line-height:30px ;
 }
 .title_category{
   font-size: 17px;
