@@ -3,7 +3,7 @@
         <div class="add_comment">
              <comment-add />
         </div>
-        <div v-if="comment.comments !=='None'" class="struct_comment" v-for="comment in comments.comments" v-bind:key="comment.id">
+        <div v-if="comments.comments !=='None'" class="struct_comment" v-for="comment in comments.comments" v-bind:key="comment.id">
             <comment :comment="comment" />
         </div>
     </div>
@@ -18,11 +18,12 @@ export default {
     props:["id","comments"],
    components:{Comment,CommentAdd},
    computed:{
+
     //    comments(){
     //        return this.$store.state.comments
     //    }
    },
-   mounted(){
+   created(){
        console.log(this.comments,"hiii")
    }
 }

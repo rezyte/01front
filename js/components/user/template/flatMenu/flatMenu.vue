@@ -84,12 +84,12 @@ li {
 
 .parentLi {
   width: 100%;
-  height: 45px;
+  /*height: 50px;*/
   /*background-color: blue;*/
 }
 .parentLi a{
   width: 100%;
-  height: 100%;
+  /*height: 100%;*/
 }
 
 .subMenu {
@@ -140,7 +140,7 @@ svg {
 .link {
   width: 100%;
   height: 100%;
-  padding-top: 10px;
+  padding-top: 8px;
   display: flex;
   justify-content: space-between;
   /*background-color: red;*/
@@ -187,10 +187,10 @@ a {
   color: var(--blue)!important;
 }
 h4{
-  font-size: 17px;
+  font-size: 16px;
 }
 h5{
-  font-size: 15px;
+  font-size: 14px;
 }
 </style>
 

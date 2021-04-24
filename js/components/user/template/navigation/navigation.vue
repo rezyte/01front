@@ -233,6 +233,7 @@ li:last-child {
 .new a{
   color: black;
   font-size: 17px;
+  font-weight: bold;
 }
 .new:hover{
   background-color: rgb(9, 111, 211);
@@ -342,7 +343,9 @@ hr {
   height: 50.5px;
 }
 .myMenu p{
+  margin-top: 14px;
   font-size: 17px!important;
+  font-weight: bold;
 }
 .myMenu ul {
   display: none;

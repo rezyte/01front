@@ -198,6 +198,7 @@ h3{
 }
 .info-damirco h1{
   font-size: 18px;
+  line-height:30px ;
 }
 .title_category{
   font-size: 17px;
