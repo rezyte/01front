@@ -69,7 +69,7 @@ export default {
   /*background-color: red;*/
   min-height: 150px;
   background-color: white;
-  opacity: 0.9;
+  opacity: 0.96;
 }
 
 #flatMenuWrapper ul {
@@ -99,11 +99,11 @@ li {
   top: -9px;
   background: white;
   display: none;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   padding: 10px;
   flex-direction: column;
   flex-wrap: wrap;
-  top: 0
+  /*top: 0*/
 
 }
 
@@ -187,10 +187,10 @@ a {
   color: var(--blue)!important;
 }
 h4{
-  font-size: 16px;
+  font-size: 17px;
 }
 h5{
-  font-size: 14px;
+  font-size: 15.5px;
 }
 </style>
 

@@ -128,29 +128,18 @@ export default {
 
 
 <style scoped>
-.allCatsForBlog{
-    position:absolute;
-    z-index:669;
-    width:100%;
-    height:100%;
-    top:0;
-    background: rgba(0,0,0,0.8);
-    display:none;
+*{
+  direction: rtl;
+  text-align: right;
 }
-.allBlogCatsWrapper{
-    position: absolute;
-    right:0;
-    width:max-content;
-    background: #ffffff;
-    overflow: auto;
+a{
+  text-decoration: none;
+  color: black;
 }
 .allBlogCatsWrapper ul li{
     padding:12px;
     text-align:right
 }
-
-
-
 
 #blog {
   margin-top: 60px;
@@ -173,14 +162,6 @@ export default {
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-}
-.openCatsBtn{
-    display:flex;
-    justify-content: center;
-}
-.allBlogCatsWrapper{
-  transition:all 0.5;
-  animation:comeRight 0.5s
 }
 @keyframes comeRight{
   from{

@@ -4,14 +4,14 @@
       <div class="img">
         <img :src="img">
       </div>
-      <div class="descs">
+      <div class="descs p-1">
         <!--                <p class="title">{{getTitle(title)}}</p>-->
-        <h1 class="font-weight-bold mt-3">{{ getTitle(title) }}</h1>
-        <h2 class="font-weight-bold mt-5">{{ getTitle(descs) }}</h2>
+        <h1 class="font-weight-bold mt-3 title">{{ getTitle(title) }}</h1>
+        <h2 class="font-weight-bold mt-4 mr-1">{{ getTitle(descs) }}</h2>
 
-        <div class="extraDetail">
-          <h3>میانگین زمان خواندن:{{ avg_read }} دقیقه</h3>
-          <h3>نویسنده:{{ author.username }}</h3>
+        <div class="mt-4 pr-1">
+          <p>میانگین زمان خواندن:{{ avg_read }} دقیقه</p>
+          <p>نویسنده:{{ author.username }}</p>
         </div>
       </div>
     </div>
@@ -20,15 +20,14 @@
 </template>
 
 <style scoped>
-.extraDetail {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end
+*{
+  direction: rtl;
+  text-align: right;
 }
 
-.title {
-  color: rgb(9, 111, 211)
-}
+/*.title {*/
+/*  color: rgb(9, 111, 211)*/
+/*}*/
 
 
 .singleBlogPost {
@@ -42,15 +41,12 @@
 .singleBlogPost:hover {
   transform: scale(1.05)
 }
-
+.singleBlogPost:hover .title{
+  color: var(--blue);
+}
 .singlePostWrapper {
   width: 100%;
 }
-
-.title {
-  margin-bottom: 5px
-}
-
 .title p {
   color: rgb(236, 57, 68)
 }
@@ -63,24 +59,17 @@
 .descs {
   background: rgb(235, 242, 248);
   height: 230px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.descs p {
-  text-align: justify;
-  padding: 10px;
 }
 
 img {
   width: 100%;
   height: 200px;
 }
-
-.timeAndCat, .author {
-  font-size: 15px;
-  font-weight: 800;
+h1{
+  font-size: 18px;
+}
+h2{
+  font-size: 16px;
 }
 </style>
 

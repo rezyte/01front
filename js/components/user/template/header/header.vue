@@ -108,10 +108,6 @@
           profileOptions
     },
 		created(){
-
-
-
-
 			axios.get("/categories-api")
 			.then(res=>{
 				this.$store.commit("fillCatsWithSubs",res.data)

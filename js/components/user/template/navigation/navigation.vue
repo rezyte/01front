@@ -234,6 +234,7 @@ li:last-child {
   color: black;
   font-size: 17px;
   font-weight: bold;
+  padding-top: 3px;
 }
 .new:hover{
   background-color: rgb(9, 111, 211);
@@ -322,7 +323,7 @@ hr {
 .triangle-up {
   content: "";
   position: absolute;
-  top: 0px;
+  top: 0;
   left: -91px;
   display: block;
   width: 14px;
@@ -343,7 +344,7 @@ hr {
   height: 50.5px;
 }
 .myMenu p{
-  margin-top: 14px;
+  /*margin-top: 10px;*/
   font-size: 17px!important;
   font-weight: bold;
 }
@@ -357,7 +358,6 @@ hr {
   padding-top: 20px;
   top: 51px;
   right: -34px;
-  padding: 10px;
   padding-left: 0;
   padding-right: 0;
 }

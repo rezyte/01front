@@ -53,7 +53,7 @@
           <input
               type="text"
               id="semat"
-              maxlength="11"
+              maxlength="20"
               name="semat"
               ref="semat"
               placeholder="به فارسی وارد کنید"
@@ -129,7 +129,7 @@ export default {
           case "address": {
             // this.$store.commit("RESET_EXIST_USER",'username');
             let address = this.$refs.address.value;
-            let res = address.match(this.$store.state.regularExpression.regPassword);
+            let res = address.match(this.$store.state.regularExpression.regNameCompany);
             if (res) {
               this.validated.address = true;
               this.inValidated.address = false;

@@ -24,7 +24,7 @@
                   <div class="cost2">
                     <p>
                       <span>قیمت:</span>
-                      {{ item.cost }} تومان
+                      {{ item.price }} تومان
                     </p>
                   </div>
                 </div>
