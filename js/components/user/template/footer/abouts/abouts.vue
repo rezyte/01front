@@ -3,7 +3,7 @@
 		<div id="aboutsWrapper">
 			<ul>
 			    <li><a href="/about_us">درباره ما</a></li>
-			    <li><a href="/about_damir">درباره دمیرکو</a></li>
+<!--			    <li><a href="/about_damir">درباره دمیرکو</a></li>-->
 			    <li><a href="/sell">فروش در دمیرکو</a></li>
 			    <li><a href="/buy">خرید از  دمیرکو</a></li>
 			</ul>
@@ -26,6 +26,6 @@
 
 
 <script>
-	
+
 
 </script>
