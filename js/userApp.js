@@ -38,6 +38,7 @@ vue.mixin({
   }
 })
 import ZoomOnHover from "vue-zoom-on-hover";
+
 vue.use(ZoomOnHover);
 const app = new vue({
   el: "#app",
