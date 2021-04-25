@@ -14,7 +14,7 @@
               id="firstname"
               name="firstname"
               ref="firstname"
-              maxlength="12"
+              maxlength="25"
               @input="validate('firstname')"
               placeholder="نام خودرا وارد کنید"
               :class="[
@@ -36,7 +36,7 @@
               name="lastname"
               ref="lastname"
               @input="validate('lastname')"
-              maxlength="15"
+              maxlength="35"
               placeholder="نام خانوادگی خودرا وارد کنید"
               :class="[
                 inValidated.lastname ? 'is-invalid' : null,
@@ -135,7 +135,7 @@ export default {
             // this.$store.commit("RESET_EXIST_USER",'phoneNumber');
             let lastname = this.$refs.lastname.value;
             let res = lastname.match(
-                this.$store.state.regularExpression.reglastName
+                this.$store.state.regularExpression.regLastName
             );
             if (res) {
               this.validated.lastname = true;
