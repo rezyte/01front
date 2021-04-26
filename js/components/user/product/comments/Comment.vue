@@ -51,8 +51,11 @@ export default {
     replay(id) {
       // console.log(id)
       let comment_box = document.getElementById("commentBox");
+      let tag=document.getElementById("tag");
+      tag.value=id;
       comment_box.focus();
       comment_box.value = '@' + (id) + ': ';
+      console.log(tag);
       // this.replayStatus = true;
       // this.$store.commit("CHANGE_CLOSE_REPLAY_COMMENT", true);
     },

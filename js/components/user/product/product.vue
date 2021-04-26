@@ -10,7 +10,7 @@
       <related :related="JSON.parse(related_products)"></related>
       <hr />
       <div class="w-100">
-        <comment-my :comments="JSON.parse(product)"></comment-my>
+        <comment-my :comments="JSON.parse(product).comments"></comment-my>
       </div>
       <!-- <comment-section
         :action="''"
@@ -45,7 +45,7 @@ export default {
       // comments:null
     };
   },
-   beforeCreate(){
+   mounted(){
     // let product = JSON.parse(this.product);
     // this.comments = product.comments;
   },
