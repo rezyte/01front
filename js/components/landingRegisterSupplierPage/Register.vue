@@ -54,7 +54,7 @@
               type="text"
               id="phoneNumber"
               maxlength="11"
-              name="phoneNumber"
+              name="phone_number"
               ref="phoneNumber"
               placeholder="09xxxxxxxxx"
               @input="validate('phoneNumber')"
