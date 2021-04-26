@@ -21,36 +21,15 @@ export default {
     previous.innerHTML = 'قبلی';
     next.innerHTML = 'بعدی'
     var list = document.getElementsByClassName("pagination")[0];
-    // console.log(list.childElementCount)
-    // list.getElementsByClassName("page-item")[3].innerHTML = "Milk";
     for (let i=0; i < list.childElementCount ;i++){
       list.getElementsByClassName("page-item")[i].style.borderColor = 'white';
-      // list.getElementsByClassName("page-item")[i].style.width = '50px';
       list.getElementsByClassName("page-item")[i].style.paddingRight = '0!important';
       list.getElementsByClassName("page-item")[i].style.paddingLeft = '0important';
       let child=list.getElementsByClassName("page-item")[i].children[0]
       child.style.padding='7px'
-      // child.style.margin='2px!important'
-      // list.getElementsByClassName("page-item page-link")[i].style.paddingValue='0';
-      // list.getElementsByClassName("page-item")[i].style.paddingTop = "";
     }
     let active=document.querySelector('.pagination .active');
-    active.style.background='#007BFF';
-    // for (let i=0 ; i< link.length ; i++){
-    //   let li=link[i];
-    //   console.log(li)
-    //   // let a=li.getElementsByClassName("page-link")[i];
-    //   // console.log(a)
-    // }
-    // console.log(link.getElementByClassName("page-link"))
-    // pageItem.style.width="10%";
-    // previous.style.borderColor="white";
-    // pageNumber.style.borderColor="white";
-    // console.log(previous.style.innerHTML=!important قبلی")
-    // console.log(previous.style.nthChild(2))
-    // console.log(previous.style.all)
-    // const emojis = require("emojis-list");
-    // console.log(emojis[0]);
+    active.style.background='white';
   },
 }
 </script>

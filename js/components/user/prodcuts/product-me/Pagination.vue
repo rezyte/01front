@@ -32,7 +32,7 @@
                   <!--                  /images/products/2021/02/None_VhXLXMd.webp-->
                   <p>
                     <span>قیمت:</span>
-                    {{ item.cost }} تومان
+                    {{ item.price }} تومان
                   </p>
                 </div>
               </a>
@@ -73,18 +73,22 @@ export default {
     onChangePage(pageOfItems) {
       // update page of items
       this.pageOfItems = pageOfItems;
+      var list = document.getElementsByClassName("pagination")[0];
+      for (let i=0; i < list.childElementCount ;i++){
+        list.getElementsByClassName("page-item")[i].style.borderColor = 'white';
+        list.getElementsByClassName("page-item")[i].style.paddingRight = '0!important';
+        list.getElementsByClassName("page-item")[i].style.paddingLeft = '0important';
+        let child=list.getElementsByClassName("page-item")[i].children[0]
+        child.style.padding='7px'
+        list.getElementsByClassName("page-item page-number")[i].style.background='white';
+
+      }
+      let active=document.querySelector('.pagination .active');
+      active.style.background='#007BFF';
     },
-    // getDescription(e){
-    //   console.log(e)
-    //   let m=e.split('<p>');
-    //   return m[1].split('<')[0]
-    //
-    //   // let one=m[1].split('</')[0];
-    //   // return m;
-    // }
+
   },
-  // computed:{
-  // },
+
   mounted() {
     // console.log(this.exampleItems.length)
   }

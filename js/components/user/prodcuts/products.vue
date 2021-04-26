@@ -78,8 +78,8 @@
         <button @click='expandIt($event)'>مشاهده ادامه</button>
       </div>
     </div>
-    <div id="comments" class="w-100 my-4 bg-success">
-      <comments-my ></comments-my>
+    <div id="comments" class="w-100">
+      <comments-my :comments="JSON.parse(this.comments)"></comments-my>
     </div>
 
   </div>
@@ -112,7 +112,7 @@ export default {
       zoom.style.width = "200%"
     })
     longText();
-    console.log('comments',this.comments)
+    console.log(JSON.parse(this.comments))
   },
   components: {
     consulate,
@@ -135,6 +135,7 @@ export default {
         document.location.href = `${address}?page=${href}`
       }
     })
+    // console.log('comments',this.comments)
   },
   methods: {
     expandIt(e) {
@@ -209,7 +210,7 @@ export default {
 
 <style scoped>
 #products {
-  margin-top: 50px;
+  margin-top: 40px;
   width: 100%;
   /*display: flex;*/
   /*flex-direction: column;*/

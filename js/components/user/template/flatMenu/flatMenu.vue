@@ -1,7 +1,7 @@
 <template>
   <div id="flatMenu">
     <div id="flatMenuWrapper">
-      <ul ref="ul">
+      <ul ref="ul" class="mb-2">
         <li class="parentLi" v-for="(item, i) in getCats" :key="i">
           <a  :href="'/categories/'+item.slug">
             <div class="link">
@@ -91,7 +91,7 @@ li {
   position: absolute;
   min-height: 100vh;
   right: 250px;
-  top: -9px;
+  top: 0;
   background: white;
   display: none;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
