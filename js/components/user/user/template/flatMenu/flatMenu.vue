@@ -3,7 +3,7 @@
     <div id="flatMenuWrapper">
       <ul>
         <li class="parentLi" v-for="(item, i) in getCats" :key="i">
-          <div class="link" >
+          <div class="link bg-danger" >
             <svg viewBox="0 0 100 100">
               <path
                 d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z"

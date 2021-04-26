@@ -18,6 +18,7 @@
                 @input="change()"
               >
               </textarea>
+              <input type="hidden" name="id" ref="tag" id="tag">
             </div>
             <!-- <editor
         class="text-right"

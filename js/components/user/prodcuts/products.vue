@@ -78,7 +78,9 @@
         <button @click='expandIt($event)'>مشاهده ادامه</button>
       </div>
     </div>
-
+    <div id="comments" class="w-100 my-4 bg-success">
+      <comments-my ></comments-my>
+    </div>
 
   </div>
 </template>
@@ -91,9 +93,10 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
 import {toggleBodyOverFlow} from "../../user/mixIns/toggleBodyOverFlow.js"
 import longText from "../mixIns/longText"
 import Index from "./product-me/Index.vue"
+import CommentsMy from '../product/comments/CommentMy.vue';
 // import Paginate from 'vuejs-paginate'
 export default {
-  props: ['products', "pagination"],
+  props: ['products', 'pagination','comments'],
   computed: {
     getCats() {
       return this.$store.state.catsWithSubs
@@ -108,12 +111,14 @@ export default {
       zoom.style.width = "200%";
       zoom.style.width = "200%"
     })
-    longText()
+    longText();
+    console.log('comments',this.comments)
   },
   components: {
     consulate,
     filtering,
     Index,
+    CommentsMy
     // Paginate
   },
   mixins: [adjustElFromTop],
