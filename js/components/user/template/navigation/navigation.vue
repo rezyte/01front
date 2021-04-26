@@ -49,12 +49,12 @@
             </div>
           </li>
           <li class="new" v-if="!user.is_logined"><a href="/users/register/">ثبت نام</a></li>
-          <li class="new" v-if="!user.is_logined"><a href="/users/entry/">ورود</a></li>
+          <li class="new pb-1" v-if="!user.is_logined"><a href="/users/entry/">ورود</a></li>
           <li class="new"><a href="/">خانه</a></li>
           <li class="new"><a href="/about_us/">درباره ما</a></li>
           <li class="new"><a href="/blog/posts/">وبلاگ</a></li>
           <li class="myMenu" @click="toggleSubMenu()">
-            <p > دسته بندی محصولات</p>
+            <p>دسته بندی محصولات</p>
             <ul class="ulWrapper">
               <li class="firstLi">
                 <flat-menu></flat-menu>
@@ -155,6 +155,9 @@ export default {
 };
 </script>
 <style scoped>
+*{
+  font-family: iranSans !important;
+}
 .hamIcon {
   display: flex;
 }
@@ -345,6 +348,8 @@ hr {
 }
 .myMenu p{
   /*margin-top: 10px;*/
+  padding: 0!important;
+  margin: 0!important;
   font-size: 17px!important;
   font-weight: bold;
 }
@@ -355,7 +360,7 @@ hr {
   background: white;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   width: max-content;
-  padding-top: 20px;
+  padding-top: 7px;
   top: 51px;
   right: -34px;
   padding-left: 0;
@@ -386,13 +391,9 @@ hr {
 
 }
 
-.myMenu li {
-  margin: 0;
-}
-
-li, .myMenu {
-  padding: 14px;
-}
+/*li, .myMenu {*/
+/*  padding: 14px;*/
+/*}*/
 
 .firstLi {
   padding-right: 0;

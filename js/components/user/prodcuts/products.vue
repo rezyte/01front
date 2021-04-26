@@ -135,6 +135,7 @@ export default {
         document.location.href = `${address}?page=${href}`
       }
     })
+    // console.log('comments',this.comments)
   },
   methods: {
     expandIt(e) {
@@ -209,7 +210,7 @@ export default {
 
 <style scoped>
 #products {
-  margin-top: 50px;
+  margin-top: 40px;
   width: 100%;
   /*display: flex;*/
   /*flex-direction: column;*/
