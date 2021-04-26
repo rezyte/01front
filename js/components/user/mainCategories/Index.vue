@@ -20,7 +20,7 @@
                  <h1>دسته بندی ها</h1>
                </div>
                <div class="menu">
-                 <a v-for="category in categories" :href="'/'+category.slug" @mouseover="show_subCategories(1,category.id)" @mouseout="show_subCategories(0)">
+                 <a v-for="category in categories" :href="'/product-category/'+category.slug" @mouseover="show_subCategories(1,category.id)" @mouseout="show_subCategories(0)">
                    <div class="items-menu">
 <!--                     <i class="far fa-angle-left"></i>-->
 <!--                     <i class="fal fa-angle-left"></i>-->
@@ -157,7 +157,7 @@ export default {
     // }
   },
   created() {
-    console.log(JSON.parse(this.categories2))
+    console.log(JSON.parse(this.categories2),'oo')
   }
 }
 </script>
@@ -305,6 +305,7 @@ export default {
   border-radius: 8px;
   margin-top: 1.4%;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
+  overflow: hidden;
   /*background-color: #fff585;*/
 }
 .items-categories{

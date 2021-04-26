@@ -78,6 +78,9 @@ export default {
 </script>
 
 <style>
+*{
+  font-family: iranSans !important;
+}
 .shouldCollapse {
   width: 98% !important;
 }
