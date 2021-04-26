@@ -17,7 +17,7 @@ import sharePopUp from "./components/user/index/share/sharePopUp/sharePopUp.vue"
 import breadCrumb from "./components/user/breadCrunb/breadCrumb.vue";
 import user from "./components/user/user.vue";
 import loadingSpinner from "./components/user/template/loadingSpinner/loadingSpinner.vue";
-import SubCategories from "./components/user/subCategories/Index.vue"
+import SubCategories from "./components/user/mainCategories/Index.vue"
 vue.use(VueMeta, {
   // optional pluginOptions
   refreshOnceOnNavigation: true,

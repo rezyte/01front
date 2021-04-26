@@ -25,6 +25,9 @@ export default {
 </script>
 
 <style scoped>
+*{
+  font-family: iranSans !important;
+}
 #category{
   width:auto ;
   height: 150px;

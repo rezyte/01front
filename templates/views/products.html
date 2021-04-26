@@ -1,7 +1,7 @@
 {% include "views/template/header.html" %}
-{% include "views/template/heading.html" %}			
-{% include "views/template/slicer.html" %}				
-{% include "views/template/navigation.html" %}			
+{% include "views/template/heading.html" %}
+{% include "views/template/slicer.html" %}
+{% include "views/template/navigation.html" %}
 {% include "views/template/mainwrapper.html" %}
 
 <user>
@@ -11,7 +11,7 @@
 
         <done-message></done-message>
         {% comment %} <products products="{{ products }}"></products> {% endcomment %}
-        <products  products="{{ products }}" paginations="{{page_data}}"></products>
+        <products  products="{{ products }}" paginations="{{page_data}}" comments="{{ comments }}"></products>
     </div>
 
 </user>
