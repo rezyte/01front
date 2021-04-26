@@ -32,10 +32,13 @@
 
 .singleBlogPost {
   width: 300px;
-  height: 430px;
+  height: 410px;
   margin: 20px;
   margin-top: 40px;
-  transition: all 0.5s
+  transition: all 0.5s;
+  background-color: white;
+  box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
+  border-radius: 8px;
 }
 
 .singleBlogPost:hover {
@@ -53,17 +56,22 @@
 
 .img {
   width: 300px;
-  height: 200px
+  height: 200px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+
+
 }
 
 .descs {
-  background: rgb(235, 242, 248);
   height: 230px;
 }
 
 img {
   width: 100%;
   height: 200px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 }
 h1{
   font-size: 18px;

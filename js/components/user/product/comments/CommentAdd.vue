@@ -2,7 +2,7 @@
   <div class="comment">
     <div class="col-sm-12">
       <div class="content_add">
-        <form action="" method="post">
+        <form name="form_comment" @submit.prevent="sendComment()" action="" method="post">
           <div id="form">
             <div>
               <textarea
@@ -80,8 +80,11 @@ export default {
         this.btnStatus = true;
       }
     },
-    register() {
-      let content = this.$refs.comment.value;
+    sendComment() {
+      console.log(document.querySelector('#commentBox').value)
+      console.log(document.querySelector('#tag').value)
+      document.forms["form_comment"].submit();
+      // let content = this.$refs.comment.value;
       // let reg = /^[@]+[a-zA-z0-9]{1,5}[:]+[a-zA-Z0-9ژظطزرذدئو شسیبلاتنمکگضصثقفغعهخحجچپ]{1,500}$/gi;
       // if (content.match(reg) && content.indexOf("@") > -1) {
       //   this.$store.dispatch("record_replay_comment", this.comment);
