@@ -55,7 +55,6 @@ export default {
       tag.value=id;
       comment_box.focus();
       comment_box.value = '@' + (id) + ': ';
-      console.log(tag);
       // this.replayStatus = true;
       // this.$store.commit("CHANGE_CLOSE_REPLAY_COMMENT", true);
     },

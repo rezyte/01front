@@ -78,8 +78,8 @@
         <button @click='expandIt($event)'>مشاهده ادامه</button>
       </div>
     </div>
-    <div id="comments" class="w-100 my-4 bg-success">
-      <comments-my ></comments-my>
+    <div id="comments" class="w-100">
+      <comments-my :comments="JSON.parse(this.comments)"></comments-my>
     </div>
 
   </div>
@@ -112,7 +112,7 @@ export default {
       zoom.style.width = "200%"
     })
     longText();
-    console.log('comments',this.comments)
+    console.log(JSON.parse(this.comments))
   },
   components: {
     consulate,
