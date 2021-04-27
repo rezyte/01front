@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     replay(id_comment) {
-      let comment_box = document.getElementById("commentBox");
+      let comment_box = document.getElementById("comment");
       comment_box.focus();
       comment_box.value = "@" + id_comment + ": ";
     },
