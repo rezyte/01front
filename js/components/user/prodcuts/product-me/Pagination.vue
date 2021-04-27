@@ -9,7 +9,7 @@
               <a :href="'/product/'+item.slug" class="link-item">
                 <div class="item-origin">
                   <div class="pic">
-<!--                                       <mg src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
+                    <!--                                       <mg src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
                     <img :src="item.product_image" alt="تصویر ناقص است">
                   </div>
                   <div class="text">
@@ -22,17 +22,31 @@
                     </p>
                   </div>
                   <div class="cost2">
-                    <p>
-                      <span>قیمت:</span>
-                      {{ item.price }} تومان
+                    <p v-if="item.price|| item.second_price">
+                      <span class="font-weight-bold">قیمت:</span>
+                    <span
+                        v-if="item.price && item.second_price"> {{
+                        item.price + 'تومان'
+                      }} تا {{ item.second_price + 'تومان' }}</span>
+                      <span v-else>{{ item.price + 'تومان' }}</span>
+                    </p>
+                    <p v-else>
+                      <span class="font-weight-bold">قیمت: </span>وارد نشده است
                     </p>
                   </div>
                 </div>
                 <div class="cost">
                   <!--                  /images/products/2021/02/None_VhXLXMd.webp-->
-                  <p>
+                  <p v-if="item.price|| item.second_price">
                     <span>قیمت:</span>
-                    {{ item.price }} تومان
+                    <span
+                        v-if="item.price && item.second_price"> {{
+                        item.price + 'تومان'
+                      }} تا {{ item.second_price + 'تومان' }}</span>
+                    <span v-else>{{ item.price + 'تومان' }}</span>
+                  </p>
+                  <p v-else>
+                    <span class="font-weight-bold">قیمت: </span>وارد نشده است
                   </p>
                 </div>
               </a>
@@ -74,20 +88,33 @@ export default {
       // update page of items
       this.pageOfItems = pageOfItems;
       var list = document.getElementsByClassName("pagination")[0];
-      for (let i=0; i < list.childElementCount ;i++){
+      for (let i = 0; i < list.childElementCount; i++) {
         list.getElementsByClassName("page-item")[i].style.borderColor = 'white';
         list.getElementsByClassName("page-item")[i].style.paddingRight = '0!important';
         list.getElementsByClassName("page-item")[i].style.paddingLeft = '0important';
-        let child=list.getElementsByClassName("page-item")[i].children[0]
-        child.style.padding='7px'
-        list.getElementsByClassName("page-item page-number")[i].style.background='white';
+        let child = list.getElementsByClassName("page-item")[i].children[0]
+        child.style.padding = '7px'
+        list.getElementsByClassName("page-item page-number")[i].style.background = 'white';
 
       }
-      let active=document.querySelector('.pagination .active');
-      active.style.background='#007BFF';
+      let active = document.querySelector('.pagination .active');
+      active.style.background = '#007BFF';
     },
-
+    separate(Number) {
+      Number += '';
+      Number = Number.replace(',', '');
+      let x = Number.split('.');
+      let y = x[0];
+      let z = x.length > 1 ? '.' + x[1] : '';
+      var rgx = /(\d+)(\d{3})/;//ینی چهار رقم وجودداشته باشد
+      while (rgx.test(y))
+          // console.log()
+          // console.log(rgx)
+        y = y.replace(rgx, '$1' + ',' + '$2');
+      return y + z;
+    }
   },
+
 
   mounted() {
     // console.log(this.exampleItems.length)
@@ -213,7 +240,7 @@ export default {
   padding-top: 7px;
 }
 
-.cost span,.cost2 span {
+.cost span, .cost2 span {
   font-size: 17px;
   font-weight: bold;
 }

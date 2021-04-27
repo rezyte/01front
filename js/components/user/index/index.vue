@@ -1,4 +1,5 @@
-د<template>
+د
+<template>
   <div id="index" class="mainItemPerPage">
     <div id="topOfIndex" class="shouldCollapse maxIs">
       <div id="topOfIndexWrapper">
@@ -10,22 +11,22 @@
       <flip-card></flip-card>
     </div>
     <div
-      v-if="JSON.parse(this.comments).length >= 20"
-      style="width: 100%; overflow: hidden"
+        v-if="JSON.parse(this.comments).length >= 20"
+        style="width: 100%; overflow: hidden"
     >
       <comments :comments="comments"></comments>
     </div>
     <div
-      class="allCards shouldCollapse maxIs"
-      v-if="label.products.length > 0"
-      v-for="label in JSON.parse(this.labeles)"
-      :key="label.id"
+        class="allCards shouldCollapse maxIs"
+        v-if="label.products.length > 0"
+        v-for="label in JSON.parse(this.labeles)"
+        :key="label.id"
     >
       <card
-        :cardTitle="label.title"
-        :products="label.products"
-        id="mostSell"
-        :classr="makeid(10)"
+          :cardTitle="label.title"
+          :products="label.products"
+          id="mostSell"
+          :classr="makeid(10)"
       ></card>
     </div>
 
@@ -54,8 +55,6 @@ export default {
     comments,
   },
   created() {
-    console.log("heyyyy");
-    console.log(this.userInfo + 'ty');
 
     console.log("this.products", JSON.parse(this.labeles));
 
@@ -68,7 +67,7 @@ export default {
       var charactersLength = characters.length;
       for (var i = 0; i < length; i++) {
         result += characters.charAt(
-          Math.floor(Math.random() * charactersLength)
+            Math.floor(Math.random() * charactersLength)
         );
       }
       return result;
@@ -78,29 +77,35 @@ export default {
 </script>
 
 <style>
-*{
+* {
   font-family: iranSans !important;
 }
+
 .shouldCollapse {
   width: 98% !important;
 }
+
 .digiCardIndex {
   margin-top: 50px;
   margin-bottom: 20px;
 }
+
 #topOfIndex {
   background: #ffffff;
   width: 100%;
 }
+
 #topOfIndexWrapper {
   display: flex;
   justify-content: center;
   width: 100%;
   padding: 20px;
 }
+
 #index {
   position: relative;
 }
+
 .allCards {
   display: flex;
   width: 100%;
@@ -108,12 +113,15 @@ export default {
   align-items: center;
   height: 530px;
 }
+
 #mostClicked {
   grid-area: mostClicked;
 }
+
 #slider {
   grid-area: slide;
 }
+
 #new {
   grid-area: new;
 }
@@ -141,20 +149,25 @@ export default {
 #footer {
   grid-area: footer;
 }
+
 .hamCats {
   grid-area: hamCats;
 }
+
 @media (max-width: 924px) {
   #slider {
     width: 100%;
   }
+
   #sideSliderCats {
     display: none;
   }
+
   .shouldCollapse {
     width: 100% !important;
   }
 }
+
 @media (max-width: 800px) {
   #topOfIndexWrapper {
     padding: 0;
