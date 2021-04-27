@@ -11,11 +11,11 @@
                 maxlength="500"
                 class="form-control"
                 v-model="comment"
-                id="commentBox"
+                id="comment"
                 placeholder="نظر خود را وارد کنید"
                 ref="comment"
                 name="comment"
-                @input="change()"
+                @input="change"
               >
               </textarea>
               <input type="hidden" name="id" ref="tag" id="tag">
@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     change() {
-      let box = document.getElementById("commentBox");
+      let box = document.getElementById("comment");
       if (this.comment !== "") {
         box.style.borderColor = null;
         this.btnStatus = false;
@@ -81,7 +81,7 @@ export default {
       }
     },
     sendComment() {
-      console.log(document.querySelector('#commentBox').value)
+      console.log(document.querySelector('#comment').value)
       console.log(document.querySelector('#tag').value)
       document.forms["form_comment"].submit();
       // let content = this.$refs.comment.value;
