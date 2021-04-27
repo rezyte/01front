@@ -9,39 +9,31 @@
         </div>
         <ul v-if="showNavigation">
           <li v-if="user.is_logined" @click="showProf=true" class="profileList">
-            <img id="profImg" :src="user.picture" alt="">
+            <img id="profImg" src="/static/public/images/defUser.png" alt="تصویر ناقص است">
             <div v-if="showProf" class="profile">
               <div class="profileWrapper">
-                <div class="triangle-up"></div>
-
+<!--                <div class="triangle-up">jjjj</div>-->
                 <div class="contentWrapepper">
                   <div class="title">
                     <div class="titleWrapper">
-
-                      <ul>
+                      <ul class="bg-white">
                         <li>
-                          <p v-text="user.username"></p>
-
-
+                          <p v-text="user.username" class="font-weight-bold"></p>
                         </li>
                         <li><a href="/users/userpanel/">مشاهده پروفایل</a></li>
                         <hr>
                         <li>
                           <a href='/users/profile/product/create/' v-if="user.is_producer">محصول جدید</a>
-
                         </li>
                         <li>
-
                           <a href='/users/profile/my_products/' v-if="user.is_producer">محصولات من</a>
                         </li>
                         <li>
-
                           <a href='/users/profile/orders/' v-if="user.is_producer">مشتریان من</a>
                         </li>
                         <hr>
                         <li><a href="/users/logout/">خروج</a></li>
                       </ul>
-
                     </div>
                   </div>
                 </div>
@@ -155,9 +147,10 @@ export default {
 };
 </script>
 <style scoped>
-*{
+* {
   font-family: iranSans !important;
 }
+
 .hamIcon {
   display: flex;
 }
@@ -183,14 +176,13 @@ export default {
   display: none;
 
 }
-
 ul {
   background: #f6f6f4;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  height: 100%!important;
+  height: 100% !important;
   position: relative;
 }
 
@@ -225,7 +217,8 @@ li:last-child {
   border-radius: 5px;
   position: relative;
 }
-.new{
+
+.new {
   /*background-color: chocolate;*/
   text-align: center;
   width: 90px;
@@ -233,20 +226,24 @@ li:last-child {
   transition: background-color 0.2s;
   /*background-color: #A2AFD0;*/
 }
-.new a{
+
+.new a {
   color: black;
   font-size: 17px;
   font-weight: bold;
   padding-top: 3px;
 }
-.new:hover{
+
+.new:hover {
   background-color: rgb(9, 111, 211);
   cursor: pointer;
 }
-.new:hover a{
+
+.new:hover a {
   color: white;
   text-decoration: none;
 }
+
 .sikh {
   background: #096fd3;
 }
@@ -256,35 +253,26 @@ li:last-child {
   left: 100px;
   cursor: pointer;
 }
-
-.titleWrapper {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  align-content: center;
-
-}
-
 .titleWrapper ul {
-  position: absolute;
-  background: white !important;
-  padding: 1rem;
-  box-shadow: 0 0px 0px rgba(0, 0, 0, .45), 0 0px 1px 1px rgba(0, 0, 0, .45);
-  width: 250px !important;
-  flex-direction: column;
-  border-radius: 10px;
+  width: 150px !important;
+  /*flex-direction: column;*/
+  border-radius: 4px;
+  background-color: white!important;
+  box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
+  height: 200px!important;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  direction: rtl;
+  display: block!important;
 }
 
 .titleWrapper ul * {
   font-size: 14px;
 }
 
-.titleWrapper li {
+.titleWrapper ul li {
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 10px;
-  line-height: 2rem;
 }
 
 .titleWrapper li a {
@@ -304,11 +292,13 @@ li:last-child {
 }
 
 .profile {
-  position: absolute;
-  top: 64px;
+  position:  absolute;
+  top: 46px;
   z-index: 55;
-  left: 124px;
+  left: 21px;
   transform: translateX(-50%);
+  /*background-color: red;*/
+
 }
 
 .profileList a {
@@ -331,7 +321,7 @@ hr {
   display: block;
   width: 14px;
   height: 14px;
-  background: #fff;
+  /*background: #fff;*/
   -ms-transform: rotate(45deg) translateX(-50%);
   transform: rotate(45deg) translateX(-50%);
   z-index: -1;
@@ -346,13 +336,15 @@ hr {
   transition: background-color 0.2s;
   height: 50.5px;
 }
-.myMenu p{
+
+.myMenu p {
   /*margin-top: 10px;*/
-  padding: 0!important;
-  margin: 0!important;
-  font-size: 17px!important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 17px !important;
   font-weight: bold;
 }
+
 .myMenu ul {
   display: none;
   position: absolute;
@@ -402,7 +394,14 @@ hr {
 .ulWrapper {
   padding-right: 0;
 }
-
+.titleWrapper ul li a{
+  text-decoration: none;
+  color: black;
+  transition: color 0.2s;
+}
+.titleWrapper ul li a:hover{
+  color: var(--blue);
+}
 @media (max-width: 650px) {
   .naviagtionWrapper {
     width: 100%;

@@ -174,7 +174,7 @@ export default {
 </script>
 
 <style scoped>
-* {
+*{
   font-family: iranSans !important;
 }
 

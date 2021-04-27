@@ -9,7 +9,8 @@
           <div class="singleSlide">
             <div class="singleSlideWrapper">
               <div class="img">
-                <a :href="getSlug(p.slug)"><img class="lazyimages swiper-lazy" :data-src="getImage(p.product_thumbnail)" alt=""></a>
+                <a :href="getSlug(p.slug)"><img class="lazyimages swiper-lazy" :data-src="getImage(p.product_thumbnail)"
+                                                alt=""></a>
               </div>
               <div class="shareProduct">
                 <share title="اشتراک گذاری" :slug="p.slug"></share>
@@ -17,6 +18,19 @@
               <div class="descs">
                 <div class="title">
                   <a class="link" :href="getSlug(p.slug)">{{ p.title }}</a>
+                </div>
+                <div dir="rtl" class="price text-right">
+                  <p v-if="p.price|| p.second_price">
+                    <span class="font-weight-bold">قیمت:</span>
+                    <span
+                        v-if="p.price && p.second_price"> {{
+                        p.price + 'تومان'
+                      }} تا {{ p.second_price + 'تومان' }}</span>
+                    <span v-else>{{ p.price + 'تومان' }}</span>
+                  </p>
+                  <p v-else>
+                    <span class="font-weight-bold">قیمت: </span>وارد نشده است
+                  </p>
                 </div>
                 <div class="button">
                   <a :href="getSlug(p.slug)" class="submit">مشاهده محصول</a>
