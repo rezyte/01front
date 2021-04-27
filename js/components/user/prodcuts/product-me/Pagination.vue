@@ -22,17 +22,31 @@
                     </p>
                   </div>
                   <div class="cost2">
-                    <p>
-                      <span>قیمت:</span>
-                      {{separate( item.price) }} تومان
+                    <p v-if="item.price|| item.second_price">
+                      <span class="font-weight-bold">قیمت:</span>
+                    <span
+                        v-if="item.price && item.second_price"> {{
+                        item.price + 'تومان'
+                      }} تا {{ item.second_price + 'تومان' }}</span>
+                      <span v-else>{{ item.price + 'تومان' }}</span>
+                    </p>
+                    <p v-else>
+                      <span class="font-weight-bold">قیمت: </span>وارد نشده است
                     </p>
                   </div>
                 </div>
                 <div class="cost">
                   <!--                  /images/products/2021/02/None_VhXLXMd.webp-->
-                  <p>
+                  <p v-if="item.price|| item.second_price">
                     <span>قیمت:</span>
-                    {{item.price ? separate(item.price) + 'تومان ' : 'وارد نشده است '}}
+                    <span
+                        v-if="item.price && item.second_price"> {{
+                        item.price + 'تومان'
+                      }} تا {{ item.second_price + 'تومان' }}</span>
+                    <span v-else>{{ item.price + 'تومان' }}</span>
+                  </p>
+                  <p v-else>
+                    <span class="font-weight-bold">قیمت: </span>وارد نشده است
                   </p>
                 </div>
               </a>
@@ -94,8 +108,8 @@ export default {
       let z = x.length > 1 ? '.' + x[1] : '';
       var rgx = /(\d+)(\d{3})/;//ینی چهار رقم وجودداشته باشد
       while (rgx.test(y))
-      // console.log()
-      // console.log(rgx)
+          // console.log()
+          // console.log(rgx)
         y = y.replace(rgx, '$1' + ',' + '$2');
       return y + z;
     }
