@@ -24,6 +24,9 @@ name: "Blog"
 </script>
 
 <style scoped>
+*{
+  font-family: iranSans !important;
+}
 a{
   width: 28%;
   color: black;

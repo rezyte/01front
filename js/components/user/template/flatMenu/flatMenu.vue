@@ -1,9 +1,9 @@
 <template>
   <div id="flatMenu">
     <div id="flatMenuWrapper">
-      <ul ref="ul">
+      <ul ref="ul" class="mb-2">
         <li class="parentLi" v-for="(item, i) in getCats" :key="i">
-          <a :href="'/'+item.title">
+          <a  :href="'/categories/'+item.slug">
             <div class="link">
               <svg viewBox="0 0 100 100">
                 <path
@@ -12,7 +12,7 @@
                     transform="rotate(180deg)"
                 ></path>
               </svg>
-              <h4 class="text-dark">{{ item.title }}</h4>
+              <h4 class="text-dark h-100">{{ item.title }}</h4>
             </div>
           </a>
           <div class="subMenu">
@@ -87,16 +87,11 @@ li {
   /*height: 50px;*/
   /*background-color: blue;*/
 }
-.parentLi a{
-  width: 100%;
-  /*height: 100%;*/
-}
-
 .subMenu {
   position: absolute;
   min-height: 100vh;
   right: 250px;
-  top: -9px;
+  top: 0;
   background: white;
   display: none;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
@@ -143,6 +138,7 @@ svg {
   padding-top: 8px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   /*background-color: red;*/
 }
 
@@ -179,6 +175,7 @@ a {
   box-shadow: 0px 1px 1px -1px rgb(0, 0, 0), 0px -1px 1px -1px black;
 }
 .parentLi a{
+  width: 100%;
   text-decoration: none;
   transition: all 0.3s;
   margin: 0;

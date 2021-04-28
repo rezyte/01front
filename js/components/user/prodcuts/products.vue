@@ -1,85 +1,101 @@
 <template>
-  <div id="products" class='shouldCollapse'>
-    <h1 class="color">{{ getH1() }}</h1>
-    <div class="seoPost first"
-         v-if="JSON.parse(products).length>0 && JSON.parse(this.products)[0].category[0].upper_content!=''">
-      <div class="seoPostContent longText"
-           v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].upper_content : ''"></div>
-      <!--      <div class="showMore">-->
-      <!--        <button @click="expandIt($event)">مشاهده ادامه</button>-->
-      <!--      </div>-->
-    </div>
-    <div id="productsWrapper">
-
-      <index :products="JSON.parse(products)" title=""/>
-      <!--      <div v-if="JSON.parse(products).length>0" class="singleProduct" v-for='p in JSON.parse(this.products)'-->
-      <!--           :key='p.slug'>-->
-      <!--        <div class="singleProductWrapper">-->
-      <!--          <a :href="gethref(p.slug)">-->
-      <!--            <div class="img">-->
-      <!--              &lt;!&ndash; <img src="/images/1.jpg" alt=""> &ndash;&gt;-->
-      <!--              <zoom-on-hover :img-normal="getImage(p.product_image)"></zoom-on-hover>-->
-      <!--            </div>-->
-      <!--          </a>-->
-      <!--          <div class="title">-->
-
-      <!--            <a :href="gethref(p.slug)"><h3>{{ p.title }}</h3></a>-->
-      <!--            <div class="priceList" v-if="p.price || p.second_price">-->
-      <!--              <p>قیمت:</p>-->
-      <!--              <p class="price">-->
-      <!--                {{p.price ? p.price.toLocaleString() : ''}} <span v-if="p.price && p.second_price">-</span> {{p.second_price ? p.second_price.toLocaleString() : ''}}-->
-
-      <!--                <span>میلون تومان</span>-->
-      <!--              </p>-->
-      <!--            </div>-->
-      <!--          </div>-->
-      <!--          <div id="showProduct">-->
-      <!--            <a :href="gethref(p.slug)">-->
-      <!--              <button class="showProduct">مشاهده محصول</button>-->
-      <!--            </a>-->
-      <!--          </div>-->
-      <!--&lt;!&ndash;          <div class="contactUs">&ndash;&gt;-->
-      <!--&lt;!&ndash;            <button class="stelam" @click.prevent='showConsulate($event)'>مشاهده محصول</button>&ndash;&gt;-->
-      <!--&lt;!&ndash;          </div>&ndash;&gt;-->
-      <!--          <consulate :productId="p.slug"></consulate>-->
-      <!--        </div>-->
-      <!--      </div>-->
-      <!--      <div style="width: 100%" v-if="JSON.parse(products).length==0">-->
-      <!--        <div class="catsWrapper" >-->
-      <!--          <ul v-for="cat in getCats">-->
-      <!--            <li>{{ cat.title }}</li>-->
-      <!--              <li v-for="subCat in cat.subs"><a :href="'/product-category/'+subCat.slug">{{subCat.title}}</a></li>-->
-
-
-      <!--          </ul>-->
-
-      <!--        </div>-->
-      <!--      </div>-->
-
-
-    </div>
-    <template v-if='this.paginations!=null && this.paginations!=undefined && this.paginations!=""'>
-      <div id="pagination" v-if="JSON.parse(this.paginations).number_of_pages>1 ">
-        <pagination
-            :currentPage=JSON.parse(this.pagination).current_page
-            :padding=3
-            :pageNums=JSON.parse(this.pagination).number_of_pages
-            url="/blog/posts/?page="
-            :perPage=null
-            :items=null
-        ></pagination>
+  <div id="products">
+    <div dir="rtl" v-if="search_products!==''">
+      <div class="head_search">
+        <h1>نتایج برای جست و جو:</h1>
       </div>
-    </template>
-
-    <div class="seoPost" v-if="JSON.parse(products).length>0">
-      <div class="seoPostContent longText"
-           v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].seo_post : ''"></div>
-      <div class="showMore">
-        <button @click='expandIt($event)'>مشاهده ادامه</button>
+      <div v-if="JSON.parse(search_products).message">
+        <div class="text-center">
+          <p class="text-center text-danger empty_search_text" v-text="JSON.parse(search_products).message"></p>
+        </div>
+      </div>
+      <div v-else class="productsWrapper">
+        <index :products="JSON.parse(search_products)" title=""/>
       </div>
     </div>
+    <div v-else>
+      <h1 class="color">{{ getH1() }}</h1>
+      <div class="seoPost first"
+           v-if="JSON.parse(products).length>0 && JSON.parse(this.products)[0].category[0].upper_content!=''">
+        <div class="seoPostContent longText"
+             v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].upper_content : ''"></div>
+        <!--      <div class="showMore">-->
+        <!--        <button @click="expandIt($event)">مشاهده ادامه</button>-->
+        <!--      </div>-->
+      </div>
+      <div class="productsWrapper">
+        <index :products="JSON.parse(products)" title=""/>
+        <!--      <div v-if="JSON.parse(products).length>0" class="singleProduct" v-for='p in JSON.parse(this.products)'-->
+        <!--           :key='p.slug'>-->
+        <!--        <div class="singleProductWrapper">-->
+        <!--          <a :href="gethref(p.slug)">-->
+        <!--            <div class="img">-->
+        <!--              &lt;!&ndash; <img src="/images/1.jpg" alt=""> &ndash;&gt;-->
+        <!--              <zoom-on-hover :img-normal="getImage(p.product_image)"></zoom-on-hover>-->
+        <!--            </div>-->
+        <!--          </a>-->
+        <!--          <div class="title">-->
+
+        <!--            <a :href="gethref(p.slug)"><h3>{{ p.title }}</h3></a>-->
+        <!--            <div class="priceList" v-if="p.price || p.second_price">-->
+        <!--              <p>قیمت:</p>-->
+        <!--              <p class="price">-->
+        <!--                {{p.price ? p.price.toLocaleString() : ''}} <span v-if="p.price && p.second_price">-</span> {{p.second_price ? p.second_price.toLocaleString() : ''}}-->
+
+        <!--                <span>میلون تومان</span>-->
+        <!--              </p>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--          <div id="showProduct">-->
+        <!--            <a :href="gethref(p.slug)">-->
+        <!--              <button class="showProduct">مشاهده محصول</button>-->
+        <!--            </a>-->
+        <!--          </div>-->
+        <!--&lt;!&ndash;          <div class="contactUs">&ndash;&gt;-->
+        <!--&lt;!&ndash;            <button class="stelam" @click.prevent='showConsulate($event)'>مشاهده محصول</button>&ndash;&gt;-->
+        <!--&lt;!&ndash;          </div>&ndash;&gt;-->
+        <!--          <consulate :productId="p.slug"></consulate>-->
+        <!--        </div>-->
+        <!--      </div>-->
+        <!--      <div style="width: 100%" v-if="JSON.parse(products).length==0">-->
+        <!--        <div class="catsWrapper" >-->
+        <!--          <ul v-for="cat in getCats">-->
+        <!--            <li>{{ cat.title }}</li>-->
+        <!--              <li v-for="subCat in cat.subs"><a :href="'/product-category/'+subCat.slug">{{subCat.title}}</a></li>-->
 
 
+        <!--          </ul>-->
+
+        <!--        </div>-->
+        <!--      </div>-->
+
+
+      </div>
+      <template v-if='this.paginations!=null && this.paginations!=undefined && this.paginations!=""'>
+        <div id="pagination" v-if="JSON.parse(this.paginations).number_of_pages>1 ">
+          <pagination
+              :currentPage=JSON.parse(this.pagination).current_page
+              :padding=3
+              :pageNums=JSON.parse(this.pagination).number_of_pages
+              url="/blog/posts/?page="
+              :perPage=null
+              :items=null
+          ></pagination>
+        </div>
+      </template>
+
+      <div class="seoPost" v-if="JSON.parse(products).length>0">
+        <div class="seoPostContent longText"
+             v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].seo_post : ''"></div>
+        <div class="showMore">
+          <button @click='expandIt($event)'>مشاهده ادامه</button>
+        </div>
+      </div>
+      <div id="comments" class="w-100">
+        <comments-my :comments="JSON.parse(this.comments)"></comments-my>
+      </div>
+
+    </div>
   </div>
 </template>
 
@@ -91,15 +107,23 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
 import {toggleBodyOverFlow} from "../../user/mixIns/toggleBodyOverFlow.js"
 import longText from "../mixIns/longText"
 import Index from "./product-me/Index.vue"
+import CommentsMy from '../product/comments/CommentMy.vue';
 // import Paginate from 'vuejs-paginate'
 export default {
-  props: ['products', "pagination"],
+  props: ['products', 'search_products', 'pagination', 'comments'],
   computed: {
     getCats() {
       return this.$store.state.catsWithSubs
     }
   },
   mounted() {
+    console.log('productsmmmm', JSON.parse(this.search_products).message)
+    console.log('products', this.products)
+    // if (JSON.pars(this.products).length>=1){
+    //   alert('yes')
+    // }else {
+    //   alert('no')
+    // }
     const allImages = document.querySelectorAll(".normal")
     allImages.forEach(img => {
       img.style.width = '100%'
@@ -108,12 +132,14 @@ export default {
       zoom.style.width = "200%";
       zoom.style.width = "200%"
     })
-    longText()
+    longText();
+
   },
   components: {
     consulate,
     filtering,
     Index,
+    CommentsMy
     // Paginate
   },
   mixins: [adjustElFromTop],
@@ -130,6 +156,7 @@ export default {
         document.location.href = `${address}?page=${href}`
       }
     })
+    // console.log('comments',this.comments)
   },
   methods: {
     expandIt(e) {
@@ -144,6 +171,7 @@ export default {
     getH1() {
 
       if (JSON.parse(this.products).length > 0) {
+        alert('yes');
         return JSON.parse(this.products)[0].category[0].title
       }
       return "محصولی وجود ندارد شما میتواند از دسته بندی های زیر انتخاب کنید"
@@ -204,7 +232,7 @@ export default {
 
 <style scoped>
 #products {
-  margin-top: 50px;
+  margin-top: 40px;
   width: 100%;
   /*display: flex;*/
   /*flex-direction: column;*/
@@ -216,7 +244,7 @@ h1 {
   font-weight: bold !important;
 }
 
-#productsWrapper {
+.productsWrapper {
   width: 100%;
   padding-top: 10px;
   background-color: white;
@@ -399,5 +427,19 @@ h1 {
 
 .color {
   color: var(--blue);
+}
+
+.head_search {
+  width: 100%;
+  text-align: right;
+  padding: 10px;
+}
+
+.head_search h1 {
+  font-size: 17px;
+  color: var(--blue);
+}
+.empty_search_text{
+  font-size: 17px;
 }
 </style>

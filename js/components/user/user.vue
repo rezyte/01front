@@ -22,6 +22,9 @@ export default {
 </script>
 
 <style scoped>
+*{
+  font-family: iranSans !important;
+}
 .user {
   display: flex;
   flex-direction: column;

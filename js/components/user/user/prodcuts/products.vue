@@ -89,6 +89,7 @@ img.normal{
     export default{
         props:['products',"pagination"],
         mounted(){
+          console.log('semememm',this.products)
             const allImages=document.querySelectorAll(".normal")
             allImages.forEach(img=>{
                 img.style.width='100%'

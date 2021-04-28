@@ -26,8 +26,6 @@
         <a href="/"><span>/</span>خانه</a>
       </li>
     </ul>
-
-
   </div>
 </template>
 
@@ -36,7 +34,7 @@ export default {
   name: "breadCrumb",
   props: ['product', 'type', 'products'],
   created() {
-    console.log(JSON.parse(this.products)[0], 'this.products')
+    console.log(JSON.parse(this.products), 'this.products')
   },
   mounted() {
     const bread = this.$refs.bread
