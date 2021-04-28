@@ -32,7 +32,7 @@
 
 .singleBlogPost {
   width: 300px;
-  height: 410px;
+  height: 420px;
   margin: 20px;
   margin-top: 40px;
   transition: all 0.5s;

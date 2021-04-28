@@ -29,7 +29,6 @@
 
             </div>
           </div>
-
           <div class="productSingleDetailWrapper">
             <div class="justReadableDetailWrapper">
               <div class="price singleDetail">

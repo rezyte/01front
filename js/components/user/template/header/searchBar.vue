@@ -1,8 +1,8 @@
 <template>
   <div class="searchBar">
     <div class="searchBarWrapper">
-      <form ref="form" @mousedown="changeColor('active')" action="/search" method="get">
-        <input @blur="changeColor('inactive')" type="" placeholder="جست و جو ..." name="q">
+      <form id="form" ref="form" @mousedown="changeColor('active')" action="/search" method="get">
+        <input class="input_search" @blur="changeColor('inactive')" type="search" placeholder="جست و جو..." name="q">
         <button class='magnifier'>
           <img src="/static/public/images/mag2.webp" alt="">
         </button>
@@ -74,4 +74,10 @@ form:focus{
   /*border:2px solid var(--blue);*/
   border:2px solid red;
 }
+/*@media screen and (max-width:441px) {*/
+/*  #form {*/
+/*    display: none!important;*/
+/*    border: 2px solid red !important;*/
+/*  }*/
+/*}*/
 </style>
