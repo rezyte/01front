@@ -67,7 +67,7 @@
 <script>
 import JwPagination from 'jw-vue-pagination';
 // const exampleItems = [...Array(15).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
-const exampleItems = [2, 9, 8, 52, 5, 7, 0, 6, 8, 9, 1, 5, 6, 5, 2, 5, 56, 89, 4, 5, 6, 0, 8, 6]
+const exampleItems = [2, 9, 8, 52, 5, 7, 0, 6, 8, 9, 1, 5, 6, 5, 2, 5, 56, 89, 4, 5, 6, 0, 8, 6];
 export default {
   name: "Pagination",
   props: ['products'],

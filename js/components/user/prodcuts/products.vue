@@ -119,11 +119,6 @@ export default {
   mounted() {
     console.log('productsmmmm', JSON.parse(this.search_products).message)
     console.log('products', this.products)
-    // if (JSON.pars(this.products).length>=1){
-    //   alert('yes')
-    // }else {
-    //   alert('no')
-    // }
     const allImages = document.querySelectorAll(".normal")
     allImages.forEach(img => {
       img.style.width = '100%'
