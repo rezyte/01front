@@ -5,11 +5,7 @@
     </div>
 </template>
 
-<style>
-*{
-  direction: rtl!important;
-  text-align: right!important;
-}
+<style scoped>
 #productDesc * {
   font-family: 'iranSans' !important;
   /*display: none;*/
