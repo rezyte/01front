@@ -1,8 +1,8 @@
 <template>
-    <div id="productDesc">
-      <h2 class="font-weight-bold text-right">توضیحات محصول</h2>
-        <div class="descsWrapper longText" v-html="product.description"></div>
-    </div>
+  <div id="productDesc">
+    <h2 class="font-weight-bold text-right">توضیحات محصول</h2>
+    <div class="descsWrapper longText" v-html="product.description"></div>
+  </div>
 </template>
 
 <style scoped>
@@ -16,6 +16,7 @@
   margin-bottom: 20px;
   padding-bottom: 100px;
 }
+
 #productDesc img {
   max-width: 100% !important;
   /*width: 100% !important;*/
@@ -36,6 +37,11 @@
   width: max-content !important;
 }
 
+.descsWrapper div {
+  direction: rtl!important;
+  text-align: right
+}
+
 .descsWrapper {
   margin-bottom: 50px;
 }
@@ -50,15 +56,17 @@
 }
 
 .descsWrapper img {
-  max-width: 100%!important;
-  height: 100%!important;
-  width: 100%!important;
+  max-width: 100% !important;
+  height: 100% !important;
+  width: 100% !important;
   object-fit: contain;
 }
-.descsWrapper p img{
-  width: 100%!important;
-  height: 100%!important;
+
+.descsWrapper p img {
+  width: 100% !important;
+  height: 100% !important;
 }
+
 .descsWrapper td {
   border-top: 1px solid #9a9a9a;
   padding-top: 5px !important;
@@ -87,17 +95,18 @@
   padding-right: 20px;
 }
 
-#e9rgb{
+#e9rgb {
   width: 100%;
 }
-#e9rgb table{
-  width: 100%!important;
+
+#e9rgb table {
+  width: 100% !important;
 }
 </style>
 
 <script>
-export default{
-    props:['product']
+export default {
+  props: ['product']
 }
 
 </script>
