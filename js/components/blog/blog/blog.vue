@@ -58,7 +58,7 @@ export default {
     // console.log("blogs", JSON.parse(this.posts))
   },
   created() {
-    console.log(JSON.parse(this.posts))
+    console.log(JSON.parse(this.posts),"posts")
     this.items=JSON.parse(this.posts)
     // console.log("pospaginationts", JSON.parse(this.pagination))
   },
