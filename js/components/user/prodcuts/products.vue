@@ -164,9 +164,7 @@ export default {
 
     },
     getH1() {
-
       if (JSON.parse(this.products).length > 0) {
-        alert('yes');
         return JSON.parse(this.products)[0].category[0].title
       }
       return "محصولی وجود ندارد شما میتواند از دسته بندی های زیر انتخاب کنید"
