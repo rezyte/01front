@@ -58,7 +58,7 @@ export default {
     },
     pageSize: {
       type: Number,
-      default: 9
+      default: 12
     },
     maxPages: {
       type: Number,

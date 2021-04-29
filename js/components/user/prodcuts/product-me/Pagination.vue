@@ -41,9 +41,9 @@
                     <span>قیمت:</span>
                     <span
                         v-if="item.price && item.second_price"> {{
-                        item.price + 'تومان'
-                      }} تا {{ item.second_price + 'تومان' }}</span>
-                    <span v-else>{{ item.price + 'تومان' }}</span>
+                        separate(item.price) + 'تومان'
+                      }} تا {{ separate(item.second_price) + 'تومان' }}</span>
+                    <span v-else>{{ separate(item.price) + 'تومان' }}</span>
                   </p>
                   <p v-else>
                     <span class="font-weight-bold">قیمت: </span>وارد نشده است
