@@ -6,8 +6,8 @@
          <div class="w-100 d-flex flex-column align-items-end">
            <div class="main-top">
              <div class="main-category">
-               <div class="top-main-category text-center bg-white">
-                 Slider/text
+               <div class="top-main-category bg-white">
+                 <carousel />
                </div>
                <div class="center-main-category bg-white">
                  <div class="items-categories">
@@ -62,68 +62,21 @@
 <script>
 import Category from "./categories/Category.vue";
 import Blog from "./blogs/Blog.vue";
+// import { VueperSlides, VueperSlide } from 'vueperslides'
+// import 'vueperslides/dist/vueperslides.css'
+import Carousel from "./carousel/Carousel.vue";
 export default {
   name: "index",
   props:['categories2'],
   data(){
     return{
-      // categories:[
-      //   {
-      //     id:1,
-      //     name:'خط تولید کمپوت',
-      //     picture: '/static/public/images/startFrame.jpg',
-      //     sub_categories:[
-      //       {
-      //         name:'خط تولید کمپوت درجه یک'
-      //       },
-      //       {
-      //         name:'خط تولید کمپوت درجه دو'
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     id:2,
-      //     name:'خط تولید بیسکوئیت',
-      //     picture: '/static/public/images/startFrame.jpg',
-      //     sub_categories:[
-      //       {
-      //         name:'خط تولید بیسکوئیت درجه یک'
-      //       },
-      //       {
-      //         name:'خط تولید بیسکوئیت درجه دو'
-      //       },
-      //       {
-      //         name:'خط تولید بیسکوئیت درجه سه'
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     id:3,
-      //     name:'خط تولید ترشی',
-      //     picture: '/static/public/images/startFrame.jpg',
-      //     sub_categories:[
-      //       {
-      //         name:'خط تولید ترشی درجه یک'
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     id:4,
-      //     name:'خط تولید توتن و تنباکو',
-      //     picture: '/static/public/images/startFrame.jpg',
-      //     sub_categories:[
-      //       {
-      //         name:'خط تولید توتن درجه یک'
-      //       }
-      //     ]
-      //   }
-      // ],
-      subCategories:''
+      subCategories:'',
     }
   },
   components:{
     Category,
-    Blog
+    Blog,
+    Carousel
   },
   methods:{
     show_subCategories(x,y=null){

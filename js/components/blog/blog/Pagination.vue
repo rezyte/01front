@@ -41,7 +41,7 @@ const defaultStyles = {
   },
   a: {
     cursor: 'pointer',
-    padding: '6px 12px',
+    // padding: '6px 12px',
     display: 'block',
     float: 'left'
   }
@@ -137,5 +137,46 @@ export default {
   overflow: hidden !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+@media screen and (max-width: 890px) {
+  ul{
+    width: 99%;
+    margin: 1px!important;
+    padding: 1px!important;
+    text-align: center;
+  }
+li{
+  width: 46px;
+  margin-right: 5px!important;
+  padding: 1px!important;
+  text-align: center!important;
+}
+a{
+  width: 100%!important;
+  /*margin: 1px!important;*/
+  padding: 1px!important;
+  text-align: center!important;
+}
+ul.pagination li{
+  margin: 0!important;
+}
+}
+@media screen and (max-width: 690px){
+.page-number{
+  display: none!important;
+}
+  ul{
+    padding: 10px!important;
+  }
+  li{
+    width: 60px;
+    margin:10px!important;
+    padding: 5px!important;
+    text-align: center!important;
+  }
+  a{
+    padding: 5px!important;
+    text-align: center!important;
+  }
 }
 </style>

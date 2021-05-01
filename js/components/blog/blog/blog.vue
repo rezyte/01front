@@ -25,7 +25,7 @@
 <script>
 import singlePost from "./singlePost.vue";
 import Pagination from './Pagination.vue';
-
+// const exampleItems = [2, 9, 8, 52, 5, 7, 0, 6, 8, 9, 1, 5, 6, 5, 2, 5, 56, 89, 4, 5, 6, 0, 8, 6];
 export default {
   components: {
     singlePost,

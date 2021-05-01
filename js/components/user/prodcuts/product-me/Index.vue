@@ -35,5 +35,27 @@ export default {
 </script>
 
 <style scoped>
-
+/*@media screen and (max-width: 890px) {*/
+/*  ul{*/
+/*    width: 99%;*/
+/*    margin: 1px!important;*/
+/*    padding: 1px!important;*/
+/*    text-align: center;*/
+/*  }*/
+/*  li{*/
+/*    width: 46px;*/
+/*    margin-right: 5px!important;*/
+/*    padding: 1px!important;*/
+/*    text-align: center!important;*/
+/*  }*/
+/*  a{*/
+/*    width: 100%!important;*/
+/*    !*margin: 1px!important;*!*/
+/*    padding: 1px!important;*/
+/*    text-align: center!important;*/
+/*  }*/
+/*  ul.pagination li{*/
+/*    margin: 0!important;*/
+/*  }*/
+/*}*/
 </style>

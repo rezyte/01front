@@ -319,12 +319,47 @@ export default {
     margin: 0;
   }
 }
-
-/*@media screen  and (max-width: 564px) {*/
-
+/*@media screen and (max-width: 890px) {*/
+/*  .pagination{*/
+/*    width: 99%;*/
+/*    margin: 1px!important;*/
+/*    padding: 1px!important;*/
+/*    text-align: center;*/
+/*    !*background-color: red;*!*/
+/*  }*/
+/*  .pagination li{*/
+/*    width: 46px;*/
+/*    margin-right: 5px!important;*/
+/*    padding: 1px!important;*/
+/*    text-align: center!important;*/
+/*  }*/
+/*  .pagination li a{*/
+/*    width: 100%!important;*/
+/*    !*margin: 1px!important;*!*/
+/*    padding: 1px!important;*/
+/*    text-align: center!important;*/
+/*  }*/
+/*  ul.pagination li{*/
+/*    margin: 0!important;*/
+/*  }*/
+/*}*/
+/*@media screen and (max-width: 690px){*/
+/*  .page-number{*/
+/*    display: none!important;*/
+/*  }*/
+/*  .pagination{*/
+/*    padding: 10px!important;*/
+/*  }*/
+/*  .pagination li{*/
+/*    width: 60px;*/
+/*    margin:10px!important;*/
+/*    padding: 5px!important;*/
+/*    text-align: center!important;*/
+/*  }*/
+/*  .paginationa{*/
+/*    padding: 5px!important;*/
+/*    text-align: center!important;*/
+/*  }*/
 /*}*/
 
-/*@media screen and (max-width: 459px) {*/
-/*  */
-/*}*/
 </style>
