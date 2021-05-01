@@ -19,7 +19,7 @@
                       <input type="text" placeholder="نام" :value="JSON.parse(product).title" name="product-title"/>
                   </template>
                 <template v-else>
-                    <input type="text" placeholder="نام" name="product-title"/>
+                    <input type="text" placeholder="نام" name="title"/>
                 </template>
               </div>
             </div>
