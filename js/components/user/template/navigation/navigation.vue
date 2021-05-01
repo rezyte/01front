@@ -18,7 +18,7 @@
                     <div class="titleWrapper">
                       <ul class="bg-white">
                         <li>
-                          <p v-text="user.username" class="font-weight-bold"></p>
+                          <p v-text="user.username" class="head_profile"></p>
                         </li>
                         <li><a href="/users/userpanel/">مشاهده پروفایل</a></li>
                         <hr>
@@ -202,6 +202,11 @@ li:last-child {
   border-radius: 5px;
   position: relative;
   transition: all 0.4s
+}
+.head_profile{
+  font-size: 17px!important;
+  font-weight: bold;
+  padding-top: 3px;
 }
 
 .sikh2 {

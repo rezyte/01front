@@ -26,9 +26,9 @@
                       <span class="font-weight-bold">قیمت:</span>
                     <span
                         v-if="item.price && item.second_price"> {{
-                        item.price + 'تومان'
-                      }} تا {{ item.second_price + 'تومان' }}</span>
-                      <span v-else>{{ item.price + 'تومان' }}</span>
+                        separate(item.price) + 'تومان'
+                      }} تا {{ separate(item.second_price) + 'تومان' }}</span>
+                      <span v-else>{{ separate(item.price) + 'تومان' }}</span>
                     </p>
                     <p v-else>
                       <span class="font-weight-bold">قیمت: </span>وارد نشده است
@@ -41,9 +41,9 @@
                     <span>قیمت:</span>
                     <span
                         v-if="item.price && item.second_price"> {{
-                        item.price + 'تومان'
-                      }} تا {{ item.second_price + 'تومان' }}</span>
-                    <span v-else>{{ item.price + 'تومان' }}</span>
+                        separate(item.price) + 'تومان'
+                      }} تا {{ separate(item.second_price) + 'تومان' }}</span>
+                    <span v-else>{{ separate(item.price) + 'تومان' }}</span>
                   </p>
                   <p v-else>
                     <span class="font-weight-bold">قیمت: </span>وارد نشده است
@@ -67,7 +67,7 @@
 <script>
 import JwPagination from 'jw-vue-pagination';
 // const exampleItems = [...Array(15).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
-const exampleItems = [2, 9, 8, 52, 5, 7, 0, 6, 8, 9, 1, 5, 6, 5, 2, 5, 56, 89, 4, 5, 6, 0, 8, 6]
+const exampleItems = [2, 9, 8, 52, 5, 7, 0, 6, 8, 9, 1, 5, 6, 5, 2, 5, 56, 89, 4, 5, 6, 0, 8, 6];
 export default {
   name: "Pagination",
   props: ['products'],
@@ -319,12 +319,47 @@ export default {
     margin: 0;
   }
 }
-
-/*@media screen  and (max-width: 564px) {*/
-
+/*@media screen and (max-width: 890px) {*/
+/*  .pagination{*/
+/*    width: 99%;*/
+/*    margin: 1px!important;*/
+/*    padding: 1px!important;*/
+/*    text-align: center;*/
+/*    !*background-color: red;*!*/
+/*  }*/
+/*  .pagination li{*/
+/*    width: 46px;*/
+/*    margin-right: 5px!important;*/
+/*    padding: 1px!important;*/
+/*    text-align: center!important;*/
+/*  }*/
+/*  .pagination li a{*/
+/*    width: 100%!important;*/
+/*    !*margin: 1px!important;*!*/
+/*    padding: 1px!important;*/
+/*    text-align: center!important;*/
+/*  }*/
+/*  ul.pagination li{*/
+/*    margin: 0!important;*/
+/*  }*/
+/*}*/
+/*@media screen and (max-width: 690px){*/
+/*  .page-number{*/
+/*    display: none!important;*/
+/*  }*/
+/*  .pagination{*/
+/*    padding: 10px!important;*/
+/*  }*/
+/*  .pagination li{*/
+/*    width: 60px;*/
+/*    margin:10px!important;*/
+/*    padding: 5px!important;*/
+/*    text-align: center!important;*/
+/*  }*/
+/*  .paginationa{*/
+/*    padding: 5px!important;*/
+/*    text-align: center!important;*/
+/*  }*/
 /*}*/
 
-/*@media screen and (max-width: 459px) {*/
-/*  */
-/*}*/
 </style>

@@ -15,7 +15,7 @@
                       <img :title="getAlt(productDet.image_alt)" :alt="getAlt(productDet.image_alt)"
                            class="ShouldZoomImage" :src="productDet.product_image">
                     </div>
-                    <div v-if="productDet.sliders!='None'" class="swiper-slide"
+                    <div v-if="productDet.sliders!=='None'" class="swiper-slide"
                          v-for="(img,index) in productDet.sliders" :key='index'>
                       <img :title="getAlt(img.image_alt)" :alt="getAlt(img.image_alt)" class="ShouldZoomImage"
                            :src="img.image">
@@ -29,7 +29,6 @@
 
             </div>
           </div>
-
           <div class="productSingleDetailWrapper">
             <div class="justReadableDetailWrapper">
               <div class="price singleDetail">
@@ -37,7 +36,7 @@
                 <div class="order2">
                   <p v-if="productDet.price || productDet.second_price">
                     <span
-                        v-if="productDet.price && productDet.second_price"> {{ separate(poductDet.price) + 'تومان' }} تا {{ separate(productDet.second_price) + 'تومان' }}</span>
+                        v-if="productDet.price && productDet.second_price"> {{ separate(productDet.price) + 'تومان' }} تا {{ separate(productDet.second_price) + 'تومان' }}</span>
                     <span v-else>{{separate(productDet.price) + 'تومان'}}</span>
                   </p>
                   <p v-else>
@@ -155,27 +154,11 @@ export default {
       }
       return alt
     },
-    getPrice() {
-      if (this.productDet.second_price == null && this.productDet.price == null) {
-        return '-'
-      }
-
-
-      if (this.productDet.second_price !== null) {
-        return this.productDet.second_price.toLocaleString() + ' - ' + this.productDet.price.toLocaleString() + " (میلیون تومان) "
-      }
-      return this.productDet.price + "میلیون تومان"
-    },
     getData(data) {
       if (data == null) {
         return "-"
       }
       return data
-    },
-    getLocalString(price) {
-      if (price != null) {
-        return price.toLocaleString()
-      }
     },
     zoomIn() {
       const photo = document.querySelector(".photo");

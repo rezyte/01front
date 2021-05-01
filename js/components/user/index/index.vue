@@ -1,4 +1,3 @@
-د
 <template>
   <div id="index" class="mainItemPerPage">
     <div id="topOfIndex" class="shouldCollapse maxIs">
