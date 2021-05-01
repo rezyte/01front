@@ -22,7 +22,7 @@
     </div>
     <div id="productDescsWrapper" class="hiddenAtDisPlay">
       <textarea v-html="redi.product_description==='None' ? '' : redi.product_description" id="editor"
-                name="product-description"></textarea>
+                name="description"></textarea>
     </div>
   </div>
 </template>
