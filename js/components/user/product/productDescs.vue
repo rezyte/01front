@@ -15,6 +15,8 @@
   padding: 5px;
   margin-bottom: 20px;
   padding-bottom: 100px;
+  direction: rtl;
+  text-align: right;
 }
 
 #productDesc img {
