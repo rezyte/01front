@@ -85,7 +85,7 @@
                     <label for>بازه اول قیمت</label>
                   </div>
                   <div class="col2Input">
-                    <input :value="product.price==='None' ? '' : product.price" type="number" name="product-price" placeholder="بر حسب میلیون تومان" min="1" />
+                    <input :value="product.price==='None' ? '' : product.price" type="number" name="price" placeholder="بر حسب میلیون تومان" min="1" />
                   </div>
                 </div>
                 <div class="col2">
@@ -95,7 +95,7 @@
                   <div class="col2Input">
                     <input
                         :value="product.second_price==='None' ? '' : product.second_price"
-                        name="product-price2"
+                        name="price2"
                         type="number"
                         placeholder="بر حسب میلیون تومان"
                         min="1"

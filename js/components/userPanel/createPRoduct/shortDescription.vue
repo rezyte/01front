@@ -5,7 +5,7 @@
       <textarea
         v-model="text"
         :maxlength="max"
-        name="short-description"
+        name="short_description"
         id=""
         cols="30"
         rows="10"

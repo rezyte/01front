@@ -31,7 +31,7 @@
                   >
 
                   </search>
-                    <input type="hidden" name="endcategory" id="endCategory" :value="endcategory">
+                    <input type="hidden" name="category" id="endCategory" :value="endcategory">
                 </div>
 
             </div>
