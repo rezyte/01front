@@ -4,7 +4,7 @@
       <div id="topOfIndexWrapper">
         <slider></slider>
         <categorie :mainCats="JSON.parse(main_categories)"></categorie>
-        555
+      </div>
     </div>
     <div class="shouldCollapse maxIs">
       <flip-card></flip-card>
