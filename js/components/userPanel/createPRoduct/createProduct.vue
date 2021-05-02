@@ -16,10 +16,10 @@
               <div id="nameWrapper">
                 <label for="">نام محصول:</label>
                   <template v-if="JSON.parse(redirect).product_title!=='None'">
-                      <input type="text" placeholder="نام" :value="JSON.parse(redirect).product_title" name="product-title"/>
+                      <input type="text" placeholder="نام" :value="JSON.parse(redirect).product_title" name="name"/>
                   </template>
                 <template v-else>
-                    <input type="text" placeholder="نام" name="product-title"/>
+                    <input type="text" placeholder="نام" name="name"/>
                 </template>
               </div>
             </div>
@@ -28,7 +28,6 @@
 
           >
             <product-img></product-img>
-
             <slicer></slicer>
 
             <product-descs :redi="JSON.parse(this.redirect)"></product-descs>
@@ -43,6 +42,47 @@
     </div>
   </div>
 </template>
+<script>
+import slicer from "../../user/template/slicer/slicer.vue";
+import Editor from "@tinymce/tinymce-vue";
+import productImg from "./productImg.vue";
+import productDescs from "./productDescs.vue";
+import aditionalInformation from "./aditionalInformation.vue";
+import selectCategory from "./selectCategory.vue";
+import variations from "./variations.vue";
+import shortDescription from "./shortDescription.vue";
+import mainPicture from "./mainPicture.vue";
+import {FormWizard, TabContent} from 'vue-form-wizard'
+import error from "../../user/user/template/error/error.vue";
+export default {
+  components: {
+    editor: Editor,
+    shortDescription,
+    slicer,
+    selectCategory,
+    productImg,
+    productDescs,
+    aditionalInformation,
+    variations,
+    mainPicture,
+    FormWizard,
+    TabContent,
+    error
+  },
+
+  props: ["cats", 'products','redirect'],
+  methods:{
+    submit(){
+      document.querySelector('#createProductForm').submit()
+    },
+      getNext(){
+        const element=document.querySelector('#endCategory')
+        window.sessionStorage.setItem('selected',element.value)
+      }
+  }
+};
+</script>
+
 
 <style scoped>
 #createProduct {
@@ -117,10 +157,6 @@ input {
   font-weight: lighter;
 }
 
-label {
-  display: flex;
-}
-
 @media (max-width: 500px) {
   #nameWrapper {
     display: flex;
@@ -146,43 +182,3 @@ label {
 }
 </style>
 
-<script>
-import slicer from "../../user/template/slicer/slicer.vue";
-import Editor from "@tinymce/tinymce-vue";
-import productImg from "./productImg.vue";
-import productDescs from "./productDescs.vue";
-import aditionalInformation from "./aditionalInformation.vue";
-import selectCategory from "./selectCategory.vue";
-import variations from "./variations.vue";
-import shortDescription from "./shortDescription.vue";
-import mainPicture from "./mainPicture.vue";
-import {FormWizard, TabContent} from 'vue-form-wizard'
-import error from "../../user/user/template/error/error.vue";
-export default {
-  components: {
-    editor: Editor,
-    shortDescription,
-    slicer,
-    selectCategory,
-    productImg,
-    productDescs,
-    aditionalInformation,
-    variations,
-    mainPicture,
-    FormWizard,
-    TabContent,
-    error
-  },
-
-  props: ["cats", 'products','redirect'],
-  methods:{
-    submit(){
-      document.querySelector('#createProductForm').submit()
-    },
-      getNext(){
-        const element=document.querySelector('#endCategory')
-        window.sessionStorage.setItem('selected',element.value)
-      }
-  }
-};
-</script>

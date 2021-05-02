@@ -21,13 +21,22 @@
       </div>
     </div>
     <div id="productDescsWrapper" class="hiddenAtDisPlay">
-      <textarea v-html="redi.product_description==='None' ? '' : redi.product_description" id="editor"
-                name="product-description"></textarea>
+      <!-- <textarea style="display:none;" v-html="redi.product_description==='None' ? '' : redi.product_description" id="editor"
+                name="product-description"></textarea> -->
+                <texterea id="editor" v-html="redi.product_description==='None' ? '' : redi.product_description"
+                  name="description"
+                >
+                </texterea>
+
+
     </div>
   </div>
 </template>
 
 <script>
+  tinymce.init({
+        selector: '#editor'
+      });
 export default {
   props: ['redi'],
   methods: {
