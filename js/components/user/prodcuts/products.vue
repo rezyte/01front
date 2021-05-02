@@ -119,11 +119,6 @@ export default {
   mounted() {
     console.log('productsmmmm', JSON.parse(this.search_products).message)
     console.log('products', this.products)
-    // if (JSON.pars(this.products).length>=1){
-    //   alert('yes')
-    // }else {
-    //   alert('no')
-    // }
     const allImages = document.querySelectorAll(".normal")
     allImages.forEach(img => {
       img.style.width = '100%'
@@ -169,9 +164,7 @@ export default {
 
     },
     getH1() {
-
       if (JSON.parse(this.products).length > 0) {
-        alert('yes');
         return JSON.parse(this.products)[0].category[0].title
       }
       return "محصولی وجود ندارد شما میتواند از دسته بندی های زیر انتخاب کنید"

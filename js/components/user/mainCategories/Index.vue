@@ -6,8 +6,8 @@
          <div class="w-100 d-flex flex-column align-items-end">
            <div class="main-top">
              <div class="main-category">
-               <div class="top-main-category text-center bg-white">
-                 Slider/text
+               <div class="top-main-category bg-white">
+                 <carousel />
                </div>
                <div class="center-main-category bg-white">
                  <div class="items-categories">
@@ -41,18 +41,21 @@
              </div>
            </div>
          </div>
-          <div class="main-center">
-            <div class="w-100 p-2">
-              <div class="title-blog">
-                <h2>عنوان برای بلاگ ها</h2>
-              </div>
-              <div id="blogs" class="mt-3">
-                <blog />
-                <blog />
-                <blog />
-              </div>
+        <div class="main-center">
+          <div class="w-100 p-2">
+            <div class="title-blog">
+              <h2>عنوان برای بلاگ ها</h2>
+            </div>
+            <div id="blogs" class="mt-3">
+              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
+              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
+              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
+              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
+              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
+              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -62,68 +65,21 @@
 <script>
 import Category from "./categories/Category.vue";
 import Blog from "./blogs/Blog.vue";
+// import { VueperSlides, VueperSlide } from 'vueperslides'
+// import 'vueperslides/dist/vueperslides.css'
+import Carousel from "./carousel/Carousel.vue";
 export default {
   name: "index",
   props:['categories2'],
   data(){
     return{
-      // categories:[
-      //   {
-      //     id:1,
-      //     name:'خط تولید کمپوت',
-      //     picture: '/static/public/images/startFrame.jpg',
-      //     sub_categories:[
-      //       {
-      //         name:'خط تولید کمپوت درجه یک'
-      //       },
-      //       {
-      //         name:'خط تولید کمپوت درجه دو'
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     id:2,
-      //     name:'خط تولید بیسکوئیت',
-      //     picture: '/static/public/images/startFrame.jpg',
-      //     sub_categories:[
-      //       {
-      //         name:'خط تولید بیسکوئیت درجه یک'
-      //       },
-      //       {
-      //         name:'خط تولید بیسکوئیت درجه دو'
-      //       },
-      //       {
-      //         name:'خط تولید بیسکوئیت درجه سه'
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     id:3,
-      //     name:'خط تولید ترشی',
-      //     picture: '/static/public/images/startFrame.jpg',
-      //     sub_categories:[
-      //       {
-      //         name:'خط تولید ترشی درجه یک'
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     id:4,
-      //     name:'خط تولید توتن و تنباکو',
-      //     picture: '/static/public/images/startFrame.jpg',
-      //     sub_categories:[
-      //       {
-      //         name:'خط تولید توتن درجه یک'
-      //       }
-      //     ]
-      //   }
-      // ],
-      subCategories:''
+      subCategories:'',
     }
   },
   components:{
     Category,
-    Blog
+    Blog,
+    Carousel
   },
   methods:{
     show_subCategories(x,y=null){
@@ -147,6 +103,21 @@ export default {
   computed:{
     categories(){
       return JSON.parse(this.categories2).subs;
+    },
+    posts(){
+      let array=[];
+       let subs=JSON.parse(this.categories2).subs;
+       subs.forEach(function(sub){
+          //  console.log(sub)
+        //  console.log(sub.posts[0])
+
+         for(let i=0;i<sub.posts.length;i++){
+           let post=sub.posts[i];
+           array.push(post)
+            //  console.log(sub.posts[i])
+         }
+       });
+       return array;
     }
     // subCategories(id){
     //   let cat= this.categories.find(
@@ -163,9 +134,6 @@ export default {
 </script>
 
 <style scoped>
-{
-  direction: rtl;
-}
 .container-fluid{
   background-color: #f5f5f5;
 }
@@ -188,10 +156,12 @@ export default {
 .categories {
   width: 220px;
   height: 500px;
+  background-color: green;
   margin-left: 1%;
   border-radius: 8px;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
   box-sizing: border-box;
+  overflow: hidden;
 
   /*background-color: blue;*/
 }
@@ -199,6 +169,7 @@ export default {
   width: 220px;
   height: 500px;
   position: absolute;
+  z-index: 5;
   right: 19.2%;
   border-radius: 8px;
   display: none;
@@ -238,6 +209,7 @@ export default {
 .title-category {
   width: 100%;
   text-align: right;
+  margin: 4px;
   padding: 2px 10px;
   /*background-color: rgba(112,161,116,0.89);*/
 }
@@ -327,7 +299,7 @@ export default {
 #blogs{
   width: 100%;
   /*height: 300px;*/
-  /*background-color: #79ffe0;*/
+  /* background-color: #79ffe0; */
   border-radius: 8px;
   display: flex;
   flex-direction: row;

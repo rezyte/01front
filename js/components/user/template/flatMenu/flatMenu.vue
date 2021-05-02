@@ -19,7 +19,7 @@
             <ul class="subMenuWrapper">
 
               <li v-for="(sub, ind) in item.subs" :key="ind">
-                <h5><a class="prog" :href="getHref(sub.slug)">{{ sub.title }}</a></h5>
+                <h5><a class="prog" :href="getHref(sub)">{{ sub.title }}</a></h5>
               </li>
             </ul>
           </div>
@@ -37,6 +37,7 @@ import axios from "axios";
 export default {
   methods: {
     getHref(title) {
+      console.log('dddddd',title)
       return `/product-category/${title}`;
     },
   },
@@ -48,6 +49,7 @@ export default {
   computed: {
     ...mapGetters(["isSubMenu"]),
     getCats() {
+      console.log(this.$store.getters.getCatsWithSubs)
       return this.$store.getters.getCatsWithSubs;
     },
   },
