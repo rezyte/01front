@@ -28,6 +28,7 @@
 #flatMenu{
   width: 100%;
   min-height: 100vh;
+  background-color: red;
 }
 li:not(:first-child){
   margin-top: 20px;
@@ -100,7 +101,9 @@ export default {
   computed: {
     ...mapGetters(["isSubMenu"]),
     getCats() {
+      console.log('mmmmm',this.$store.getters.getCatsWithSubs)
       return this.$store.getters.getCatsWithSubs;
+      
     },
   },
 };

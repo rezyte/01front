@@ -108,11 +108,16 @@
 	import axios from "axios"
 	export default{
 		created(){
-			axios.get("/categories-api")
-			.then(res=>{
-				this.$store.commit("fillCatsWithSubs",res.data)
-				console.log(res.data)
-			})
+			alert("mehran")
+			console.log("mehran")
+			// axios.get("/categories-api")
+			// .then(res=>{
+			// 	console.log("reeeeeeees",res.data)
+			// 	this.$store.commit("fillCatsWithSubs",res.data)
+				
+			// }).catch(error =>{
+			// 	console.log('error:',error)
+			// })
 		}
 	}
 </script>
