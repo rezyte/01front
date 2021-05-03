@@ -137,7 +137,6 @@ export default {
         }
       }
     })
-
     const el = document.querySelector(`.${this.classr}`)
     el.style.width = '100%'
     el.style.overflow = "hidden"
@@ -169,8 +168,6 @@ export default {
       let z = x.length > 1 ? '.' + x[1] : '';
       var rgx = /(\d+)(\d{3})/;//ینی چهار رقم وجودداشته باشد
       while (rgx.test(y))
-          // console.log()
-          // console.log(rgx)
         y = y.replace(rgx, '$1' + ',' + '$2');
       return y + z;
     }

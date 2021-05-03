@@ -24,7 +24,6 @@
       <card
           :cardTitle="label.title"
           :products="label.products"
-          id="mostSell"
           :classr="makeid(10)"
       ></card>
     </div>

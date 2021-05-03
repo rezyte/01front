@@ -48,13 +48,8 @@
             </div>
             <div id="blogs" class="mt-3">
               <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
-              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
-              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
-              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
-              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
-              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
             </div>
-          </div>
+          </div> 
         </div>
         </div>
       </div>
