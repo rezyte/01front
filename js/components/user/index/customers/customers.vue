@@ -119,7 +119,9 @@ export default {
   transition: all 0.4s;
   margin: 10px;
 }
-
+.swiper-slide{
+  margin-right: 10px;
+}
 @media (max-width: 400px) {
   .cusImgs {
     justify-content: center;

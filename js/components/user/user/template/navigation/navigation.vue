@@ -13,16 +13,13 @@
             <div v-if="showProf" class="profile">
               <div class="profileWrapper">
                 <div class="triangle-up"></div>
-
                 <div class="contentWrapepper">
                   <div class="title">
                     <div class="titleWrapper">
-
                       <ul>
                         <li>
                             <p v-text="user.username"></p>
-
-
+                          
                         </li>
                         <li><a href="/users/userpanel/">مشاهده پروفایل</a></li>
                         <hr>
