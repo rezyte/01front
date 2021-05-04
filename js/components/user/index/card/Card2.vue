@@ -20,7 +20,7 @@
                   >
                 </div>
                 <div dir="rtl" class="price text-right">
-                  <p v-if="p.price || p.second_price">
+                  <p class="mt-2" v-if="p.price || p.second_price">
                     <span class="font-weight-bold">قیمت:</span>
                     <span v-if="p.price && p.second_price">
                       {{ separate(p.price) + "تومان" }} تا
@@ -106,18 +106,18 @@ export default {
           slidesPerGroup: 1,
         },
         // when window width is >= 480px
-        480: {
-          slidesPerView: 2,
-          spaceBetween: 5,
-          slidesPerGroup: 2,
-        },
+        // 480: {
+        //   slidesPerView: 2,
+        //   spaceBetween: 5,
+        //   slidesPerGroup: 2,
+        // },
         // when window width is >= 640px
-        640: {
+        680: {
           slidesPerView: 2,
           spaceBetween: 10,
           slidesPerGroup: 2,
         },
-        940: {
+        1000: {
           slidesPerView: 3,
           spaceBetween: 10,
           slidesPerGroup: 3,
