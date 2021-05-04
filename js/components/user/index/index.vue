@@ -6,30 +6,31 @@
         <categorie :mainCats="JSON.parse(main_categories)"></categorie>
       </div>
     </div>
-    <div class="shouldCollapse maxIs">
+    <div class="shouldCollapse m-auto">
       <flip-card></flip-card>
     </div>
     <div
-        v-if="JSON.parse(this.comments).length >= 20"
-        style="width: 100%; overflow: hidden"
+      v-if="JSON.parse(this.comments).length >= 20"
+      style="width: 100%; overflow: hidden"
     >
       <comments :comments="comments"></comments>
     </div>
-    <div
-        class="allCards shouldCollapse maxIs"
-        v-if="label.products.length > 0"
+    <div class="w-100" v-if="JSON.parse(this.labeles).length > 0">
+      <div
+        class="shouldCollapse m-auto"
         v-for="label in JSON.parse(this.labeles)"
         :key="label.id"
-    >
-      <card
+      >
+        <!-- <card
           :cardTitle="label.title"
           :products="label.products"
-          id="mostSell"
           :classr="makeid(10)"
-      ></card>
+      ></card> -->
+        <card2 :cardTitle="label.title" :products="label.products" />
+      </div>
     </div>
 
-    <div class="maxIs shouldCollapse">
+    <div class="shouldCollapse">
       <customers></customers>
     </div>
   </div>
@@ -42,6 +43,7 @@ import flipCard from "./flipCard/flipCard.vue";
 import categorie from "./categorie/categorie.vue";
 import customers from "./customers/customers.vue";
 import comments from "./comments/comments.vue";
+import Card2 from "./card/Card2.vue";
 
 export default {
   components: {
@@ -50,13 +52,12 @@ export default {
     categorie,
     flipCard,
     // digiCard,
+    Card2,
     customers,
     comments,
   },
   created() {
-
-    console.log("this.products", JSON.parse(this.labeles));
-
+    // console.log("this.products", JSON.parse(this.labeles));
   },
   props: ["products", "main_categories", "comments", "labeles"],
   methods: {
@@ -66,7 +67,7 @@ export default {
       var charactersLength = characters.length;
       for (var i = 0; i < length; i++) {
         result += characters.charAt(
-            Math.floor(Math.random() * charactersLength)
+          Math.floor(Math.random() * charactersLength)
         );
       }
       return result;
@@ -103,14 +104,6 @@ export default {
 
 #index {
   position: relative;
-}
-
-.allCards {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  height: 530px;
 }
 
 #mostClicked {

@@ -73,7 +73,7 @@
                     </div>
                     <div class="sub">
                         <ul>
-                            <li><a href="/users/profile/product/create/">اضافه کردن محصول</a></li>
+                            <li><a href="/userpanel/products/create/">اضافه کردن محصول</a></li>
                             <li><a href="/users/profile/my_products/">محصولات من</a></li>
                         </ul>
                     </div>

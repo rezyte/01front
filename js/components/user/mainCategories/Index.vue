@@ -3,59 +3,69 @@
     <div class="row">
       <div class="col-10 m-auto">
         <div class="row">
-         <div class="w-100 d-flex flex-column align-items-end">
-           <div class="main-top">
-             <div class="main-category">
-               <div class="top-main-category bg-white">
-                 <carousel />
-               </div>
-               <div class="center-main-category bg-white">
-                 <div class="items-categories">
-                   <category v-for="category in categories" :name="category.title" v-bind:key="category.index"/>
-                 </div>
-               </div>
-             </div>
-             <div class="categories bg-white">
-               <div class="title-category">
-                 <h1>دسته بندی ها</h1>
-               </div>
-               <div class="menu">
-                 <a v-for="category in categories" :href="'/product-category/'+category.slug" @mouseover="show_subCategories(1,category.id)" @mouseout="show_subCategories(0)">
-                   <div class="items-menu">
-<!--                     <i class="far fa-angle-left"></i>-->
-<!--                     <i class="fal fa-angle-left"></i>-->
-                     <i id="arrow-left" class="fas fa-angle-left"></i>
-                     <p v-text="category.title"></p>
-                   </div>
-                 </a>
-               </div>
-             </div>
-             <div class="subCategories" ref="subCategories">
-               <nav>
-                 <ul>
-                   <li v-for="sub in subCategories">
-                     <a href="" v-text="sub"></a>
-                   </li>
-                 </ul>
-               </nav>
-             </div>
-           </div>
-         </div>
-        <div class="main-center">
-          <div class="w-100 p-2">
-            <div class="title-blog">
-              <h2>عنوان برای بلاگ ها</h2>
-            </div>
-            <div id="blogs" class="mt-3">
-              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
-              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
-              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
-              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
-              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
-              <blog v-for="post in posts" v-bind:key="post.id" :blog="post" />
+          <div class="w-100 d-flex flex-column align-items-end">
+            <div class="main-top">
+              <div class="main-category">
+                <div class="top-main-category bg-white">
+                  <carousel />
+                </div>
+                <div class="center-main-category bg-white">
+                  <div class="items-categories">
+                    <category
+                      v-for="category in categories"
+                      :name="category.title"
+                      v-bind:key="category.index"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="categories bg-white">
+                <div class="title-category">
+                  <h1>دسته بندی ها</h1>
+                </div>
+                <div class="menu">
+                  <a
+                    v-for="category in categories"
+                    :href="'/product-category/' + category.slug"
+                    @mouseover="show_subCategories(1, category.id)"
+                    @mouseout="show_subCategories(0)"
+                  >
+                    <div class="items-menu">
+                      <!--                     <i class="far fa-angle-left"></i>-->
+                      <!--                     <i class="fal fa-angle-left"></i>-->
+                      <i id="arrow-left" class="fas fa-angle-left"></i>
+                      <p v-text="category.title"></p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="subCategories" ref="subCategories">
+                <nav>
+                  <ul>
+                    <li v-for="sub in subCategories">
+                      <a href="" v-text="sub"></a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
             </div>
           </div>
-        </div>
+          <div class="main-center">
+            <div class="w-100 p-2">
+              <div class="title-blog">
+                <h2>عنوان برای بلاگ ها</h2>
+              </div>
+              <div id="blogs" class="mt-3">
+                <blog v-for="post in pageOfItems" v-bind:key="post.id" :blog="post" />
+                <pagination
+                  class="m-auto"
+                  :items="posts"
+                  @changePage="onChangePage"
+                  :styles="myStyle"
+                ></pagination>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -67,58 +77,77 @@ import Category from "./categories/Category.vue";
 import Blog from "./blogs/Blog.vue";
 // import { VueperSlides, VueperSlide } from 'vueperslides'
 // import 'vueperslides/dist/vueperslides.css'
+import Pagination from "../../blog/blog/Pagination.vue";
 import Carousel from "./carousel/Carousel.vue";
 export default {
   name: "index",
-  props:['categories2'],
-  data(){
-    return{
-      subCategories:'',
-    }
+  props: ["categories2"],
+  data() {
+    return {
+      subCategories: "",
+      pageOfItems
+    };
   },
-  components:{
+  components: {
     Category,
     Blog,
-    Carousel
+    Carousel,
   },
-  methods:{
-    show_subCategories(x,y=null){
-      if (x===1){
-        if (y!==null){
+  methods: {
+    show_subCategories(x, y = null) {
+      if (x === 1) {
+        if (y !== null) {
           // let d=JSON.parse(this.categories2).subs
           // d=this.categories2;
-          let cat= this.categories.find(
-              category => category.id===y
-          )
-         let data=JSON.stringify(cat)
-          this.subCategories=JSON.parse(data).sub_category_of
+          let cat = this.categories.find((category) => category.id === y);
+          let data = JSON.stringify(cat);
+          this.subCategories = JSON.parse(data).sub_category_of;
         }
         // y!=null ? this.id_subCategory=y : y='';
-        this.$refs.subCategories.style.display='block';
-      }else {
-        this.$refs.subCategories.style.display='none';
+        this.$refs.subCategories.style.display = "block";
+      } else {
+        this.$refs.subCategories.style.display = "none";
       }
-    }
+    },
+    onChangePage(pageOfItems) {
+      // update page of items
+      this.pageOfItems = pageOfItems;
+      var list = document.getElementsByClassName("pagination")[0];
+      for (let i = 0; i < list.childElementCount; i++) {
+        list.getElementsByClassName("page-item")[i].style.borderColor = "white";
+        list.getElementsByClassName("page-item")[i].style.paddingRight =
+          "0!important";
+        list.getElementsByClassName("page-item")[i].style.paddingLeft =
+          "0important";
+        let child = list.getElementsByClassName("page-item")[i].children[0];
+        child.style.padding = "7px";
+        list.getElementsByClassName("page-item page-number")[
+          i
+        ].style.background = "white";
+      }
+      let active = document.querySelector(".pagination .active");
+      active.style.background = "#007BFF";
+    },
   },
-  computed:{
-    categories(){
+  computed: {
+    categories() {
       return JSON.parse(this.categories2).subs;
     },
-    posts(){
-      let array=[];
-       let subs=JSON.parse(this.categories2).subs;
-       subs.forEach(function(sub){
-          //  console.log(sub)
+    posts() {
+      let array = [];
+      let subs = JSON.parse(this.categories2).subs;
+      subs.forEach(function (sub) {
+        //  console.log(sub)
         //  console.log(sub.posts[0])
 
-         for(let i=0;i<sub.posts.length;i++){
-           let post=sub.posts[i];
-           array.push(post)
-            //  console.log(sub.posts[i])
-         }
-       });
-       return array;
-    }
+        for (let i = 0; i < sub.posts.length; i++) {
+          let post = sub.posts[i];
+          array.push(post);
+          //  console.log(sub.posts[i])
+        }
+      });
+      return array;
+    },
     // subCategories(id){
     //   let cat= this.categories.find(
     //       category => category.id===id
@@ -128,20 +157,41 @@ export default {
     // }
   },
   created() {
-    console.log(JSON.parse(this.categories2),'oo')
-  }
-}
+    console.log(JSON.parse(this.categories2), "oo");
+  },
+  mounted() {
+    let last = document.querySelector(".pagination .last");
+    last.style.display = "none";
+    let first = document.querySelector(".pagination .first");
+    first.style.display = "none";
+    let previous = document.querySelector(".pagination .previous a");
+    let next = document.querySelector(".pagination .next a");
+    previous.innerHTML = "قبلی";
+    next.innerHTML = "بعدی";
+    var list = document.getElementsByClassName("pagination")[0];
+    for (let i = 0; i < list.childElementCount; i++) {
+      list.getElementsByClassName("page-item")[i].style.borderColor = "white";
+      list.getElementsByClassName("page-item")[i].style.paddingRight =
+        "0!important";
+      list.getElementsByClassName("page-item")[i].style.paddingLeft =
+        "0important";
+      let child = list.getElementsByClassName("page-item")[i].children[0];
+      child.style.padding = "7px";
+    }
+    let active = document.querySelector(".pagination .active");
+    active.style.background = "white";
+  },
+};
 </script>
 
 <style scoped>
-.container-fluid{
+.container-fluid {
   background-color: #f5f5f5;
 }
 .main-top {
   width: 100%;
   position: relative;
   display: flex;
-
 }
 
 .main-category {
@@ -165,7 +215,7 @@ export default {
 
   /*background-color: blue;*/
 }
-.subCategories{
+.subCategories {
   width: 220px;
   height: 500px;
   position: absolute;
@@ -176,31 +226,31 @@ export default {
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
   background-color: white;
 }
-.subCategories:hover{
-  display: block!important;
+.subCategories:hover {
+  display: block !important;
 }
-.subCategories ul{
+.subCategories ul {
   width: 100%;
   /*background-color: red;*/
   padding: 0;
   margin: 0;
 }
-.subCategories ul li{
+.subCategories ul li {
   width: 100%;
   /*height: 30px;*/
   /*margin: 5px 0;*/
-  padding:5px;
+  padding: 5px;
   /*background-color: #13ff7f;*/
   text-align: right;
   list-style: none;
 }
-.subCategories ul li a{
+.subCategories ul li a {
   width: 100%;
   height: 100%;
   color: black;
   text-decoration: none;
 }
-.subCategories ul li a:hover{
+.subCategories ul li a:hover {
   color: var(--blue);
   /*text-decoration:underline;*/
   /*text-decoration-color: var(--blue)!important;*/
@@ -257,11 +307,12 @@ export default {
   box-shadow: 6px 4px 12px 1px rgba(175, 179, 180, 0.89);
   cursor: pointer;
 }
-#arrow-left{
+#arrow-left {
   margin-top: 2%;
 }
-.items-menu:hover p ,.items-menu:hover #arrow-left {
-  color: var(--blue)!important;
+.items-menu:hover p,
+.items-menu:hover #arrow-left {
+  color: var(--blue) !important;
 }
 .top-main-category {
   width: 100%;
@@ -280,7 +331,7 @@ export default {
   overflow: hidden;
   /*background-color: #fff585;*/
 }
-.items-categories{
+.items-categories {
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
@@ -289,14 +340,14 @@ export default {
   flex-wrap: wrap;
   padding: 20px;
 }
-.main-center{
-  width:100%;
+.main-center {
+  width: 100%;
   margin-top: 5%;
   border-radius: 8px;
   position: relative;
   /*box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);*/
 }
-#blogs{
+#blogs {
   width: 100%;
   /*height: 300px;*/
   /* background-color: #79ffe0; */
@@ -306,15 +357,13 @@ export default {
   justify-content: space-around;
   flex-wrap: wrap;
 }
-.title-blog{
+.title-blog {
   text-align: right;
   padding: 10px;
 }
-.title-blog h2{
+.title-blog h2 {
   font-size: 17px;
   font-weight: bold;
   color: var(--blue);
 }
-
-
 </style>

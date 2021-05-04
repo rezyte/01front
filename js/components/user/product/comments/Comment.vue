@@ -53,7 +53,7 @@ export default {
       let comment_box = document.getElementById("commentBox");
       let tag=document.getElementById("tag");
       tag.value=id;
-      console.log(comment_box.value)
+      console.log('Valueeeeeeeeee',comment_box.value);
       comment_box.focus();
       comment_box.value = '@' + (Math.floor(Math.random() * 1000) + 1) + ': ';
       // this.replayStatus = true;

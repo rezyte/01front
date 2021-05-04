@@ -48,6 +48,7 @@ export default {
   computed: {
     ...mapGetters(["isSubMenu"]),
     getCats() {
+      // console.log('ffffffff',this.$store.getters.getCatsWithSubs)
       return this.$store.getters.getCatsWithSubs;
     },
   },

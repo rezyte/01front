@@ -31,4 +31,10 @@ export default {
   align-items: center;
   width: 100%;
 }
+.is-invalid {
+  border: 1px solid #e3356f;
+}
+.is-valid {
+  border: 1px solid #34ce57 !important;
+}
 </style>

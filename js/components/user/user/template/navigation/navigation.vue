@@ -13,16 +13,13 @@
             <div v-if="showProf" class="profile">
               <div class="profileWrapper">
                 <div class="triangle-up"></div>
-
                 <div class="contentWrapepper">
                   <div class="title">
                     <div class="titleWrapper">
-
                       <ul>
                         <li>
                             <p v-text="user.username"></p>
-
-
+                          
                         </li>
                         <li><a href="/users/userpanel/">مشاهده پروفایل</a></li>
                         <hr>
@@ -50,8 +47,8 @@
 					<li><a href="/blog/posts/">وبلاگ</a></li>
 					<li class="myMenu" @click="toggleSubMenu()">
 
-           <p> دسته بندی محصولات</p>
-            <ul class="ulWrapper">
+           <p> دسته بندیh محصولات</p>
+            <ul class="ulWrapper bg-warning">
               <li class="firstLi"><flat-menu></flat-menu></li>
             </ul>
           </li>

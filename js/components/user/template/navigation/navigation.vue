@@ -23,7 +23,7 @@
                         <li><a href="/users/userpanel/">مشاهده پروفایل</a></li>
                         <hr>
                         <li>
-                          <a href='/users/profile/product/create/' v-if="user.is_producer">محصول جدید</a>
+                          <a href='/userpanel/products/create/' v-if="user.is_producer">محصول جدید</a>
                         </li>
                         <li>
                           <a href='/users/profile/my_products/' v-if="user.is_producer">محصولات من</a>
@@ -48,7 +48,7 @@
           <li class="myMenu" @click="toggleSubMenu()">
             <p>دسته بندی محصولات</p>
             <ul class="ulWrapper">
-              <li class="firstLi">
+              <li class="firstLi bg-warning">
                 <flat-menu></flat-menu>
               </li>
             </ul>

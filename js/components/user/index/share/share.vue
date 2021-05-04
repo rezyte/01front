@@ -4,7 +4,7 @@
       <div class="shareLogo">
         <div class="shareLogoWrapper">
           <share-icon></share-icon>
-          <p>{{ title }}</p>
+          <p class="pr-1">{{ title }}</p>
         </div>
       </div>
     </div>
@@ -40,6 +40,10 @@ export default {
 </script>
 
 <style scoped>
+*{
+  direction: rtl;
+  text-align: right;
+}
 .share {
   cursor: pointer;
 }
