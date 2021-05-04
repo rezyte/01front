@@ -2,24 +2,50 @@
   <div class="comment">
     <div class="col-sm-12">
       <div class="content_add">
-        <form name="form_comment" @submit.prevent="sendComment()" action="" method="post">
+        <form
+          name="form_comment"
+          @submit.prevent="sendComment()"
+          action=""
+          method="post"
+        >
           <div id="form">
-            <div>
+            <div class="form-goup">
+              <label for="username">نام کاربری</label>
+              <input
+                id="username"
+                name="username"
+                ref="username"
+                placeholder="نام کاربری خودرا وارد کنید"
+                class="form-control w-75"
+              />
+            </div>
+            <div class="form-goup mt-2">
+              <label for="email">ایمیل</label>
+              <input
+                id="email"
+                name="email"
+                ref="email"
+                placeholder="ایمیل خودرا وارد کنید"
+                class="form-control w-75"
+              />
+            </div>
+            <div class="form-group mt-3">
+              <!-- <label for="commentBox"></label> -->
               <textarea
                 rows="2"
                 cols="50"
                 maxlength="500"
                 class="form-control"
                 v-model="comment"
-                id="comment"
+                id="commentBox"
                 placeholder="نظر خود را وارد کنید"
                 ref="comment"
                 name="comment"
                 @input="change"
               >
               </textarea>
-              <input type="hidden" name="id" ref="tag" id="tag">
             </div>
+            <input type="hidden" name="id" ref="tag" id="tag" />
             <!-- <editor
         class="text-right"
           maxlength="500"
@@ -64,12 +90,26 @@ export default {
   data() {
     return {
       comment: "",
+      validated: {
+        email: "",
+        username,
+      },
+      inValidate: {
+        email: "",
+        username,
+      },
+      statesValidate: {
+        email: 0,
+        username: 0,
+      },
       btnStatus: true,
     };
   },
   methods: {
-    change() {
-      let box = document.getElementById("comment");
+    change(e) {
+      let w = e.name;
+      console.log(w);
+      let box = document.getElementById("commentBox");
       if (this.comment !== "") {
         box.style.borderColor = null;
         this.btnStatus = false;
@@ -81,8 +121,8 @@ export default {
       }
     },
     sendComment() {
-      console.log(document.querySelector('#comment').value)
-      console.log(document.querySelector('#tag').value)
+      console.log(document.querySelector("#commentBox").value);
+      console.log(document.querySelector("#tag").value);
       document.forms["form_comment"].submit();
       // let content = this.$refs.comment.value;
       // let reg = /^[@]+[a-zA-z0-9]{1,5}[:]+[a-zA-Z0-9ژظطزرذدئو شسیبلاتنمکگضصثقفغعهخحجچپ]{1,500}$/gi;
@@ -102,6 +142,7 @@ export default {
 .comment {
   width: 100%;
   direction: rtl;
+  text-align: right;
 }
 .content_add {
   display: flex;
@@ -109,13 +150,10 @@ export default {
   justify-content: start;
   align-items: center;
 }
-#form {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
 div img {
   cursor: pointer;
+}
+::placeholder {
+  font-size: 15px;
 }
 </style>

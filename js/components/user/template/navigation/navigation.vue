@@ -48,7 +48,7 @@
           <li class="myMenu" @click="toggleSubMenu()">
             <p>دسته بندی محصولات</p>
             <ul class="ulWrapper">
-              <li class="firstLi">
+              <li class="firstLi bg-warning">
                 <flat-menu></flat-menu>
               </li>
             </ul>
