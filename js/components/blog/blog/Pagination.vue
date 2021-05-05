@@ -1,88 +1,132 @@
 <template>
-  <ul v-if="pager.pages && pager.pages.length" class="pagination" :style="ulStyles">
-    <li class="page-item first" :class="{'disabled': pager.currentPage === 1}" :style="liStyles">
-      <a class="page-link" @click="setPage(1)" :style="aStyles">{{ labels.first }}</a>
+  <ul
+    v-if="pager.pages && pager.pages.length"
+    class="pagination"
+    :style="ulStyles"
+  >
+    <li
+      class="page-item first"
+      :class="{ disabled: pager.currentPage === 1 }"
+      :style="liStyles"
+    >
+      <a class="page-link" @click="setPage(1)" :style="aStyles">{{
+        labels.first
+      }}</a>
     </li>
-    <li class="page-item previous" :class="{'disabled': pager.currentPage === 1}" :style="liStyles">
-      <a class="page-link" @click="setPage(pager.currentPage - 1)" :style="aStyles">{{ labels.previous }}</a>
+    <li
+      class="page-item previous"
+      :class="{ disabled: pager.currentPage === 1 }"
+      :style="liStyles"
+    >
+      <a
+        class="page-link"
+        @click="setPage(pager.currentPage - 1)"
+        :style="aStyles"
+        >{{ labels.previous }}</a
+      >
     </li>
-    <li v-for="page in pager.pages" :key="page" class="page-item page-number"
-        :class="{'active': pager.currentPage === page}" :style="liStyles">
-      <a class="page-link" @click="setPage(page)" :style="aStyles">{{ page }}</a>
+    <li
+      v-for="page in pager.pages"
+      :key="page"
+      class="page-item page-number"
+      :class="{ active: pager.currentPage === page }"
+      :style="liStyles"
+    >
+      <a class="page-link" @click="setPage(page)" :style="aStyles">{{
+        page
+      }}</a>
     </li>
-    <li class="page-item next" :class="{'disabled': pager.currentPage === pager.totalPages}" :style="liStyles">
-      <a class="page-link" @click="setPage(pager.currentPage + 1)" :style="aStyles">{{ labels.next }}</a>
+    <li
+      class="page-item next"
+      :class="{ disabled: pager.currentPage === pager.totalPages }"
+      :style="liStyles"
+    >
+      <a
+        class="page-link"
+        @click="setPage(pager.currentPage + 1)"
+        :style="aStyles"
+        >{{ labels.next }}</a
+      >
     </li>
-    <li class="page-item last" :class="{'disabled': pager.currentPage === pager.totalPages}" :style="liStyles">
-      <a class="page-link" @click="setPage(pager.totalPages)" :style="aStyles">{{ labels.last }}</a>
+    <li
+      class="page-item last"
+      :class="{ disabled: pager.currentPage === pager.totalPages }"
+      :style="liStyles"
+    >
+      <a
+        class="page-link"
+        @click="setPage(pager.totalPages)"
+        :style="aStyles"
+        >{{ labels.last }}</a
+      >
     </li>
   </ul>
 </template>
 
 <script>
-import paginate from 'jw-paginate';
+import paginate from "jw-paginate";
 
 const defaultLabels = {
-  first: 'First',
-  last: 'Last',
-  previous: 'Previous',
-  next: 'Next'
+  first: "اولین",
+  last: "آخرین",
+  previous: "قبلی",
+  next: "بعدی",
 };
 const defaultStyles = {
   ul: {
     margin: 0,
     padding: 0,
-    display: 'inline-block'
+    display: "inline-block",
   },
   li: {
-    listStyle: 'none',
-    display: 'inline',
-    textAlign: 'center'
+    listStyle: "none",
+    display: "inline",
+    textAlign: "center",
   },
   a: {
-    cursor: 'pointer',
+    cursor: "pointer",
     // padding: '6px 12px',
-    display: 'block',
-    float: 'left'
-  }
+    display: "block",
+    float: "left",
+  },
 };
 export default {
   props: {
     items: {
       type: Array,
-      required: true
+      required: true,
     },
     initialPage: {
       type: Number,
-      default: 1
+      default: 1,
     },
     pageSize: {
       type: Number,
-      default: 12
+      default: 12,
     },
     maxPages: {
       type: Number,
-      default: 300
+      default: 300,
     },
     labels: {
       type: Object,
-      default: () => defaultLabels
+      default: () => defaultLabels,
     },
     styles: {
-      type: Object
+      type: Object,
     },
     disableDefaultStyles: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
       pager: {},
       ulStyles: {},
       liStyles: {},
-      aStyles: {}
-    }
+      aStyles: {},
+    };
   },
   created() {
     if (!this.$listeners.changePage) {
@@ -96,16 +140,16 @@ export default {
     }
     // merge custom styles with default styles
     if (this.styles) {
-      this.ulStyles = {...this.ulStyles, ...this.styles.ul};
-      this.liStyles = {...this.liStyles, ...this.styles.li};
-      this.aStyles = {...this.aStyles, ...this.styles.a};
+      this.ulStyles = { ...this.ulStyles, ...this.styles.ul };
+      this.liStyles = { ...this.liStyles, ...this.styles.li };
+      this.aStyles = { ...this.aStyles, ...this.styles.a };
     }
     // set to initial page
     this.setPage(this.initialPage);
   },
   methods: {
     setPage(page) {
-      const {items, pageSize, maxPages} = this;
+      const { items, pageSize, maxPages } = this;
       // get new pager object for specified page
       const pager = paginate(items.length, page, pageSize, maxPages);
       // get new page of items from items array
@@ -113,23 +157,24 @@ export default {
       // update pager
       this.pager = pager;
       // emit change page event to parent component
-      this.$emit('changePage', pageOfItems);
-    }
+      this.$emit("changePage", pageOfItems);
+      let blog = document.getElementById("blog");
+      window.scrollTo(0, blog.offsetTop);
+    },
   },
   watch: {
     items() {
       this.setPage(this.initialPage);
-    }
+    },
   },
-  mounted() {
-  }
-}
+  mounted() {},
+};
 </script>
 
 <style scoped>
 * {
   direction: rtl !important;
-  text-align: right!important;
+  text-align: right !important;
 }
 .pagination {
   display: inline-flex !important;
@@ -139,44 +184,44 @@ export default {
   padding: 0 !important;
 }
 @media screen and (max-width: 890px) {
-  ul{
+  ul {
     width: 99%;
-    margin: 1px!important;
-    padding: 1px!important;
+    margin: 1px !important;
+    padding: 1px !important;
     text-align: center;
   }
-li{
-  width: 46px;
-  margin-right: 5px!important;
-  padding: 1px!important;
-  text-align: center!important;
-}
-a{
-  width: 100%!important;
-  /*margin: 1px!important;*/
-  padding: 1px!important;
-  text-align: center!important;
-}
-ul.pagination li{
-  margin: 0!important;
-}
-}
-@media screen and (max-width: 690px){
-.page-number{
-  display: none!important;
-}
-  ul{
-    padding: 10px!important;
+  li {
+    width: 46px;
+    margin-right: 5px !important;
+    padding: 1px !important;
+    text-align: center !important;
   }
-  li{
+  a {
+    width: 100% !important;
+    /*margin: 1px!important;*/
+    padding: 1px !important;
+    text-align: center !important;
+  }
+  ul.pagination li {
+    margin: 0 !important;
+  }
+}
+@media screen and (max-width: 690px) {
+  .page-number {
+    display: none !important;
+  }
+  ul {
+    padding: 10px !important;
+  }
+  li {
     width: 60px;
-    margin:10px!important;
-    padding: 5px!important;
-    text-align: center!important;
+    margin: 10px !important;
+    padding: 5px !important;
+    text-align: center !important;
   }
-  a{
-    padding: 5px!important;
-    text-align: center!important;
+  a {
+    padding: 5px !important;
+    text-align: center !important;
   }
 }
 </style>

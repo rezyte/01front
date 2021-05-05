@@ -37,10 +37,10 @@ export default {
     last.style.display = "none";
     let first = document.querySelector('.pagination .first');
     first.style.display = "none";
-    let previous = document.querySelector('.pagination .previous a');
-    let next = document.querySelector('.pagination .next a');
-    previous.innerHTML = 'قبلی';
-    next.innerHTML = 'بعدی'
+    // let previous = document.querySelector('.pagination .previous a');
+    // let next = document.querySelector('.pagination .next a');
+    // previous.innerHTML = 'قبلی';
+    // next.innerHTML = 'بعدی'
     var list = document.getElementsByClassName("pagination")[0];
     for (let i=0; i < list.childElementCount ;i++){
       list.getElementsByClassName("page-item")[i].style.borderColor = 'white';
@@ -51,14 +51,8 @@ export default {
     }
     let active=document.querySelector('.pagination .active');
     active.style.background='white';
-    // // console.log(this.me)
-    // // const href = window.location.href.split("/")
-    // // console.log()
-    // // this.page = +href[href.length - 1]
-    // console.log("blogs", JSON.parse(this.posts))
   },
   created() {
-    console.log(JSON.parse(this.posts),"posts")
     this.items=JSON.parse(this.posts)
     // console.log("pospaginationts", JSON.parse(this.pagination))
   },

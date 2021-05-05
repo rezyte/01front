@@ -15,9 +15,9 @@
     >
       <comments :comments="comments"></comments>
     </div>
-    <div class="w-100" v-if="JSON.parse(this.labeles).length > 0">
+    <div id="my_cards" v-if="JSON.parse(this.labeles).length > 0">
       <div
-        class="shouldCollapse m-auto"
+        class="my_cards"
         v-for="label in JSON.parse(this.labeles)"
         :key="label.id"
       >
@@ -164,5 +164,15 @@ export default {
   #topOfIndexWrapper {
     padding: 0;
   }
+}
+.my_cards{
+  width: 98%;
+  margin:50px auto;
+  height: 100%;
+  /* background-color: red; */
+}
+#my_cards{
+  width:100%;
+  height: 600px;
 }
 </style>

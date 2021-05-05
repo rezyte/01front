@@ -10,12 +10,12 @@
         >
           <div id="form">
             <div class="form-goup">
-              <label for="username">نام کاربری</label>
+              <label for="username">نام </label>
               <input
                 id="username"
                 name="username"
                 ref="username"
-                placeholder="نام کاربری خودرا وارد کنید"
+                placeholder="نام خودرا وارد کنید"
                 class="form-control w-75"
               />
             </div>

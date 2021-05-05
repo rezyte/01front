@@ -59,13 +59,13 @@
       </div>
     </div>
     <div class="text-center">
-      <jw-pagination class="m-auto" :items="products" @changePage="onChangePage"></jw-pagination>
+      <jw-pagination class="m-auto" :items="exampleItems" @changePage="onChangePage"></jw-pagination>
     </div>
   </div>
 </template>
 
-<script>
-import JwPagination from 'jw-vue-pagination';
+// <script>
+// import JwPagination from 'jw-vue-pagination';
 // const exampleItems = [...Array(15).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
 const exampleItems = [2, 9, 8, 52, 5, 7, 0, 6, 8, 9, 1, 5, 6, 5, 2, 5, 56, 89, 4, 5, 6, 0, 8, 6];
 export default {
@@ -99,6 +99,8 @@ export default {
       }
       let active = document.querySelector('.pagination .active');
       active.style.background = '#007BFF';
+       let products=document.getElementById("products");
+      window.scrollTo(0,products.offsetTop)
     },
     separate(Number) {
       Number += '';

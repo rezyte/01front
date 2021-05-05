@@ -14,13 +14,13 @@
                 </a>
               </div>
               <div class="description">
-                <div class="title">
+                <div dir="rtl" class="title text-right">
                   <a class="link" :href="'/products/product-detial/' + p.slug"
-                    ><h2>{{ p.title }}</h2></a
+                    ><h2 class="rape">{{ p.title }}</h2></a
                   >
                 </div>
                 <div dir="rtl" class="price text-right">
-                  <p class="mt-2" v-if="p.price || p.second_price">
+                  <p class="mt-2 mr-1 rape" v-if="p.price || p.second_price">
                     <span class="font-weight-bold">قیمت:</span>
                     <span v-if="p.price && p.second_price">
                       {{ separate(p.price) + "تومان" }} تا
@@ -28,11 +28,11 @@
                     >
                     <span v-else>{{ separate(p.price) + "تومان" }}</span>
                   </p>
-                  <p v-else>
+                  <p v-else class="mt-2 mr-1 rape">
                     <span class="font-weight-bold">قیمت: </span>وارد نشده است
                   </p>
                 </div>
-                <div class="share_item">
+                <div class="share_item mr-1">
                   <share title="اشتراک گذاری" :slug="p.slug"></share>
                 </div>
                 <div>
@@ -65,7 +65,7 @@ export default {
     share,
   },
   mounted() {
-    var swiper = new Swiper(".swiper-container-item", {
+    let swiper = new Swiper(".swiper-container-item", {
       slidesPerView: 3,
       loopAdditionalSlides: 100,
       loop: false,
@@ -79,23 +79,6 @@ export default {
         prevEl: ".swiper-button-prev",
       },
       breakpoints: {
-        // // when window width is >= 480px
-        // 1000: {
-        //   slidesPerView: 4,
-        //   spaceBetween: 40,
-        //   slidesPerGroup: 4,
-        // },
-        // // // when window width is >= 640px
-        // 660: {
-        //   slidesPerView: 3,
-        //   spaceBetween: 5,
-        //   slidesPerGroup: 3,
-        // },
-        // 430: {
-        //   slidesPerView: 2,
-        //   spaceBetween: 10,
-        //   slidesPerGroup: 3,
-        // },
         1: {
           slidesPerView: 1,
           slidesPerGroup: 1,
@@ -148,14 +131,14 @@ export default {
 <style scoped>
 #item {
   background: #ffffff;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 
 #itemWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  /* padding: 10px; */
   width: 100%;
 }
 
@@ -178,7 +161,7 @@ export default {
 }
 .swiper-container-item {
   width: 100%;
-  height: 405px;
+
   margin-top: 10px;
   position: relative;
   overflow: hidden;
@@ -218,6 +201,7 @@ export default {
   font-weight: bold;
 }
 .description{
+  width:100%;
   padding: 5px;
   margin-top: 8px;
 }
@@ -236,6 +220,15 @@ export default {
 .show_product:hover{
   background-color: var(--blue);
   color:rgba(255, 255, 255, 0.932);
+}
+.rape{
+  display: block;
+  width: 220px;
+  height:45px;
+  overflow: hidden;
+  white-space: nowrap;
+  /*overflow-wrap: break-word;*/
+  text-overflow: ellipsis;
 }
 /* .arrow{
   color: red!important;
