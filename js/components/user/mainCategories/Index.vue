@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-10 m-auto">
         <div class="row">
-          <div class="w-100 d-flex flex-column align-items-end">
+          <div class="w-100">
             <div class="main-top">
               <div class="main-category">
                 <div class="top-main-category bg-white">
@@ -55,15 +55,23 @@
               <div class="title-blog">
                 <h2>عنوان برای بلاگ ها</h2>
               </div>
-              <div id="blogs" class="mt-3">
-                <blog v-for="post in pageOfItems" v-bind:key="post.id" :blog="post" />
-                <pagination
-                  class="m-auto"
-                  :items="posts"
-                  @changePage="onChangePage"
-                  :styles="myStyle"
-                ></pagination>
+              <div class="blogs">
+                <div id="blogs">
+                  <blog
+                    v-for="post in pageOfItems"
+                    v-bind:key="post.id"
+                    :blog="post"
+                  />
+                </div>
               </div>
+               <div class="text-center">
+                  <pagination
+                    class="m-auto"
+                    :items="posts"
+                    @changePage="onChangePage"
+                    :styles="myyStyle"
+                  ></pagination>
+                </div>
             </div>
           </div>
         </div>
@@ -77,21 +85,32 @@ import Category from "./categories/Category.vue";
 import Blog from "./blogs/Blog.vue";
 // import { VueperSlides, VueperSlide } from 'vueperslides'
 // import 'vueperslides/dist/vueperslides.css'
-import Pagination from "../../blog/blog/Pagination.vue";
 import Carousel from "./carousel/Carousel.vue";
+import Pagination from "./pagination/Pagination.vue";
 export default {
   name: "index",
   props: ["categories2"],
   data() {
     return {
       subCategories: "",
-      pageOfItems
+      pageOfItems: [],
+      myyStyle: {
+        li: {
+          margin: "3px!important",
+          padding: "3px!important",
+        },
+        a: {
+          margin: "10px!important",
+          padding: "5px!important",
+        },
+      },
     };
   },
   components: {
     Category,
     Blog,
     Carousel,
+    Pagination,
   },
   methods: {
     show_subCategories(x, y = null) {
@@ -127,6 +146,8 @@ export default {
       }
       let active = document.querySelector(".pagination .active");
       active.style.background = "#007BFF";
+      let products = document.getElementById("products");
+      window.scrollTo(0, products.offsetTop);
     },
   },
   computed: {
@@ -170,7 +191,7 @@ export default {
     next.innerHTML = "بعدی";
     var list = document.getElementsByClassName("pagination")[0];
     for (let i = 0; i < list.childElementCount; i++) {
-      list.getElementsByClassName("page-item")[i].style.borderColor = "white";
+      list.getElementsByClassName("page-item")[i].style.borderColor = "#F5F5F5";
       list.getElementsByClassName("page-item")[i].style.paddingRight =
         "0!important";
       list.getElementsByClassName("page-item")[i].style.paddingLeft =
@@ -179,7 +200,7 @@ export default {
       child.style.padding = "7px";
     }
     let active = document.querySelector(".pagination .active");
-    active.style.background = "white";
+    active.style.background = "#F5F5F5";
   },
 };
 </script>
@@ -195,12 +216,11 @@ export default {
 }
 
 .main-category {
-  width: 900px;
+  width: 950px;
   height: 500px;
   border-radius: 8px;
   position: relative;
   box-sizing: border-box;
-  /*background-color: red;*/
 }
 
 .categories {
@@ -220,7 +240,7 @@ export default {
   height: 500px;
   position: absolute;
   z-index: 5;
-  right: 19.2%;
+  right: 18.7%;
   border-radius: 8px;
   display: none;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
@@ -345,7 +365,13 @@ export default {
   margin-top: 5%;
   border-radius: 8px;
   position: relative;
-  /*box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);*/
+  /* box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89); */
+}
+.blogs{
+  width: 100%;
+  border-radius: 8px;
+  /* background-color: white;
+   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89); */
 }
 #blogs {
   width: 100%;
@@ -356,10 +382,13 @@ export default {
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-top:20px;
+  padding:20px;
+  box-sizing: border-box;  
 }
+
 .title-blog {
   text-align: right;
-  padding: 10px;
 }
 .title-blog h2 {
   font-size: 17px;

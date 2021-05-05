@@ -12,7 +12,6 @@
                 :avg_read="item.avg_read"
             ></single-post>
           </a>
-
         </div>
       </div>
       <div class="pag">
@@ -52,7 +51,7 @@ export default {
     let active=document.querySelector('.pagination .active');
     active.style.background='white';
   },
-  created() {
+  created(){
     this.items=JSON.parse(this.posts)
     // console.log("pospaginationts", JSON.parse(this.pagination))
   },

@@ -40,12 +40,12 @@ a{
   text-decoration: none!important;
   border-radius: 8px;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
-  margin: 13px 0;
+  margin: 19px 0;
   transition: all 0.4s;
 }
 a:hover{
   color: black;
-  transform: translateY(-10px);
+  transform: scale(1.04);
 }
 #blog{
   width: 100%;
@@ -79,10 +79,7 @@ a:hover{
 #tex-top p{
   font-size: 17px;
 }
-#text-bottom{
-  /* background-color: green; */
-  /* padding-right:19px; */
-}
+
 .info{
   width: 260;
   overflow: hidden;
