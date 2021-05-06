@@ -1,7 +1,7 @@
 <template>
-    <div class="bottomIconsWrapper">
-        <cats-svg @toggleSubMenu="toggleSubMenu"></cats-svg>
-        <p @click="toggleSubMenu">دسته بندی</p>
+    <div class="bottomIconsWrapper" @click="toggleSubMenu">
+        <cats-svg ></cats-svg>
+        <p>دسته بندی</p>
     </div>
 </template>
 
@@ -31,3 +31,9 @@ export default {
     },
 }
 </script>
+
+<style>
+.bottomIconsWrapper{
+    cursor: pointer;
+}
+</style>

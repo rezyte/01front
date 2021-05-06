@@ -24,6 +24,9 @@
   align-items: center;
   justify-content: center;
 }
+.logedAlso a:hover{
+  /* tex */
+}
 </style>
 <script>
 import profileSvg from "./profileSvg.vue"

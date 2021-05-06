@@ -7,7 +7,7 @@
 
 <style scoped>
 #productDesc * {
-  font-family: 'iranSans' !important;
+  font-family: "iranSans" !important;
   /*display: none;*/
 }
 
@@ -38,10 +38,14 @@
   direction: rtl !important;
   width: max-content !important;
 }
-
+.aliDataTable th,
+td {
+  border: 1px solid black !important;
+  border-collapse: collapse !important;
+}
 .descsWrapper div {
-  direction: rtl!important;
-  text-align: right
+  direction: rtl !important;
+  text-align: right;
 }
 
 .descsWrapper {
@@ -74,7 +78,6 @@
   padding-top: 5px !important;
   padding-bottom: 5px !important;
   width: max-content !important;
-
 }
 
 .descsWrapper table {
@@ -85,7 +88,6 @@
 .descsWrapper td * {
   color: black;
   background-color: transparent !important;
-
 }
 
 .descsWrapper tr td:nth-child(2) {
@@ -93,7 +95,7 @@
 }
 
 .descsWrapper ul {
-  list-style-type: disc;
+  list-style-type: disc!important;
   padding-right: 20px;
 }
 
@@ -108,7 +110,6 @@
 
 <script>
 export default {
-  props: ['product']
-}
-
+  props: ["product"],
+};
 </script>
