@@ -1,43 +1,56 @@
 <template>
   <div id="createProduct" class="maxIs panelItem">
     <div id="createProductWrapper">
-      <form action="" method="post" id="createProductForm" enctype="multipart/form-data">
-        <input type="hidden" name="csrfmiddlewaretoken" :value="csrf">
+      <form
+        action=""
+        method="post"
+        id="createProductForm"
+        enctype="multipart/form-data"
+      >
+        <input type="hidden" name="csrfmiddlewaretoken" :value="csrf" />
         <form-wizard
-            back-button-text="مرحله قبل"
-            next-button-text="مرحله بعد"
-            finish-button-text="ثبت محصول"
-            @on-change="getNext"
-            @on-complete="submit"
+          back-button-text="مرحله قبل"
+          next-button-text="مرحله بعد"
+          finish-button-text="ثبت محصول"
+          @on-change="getNext"
+          @on-complete="submit"
         >
           <tab-content title="دسته بندی و نام">
-            <select-category :redi="JSON.parse(redirect)" :cats="JSON.parse(cats)"></select-category>
+            <select-category
+              :redi="redirect"
+              :cats="JSON.parse(cats)"
+            ></select-category>
             <div id="name" class="productSection">
               <div id="nameWrapper">
                 <label for="">نام محصول:</label>
-                  <template v-if="JSON.parse(redirect).product_title!=='None'">
-                      <input type="text" placeholder="نام" :value="JSON.parse(redirect).product_title" name="name"/>
-                  </template>
+                <template v-if="redirect!=='None'">
+                  <input
+                    type="text"
+                    placeholder="نام"
+                    :value="JSON.parse(redirect).name"
+                    name="name"
+                  />
+                </template>
                 <template v-else>
-                    <input type="text" placeholder="نام" name="name"/>
+                  <input type="text" placeholder="نام" name="name" />
                 </template>
               </div>
             </div>
           </tab-content>
-          <tab-content title="اطلاعات و ثبت"
-
-          >
+          <tab-content title="اطلاعات و ثبت">
             <product-img></product-img>
             <slicer></slicer>
 
-            <product-descs :redi="JSON.parse(this.redirect)"></product-descs>
+            <product-descs :redi="redirect"></product-descs>
             <slicer></slicer>
-            <aditional-information :redi="JSON.parse(this.redirect)"></aditional-information>
+            <aditional-information
+              :redi="redirect !='None' ? JSON.parse(redirect) :''"
+            ></aditional-information>
             <slicer></slicer>
-            <variations :redi="JSON.parse(this.redirect)"></variations>
+            <variations :redi="redirect !='None' ? JSON.parse(redirect) :''"></variations>
           </tab-content>
         </form-wizard>
-<!--        <button type="submit" class="submit">ثبت محصول</button>-->
+        <!--        <button type="submit" class="submit">ثبت محصول</button>-->
       </form>
     </div>
   </div>
@@ -52,7 +65,7 @@ import selectCategory from "./selectCategory.vue";
 import variations from "./variations.vue";
 import shortDescription from "./shortDescription.vue";
 import mainPicture from "./mainPicture.vue";
-import {FormWizard, TabContent} from 'vue-form-wizard'
+import { FormWizard, TabContent } from "vue-form-wizard";
 import error from "../../user/user/template/error/error.vue";
 export default {
   components: {
@@ -67,18 +80,25 @@ export default {
     mainPicture,
     FormWizard,
     TabContent,
-    error
+    error,
   },
-
-  props: ["cats", 'products','redirect'],
-  methods:{
-    submit(){
-      document.querySelector('#createProductForm').submit()
+  data(){
+    return{
+      // redirect:'None'
+    }
+  },
+  props: ["cats", "products","redirect"],
+  methods: {
+    submit() {
+      document.querySelector("#createProductForm").submit();
     },
-      getNext(){
-        const element=document.querySelector('#endCategory')
-        window.sessionStorage.setItem('selected',element.value)
-      }
+    getNext() {
+      const element = document.querySelector("#endCategory");
+      window.sessionStorage.setItem("selected", element.value);
+    },
+  },
+  created(){
+    console.log('redirect',this.redirect)
   }
 };
 </script>
@@ -168,7 +188,7 @@ input {
   }
 
   .userPanelComp {
-    border: 0
+    border: 0;
   }
 
   #nameWrapper input {

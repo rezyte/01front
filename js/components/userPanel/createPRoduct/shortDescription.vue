@@ -65,7 +65,7 @@ export default {
     props:['redi'],
     methods:{
         getShort(){
-            if(this.redi.product_short_description==="None"){
+            if(this.redi.product_short_description){
                 return ""
             }
             return this.redi.product_short_description

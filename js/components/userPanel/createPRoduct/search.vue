@@ -39,7 +39,7 @@ export default {
     this.shouldShow=this.items
     console.log('this.shouldShow',this.shouldShow)
     if(this.level==1){
-      if(this.redi.motherCat!="None"){
+      if(this.redi.motherCat && this.redi.motherCat!="None"){
         this.$refs.input.value=this.redi.motherCat
         this.selectedItem=this.redi.motherCat
         let id=this.shouldShow.findIndex(i=>{
@@ -51,7 +51,7 @@ export default {
       }
     }
     if(this.level==2){
-      if(this.redi.mainCat!="None"){
+      if(this.redi.mainCat && this.redi.mainCat!="None"){
         const inter=setInterval(()=>{
           this.shouldShow=this.items
           if(this.shouldShow.length>0){

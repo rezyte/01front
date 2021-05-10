@@ -23,7 +23,7 @@
     <div id="productDescsWrapper" class="hiddenAtDisPlay">
       <!-- <textarea style="display:none;" v-html="redi.product_description==='None' ? '' : redi.product_description" id="editor"
                 name="product-description"></textarea> -->
-                <texterea id="editor" v-html="redi.product_description==='None' ? '' : redi.product_description"
+                <texterea id="editor" v-html="!JSON.parse(redi).description ? '' : JSON.parse(redi).description"
                   name="description"
                 >
                 </texterea>

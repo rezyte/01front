@@ -27,7 +27,7 @@ name: "tags",
     }
   },
   mounted(){
-    if(this.redi.product_keyword!=='None'){
+    if(this.redi.product_keyword){
       let tags=this.redi.product_keyword
       tags=tags.split(",")
       this.tags=tags

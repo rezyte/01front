@@ -7,14 +7,14 @@
 <user-panel-wrapper allmessages="{{request.session.message}}">
     <create-product
             cats="{{ cats }}"
-            redirect="{{ request.session.redirect_info }}"
+            redirect="{{ pre_form }}"
     ></create-product>
 </user-panel-wrapper>
 {% else %}
 <user-panel-wrapper allmessages="{{request.session.message}}">
     <create-product
             cats="{{ cats }}"
-            redirect='{{ request.session.page_info }}'
+            redirect='{{ pre_form }}'
     ></create-product>
 </user-panel-wrapper>
 {% endif %}

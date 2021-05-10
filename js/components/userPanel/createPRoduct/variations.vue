@@ -68,9 +68,11 @@ export default {
         checkValue(vari){
             const selected=sessionStorage.getItem('selected')
             if(selected!==null || selected!==undefined){
-                if(selected==this.redi.category){
+               if(this.redi.category){
+                  if(selected==this.redi.category){
                     return this.redi.varitions[vari.name]
                 }
+               }
 
             }
         }

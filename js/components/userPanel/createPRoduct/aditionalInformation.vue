@@ -85,7 +85,7 @@
                     <label for>بازه اول قیمت</label>
                   </div>
                   <div class="col2Input">
-                    <input :value="redi.product_price==='None' ? '' : redi.product_price" type="number" name="price" placeholder="بر حسب تومان" min="6" />
+                    <input :value="redi.price ? redi.price : ''" type="number" name="price" placeholder="بر حسب تومان" min="6" />
                   </div>
                 </div>
                 <div class="col2">
@@ -94,7 +94,7 @@
                   </div>
                   <div class="col2Input">
                     <input
-                        :value="redi.product_price2==='None' ? '' : redi.product_price2"
+                        :value="redi.price2 ? redi.product_price2 : ''"
                         name="price2"
                         type="number"
                         placeholder="بر حسب تومان"
