@@ -133,7 +133,7 @@ export default {
       this.pageOfItems = pageOfItems;
       var list = document.getElementsByClassName("pagination")[0];
       for (let i = 0; i < list.childElementCount; i++) {
-        list.getElementsByClassName("page-item")[i].style.borderColor = "white";
+        list.getElementsByClassName("page-item")[i].style.borderColor = "#F5F5F5";
         list.getElementsByClassName("page-item")[i].style.paddingRight =
           "0!important";
         list.getElementsByClassName("page-item")[i].style.paddingLeft =
@@ -142,10 +142,10 @@ export default {
         child.style.padding = "7px";
         list.getElementsByClassName("page-item page-number")[
           i
-        ].style.background = "white";
+        ].style.background = "#F5F5F5";
       }
       let active = document.querySelector(".pagination .active");
-      active.style.background = "#007BFF";
+      active.style.background = "#F5F5F5";
       let products = document.getElementById("products");
       window.scrollTo(0, products.offsetTop);
     },
