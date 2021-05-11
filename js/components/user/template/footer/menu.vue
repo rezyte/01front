@@ -7,7 +7,7 @@
                   <div  v-for="(cat,ind) in getCats" class="singleMenu"  v-if="ind<6">
                     <div class="title">{{cat.title}}</div>
                       <ul >
-                        <li v-for="(sub,index) in cat.subs" v-if="index<5"><a :href='getHref(sub.title)'>{{sub.title}}</a></li>
+                        <li v-for="(sub,index) in cat.subs" v-if="index<5"><a :href='getHref(sub.slug)'>{{sub.title}}</a></li>
                       </ul>
                   </div>
                 </div>
@@ -90,14 +90,15 @@ li {
 export default {
   methods: {
     getHref(cat) {
-      return `/categories/${cat}`;
+      return `/product-category/${cat}`;
     }
   },
   computed:{
     getCats(){
+      
       return this.$store.getters.getCatsWithSubs
       
-    }
+    },
   }
 };
 </script>
