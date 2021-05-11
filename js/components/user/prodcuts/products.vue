@@ -16,7 +16,7 @@
         <index2 :products="JSON.parse(search_products)" title="" />
       </div>
     </div>
-    <div v-else class="mb-4">
+    <div v-else>
       <h1 class="color">{{ getH1() }}</h1>
       <div class="productsWrapper">
         <index2 :products="JSON.parse(products)" title="" />
@@ -89,9 +89,9 @@
           <button @click="expandIt($event)">مشاهده ادامه</button>
         </div>
       </div>
-      <div id="comments" class="w-100 mb-2">
+    
         <comments-my :comments="JSON.parse(this.comments)"></comments-my>
-      </div>
+    
     </div>
   </div>
 </template>

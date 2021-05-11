@@ -50,5 +50,6 @@ export default {
     float: right;
     opacity: 0.92;
     z-index: 5;
+    margin-bottom: 15px;
 }
 </style>
