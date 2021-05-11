@@ -9,7 +9,7 @@
       <hr />
       <related :related="JSON.parse(related_products)"></related>
       <hr />
-      <div class="w-100">
+      <div class="w-100 mb-2">
         <comment-my :comments="JSON.parse(product).comments"></comment-my>
       </div>
       <!-- <comment-section

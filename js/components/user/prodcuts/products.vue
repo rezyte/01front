@@ -1,30 +1,25 @@
 <template>
   <div id="products">
-    <div dir="rtl" v-if="search_products!==''">
+    <div dir="rtl" v-if="search_products !== ''">
       <div class="head_search">
         <h1>نتایج برای جست و جو:</h1>
       </div>
       <div v-if="JSON.parse(search_products).message">
         <div class="text-center">
-          <p class="text-center text-danger empty_search_text" v-text="JSON.parse(search_products).message"></p>
+          <p
+            class="text-center text-danger empty_search_text"
+            v-text="JSON.parse(search_products).message"
+          ></p>
         </div>
       </div>
       <div v-else class="productsWrapper">
-        <index :products="JSON.parse(search_products)" title=""/>
+        <index2 :products="JSON.parse(search_products)" title="" />
       </div>
     </div>
-    <div v-else>
+    <div v-else class="mb-4">
       <h1 class="color">{{ getH1() }}</h1>
-      <div class="seoPost first"
-           v-if="JSON.parse(products).length>0 && JSON.parse(this.products)[0].category[0].upper_content!=''">
-        <div class="seoPostContent longText"
-             v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].upper_content : ''"></div>
-        <!--      <div class="showMore">-->
-        <!--        <button @click="expandIt($event)">مشاهده ادامه</button>-->
-        <!--      </div>-->
-      </div>
       <div class="productsWrapper">
-        <index :products="JSON.parse(products)" title=""/>
+        <index2 :products="JSON.parse(products)" title="" />
         <!--      <div v-if="JSON.parse(products).length>0" class="singleProduct" v-for='p in JSON.parse(this.products)'-->
         <!--           :key='p.slug'>-->
         <!--        <div class="singleProductWrapper">-->
@@ -63,15 +58,12 @@
         <!--            <li>{{ cat.title }}</li>-->
         <!--              <li v-for="subCat in cat.subs"><a :href="'/product-category/'+subCat.slug">{{subCat.title}}</a></li>-->
 
-
         <!--          </ul>-->
 
         <!--        </div>-->
         <!--      </div>-->
-
-
       </div>
-      <template v-if='this.paginations!=null && this.paginations!=undefined && this.paginations!=""'>
+      <!-- <template v-if='this.paginations!=null && this.paginations!=undefined && this.paginations!=""'>
         <div id="pagination" v-if="JSON.parse(this.paginations).number_of_pages>1 ">
           <pagination
               :currentPage=JSON.parse(this.pagination).current_page
@@ -82,145 +74,149 @@
               :items=null
           ></pagination>
         </div>
-      </template>
+      </template> -->
 
-      <div class="seoPost" v-if="JSON.parse(products).length>0">
-        <div class="seoPostContent longText"
-             v-html="JSON.parse(products).length>0 ? JSON.parse(this.products)[0].category[0].seo_post : ''"></div>
+      <div class="seoPost" v-if="JSON.parse(products).length > 0">
+        <div
+          class="seoPostContent longText"
+          v-html="
+            JSON.parse(products).length > 0
+              ? JSON.parse(this.products)[0].category[0].seo_post
+              : ''
+          "
+        ></div>
         <div class="showMore">
-          <button @click='expandIt($event)'>مشاهده ادامه</button>
+          <button @click="expandIt($event)">مشاهده ادامه</button>
         </div>
       </div>
-      <div id="comments" class="w-100">
+      <div id="comments" class="w-100 mb-2">
         <comments-my :comments="JSON.parse(this.comments)"></comments-my>
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
-import {mapActions} from 'vuex'
-import consulate from "./consulate.vue"
-import filtering from "./filtering.vue"
-import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
-import {toggleBodyOverFlow} from "../../user/mixIns/toggleBodyOverFlow.js"
-import longText from "../mixIns/longText"
-import Index from "./product-me/Index.vue"
-import CommentsMy from '../product/comments/CommentMy.vue';
+import { mapActions } from "vuex";
+import consulate from "./consulate.vue";
+import filtering from "./filtering.vue";
+import { adjustElFromTop } from "../../user/mixIns/adjustElFromTop.js";
+import { toggleBodyOverFlow } from "../../user/mixIns/toggleBodyOverFlow.js";
+import longText from "../mixIns/longText";
+import Index2 from "./product-me/Index2.vue";
+import CommentsMy from "../product/comments/CommentMy.vue";
 // import Paginate from 'vuejs-paginate'
 export default {
-  props: ['products', 'search_products', 'pagination', 'comments'],
+  props: ["products", "search_products", "pagination", "comments"],
   computed: {
     getCats() {
-      return this.$store.state.catsWithSubs
-    }
+      return this.$store.state.catsWithSubs;
+    },
   },
   mounted() {
-    console.log('productsmmmm', JSON.parse(this.search_products).message)
-    console.log('products', this.products)
-    const allImages = document.querySelectorAll(".normal")
-    allImages.forEach(img => {
-      img.style.width = '100%'
-      img.style.height = "300px"
-      const zoom = img.nextElementSibling
+    // console.log("productsmmmm", JSON.parse(this.search_products));
+    console.log("products", JSON.parse(this.products));
+    console.log("comments", this.comments);
+    const allImages = document.querySelectorAll(".normal");
+    allImages.forEach((img) => {
+      img.style.width = "100%";
+      img.style.height = "300px";
+      const zoom = img.nextElementSibling;
       zoom.style.width = "200%";
-      zoom.style.width = "200%"
-    })
+      zoom.style.width = "200%";
+    });
     longText();
-
   },
   components: {
     consulate,
     filtering,
-    Index,
-    CommentsMy
+    Index2,
+    CommentsMy,
     // Paginate
   },
   mixins: [adjustElFromTop],
   created() {
-    window.addEventListener("click", e => {
-      const target = e.target
-      const address = window.location.pathname
+    window.addEventListener("click", (e) => {
+      const target = e.target;
+      const address = window.location.pathname;
       if (e.target.classList.contains("firstClass")) {
-        const a = target.querySelector("a")
-        const href = a.innerText
-        document.location.href = `${address}?page=${href}`
+        const a = target.querySelector("a");
+        const href = a.innerText;
+        document.location.href = `${address}?page=${href}`;
       } else if (e.target.classList.contains("paginationLink")) {
-        const href = target.innerText
-        document.location.href = `${address}?page=${href}`
+        const href = target.innerText;
+        document.location.href = `${address}?page=${href}`;
       }
-    })
+    });
     // console.log('comments',this.comments)
   },
   methods: {
     expandIt(e) {
-      const element = e.target
-      const parent = element.parentElement
-      const seoPost = element.closest('.seoPost')
-      console.log(seoPost, parent)
-      parent.style.display = 'none'
-      seoPost.style.maxHeight = 'max-content'
-
+      const element = e.target;
+      const parent = element.parentElement;
+      const seoPost = element.closest(".seoPost");
+      console.log(seoPost, parent);
+      parent.style.display = "none";
+      seoPost.style.maxHeight = "max-content";
     },
     getH1() {
       if (JSON.parse(this.products).length > 0) {
-        return JSON.parse(this.products)[0].category[0].title
+        return JSON.parse(this.products)[0].category[0].title;
       }
-      return "محصولی وجود ندارد شما میتواند از دسته بندی های زیر انتخاب کنید"
+      return "محصولی وجود ندارد شما میتواند از دسته بندی های زیر انتخاب کنید";
     },
     getPrice(p) {
       if (p.second_price == null && p.price == null) {
-        return '-'
+        return "-";
       }
-
 
       if (p.second_price !== null) {
-        return p.second_price.toLocaleString() + ' - ' + p.price.toLocaleString() + " (میلیون تومان) "
+        return (
+          p.second_price.toLocaleString() +
+          " - " +
+          p.price.toLocaleString() +
+          " (میلیون تومان) "
+        );
       }
-      return p.price + "میلیون تومان"
+      return p.price + "میلیون تومان";
     },
-    ...mapActions([
-      'toggleFiltering',
-      'toggleConsulate'
-    ]),
+    ...mapActions(["toggleFiltering", "toggleConsulate"]),
     getDescs(txt) {
       if (txt == undefined) {
-        return "بدون توضیحات"
+        return "بدون توضیحات";
       }
-      return txt.length > 75 ? txt.substring(0, 75) + '...' : txt
+      return txt.length > 75 ? txt.substring(0, 75) + "..." : txt;
     },
     adjustConsulateTop() {
-      const consulate = document.querySelector("#consulateWrapper")
-      consulate.style.top = window.scrollY + 100 + "px"
-      document.body.style.overflow = 'hidden'
-      const done = document.querySelector("#doneMessage")
-      done.style.display = 'none'
+      const consulate = document.querySelector("#consulateWrapper");
+      consulate.style.top = window.scrollY + 100 + "px";
+      document.body.style.overflow = "hidden";
+      const done = document.querySelector("#doneMessage");
+      done.style.display = "none";
     },
     shoudShow() {
-      return this.$store.state.isShowFiltering
+      return this.$store.state.isShowFiltering;
     },
     showConsulate(e) {
       const el = e.target;
-      const parent = el.closest(".singleProduct")
-      const consulate = parent.querySelector(".consulate")
-      const wrap = consulate.querySelector(".consulateWrapper")
-      consulate.style.display = "flex"
-      this.adjustFromTop(wrap, false, true)
-      this.toggleBodyOverFlow("hidden")
-
+      const parent = el.closest(".singleProduct");
+      const consulate = parent.querySelector(".consulate");
+      const wrap = consulate.querySelector(".consulateWrapper");
+      consulate.style.display = "flex";
+      this.adjustFromTop(wrap, false, true);
+      this.toggleBodyOverFlow("hidden");
     },
     getImage(img) {
       if (img == null) {
-        return '/static/public/images/ours1.png'
+        return "/static/public/images/ours1.png";
       }
-      return img
+      return img;
     },
     gethref(slug) {
-      return `/product/${slug}`
-    }
-  }
-}
+      return `/product/${slug}`;
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -253,11 +249,9 @@ h1 {
   padding-bottom: 5px;
 }
 
-
 img {
   height: 200px;
   width: 300px;
-
 }
 
 .title {
@@ -354,7 +348,6 @@ h1 {
   text-align: right;
   margin: 15px;
   width: 180px;
-
 }
 
 .catsWrapper ul li a {
@@ -383,7 +376,7 @@ h1 {
 }
 
 .showProduct:hover {
-  border: #0969D3 2px solid;
+  border: #0969d3 2px solid;
   background-color: var(--blue);
   color: white;
 }
@@ -432,7 +425,7 @@ h1 {
   font-size: 17px;
   color: var(--blue);
 }
-.empty_search_text{
+.empty_search_text {
   font-size: 17px;
 }
 </style>
