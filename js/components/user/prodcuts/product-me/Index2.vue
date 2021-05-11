@@ -1,7 +1,7 @@
 <template>
   <div id="pagination">
     <div class="content">
-      <div class="col-10 m-auto">
+      <div class="col col-sm-10 m-auto">
         <!--        <h3 class="title">عنوان</h3>-->
         <div id="content">
           <div v-for="item in pageOfItems" :key="item.id">
@@ -27,11 +27,11 @@
                     <span
                         v-if="item.price && item.second_price"> {{
                         separate(item.price) + 'تومان'
-                      }} تا {{ separate(item.second_price) + 'تومان' }}</span>
+                      }} - {{ separate(item.second_price) + 'تومان' }}</span>
                       <span v-else>{{ separate(item.price) + 'تومان' }}</span>
                     </p>
                     <p v-else>
-                      <span class="font-weight-bold">قیمت: </span>وارد نشده است
+                      <span class="font-weight-bold">قیمت: </span>10,000,0000,000 تومان تا 50,000,000,000 تومان
                     </p>
                   </div>
                 </div>
@@ -46,7 +46,7 @@
                     <span v-else>{{ separate(item.price) + 'تومان' }}</span>
                   </p>
                   <p v-else>
-                    <span class="font-weight-bold">قیمت: </span>وارد نشده است
+                    <span class="font-weight-bold">قیمت: </span>10,000,0000,000 تومان تا 50,000,000,000 تومان
                   </p>
                 </div>
               </a>
@@ -291,7 +291,16 @@ export default {
   margin: 0 !important;
   padding: 0 !important;
 }
-
+@media screen and (max-width:1150px){
+  .item-origin{
+    width: 640px;
+  }
+}
+@media screen and (max-width:954px){
+  .item-origin{
+    width: 540px;
+  }
+}
 @media screen and (max-width: 1018px) {
   .name {
     /*background-color: rgba(46,255,41,0.44);*/
