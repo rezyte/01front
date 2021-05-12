@@ -6,15 +6,14 @@
         <div id="content">
           <div v-for="item in pageOfItems" :key="item.id">
             <div class="item">
-              <a :href="'/product/'+item.slug" class="link-item">
+              <a :href="'/product/' + item.slug" class="link-item">
                 <div class="item-origin">
                   <div class="pic">
                     <!--                                       <mg src="/static/public/images/shrink2.png" alt="تصویر ناقص است">-->
-                    <img :src="item.product_image" alt="تصویر ناقص است">
+                    <img :src="item.product_image" alt="تصویر ناقص است" />
                   </div>
                   <div class="text">
                     <h1 class="name" v-text="item.title">
-
                       <!--                      jdicbvmdjsikrjfhdmsjciqogldmsjcz.5pdloseuiloi526894253698710-->
                     </h1>
                     <p class="info mt-1" v-text="item.short_description">
@@ -22,36 +21,38 @@
                     </p>
                   </div>
                   <div class="cost2">
-                    <p v-if="item.price|| item.second_price">
+                    <p v-if="item.price || item.second_price">
                       <span class="font-weight-bold">قیمت:</span>
-                    <span
-                        v-if="item.price && item.second_price"> {{
-                        separate(item.price) + 'تومان'
-                      }} - {{ separate(item.second_price) + 'تومان' }}</span>
-                      <span v-else>{{ separate(item.price) + 'تومان' }}</span>
+                      <span v-if="item.price && item.second_price">
+                        {{ separate(item.price) + "تومان" }} -
+                        {{ separate(item.second_price) + "تومان" }}</span
+                      >
+                      <span v-else>{{ separate(item.price) + "تومان" }}</span>
                     </p>
                     <p v-else>
-                      <span class="font-weight-bold">قیمت: </span>10,000,0000,000 تومان تا 50,000,000,000 تومان
+                      <span class="font-weight-bold">قیمت: </span>
+                      وارد نشده است
                     </p>
                   </div>
                 </div>
                 <div class="cost">
                   <!--                  /images/products/2021/02/None_VhXLXMd.webp-->
-                  <p v-if="item.price|| item.second_price">
+                  <p v-if="item.price || item.second_price">
                     <span>قیمت:</span>
-                    <span
-                        v-if="item.price && item.second_price"> {{
-                        separate(item.price) + 'تومان'
-                      }} تا {{ separate(item.second_price) + 'تومان' }}</span>
-                    <span v-else>{{ separate(item.price) + 'تومان' }}</span>
+                    <span v-if="item.price && item.second_price">
+                      {{ separate(item.price) + "تومان" }} تا
+                      {{ separate(item.second_price) + "تومان" }}</span
+                    >
+                    <span v-else>{{ separate(item.price) + "تومان" }}</span>
                   </p>
                   <p v-else>
-                    <span class="font-weight-bold">قیمت: </span>10,000,0000,000 تومان تا 50,000,000,000 تومان
+                    <span class="font-weight-bold">قیمت: </span>
+                    وارد نشده است
                   </p>
                 </div>
               </a>
             </div>
-            <hr class="line">
+            <hr class="line" />
             <!--            <div class="w-75 m-auto">-->
             <!--            </div>-->
           </div>
@@ -59,35 +60,65 @@
       </div>
     </div>
     <div class="text-center">
-       <pagination class="m-auto" :items="products" @changePage="onChangePage" :styles="myStyle"></pagination>
+      <pagination
+        class="m-auto"
+        :items="products"
+        @changePage="onChangePage"
+        :styles="myStyle"
+      ></pagination>
     </div>
   </div>
 </template>
 
 <script>
 // const exampleItems = [...Array(15).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }));
-import Pagination from './Paginate.vue';
-const exampleItems = [2, 9, 8, 52, 5, 7, 0, 6, 8, 9, 1, 5, 6, 5, 2, 5, 56, 89, 4, 5, 6, 0, 8, 6];
+import Pagination from "./Paginate.vue";
+const exampleItems = [
+  2,
+  9,
+  8,
+  52,
+  5,
+  7,
+  0,
+  6,
+  8,
+  9,
+  1,
+  5,
+  6,
+  5,
+  2,
+  5,
+  56,
+  89,
+  4,
+  5,
+  6,
+  0,
+  8,
+  6,
+];
 export default {
-  name: 'Index2',
-  props: ['products'],
+  name: "Index2",
+  props: ["products"],
   components: {
-    Pagination
+    Pagination,
   },
   data() {
     return {
       exampleItems,
       pageOfItems: [],
-       myStyle:{
-        li:{
-          margin:'3px!important',
-          padding:'3px!important',
+      myStyle: {
+        li: {
+          margin: "3px!important",
+          padding: "3px!important",
         },
-        a:{
-          margin:'10px!important',
-          padding:'5px!important',
-        }
-      }
+        a: {
+          margin: "10px!important",
+          padding: "5px!important",
+        },
+      },
     };
   },
   beforeCreate() {
@@ -99,57 +130,61 @@ export default {
       this.pageOfItems = pageOfItems;
       var list = document.getElementsByClassName("pagination")[0];
       for (let i = 0; i < list.childElementCount; i++) {
-        list.getElementsByClassName("page-item")[i].style.borderColor = 'white';
-        list.getElementsByClassName("page-item")[i].style.paddingRight = '0!important';
-        list.getElementsByClassName("page-item")[i].style.paddingLeft = '0important';
-        let child = list.getElementsByClassName("page-item")[i].children[0]
-        child.style.padding = '7px'
-        list.getElementsByClassName("page-item page-number")[i].style.background = 'white';
-
+        list.getElementsByClassName("page-item")[i].style.borderColor = "white";
+        list.getElementsByClassName("page-item")[i].style.paddingRight =
+          "0!important";
+        list.getElementsByClassName("page-item")[i].style.paddingLeft =
+          "0important";
+        let child = list.getElementsByClassName("page-item")[i].children[0];
+        child.style.padding = "7px";
+        list.getElementsByClassName("page-item page-number")[
+          i
+        ].style.background = "white";
       }
-      let active = document.querySelector('.pagination .active');
-      active.style.background = '#007BFF';
-       let products=document.getElementById("products");
-      window.scrollTo(0,products.offsetTop)
+      let active = document.querySelector(".pagination .active");
+      active.style.background = "#007BFF";
+      let products = document.getElementById("products");
+      window.scrollTo(0, products.offsetTop);
     },
     separate(Number) {
-      Number += '';
-      Number = Number.replace(',', '');
-      let x = Number.split('.');
+      Number += "";
+      Number = Number.replace(",", "");
+      let x = Number.split(".");
       let y = x[0];
-      let z = x.length > 1 ? '.' + x[1] : '';
-      var rgx = /(\d+)(\d{3})/;//ینی چهار رقم وجودداشته باشد
+      let z = x.length > 1 ? "." + x[1] : "";
+      var rgx = /(\d+)(\d{3})/; //ینی چهار رقم وجودداشته باشد
       while (rgx.test(y))
-          // console.log()
-          // console.log(rgx)
-        y = y.replace(rgx, '$1' + ',' + '$2');
+        // console.log()
+        // console.log(rgx)
+        y = y.replace(rgx, "$1" + "," + "$2");
       return y + z;
-    }
+    },
   },
-
 
   mounted() {
     // console.log(this.exampleItems.length)
-     let last = document.querySelector('.pagination .last');
+    let last = document.querySelector(".pagination .last");
     last.style.display = "none";
-    let first = document.querySelector('.pagination .first');
+    let first = document.querySelector(".pagination .first");
     first.style.display = "none";
     // let previous = document.querySelector('.pagination .previous a');
     // let next = document.querySelector('.pagination .next a');
     // previous.innerHTML = 'قبلی';
     // next.innerHTML = 'بعدی'
     var list = document.getElementsByClassName("pagination")[0];
-    for (let i=0; i < list.childElementCount ;i++){
-      list.getElementsByClassName("page-item")[i].style.borderColor = 'white';
-      list.getElementsByClassName("page-item")[i].style.paddingRight = '0!important';
-      list.getElementsByClassName("page-item")[i].style.paddingLeft = '0important';
-      let child=list.getElementsByClassName("page-item")[i].children[0]
-      child.style.padding='7px'
+    for (let i = 0; i < list.childElementCount; i++) {
+      list.getElementsByClassName("page-item")[i].style.borderColor = "white";
+      list.getElementsByClassName("page-item")[i].style.paddingRight =
+        "0!important";
+      list.getElementsByClassName("page-item")[i].style.paddingLeft =
+        "0important";
+      let child = list.getElementsByClassName("page-item")[i].children[0];
+      child.style.padding = "7px";
     }
-    let active=document.querySelector('.pagination .active');
-    active.style.background='white';
-  }
-}
+    let active = document.querySelector(".pagination .active");
+    active.style.background = "white";
+  },
+};
 </script>
 
 <style scoped>
@@ -232,7 +267,6 @@ export default {
   padding: 25px 2px;
   box-sizing: border-box;
   /*background-color: red;*/
-
 }
 
 .pic {
@@ -270,7 +304,8 @@ export default {
   padding-top: 7px;
 }
 
-.cost span, .cost2 span {
+.cost span,
+.cost2 span {
   font-size: 17px;
   font-weight: bold;
 }
@@ -291,13 +326,13 @@ export default {
   margin: 0 !important;
   padding: 0 !important;
 }
-@media screen and (max-width:1150px){
-  .item-origin{
+@media screen and (max-width: 1150px) {
+  .item-origin {
     width: 640px;
   }
 }
-@media screen and (max-width:954px){
-  .item-origin{
+@media screen and (max-width: 954px) {
+  .item-origin {
     width: 540px;
   }
 }

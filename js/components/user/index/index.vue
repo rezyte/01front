@@ -169,6 +169,7 @@ export default {
 .my_cards{
   width: 98%;
   margin:50px auto;
+  height: 100%;
   /* background-color: red; */
 }
 #my_cards{
