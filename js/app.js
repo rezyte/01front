@@ -7,14 +7,13 @@ Vue.use(BootstrapVue,IconsPlugin)
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import App from "./components/App.vue";
-import LandingCustomer from './components/landing_customer/Index.vue'
-// import UserPanel from './components/panel_user/Index.vue'
+import Index from './components/test/Index.vue'
 new Vue({
     el: '#app',
     store,
     components: {
         App,
-        LandingCustomer,
+        Index
         // UserPanel
     },
 })

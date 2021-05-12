@@ -18,16 +18,17 @@
     <div id="my_cards" v-if="JSON.parse(this.labeles).length > 0">
       <div
         class="my_cards"
-        v-for="label in JSON.parse(this.labeles)"
-        :key="label.id"
       >
         <!-- <card
           :cardTitle="label.title"
           :products="label.products"
           :classr="makeid(10)"
       ></card> -->
-        <card2 :cardTitle="label.title" :products="label.products" />
+        <card2    v-for="label in JSON.parse(this.labeles)"
+        :key="label.id"
+         :cardTitle="label.title" :products="label.products" />
       </div>
+      
     </div>
 
     <div class="shouldCollapse">
@@ -168,11 +169,9 @@ export default {
 .my_cards{
   width: 98%;
   margin:50px auto;
-  height: 100%;
   /* background-color: red; */
 }
 #my_cards{
   width:100%;
-  height: 600px;
 }
 </style>
