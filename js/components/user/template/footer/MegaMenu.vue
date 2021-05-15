@@ -22,27 +22,27 @@ export default {
   name: "MegaMenu",
   data() {
     return {
-      categories: "",
+      // categories: "",
     };
   },
   components: {
     Category,
   },
   computed:{
-    //   categories(){
-    //        return this.$store.getters.getCatsWithSubs
-    //   }
+      categories(){
+           return this.$store.getters.getCatsWithSubs
+      }
   },
   created() {
-    axios
-      .get("http://localhost:3000/categories")
-      .then((response) => {
-        console.log(response);
-        this.categories = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // axios
+    //   .get("http://localhost:3000/categories")
+    //   .then((response) => {
+    //     console.log(response);
+    //     this.categories = response.data;
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   },
 };
 </script>
