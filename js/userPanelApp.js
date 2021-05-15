@@ -35,7 +35,7 @@ const app=new vue({
 		userPanelWrapper,
 		'index':()=>import("./components/userPanel/index/index.vue"),
 		'createProduct':()=>import("./components/userPanel/createPRoduct/createProduct.vue"),
-		'editProduct':()=>import("./components/userPanel/editProducts/createProduct.vue"),
+		'editProduct':()=>import("./components/userPanel/editProducts/editProduct.vue"),
 		'createBlogPost':()=>import('./components/userPanel/createBlogPost/createBlogPost.vue'),
 		'addCategory':()=>import('./components/userPanel/addCategory/addCategory.vue'),
 		'editVariations':()=>import("./components/userPanel/editCategoryVariations/editVariations.vue"),

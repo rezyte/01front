@@ -8,11 +8,19 @@
           <div @click="toggleNavigation($event)" class="sikh3 sikh"></div>
         </div>
         <ul v-if="showNavigation">
-          <li v-if="user.is_logined" @click="showProf=true" class="profileList">
-            <img id="profImg" src="/static/public/images/defUser.png" alt="تصویر ناقص است">
+          <li
+            v-if="user.is_logined"
+            @click="showProf = true"
+            class="profileList"
+          >
+            <img
+              id="profImg"
+              src="/static/public/images/defUser.png"
+              alt="تصویر ناقص است"
+            />
             <div v-if="showProf" class="profile">
               <div class="profileWrapper">
-<!--                <div class="triangle-up">jjjj</div>-->
+                <!--                <div class="triangle-up">jjjj</div>-->
                 <div class="contentWrapepper">
                   <div class="title">
                     <div class="titleWrapper">
@@ -21,17 +29,29 @@
                           <p v-text="user.username" class="head_profile"></p>
                         </li>
                         <li><a href="/users/userpanel/">مشاهده پروفایل</a></li>
-                        <hr>
+                        <hr />
                         <li>
-                          <a href='/userpanel/products/create/' v-if="user.is_producer">محصول جدید</a>
+                          <a
+                            href="/userpanel/products/create/"
+                            v-if="user.is_producer"
+                            >محصول جدید</a
+                          >
                         </li>
                         <li>
-                          <a href='/users/profile/my_products/' v-if="user.is_producer">محصولات من</a>
+                          <a
+                            href="/users/profile/my_products/"
+                            v-if="user.is_producer"
+                            >محصولات من</a
+                          >
                         </li>
                         <li>
-                          <a href='/users/profile/orders/' v-if="user.is_producer">مشتریان من</a>
+                          <a
+                            href="/users/profile/orders/"
+                            v-if="user.is_producer"
+                            >مشتریان من</a
+                          >
                         </li>
-                        <hr>
+                        <hr />
                         <li><a href="/users/logout/">خروج</a></li>
                       </ul>
                     </div>
@@ -40,22 +60,25 @@
               </div>
             </div>
           </li>
-          <li class="new" v-if="!user.is_logined"><a href="/users/register/">ثبت نام</a></li>
-          <li class="new pb-1" v-if="!user.is_logined"><a href="/users/entry/">ورود</a></li>
-          <li class="new"><a href="/">خانه</a></li>
+          <li class="new" v-if="!user.is_logined">
+            <a href="/users/register/">ثبت نام</a>
+          </li>
+          <li class="new pb-1" v-if="!user.is_logined">
+            <a href="/users/entry/">ورود</a>
+          </li>
           <li class="new"><a href="/about_us/">درباره ما</a></li>
           <li class="new"><a href="/blog/posts/">وبلاگ</a></li>
-          <li class="myMenu" @click="toggleSubMenu()">
+          <li class="new"><a href="/">خانه</a></li>
+          <!-- <li class="myMenu" @click="toggleSubMenu()">
             <p>دسته بندی محصولات</p>
             <ul class="ulWrapper">
               <li class="firstLi bg-warning">
                 <flat-menu></flat-menu>
               </li>
             </ul>
-          </li>
+          </li> -->
         </ul>
       </div>
-
     </div>
     <!-- <transition name='toggleSubMenu' mode='out-in'> -->
     <side-menu v-if="isSubMenuOpen"></side-menu>
@@ -66,84 +89,84 @@
 <script>
 import ham from "../hamIcon/ham.vue";
 import flatMenu from "../flatMenu/flatMenu.vue";
-import {mapGetters} from 'vuex'
-import {mapActions} from "vuex";
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 import sideMenu from "../sideMenu/sideMenu.vue";
 
 export default {
   components: {
     flatMenu,
-    sideMenu
+    sideMenu,
   },
   computed: {
-    ...mapGetters([
-      'isSubMenu'
-    ]),
+    ...mapGetters(["isSubMenu"]),
     isSubMenuOpen() {
-      return this.isSubMenu
-    }
+      return this.isSubMenu;
+    },
   },
   data() {
     return {
       showNavigation: false,
       showProf: false,
-      user: userInfo
-    }
+      user: userInfo,
+    };
   },
   mounted() {
-    window.addEventListener("resize", this.checkNavigation)
-    window.addEventListener("click", e => {
-      if (!e.target.classList.contains('profileList') && e.target.id !== 'profImg') {
-        this.showProf = false
+    window.addEventListener("resize", this.checkNavigation);
+    window.addEventListener("click", (e) => {
+      if (
+        !e.target.classList.contains("profileList") &&
+        e.target.id !== "profImg"
+      ) {
+        this.showProf = false;
       }
-    })
-    this.checkNavigation()
+    });
+    this.checkNavigation();
   },
   methods: {
     checkNavigation() {
-
       if (window.innerWidth > 650) {
-        this.showNavigation = true
+        this.showNavigation = true;
       } else {
-        this.showNavigation = false
+        this.showNavigation = false;
       }
-      this.changeSikhStyles()
+      this.changeSikhStyles();
     },
     toggleSubMenu() {
       if (window.innerWidth >= 799) {
-        return
+        return;
       }
-      this.$store.dispatch("toggleSubMenu")
+      this.$store.dispatch("toggleSubMenu");
     },
     toggleNavigation(e) {
-      this.showProf = false
-      e.stopPropagation()
-      e.preventDefault()
-      this.showNavigation = !this.showNavigation
-      this.changeSikhStyles()
+      this.showProf = false;
+      e.stopPropagation();
+      e.preventDefault();
+      this.showNavigation = !this.showNavigation;
+      this.changeSikhStyles();
     },
     changeSikhStyles() {
-      const sikh1 = document.querySelector(".sikh1")
-      const sikh2 = document.querySelector(".sikh2")
-      const sikh3 = document.querySelector(".sikh3")
-      const wrapper = document.querySelector(".sikhWrapper")
+      const sikh1 = document.querySelector(".sikh1");
+      const sikh2 = document.querySelector(".sikh2");
+      const sikh3 = document.querySelector(".sikh3");
+      const wrapper = document.querySelector(".sikhWrapper");
       if (this.showNavigation) {
-        sikh2.style.transform = "rotate(135deg) translate(-6px, 7px)"
-        sikh1.style.transform = "rotate(-135deg) translate(-4px,-4px)"
-        sikh2.style.webkitTransform = "rotate(135deg) translate(-6px, 7px)"
-        sikh1.style.webkitTransform = "rotate(-135deg)translate(-4px,-5px)"
-        sikh3.style.display = "none"
+        sikh2.style.transform = "rotate(135deg) translate(-6px, 7px)";
+        sikh1.style.transform = "rotate(-135deg) translate(-4px,-4px)";
+        sikh2.style.webkitTransform = "rotate(135deg) translate(-6px, 7px)";
+        sikh1.style.webkitTransform = "rotate(-135deg)translate(-4px,-5px)";
+        sikh3.style.display = "none";
         // wrapper.style.marginTop="5px"
       } else {
-        wrapper.style.marginTop = "0"
-        sikh3.style.display = "block"
-        sikh2.style.transform = "rotate(0) translate(0, 0)"
-        sikh1.style.transform = "rotate(0)"
-        sikh2.style.webkitTransform = "rotate(0) translate(0, 0)"
-        sikh1.style.webkitTransform = "rotate(0)"
+        wrapper.style.marginTop = "0";
+        sikh3.style.display = "block";
+        sikh2.style.transform = "rotate(0) translate(0, 0)";
+        sikh1.style.transform = "rotate(0)";
+        sikh2.style.webkitTransform = "rotate(0) translate(0, 0)";
+        sikh1.style.webkitTransform = "rotate(0)";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
@@ -169,12 +192,10 @@ export default {
 .hamIcon {
   position: relative;
   height: 50px;
-
 }
 
 .sikhWrapper {
   display: none;
-
 }
 ul {
   background: #f6f6f4;
@@ -201,10 +222,10 @@ li:last-child {
   height: 4px;
   border-radius: 5px;
   position: relative;
-  transition: all 0.4s
+  transition: all 0.4s;
 }
-.head_profile{
-  font-size: 17px!important;
+.head_profile {
+  font-size: 17px !important;
   font-weight: bold;
   padding-top: 3px;
 }
@@ -213,7 +234,7 @@ li:last-child {
   width: 40px;
   height: 4px;
   border-radius: 5px;
-  transition: all 0.4s
+  transition: all 0.4s;
 }
 
 .sikh3 {
@@ -262,14 +283,14 @@ li:last-child {
   width: 150px !important;
   /*flex-direction: column;*/
   border-radius: 4px;
-  background-color: white!important;
+  background-color: white !important;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
-  height: 200px!important;
+  height: 200px !important;
   padding: 0;
   margin: 0;
   text-align: right;
   direction: rtl;
-  display: block!important;
+  display: block !important;
 }
 
 .titleWrapper ul * {
@@ -297,13 +318,12 @@ li:last-child {
 }
 
 .profile {
-  position:  absolute;
+  position: absolute;
   top: 46px;
   z-index: 55;
   left: 21px;
   transform: translateX(-50%);
   /*background-color: red;*/
-
 }
 
 .profileList a {
@@ -330,9 +350,8 @@ hr {
   -ms-transform: rotate(45deg) translateX(-50%);
   transform: rotate(45deg) translateX(-50%);
   z-index: -1;
-  box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, .54);
+  box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, 0.54);
 }
-
 
 .myMenu {
   position: relative;
@@ -385,7 +404,6 @@ hr {
   display: flex;
   justify-content: flex-end;
   padding-left: 0;
-
 }
 
 /*li, .myMenu {*/
@@ -399,12 +417,12 @@ hr {
 .ulWrapper {
   padding-right: 0;
 }
-.titleWrapper ul li a{
+.titleWrapper ul li a {
   text-decoration: none;
   color: black;
   transition: color 0.2s;
 }
-.titleWrapper ul li a:hover{
+.titleWrapper ul li a:hover {
   color: var(--blue);
 }
 @media (max-width: 650px) {
@@ -430,7 +448,8 @@ hr {
     z-index: 6;
   }
 
-  li, li p {
+  li,
+  li p {
     color: white;
   }
 
@@ -457,10 +476,11 @@ hr {
 
   .triangle-up {
     left: -4px;
-
   }
 
-  li, p, .myMenu {
+  li,
+  p,
+  .myMenu {
     margin: 0;
     padding: 10px;
   }

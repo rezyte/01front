@@ -3,53 +3,49 @@
     <div class="creatProductTitle">
       <div class="createProductTitleWrapper">
         <svg
-            style="
+          style="
             height: 20px;
             transform: rotate(270deg);
             margin-right: 10px;
             cursor: pointer;
           "
-            @click="toggleWrapperMethod($event)"
-            viewBox="0 0 100 100"
+          @click="toggleWrapperMethod($event)"
+          viewBox="0 0 100 100"
         >
           <path
-              d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z"
-              class="arrow"
+            d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z"
+            class="arrow"
           ></path>
         </svg>
         <p>توضیحات محصول</p>
       </div>
     </div>
     <div id="productDescsWrapper" class="hiddenAtDisPlay">
-      <!-- <textarea style="display:none;" v-html="redi.product_description==='None' ? '' : redi.product_description" id="editor"
-                name="product-description"></textarea> -->
-                <texterea id="editor" v-html="!JSON.parse(redi).description ? '' : JSON.parse(redi).description"
-                  name="description"
-                >
-                </texterea>
-
-
+      <texterea
+        id="editor"
+        v-html="!JSON.parse(redi).editor ? '' : JSON.parse(redi).editor"
+        name="editor"
+      >
+      </texterea>
     </div>
   </div>
 </template>
 
 <script>
-  tinymce.init({
-        selector: '#editor'
-      });
+tinymce.init({
+  selector: "#editor",
+});
 export default {
-  props: ['redi'],
+  props: ["redi"],
   methods: {
     init() {
       tinymce.init({
-        content_style:
-            `
+        content_style: `
             body * { font-family: 'iranSans' !important;font-size:16px !important;font-weight:normal;color:black !important;background-color:transparent !important }
             p{ color:black !important}
             p strong,p a,a p{ color:black !important}
 
-            `
-        ,
+            `,
         setup: function (editor) {
           /* example, adding a group toolbar button */
           editor.ui.registry.addGroupToolbarButton("alignment", {
@@ -61,16 +57,16 @@ export default {
         language: "fa",
         selector: "#editor",
         plugins: "image code table lists link paste",
-          oninit : "setPlainText",
+        oninit: "setPlainText",
         toolbar:
-            "undo redo | link image | code forecolor backcolor numlist bullist alignment bold | table | formatselect",
-        block_formats: 'h2=h2;h3=h3;h4=h4;h5=h5;h6=h6;p=p',
-        table_toolbar: 'tableprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol',
-
+          "undo redo | link image | code forecolor backcolor numlist bullist alignment bold | table | formatselect",
+        block_formats: "h2=h2;h3=h3;h4=h4;h5=h5;h6=h6;p=p",
+        table_toolbar:
+          "tableprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol",
 
         menubar: "",
         width: "100%",
-        height: '400px',
+        height: "400px",
         images_upload_url: "/test",
         image_title: true,
         automatic_uploads: true,
@@ -91,7 +87,7 @@ export default {
               var blobInfo = blobCache.create(id, file, base64);
               blobCache.add(blobInfo);
 
-              cb(blobInfo.blobUri(), {title: file.name});
+              cb(blobInfo.blobUri(), { title: file.name });
             };
             reader.readAsDataURL(file);
           };
@@ -129,7 +125,7 @@ export default {
 
           xhr.onerror = function () {
             failure(
-                "Image upload failed due to a XHR Transport error. Code: " +
+              "Image upload failed due to a XHR Transport error. Code: " +
                 xhr.status
             );
           };
@@ -142,18 +138,16 @@ export default {
       });
     },
     mounted() {
-      console.log('button')
+      console.log("button");
       this.init();
 
-      let button = document.querySelectorAll('button')
-      button.forEach(b => {
+      let button = document.querySelectorAll("button");
+      button.forEach((b) => {
         if (b.getAttribute("title") === "درج/ویرایش تصویر") {
-          console.log("founded", b)
+          console.log("founded", b);
         }
-      })
+      });
     },
-
-
   },
 
   mounted() {
@@ -189,6 +183,5 @@ label {
   #productDescsWrapper {
     padding: 0;
   }
-
 }
 </style>

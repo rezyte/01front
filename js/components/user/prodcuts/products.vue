@@ -18,6 +18,25 @@
     </div>
     <div v-else>
       <h1 class="color">{{ getH1() }}</h1>
+      <div
+        class="seoPost first"
+        v-if="
+          JSON.parse(products).length > 0 &&
+          JSON.parse(this.products)[0].category[0].upper_content != ''
+        "
+      >
+        <div
+          class="seoPostContent longText"
+          v-html="
+            JSON.parse(products).length > 0
+              ? JSON.parse(this.products)[0].category[0].upper_content
+              : ''
+          "
+        ></div>
+        <!--      <div class="showMore">-->
+        <!--        <button @click="expandIt($event)">مشاهده ادامه</button>-->
+        <!--      </div>-->
+      </div>
       <div class="productsWrapper">
         <index2 :products="JSON.parse(products)" title="" />
         <!--      <div v-if="JSON.parse(products).length>0" class="singleProduct" v-for='p in JSON.parse(this.products)'-->
@@ -89,9 +108,8 @@
           <button @click="expandIt($event)">مشاهده ادامه</button>
         </div>
       </div>
-    
-        <comments-my :comments="JSON.parse(this.comments)"></comments-my>
-    
+
+      <comments-my :comments="JSON.parse(this.comments)"></comments-my>
     </div>
   </div>
 </template>
@@ -428,4 +446,5 @@ h1 {
 .empty_search_text {
   font-size: 17px;
 }
+
 </style>

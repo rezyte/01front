@@ -131,6 +131,7 @@ export default {
 <style scoped>
 #item {
   background: #ffffff;
+  margin: 20px 0 0 0;
   /* margin-top: 50px; */
 }
 

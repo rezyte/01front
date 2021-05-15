@@ -2,7 +2,7 @@
   <div id="customers">
     <div id="customersWrapper">
       <div class="title">
-        <p>مشتریان ما</p>
+        <h1>مشتریان ما</h1>
       </div>
       <div class="swiper-container-customers">
         <div class="swiper-wrapper">
@@ -88,23 +88,27 @@ export default {
 
 <style scoped>
 #customers {
-  background: #ffffff;
-  margin-top: 50px;
+  /* background: #ffffff; */
 }
 
 #customersWrapper {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 10px;
+  justify-content: center; */
   width: 100%;
 }
-
-.title p {
-  text-align: center;
-  font-size: 29px;
-  font-weight: 800;
+.title{
+   width: 250px;
+   height: 60px;
+   text-align: center;
+   background-color: white;
+   margin: auto;
+}
+.title h1 {
+  font-size: 24px;
+  font-weight: bold;
   color: var(--blue);
+  padding-top: 20px;
 }
 
 .cusImgs {
@@ -140,9 +144,12 @@ img:hover {
 
 .swiper-container-customers {
   width: 100%;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   position: relative;
   overflow: hidden;
+  background-color: white;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 .swiper-slide {
