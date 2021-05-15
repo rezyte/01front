@@ -64,7 +64,7 @@ export default {
   height: 60px;
   text-align: center;
   background-color: white;
-  margin: auto;
+  /* margin: auto; */
 }
 .title h1 {
   font-size: 24px;

@@ -130,7 +130,8 @@ export default {
       this.pageOfItems = pageOfItems;
       var list = document.getElementsByClassName("pagination")[0];
       for (let i = 0; i < list.childElementCount; i++) {
-        list.getElementsByClassName("page-item")[i].style.borderColor = "white";
+        list.getElementsByClassName("page-item")[i].style.borderColor =
+          "#F5F5F5";
         list.getElementsByClassName("page-item")[i].style.paddingRight =
           "0!important";
         list.getElementsByClassName("page-item")[i].style.paddingLeft =
@@ -139,10 +140,10 @@ export default {
         child.style.padding = "7px";
         list.getElementsByClassName("page-item page-number")[
           i
-        ].style.background = "white";
+        ].style.background = "#F5F5F5";
       }
       let active = document.querySelector(".pagination .active");
-      active.style.background = "#007BFF";
+      active.style.background = "#F5F5F5";
       let products = document.getElementById("products");
       window.scrollTo(0, products.offsetTop);
     },
@@ -162,18 +163,17 @@ export default {
   },
 
   mounted() {
-    // console.log(this.exampleItems.length)
     let last = document.querySelector(".pagination .last");
     last.style.display = "none";
     let first = document.querySelector(".pagination .first");
     first.style.display = "none";
-    // let previous = document.querySelector('.pagination .previous a');
-    // let next = document.querySelector('.pagination .next a');
-    // previous.innerHTML = 'قبلی';
-    // next.innerHTML = 'بعدی'
+    let previous = document.querySelector(".pagination .previous a");
+    let next = document.querySelector(".pagination .next a");
+    previous.innerHTML = "قبلی";
+    next.innerHTML = "بعدی";
     var list = document.getElementsByClassName("pagination")[0];
     for (let i = 0; i < list.childElementCount; i++) {
-      list.getElementsByClassName("page-item")[i].style.borderColor = "white";
+      list.getElementsByClassName("page-item")[i].style.borderColor = "#F5F5F5";
       list.getElementsByClassName("page-item")[i].style.paddingRight =
         "0!important";
       list.getElementsByClassName("page-item")[i].style.paddingLeft =
@@ -182,7 +182,7 @@ export default {
       child.style.padding = "7px";
     }
     let active = document.querySelector(".pagination .active");
-    active.style.background = "white";
+    active.style.background = "#F5F5F5";
   },
 };
 </script>
@@ -207,6 +207,7 @@ export default {
   border-radius: 8px;
   margin-top: 20px;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
+  background-color: white;
 }
 
 .item {

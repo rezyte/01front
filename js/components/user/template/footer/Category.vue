@@ -42,7 +42,13 @@ export default {
 <style scoped>
 a {
   text-decoration: none !important;
+  color: black!important;
+  transition: all 0.1s;
 }
+a:hover{
+  color: var(--blue)!important;
+}
+
 .category {
   width: 210px;
   margin-top: 40px;

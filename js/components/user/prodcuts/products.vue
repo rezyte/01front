@@ -241,6 +241,7 @@ export default {
 #products {
   margin-top: 40px;
   width: 100%;
+    background-color: #f5f5f5;
   /*display: flex;*/
   /*flex-direction: column;*/
 }
@@ -254,8 +255,8 @@ h1 {
 .productsWrapper {
   width: 100%;
   padding-top: 10px;
-  background-color: white;
-  /*background-color: blue;*/
+  /* background-color: white; */
+  /* background-color: blue; */
 }
 
 .singleProduct {

@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style scoped>
+
 *{
   font-family: iranSans !important;
 }
@@ -29,7 +30,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+    background-color: #f5f5f5;
   width: 100%;
 }
 .is-invalid {
