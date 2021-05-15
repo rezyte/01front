@@ -60,17 +60,17 @@ export default {
   width: 100%;
 }
 .title {
-  width: 250px;
+   width:max-content;
   height: 60px;
-  text-align: center;
-  background-color: white;
+  text-align: right;
+  /* background-color: white; */
   /* margin: auto; */
 }
 .title h1 {
   font-size: 24px;
   font-weight: bold;
   color: var(--blue);
-  padding-top: 20px;
+  padding: 20px 0 0 0;
 }
 .content {
   display: flex;

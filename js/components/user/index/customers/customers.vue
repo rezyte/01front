@@ -97,18 +97,19 @@ export default {
   justify-content: center; */
   width: 100%;
 }
-.title{
-   width: 250px;
-   height: 60px;
-   text-align: center;
-   background-color: white;
-   float: right;
+.title {
+  width:max-content;
+  height: 60px;
+  text-align: right;
+  /* background-color: white; */
+  float: right;
+  /* margin: auto; */
 }
 .title h1 {
   font-size: 24px;
   font-weight: bold;
   color: var(--blue);
-  padding-top: 20px;
+  padding: 20px 0 0 0;
 }
 
 .cusImgs {
