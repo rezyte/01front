@@ -26,6 +26,7 @@
                 <div class="menu">
                   <a
                     v-for="category in categories"
+                    :key="category.id"
                     :href="'/product-category/' + category.slug"
                     @mouseover="show_subCategories(1, category.id)"
                     @mouseout="show_subCategories(0)"

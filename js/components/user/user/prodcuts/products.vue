@@ -19,12 +19,6 @@
                 </div>
                 <consulate :productId="p.slug"></consulate>
             </div>
-
-
-
-
-
-
         </div>
       <div id="pagination" v-if="JSON.parse(this.pagination).number_of_pages>1">
         <paginate

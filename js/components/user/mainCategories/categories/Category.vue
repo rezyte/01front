@@ -2,10 +2,12 @@
   <a id="category" href="">
     <div class="category">
       <div class="pic">
-        <img :src="picture" alt="تصویر ناقص است">
+        <!-- <img :src="picture" alt="تصویر ناقص است"> -->
+        <img src="/static/public/images/damir2.jpg" alt="تصویر ناقص است">
       </div>
       <div class="text">
-        <p v-text="name"></p>
+        <!-- <p v-text="name"></p> -->
+        <p> دستگاه لازام ارایش و بهداشتی خط2</p>
       </div>
     </div>
   </a>
@@ -29,11 +31,11 @@ export default {
   font-family: iranSans !important;
 }
 #category{
-  width:auto ;
+  width:190px;
   height: 150px;
   text-decoration: none!important;
-  color: black;
-  margin: 10px;
+  /* color: black; */
+  margin:15px 10px 15px 10px;
   cursor: pointer;
 }
 .category{
@@ -46,7 +48,7 @@ export default {
   transition: all 0.3s;
 }
 .category:hover .text p{
-  color: var(--blue);
+  color: var(--blue)!important;
 }
 .category:hover .pic img{
   transform: scale(1.03,1.03);
@@ -54,7 +56,7 @@ export default {
 .pic{
   width: 100%;
   height: 100px;
-  border-radius: 30px;
+  border-radius: 50%;
   text-align: center;
   display: inline-block;
   overflow: hidden;
@@ -65,7 +67,7 @@ export default {
   height:100px;
   /*position: absolute;*/
   /*display: block;*/
-  border-radius: 30px;
+  border-radius: 50%;
   background-position: center;
   background-repeat: no-repeat;
   /*background-size: 100% 100%;*/
@@ -74,12 +76,12 @@ export default {
 .text{
   width: 100%;
   height: 50px;
-  /*background-color: #5bf3ff;*/
   text-align: center;
   padding-top: 15px;
 }
 .text p{
   width: auto;
   font-size: 16px;
+  text-align: center;
 }
 </style>
