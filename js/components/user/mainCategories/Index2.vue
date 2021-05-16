@@ -25,7 +25,7 @@
             </div>
             <div id="blog">
               <div id="item-blog" class="p-4">
-                <blog v-for="post in JSON.parse(blog)" v-bind:key="post.id" :blog="post" />
+                <blog v-for="post in JSON.parse(blogs)" v-bind:key="post.id" :blog="post" />
               </div>
             </div>
           </div>
