@@ -19,6 +19,13 @@ export default {
 
 <style scoped>
 *{
+   font-family: iranSans!important;
+}
+.container-fluid{
+  background-color: #F5F5F5;
+}
+
+*{
   direction: rtl;
   text-align: right;
 }

@@ -24,7 +24,7 @@ export default {
 <style scoped>
 
 *{
-  font-family: iranSans !important;
+  font-family: iranSans!important;
 }
 .user {
   display: flex;

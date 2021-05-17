@@ -14,6 +14,7 @@
           :id="i.id"
           :slug="i.slug"
           :product_image="i.product_image"
+          :image_alt="i.image_alt"
           @removeProduct="removeProduct"
       ></single-product>
     </div>
@@ -32,17 +33,17 @@ name: "myProducts",
     }
   },
   methods:{
-    removeProduct(id){
-      console.log("deleteing",id)
-      const index=this.allProds.findIndex(product=>{
-        return product.id==id
-      })
-      this.allProds.splice(index,1)
-      this.shoeMessage=true
-      setTimeout(()=>{
-        this.shoeMessage=false
-      },5000)
-    }
+    // removeProduct(id){
+    //   console.log("deleteing",id)
+    //   const index=this.allProds.findIndex(product=>{
+    //     return product.id==id
+    //   })
+    //   this.allProds.splice(index,1)
+    //   this.shoeMessage=true
+    //   setTimeout(()=>{
+    //     this.shoeMessage=false
+    //   },5000)
+    // }
   },
     props:['products'],
     created() {
@@ -52,6 +53,9 @@ name: "myProducts",
     getProducts(){
       return this.allProds
     }
+  },
+  created(){
+    console.log(JSON.parse(this.products))
   }
 }
 </script>
@@ -62,6 +66,7 @@ name: "myProducts",
 }
   #myProductsWrapper{
     display: flex;
+    flex-direction: row-reverse;
     padding:10px;
     justify-content: center;
     flex-wrap: wrap;

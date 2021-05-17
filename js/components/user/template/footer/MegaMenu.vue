@@ -30,7 +30,8 @@ export default {
   },
   computed:{
       categories(){
-           return this.$store.getters.getCatsWithSubs
+        console.log('gg',this.$store.getters.getCatsWithSubs)
+        return this.$store.getters.getCatsWithSubs
       }
   },
   created() {

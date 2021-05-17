@@ -30,6 +30,9 @@ name: "userPanelWrapper",
 </script>
 
 <style scoped>
+*{
+   font-family: iranSans!important;
+}
   #userPanelWrapper{
     width: 100%;
     display: flex;

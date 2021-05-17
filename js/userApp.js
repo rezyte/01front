@@ -4,8 +4,12 @@ import slicer from "./components/user/template/slicer/slicer.vue";
 // import footer from "./components/user/template/footer/footer.vue";
 import productZoom from "./components/user/product/productZoom.vue";
 import VueMeta from "vue-meta";
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { toggleDisplayAndArrow } from "./components/user/mixIns/toggleDisplayAndArrow";
 import heading from "./components/user/template/header/header.vue"
 import navigation from "./components/user/template/navigation/navigation.vue"
@@ -23,6 +27,8 @@ vue.use(VueMeta, {
   // optional pluginOptions
   refreshOnceOnNavigation: true,
 });
+vue.use(BootstrapVue)
+vue.use(IconsPlugin)
 vue.mixin(toggleDisplayAndArrow);
 vue.mixin({
   data: function() {
