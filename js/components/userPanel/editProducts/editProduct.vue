@@ -7,7 +7,7 @@
         id="createProductForm"
         enctype="multipart/form-data"
       >
-        <input type="hidden" name="csrfmiddlewaretoken" :value="csrf" />
+        <input type="hidden" name="csrfmiddlewaretoken" />
         <form-wizard
           back-button-text="مرحله قبل"
           next-button-text="مرحله بعد"
@@ -16,16 +16,16 @@
           @on-complete="submit"
         >
           <tab-content title="دسته بندی و نام">
-            <select-category
+            <!-- <select-category
               :product="JSON.parse(product)"
-              :cats="JSON.parse(cats)"
-            ></select-category>
+              :cats="JSON.parse(product).category"
+            ></select-category> -->
             <div id="name" class="productSection">
               <div id="nameWrapper">
                 <label for="">نام محصول:</label>
                 <input
                   type="text"
-                  :value="JSON.parse(product).name"
+                  :value="JSON.parse(product).title"
                   placeholder="نام"
                   name="name"
                 />
@@ -40,10 +40,10 @@
             <product-descs :product="JSON.parse(product)"></product-descs>
             <slicer></slicer>
             <aditional-information
-              :product="JSON.parse(this.product)"
+              :product="JSON.parse(product)"
             ></aditional-information>
             <slicer></slicer>
-            <variations :product="JSON.parse(this.product)"></variations>
+            <variations :product="JSON.parse(product)"></variations>
           </tab-content>
         </form-wizard>
 
@@ -82,7 +82,8 @@ export default {
   },
   props: ["cats", "product"],
   created() {
-    console.log(JSON.parse(this.product));
+    console.log('products',JSON.parse(this.product));
+    console.log('cats',this.cats);
   },
   methods: {
     submit() {
@@ -137,7 +138,7 @@ form {
 }
 
 #nameWrapper input {
-  width: 200px;
+  width: 300px!important;
 }
 
 #nameWrapper label {
@@ -147,7 +148,7 @@ form {
 input[type="text"] {
   color: black;
 
-  width: 30%;
+  /* width: 30%; */
   padding: 10px;
 }
 

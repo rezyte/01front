@@ -23,7 +23,7 @@
             <div id="name" class="productSection">
               <div id="nameWrapper">
                 <label for="">نام محصول:</label>
-                <template v-if="redirect!=='None'">
+                <template v-if="redirect !== 'None'">
                   <input
                     type="text"
                     placeholder="نام"
@@ -44,10 +44,12 @@
             <product-descs :redi="redirect"></product-descs>
             <slicer></slicer>
             <aditional-information
-              :redi="redirect !='None' ? JSON.parse(redirect) :''"
+              :redi="redirect != 'None' ? JSON.parse(redirect) : ''"
             ></aditional-information>
             <slicer></slicer>
-            <variations :redi="redirect !='None' ? JSON.parse(redirect) :''"></variations>
+            <variations
+              :redi="redirect != 'None' ? JSON.parse(redirect) : ''"
+            ></variations>
           </tab-content>
         </form-wizard>
         <!--        <button type="submit" class="submit">ثبت محصول</button>-->
@@ -82,12 +84,12 @@ export default {
     TabContent,
     error,
   },
-  data(){
-    return{
+  data() {
+    return {
       // redirect:'None'
-    }
+    };
   },
-  props: ["cats", "products","redirect"],
+  props: ["cats", "products", "redirect"],
   methods: {
     submit() {
       document.querySelector("#createProductForm").submit();
@@ -97,9 +99,9 @@ export default {
       window.sessionStorage.setItem("selected", element.value);
     },
   },
-  created(){
-    console.log('redirect',this.redirect)
-  }
+  created() {
+    console.log("redirect", this.redirect);
+  },
 };
 </script>
 

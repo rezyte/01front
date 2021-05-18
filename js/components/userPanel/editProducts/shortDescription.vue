@@ -6,15 +6,32 @@
         v-model="text"
         :maxlength="max"
         name="short-description"
-        id=""
         cols="30"
         rows="10"
-        v-text="getShort()"
+        v-text="productt.short_discription !=='None' ? productt.short_discription :''"
       ></textarea>
-      <div class="input-group-addon" v-text="max - text.length"></div>
+      <div class="input-group-addon" v-text="max -text.length"></div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      max: 80,
+      text: "",
+    };
+  },
+  props: ["productt"],
+  methods: {},
+  created() {
+   console.log(this.productt.short_discription)
+  },
+};
+</script>
+
+
 
 <style scoped>
 textarea {
@@ -42,34 +59,15 @@ textarea {
   height: 150px;
   resize: none;
 }
-label{
+label {
   text-align: center;
   display: block;
   order: 0;
   width: 100%;
   max-width: 350px;
 }
-.input-group-addon{
+.input-group-addon {
   order: 2;
 }
 </style>
 
-<script>
-export default {
-  data() {
-    return {
-      max: 80,
-      text: "",
-    };
-  },
-    props:['product'],
-    methods:{
-        getShort(){
-            if(this.product.short_description==="None" || this.product.short_description===undefined){
-                return ""
-            }
-            return this.product.product_short_description
-        }
-    }
-};
-</script>

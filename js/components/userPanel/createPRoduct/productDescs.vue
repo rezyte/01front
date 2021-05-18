@@ -23,7 +23,7 @@
     <div id="productDescsWrapper" class="hiddenAtDisPlay">
       <texterea
         id="editor"
-        v-html="!JSON.parse(redi).editor ? '' : JSON.parse(redi).editor"
+        v-html="JSON.parse(redi).editor ? JSON.parse(redi).editor: ''"
         name="editor"
       >
       </texterea>
@@ -137,8 +137,8 @@ export default {
         },
       });
     },
-    mounted() {
-      console.log("button");
+  },
+   mounted() {
       this.init();
 
       let button = document.querySelectorAll("button");
@@ -148,11 +148,9 @@ export default {
         }
       });
     },
-  },
-
-  mounted() {
-    this.init();
-  },
+     created(){
+      console.log('yi',this.redi)
+    }
 };
 </script>
 
