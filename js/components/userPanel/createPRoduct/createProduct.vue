@@ -27,7 +27,7 @@
                   <input
                     type="text"
                     placeholder="نام"
-                    :value="JSON.parse(redirect).name"
+                    :value="redirect != 'None' ? JSON.parse(redirect).name : ''"
                     name="name"
                   />
                 </template>
@@ -41,7 +41,7 @@
             <product-img></product-img>
             <slicer></slicer>
 
-            <product-descs :redi="redirect"></product-descs>
+            <product-descs :redi="redirect != 'None' ? JSON.parse(redirect) : ''"></product-descs>
             <slicer></slicer>
             <aditional-information
               :redi="redirect != 'None' ? JSON.parse(redirect) : ''"

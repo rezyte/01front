@@ -12,7 +12,6 @@
           <arrow></arrow>
         </div>
       </div>
-
       <ul ref="ul">
         <li v-for="(item,i) in getShouldShow" @click="selectItem($event)" :key="i.id">{{ item.title }}</li>
       </ul>
@@ -41,6 +40,7 @@ export default {
     if(this.level==1){
       if(this.redi.motherCat && this.redi.motherCat!="None"){
         this.$refs.input.value=this.redi.motherCat
+        this.selected;
         this.selectedItem=this.redi.motherCat
         let id=this.shouldShow.findIndex(i=>{
           return i.title==this.selectedItem

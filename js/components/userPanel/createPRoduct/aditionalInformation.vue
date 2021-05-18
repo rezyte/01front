@@ -167,7 +167,7 @@
               <!--                />-->
               <!--                <input type="hidden" name="tags" v-model="allTags">-->
               <!--              </div>-->
-              <tags v-if="userInfo.is_superuser" :redi="redi"></tags>
+              <!-- <tags v-if="userInfo.is_superuser" :redi="redi"></tags> -->
             </div>
           </div>
         </div>

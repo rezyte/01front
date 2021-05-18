@@ -250,8 +250,11 @@ li {
 .crud a {
   color: var(--blue);
 }
+.hover-active{
+  color: var(--blue)!important;
+}
 .hover-active:hover {
-  color: red;
+  color: red!important;
   cursor: pointer;
 }
 </style>

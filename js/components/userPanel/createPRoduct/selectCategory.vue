@@ -49,11 +49,9 @@
                     level="3"
                     @leveThreeChanged="changeCategoryLevel3"
                   >
-
                   </search>
                     <input type="hidden" name="category" id="endCategory" :value="endcategory">
                 </div>
-
             </div>
         </div>
     </div>

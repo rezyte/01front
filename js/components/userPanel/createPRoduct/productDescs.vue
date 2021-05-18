@@ -23,7 +23,7 @@
     <div id="productDescsWrapper" class="hiddenAtDisPlay">
       <texterea
         id="editor"
-        v-html="JSON.parse(redi).editor ? JSON.parse(redi).editor: ''"
+        v-html="redi ? redi.editor : ''"
         name="editor"
       >
       </texterea>
