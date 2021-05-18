@@ -18,14 +18,14 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row" v-if="blog !=='None'">
           <div class="w-100">
             <div class="title">
               <h1>بلاگ ها</h1>
             </div>
             <div id="blog">
               <div id="item-blog" class="p-4">
-                <blog v-for="post in JSON.parse(blogs)" v-bind:key="post.id" :blog="post" />
+                <blog v-for="post in blogs2" v-bind:key="post.id" :blog="post" />
               </div>
             </div>
           </div>
@@ -184,11 +184,26 @@ export default {
       return array;
     },
     products2(){
-      return JSON.parse(this.products)
+      if(this.products !=='None'){
+         return JSON.parse(this.products)
+      }else{
+        return [];
+      }
     },
+    blogs2(){
+      if(this.blogs!=='None'){
+        // console.log()
+        return JSON.parse(this.blogs)
+      }else{
+        return []
+      }
+    }
   },
   created() {
     console.log("cats", JSON.parse(this.categories2));
+    console.log("products",JSON.parse(this.products));
+    console.log("blogs", JSON.parse(this.blogs));
+    console.log("blogs", JSON.parse(this.blogs)[0]);
   },
   methods: {
     onChangePage(pageOfItems) {

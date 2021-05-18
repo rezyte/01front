@@ -40,7 +40,7 @@ a{
   text-decoration: none!important;
   border-radius: 8px;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
-  margin: 19px 0;
+  margin: 19px 10px;
   transition: all 0.4s;
 }
 a:hover{
