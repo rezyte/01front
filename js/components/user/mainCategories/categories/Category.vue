@@ -2,12 +2,12 @@
   <a id="category" href="">
     <div class="category">
       <div class="pic">
-        <!-- <img :src="picture" alt="تصویر ناقص است"> -->
-        <img src="/static/public/images/damir2.jpg" alt="تصویر ناقص است">
+        <img :src="picture" alt="تصویر ناقص است">
+        <!-- <img src="/static/public/images/damir2.jpg" alt="تصویر ناقص است"> -->
       </div>
       <div class="text">
-        <!-- <p v-text="name"></p> -->
-        <p> دستگاه لازام ارایش و بهداشتی خط2</p>
+        <p v-text="name"></p>
+        <!-- <p> دستگاه لازام ارایش و بهداشتی خط2</p> -->
       </div>
     </div>
   </a>
