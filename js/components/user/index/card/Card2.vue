@@ -6,7 +6,7 @@
       </div>
       <div class="swiper-container-item">
         <div class="swiper-wrapper">
-          <div class="swiper-slide bg-danger" v-for="p in products" :key="p.id">
+          <div class="swiper-slide" v-for="p in products" :key="p.id">
             <div class="item">
               <div class="image">
                 <a :href="'/products/product-detial/' + p.slug">
