@@ -21,7 +21,7 @@
       </div>
     </div>
     <div id="productDescsWrapper" class="hiddenAtDisPlay">
-      <textarea v-html="product.description==='None' ? '' : product.description" id="editor" name="editor"></textarea>
+      <textarea v-html="product.editor" id="editor" name="editor"></textarea>
     </div>
   </div>
 </template>

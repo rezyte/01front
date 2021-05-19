@@ -28,14 +28,14 @@
           <div class="grabber">
             <div  class="grabberWrapper">
               <div  class="inside">
-                <div @blur="checkThereIsFileOrNot($event)" @click="firstImageUpload($event)" id="insideWrappe" v-if="!product.product_image">
+                <div @blur="checkThereIsFileOrNot($event)" @click="firstImageUpload($event)" id="insideWrappe" v-if="!product.image">
                   <grab-icon></grab-icon>
                   <p>برای اپلود عکس کلیک کنید</p>
                 </div>
                 <div id="insideWrappe" v-else>
                   <div id="scaleImage">
                     <input v-if="userInfo.is_superuser" placeholder="متن جایگزین" @change="ChangeImageAlt($event)" ref="scaledAlt" id="imgAlt" type="text">
-                    <img id="insideImage" ref="scaledImage" :src="product.product_image" :alt="product.image_alt">
+                    <img id="insideImage" ref="scaledImage" :src="product.image">
                   </div>
                   <div id="actions">
                     <edit @editImage="editImage"></edit>

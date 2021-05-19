@@ -164,7 +164,7 @@ export default {
         };
     },
     created() {
-        console.log('cats', this.redi)
+        console.log('cats', this.cats)
     },
 
     methods: {

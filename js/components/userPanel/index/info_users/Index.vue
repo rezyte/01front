@@ -6,84 +6,109 @@
           <legend class="font-weight-bold mb-3">اطلاعات کاربری</legend>
           <div class="form-group">
             <label for="firstName">نام</label>
-            <input type="text"
-                   :pattern="regEx.regName" title="نام درسا وارد نشده است" required
-                   placeholder="نام خودرا به فارسی وارد کنید"
-                   id="firstName"
-                   ref="firstName"
-                   :class="[
-                          inValidate.firstName
-                            ? 'is-invalid'
-                            : null,
-                          validated.firstName ? 'is-valid' : null,
-                          'form-control mr-2 mt-1',
-                        ]"
-                   v-model="userData.first_name" @input="validate(userData.first_name,'firstName')">
+            <input
+              type="text"
+              :pattern="regEx.regName"
+              title="نام درسا وارد نشده است"
+              required
+              placeholder="نام خودرا به فارسی وارد کنید"
+              id="firstName"
+              ref="firstName"
+              :class="[
+                inValidate.firstName ? 'is-invalid' : null,
+                validated.firstName ? 'is-valid' : null,
+                'form-control mr-2 mt-1',
+              ]"
+              v-model="userData.first_name"
+              @input="validate(userData.first_name, 'firstName')"
+            />
           </div>
           <div class="form-group">
             <label for="lastName">نام خانوادگی</label>
-            <input type="text" required
-                   :class="[
-                          inValidate.lastName
-                            ? 'is-invalid'
-                            : null,
-                          validated.lastName ? 'is-valid' : null,
-                          'form-control mr-2',
-                        ]"
-                   :pattern="regEx.regName" title="نام خانوادگی درست وارد نشده است"
-                   placeholder="نام خانوادگی به فارسی وارد شود"
-                   id="lastName" name="lastName" v-model="userData.last_name" ref="lastName"
-                   @input="validate(userData.last_name,'lastName')">
+            <input
+              type="text"
+              required
+              :class="[
+                inValidate.lastName ? 'is-invalid' : null,
+                validated.lastName ? 'is-valid' : null,
+                'form-control mr-2',
+              ]"
+              :pattern="regEx.regName"
+              title="نام خانوادگی درست وارد نشده است"
+              placeholder="نام خانوادگی به فارسی وارد شود"
+              id="lastName"
+              name="lastName"
+              v-model="userData.last_name"
+              ref="lastName"
+              @input="validate(userData.last_name, 'lastName')"
+            />
           </div>
           <div class="form-group">
             <label for="username">نام کاربری</label>
-            <input type="text" required
-                   :class="[
-                          inValidate.username
-                            ? 'is-invalid'
-                            : null,
-                          validated.username ? 'is-valid' : null,
-                          'form-control mr-2 mt-1',
-                        ]"
-                   id="username" name="username" v-model="userData.username" ref="username"
-                   :pattern="regEx.regUsername" title="نام کاربری درست وارد نشده است"
-                   @input="validate(userData.username,'username')"
-            >
+            <input
+              type="text"
+              required
+              :class="[
+                inValidate.username ? 'is-invalid' : null,
+                validated.username ? 'is-valid' : null,
+                'form-control mr-2 mt-1',
+              ]"
+              id="username"
+              name="username"
+              v-model="userData.username"
+              ref="username"
+              :pattern="regEx.regUsername"
+              title="نام کاربری درست وارد نشده است"
+              @input="validate(userData.username, 'username')"
+            />
           </div>
           <div class="form-group">
             <label for="company">نام شرکت</label>
-            <input type="text"
-                   :class="[
-                          inValidate.companyName
-                            ? 'is-invalid'
-                            : null,
-                          validated.companyName ? 'is-valid' : null,
-                          'form-control mr-2 mt-1',
-                        ]"
-                   id="company"
-                   name="company" v-model="userData.company_name" ref="company"
-                   @input="validate(userData.company_name,'company')"
-                   :pattern="regEx.regName" title="نام شرکت درست وارد نشده است"
-            >
+            <input
+              type="text"
+              :class="[
+                inValidate.companyName ? 'is-invalid' : null,
+                validated.companyName ? 'is-valid' : null,
+                'form-control mr-2 mt-1',
+              ]"
+              id="company"
+              name="company"
+              v-model="userData.company_name"
+              ref="company"
+              @input="validate(userData.company_name, 'company')"
+              :pattern="regEx.regName"
+              title="نام شرکت درست وارد نشده است"
+            />
           </div>
           <div class="form-group">
             <label for="phoneNumber">شماره تلفن</label>
-            <input type="text"
-                   :class="[
-                          inValidate.phoneNumber
-                            ? 'is-invalid'
-                            : null,
-                          validated.phoneNumber ? 'is-valid' : null,
-                          'form-control mr-2 mt-1',
-                        ]"
-                   required id="phoneNumber" name="phoneNumber"
-                   :pattern="regEx.reg_phoneNumber" title="شماره تلفن اشتباه وارد شده است" ref="phoneNumber"
-                   v-model="userData.phone_number" placeholder="09xxxxxxxxx"
-                   @input="validate(userData.phone_number,'phoneNumber')">
+            <input
+              type="text"
+              :class="[
+                inValidate.phoneNumber ? 'is-invalid' : null,
+                validated.phoneNumber ? 'is-valid' : null,
+                'form-control mr-2 mt-1',
+              ]"
+              required
+              id="phoneNumber"
+              name="phoneNumber"
+              :pattern="regEx.reg_phoneNumber"
+              title="شماره تلفن اشتباه وارد شده است"
+              ref="phoneNumber"
+              v-model="userData.phone_number"
+              placeholder="09xxxxxxxxx"
+              @input="validate(userData.phone_number, 'phoneNumber')"
+            />
           </div>
         </fieldset>
       </form>
-      <input class="btn btn-success mr-3" @click="sendForm()" :disabled="btnStatus" type="submit" value="ثبت">
+      <input
+        class="btn btn-success mr-3"
+        @click="sendForm()"
+        :disabled="btnStatus"
+        type="submit"
+        value="ثبت"
+      />
     </div>
   </div>
 </template>
@@ -91,7 +116,7 @@
 <script>
 export default {
   name: "Index",
-  props: ['user'],
+  props: ["user"],
   data() {
     return {
       // userData:null,
@@ -108,24 +133,24 @@ export default {
         lastName: false,
         username: false,
         companyName: false,
-        phoneNumber: false
+        phoneNumber: false,
       },
       inValidate: {
         firstName: false,
         lastName: false,
         username: false,
         companyName: false,
-        phoneNumber: false
-      }
-    }
+        phoneNumber: false,
+      },
+    };
   },
   computed: {
     userData() {
-      return JSON.parse(this.user)
+      return JSON.parse(this.user);
     },
     regEx() {
-      return this.$store.state.regularExpression
-    }
+      return this.$store.state.regularExpression;
+    },
   },
   created() {
     // console.log(JSON.parse(this.user))
@@ -149,7 +174,7 @@ export default {
               this.inValidate.firstName = true;
               this.okDataForm.firstName = 2;
             }
-            break
+            break;
           }
           case this.userData.last_name: {
             let res = x.match(/^[ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو]{3,15}$/);
@@ -162,11 +187,13 @@ export default {
               this.inValidate.lastName = true;
               this.okDataForm.lastName = 2;
             }
-            break
+            break;
           }
           case this.userData.username: {
             // console.log(this.userData.uesrname)
-            let res = x.match(/^[a-zA_Zضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو0-9]{3,20}$/gi);
+            let res = x.match(
+              /^[a-zA_Zضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو0-9]{3,20}$/gi
+            );
             if (res) {
               // console.log('userName')
               this.validated.username = true;
@@ -177,10 +204,12 @@ export default {
               this.inValidate.username = true;
               this.okDataForm.username = 2;
             }
-            break
+            break;
           }
           case this.userData.company_name: {
-            let res = x.match(/^[a-zA_Zضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو0-9]{3,20}$/gi);
+            let res = x.match(
+              /^[a-zA_Zضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو0-9]{3,20}$/gi
+            );
             if (res) {
               this.validated.companyName = true;
               this.inValidate.companyName = false;
@@ -190,7 +219,7 @@ export default {
               this.inValidate.companyName = true;
               this.okDataForm.companyName = 2;
             }
-            break
+            break;
           }
           case this.userData.phone_number: {
             let res = x.match(/^[0-9\u06F0-\u06F90-9]{11}$/gi);
@@ -203,20 +232,25 @@ export default {
               this.inValidate.phoneNumber = true;
               this.okDataForm.phoneNumber = 2;
             }
-            break
+            break;
           }
         }
       }
-      this.btnStatus = !(this.okDataForm.firstName === 1 && this.okDataForm.lastName === 1
-          && (this.okDataForm.username === 0 || this.okDataForm.username === 1) && (this.okDataForm.companyName === 0 || this.okDataForm.companyName === 1)
-          && (this.okDataForm.phoneNumber === 0 || this.okDataForm.phoneNumber === 1));
+      this.btnStatus = !(
+        this.okDataForm.firstName === 1 &&
+        this.okDataForm.lastName === 1 &&
+        (this.okDataForm.username === 0 || this.okDataForm.username === 1) &&
+        (this.okDataForm.companyName === 0 ||
+          this.okDataForm.companyName === 1) &&
+        (this.okDataForm.phoneNumber === 0 || this.okDataForm.phoneNumber === 1)
+      );
     },
-    sendForm(){
-      let form=document.querySelector('form');
+    sendForm() {
+      let form = document.querySelector("form");
       form.submit();
-    }
+    },
   },
-}
+};
 </script>
 
 <style scoped>

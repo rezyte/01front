@@ -18,14 +18,14 @@
           <tab-content title="دسته بندی و نام">
             <!-- <select-category
               :product="JSON.parse(product)"
-              :cats="JSON.parse(product).category"
+              :cats="JSON.parse(cats)"
             ></select-category> -->
             <div id="name" class="productSection">
               <div id="nameWrapper">
                 <label for="">نام محصول:</label>
                 <input
                   type="text"
-                  :value="JSON.parse(product).title"
+                  :value="JSON.parse(product).name"
                   placeholder="نام"
                   name="name"
                 />
@@ -36,7 +36,7 @@
             <product-img :product="JSON.parse(product)"></product-img>
 
             <slicer></slicer>
-
+            
             <product-descs :product="JSON.parse(product)"></product-descs>
             <slicer></slicer>
             <aditional-information
