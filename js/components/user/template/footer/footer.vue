@@ -46,6 +46,9 @@ export default {
     profileOptions,
     MegaMenu
   },
+  created(){
+    this.$store.dispatch('get_mainCategory')
+  },
   computed: {
     ...mapGetters(["isOptionsOpen"]),
   },

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import EventService from './services/EventService.js';
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
@@ -84,6 +85,10 @@ export const store = new Vuex.Store({
 		RECORD_REPLAY_COMMENT(state,payload){
 			state.subComments.push(payload);
 		},
+		SET_MAINCATEGORY(state,payload){
+			// console.log(payload)
+			Vue.set(state,'mainCategories',payload)
+		}
 	},
 	actions: {
 		toggleSubMenu: ({ commit }) => {
@@ -121,6 +126,17 @@ export const store = new Vuex.Store({
 			let mount=payload.split(":")[1];
 			console.log(mount);
 			commit('RECORD_REPLAY_COMMENT',mount);
+		},
+		get_mainCategory({commit}){
+			EventService.get_mainCategory()
+			.then(response =>{
+				// console.log(response.data.main_categories)
+				let data=JSON.parse(response.data.main_categories)
+				commit("SET_MAINCATEGORY",data);
+			})
+			.catch(error =>{
+				console.log(error)
+			})
 		},
 
 	}

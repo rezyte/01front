@@ -7,7 +7,7 @@
     </div>
     <div class="content">
       <Category
-        v-for="category in categories"
+        v-for="category in mainCategories"
         :key="category.id"
         :category="category"
       />
@@ -17,7 +17,7 @@
 
 <script>
 import Category from "./Category.vue";
-import axios from "axios";
+import {mapState} from 'vuex';
 export default {
   name: "MegaMenu",
   data() {
@@ -28,11 +28,11 @@ export default {
   components: {
     Category,
   },
+  mounted(){
+    
+  },
   computed:{
-      categories(){
-        console.log('gg',this.$store.getters.getCatsWithSubs)
-        return this.$store.getters.getCatsWithSubs
-      }
+      ...mapState(['mainCategories'])
   },
   created() {
     // axios
