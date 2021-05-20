@@ -107,7 +107,7 @@
                 <input
                   :disabled="this.btnStatus"
                   :class="[
-                    btnStatus ? 'disabled' : null,
+                    btnStatus ? 'disabled' : 'btn-active',
                     'form-control w-50 m-auto btn-re text-dark',
                   ]"
                   type="submit"
@@ -337,5 +337,12 @@ legend{
 }
 .btn-re{
   background-color: rgb(9,111,211);
+}
+.btn-active{
+  transition:all 0.2s;
+}
+.btn-active:hover{
+  box-shadow: 0 2px 12px 0 rgb(9,111,211);
+  cursor: pointer;
 }
 </style>
