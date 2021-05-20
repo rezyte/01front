@@ -12,7 +12,7 @@
       <div id="form">
         <form method="post" action="">
           <fieldset>
-            <legend align="right">ثبت نام</legend>
+            <legend align="right" class="font-weight-bold">ثبت نام</legend>
             <div class="p-2">
               <div class="form-group">
                 <label>نام کاربری</label>
@@ -29,7 +29,7 @@
                     messages_response.exist_user.username ?['is-invalid', validated.username=false] : null,
                     notValidated.username ? 'is-invalid' : null,
                     validated.username ? 'is-valid' : null,
-                    'form-control',
+                    'form-control mt-2',
                   ]"
                 />
                 <small
@@ -52,7 +52,7 @@
                     messages_response.exist_user.phoneNumber ? ['is-invalid', validated.phoneNumber=false] : null,
                     notValidated.phoneNumber ? 'is-invalid' : null,
                     validated.phoneNumber ? 'is-valid' : null,
-                    'form-control',
+                    'form-control mt-2',
                   ]"
                 />
                 <small
@@ -75,7 +75,7 @@
                   :class="[
                     notValidated.password ? 'is-invalid' : null,
                     validated.password ? 'is-valid' : null,
-                    'crept form-control',
+                    'crept form-control mt-1',
                   ]"
                 />
                 <eye class="eye" @decrypt="decrypt($event)"></eye>
@@ -94,7 +94,7 @@
                   :class="[
                     notValidated.password2 ? 'is-invalid' : null,
                     validated.password2 ? 'is-valid' : null,
-                    'crept2 form-control',
+                    'crept2 form-control mt-2',
                   ]"
                 />
                 <eye
@@ -108,7 +108,7 @@
                   :disabled="this.btnStatus"
                   :class="[
                     btnStatus ? 'disabled' : null,
-                    'form-control w-50 m-auto btn-re',
+                    'form-control w-50 m-auto btn-re text-dark',
                   ]"
                   type="submit"
                   value="ثبت"
@@ -282,6 +282,7 @@ export default {
   width: 100%;
   direction: rtl;
   text-align: right;
+  margin-top: 20px;
 }
 .register {
   width: 430px;
@@ -305,6 +306,9 @@ export default {
 }
 #form form {
   padding: 10px;
+}
+legend{
+  font-size: 17px;
 }
 .form-control {
   /* height: 40px !important; */

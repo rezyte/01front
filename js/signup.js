@@ -6,6 +6,7 @@ import notSignUp from "./components/signup/notSignUp.vue";
 import choose from "./components/signup/choose.vue";
 import Register from "./components/signup/Register.vue";
 import {store} from "./store";
+import 'bootstrap/dist/css/bootstrap.min.css';
 vue.mixin({
     data: function() {
         return {
