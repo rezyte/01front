@@ -254,10 +254,13 @@ li:last-child {
 }
 
 .new a {
+  width:100%;
+  height: 100%;
+  /* margin:auto 0; */
   color: black;
   font-size: 17px;
   font-weight: bold;
-  padding-top: 3px;
+  padding-top: 12px;
 }
 
 .new:hover {
