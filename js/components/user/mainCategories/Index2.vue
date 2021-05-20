@@ -200,10 +200,7 @@ export default {
     }
   },
   created() {
-    console.log("cats", JSON.parse(this.categories2));
     console.log("products",JSON.parse(this.products));
-    console.log("blogs", JSON.parse(this.blogs));
-    console.log("blogs", JSON.parse(this.blogs)[0]);
   },
   methods: {
     onChangePage(pageOfItems) {

@@ -69,7 +69,8 @@ export default {
 <style scoped>
 #comments {
   width: 100%;
-  /* background-color: gainsboro; */
+  /* background-color: #F0E68C ; */
+  /* background-color: #f0e68c65 ; */
   color: rgba(0, 0, 0, 0.808);
   padding: 10px;
   margin-right: 3%;
@@ -78,7 +79,7 @@ export default {
   display: flex;
   flex-direction: column;
   text-align: right;
-  background-color: white;
+  background-color: white ;
 }
 
 #info {

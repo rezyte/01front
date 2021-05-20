@@ -16,7 +16,7 @@
                     <h1 class="name" v-text="item.title">
                       <!--                      jdicbvmdjsikrjfhdmsjciqogldmsjcz.5pdloseuiloi526894253698710-->
                     </h1>
-                    <p class="info mt-1" v-text="item.short_description">
+                    <p class="info mt-1" v-text="item.raw_desc">
                       <!--                      jifhguriopamvk111forqwjfiormbkshhhhhhhhhhhhhhhhhh75698hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcskdclfvpdjflroewhnfkvpahskehdn,lashvkociejrfvhsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq-->
                     </p>
                   </div>
