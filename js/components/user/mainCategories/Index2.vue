@@ -12,6 +12,7 @@
                 <category
                   v-for="category in categories"
                   :name="category.title"
+                  :slug="category.slug"
                   v-bind:key="category.index"
                 />
               </div>
@@ -39,7 +40,7 @@
               <div class="products">
                 <div v-for="item in pageOfItems" :key="item.id">
                   <div class="item">
-                    <a :href="'/product/' + item.slug" class="link-item">
+                    <a :href="'/product/'+ item.slug" class="link-item">
                       <div class="item-origin">
                         <div class="pic">
                                                                 <!-- <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است"> -->

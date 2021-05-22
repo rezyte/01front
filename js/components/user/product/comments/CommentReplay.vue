@@ -4,9 +4,19 @@
     <div class="info">
       <div id="info">
         <div class="profile">
-          <img src="/static/public/images/profile_fake.jpg" alt="تصویر ناقص است">
+          <img
+            src="/static/public/images/profile_fake.jpg"
+            alt="تصویر ناقص است"
+          />
         </div>
-        <div class="name" v-text="subComment.username"></div>
+        <div id="username_date">
+          <div class="name">
+            <p v-text="subComment.username"></p>
+          </div>
+          <div class="date">
+            <p v-text="subComment.timestamp"></p>
+          </div>
+        </div>
       </div>
     </div>
     <div id="body" class="p-1 pr-5">
@@ -32,9 +42,9 @@ export default {
       comment_box.value = "@" + id_comment + ": ";
     },
   },
-  created(){
-    console.log('subbbs',this.subComment)
-  }
+  created() {
+    console.log("subbbs", this.subComment);
+  },
 };
 </script>
 
@@ -79,24 +89,33 @@ export default {
   /*background-color: black;*/
   border-radius: 50%;
   text-align: center;
-
 }
-.profile img{
+.profile img {
   width: 100%;
   height: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 50%;
-  box-shadow: 0 4px 12px 0 #C6D5D0;
+  box-shadow: 0 4px 12px 0 #c6d5d0;
   /*border: 1px solid #DBEAE5;*/
 }
+.date {
+  width: 100%;
+}
+#username_date{
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.name p,.date p{
+  padding: 5px 10px;
+}
 .name {
-  width: 100px;
-  height: 50px;
+  width: 100%;
+  height: 40px;
   text-align: right;
   padding: 2px;
-  /* background-color: green; */
   margin-right: 1%;
 }
 .rep {
@@ -115,7 +134,7 @@ export default {
   width: 94%;
   margin: auto;
 }
-.buyer{
-   background-color: rgb(240, 230, 140,0.27)!important;
+.buyer {
+  background-color: rgb(240, 230, 140, 0.27) !important;
 }
 </style>

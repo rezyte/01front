@@ -1,5 +1,5 @@
 <template>
-  <a id="category" href="">
+  <a id="category" :href="'/product-category/'+slug">
     <div class="category">
       <div class="pic">
         <img :src="picture" alt="تصویر ناقص است">
@@ -16,7 +16,7 @@
 <script>
 export default {
   name: "Category",
-  props:['name','picture'],
+  props:['name','picture','slug'],
   created() {
     // this.$emit('subCategories',)
   },
