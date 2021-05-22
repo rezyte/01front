@@ -19,7 +19,7 @@
                     ><h2 class="rape">{{ p.title }}</h2></a
                   >
                 </div>
-                <div dir="rtl" class="price text-right">
+                <div dir="rtl" class="price text-right mt-2">
                   <p class="mt-2 mr-1 rape" v-if="p.price || p.second_price">
                     <span class="font-weight-bold">قیمت:</span>
                     <span v-if="p.price && p.second_price">
@@ -36,11 +36,9 @@
                   <share title="اشتراک گذاری" :slug="p.slug"></share>
                 </div>
                 <div>
-                  <a :href="'/products/product-detial/' + p.slug"
-                    >
+                  <a :href="'/products/product-detial/' + p.slug">
                     <button class="show_product">مشاهده محصول</button>
-                    </a
-                  >
+                  </a>
                 </div>
               </div>
             </div>
@@ -66,6 +64,7 @@ export default {
   },
   mounted() {
     let swiper = new Swiper(".swiper-container-item", {
+      slidesPerView: "auto",
       slidesPerView: 3,
       loopAdditionalSlides: 100,
       loop: false,
@@ -97,17 +96,17 @@ export default {
         // when window width is >= 640px
         680: {
           slidesPerView: 2,
-          spaceBetween: 10,
+          spaceBetween: 0,
           slidesPerGroup: 2,
         },
         1000: {
           slidesPerView: 3,
-          spaceBetween: 10,
+          spaceBetween: 0,
           slidesPerGroup: 3,
         },
         1200: {
           slidesPerView: 4,
-          spaceBetween: 10,
+          spaceBetween: 0,
           slidesPerGroup: 4,
         },
       },
@@ -166,7 +165,8 @@ export default {
   position: relative;
   overflow: hidden;
 }
-.swiper-wrapper{
+.swiper-wrapper {
+  /* background-color: darkcyan; */
   margin: auto;
   padding-bottom: 15px;
   padding-top: 15px;
@@ -175,10 +175,15 @@ export default {
   /* background-color: seagreen; */
 }
 .swiper-slide {
+  /* background-color: darkorchid; */
   text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  /* padding-right: 28px;
+  padding-left: 28px; */
+  padding-right: 2.1%;
+  padding-left: 2.1%;
   /* margin: 5px 10px 0 0; */
 }
 .item {
@@ -189,13 +194,14 @@ export default {
   align-items: center;
   margin-top: 10px;
   padding-top: 16px;
+  padding-bottom: 10px;
   /* background-color: red; */
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
 
   /* justify-content: space-around; */
 }
 .swiper-slide img {
-  width: 230px;
+  width: 200px;
   height: 200px;
   transition: all 0.8s;
 }
@@ -204,7 +210,13 @@ export default {
 }
 .swiper-button-next,
 .swiper-button-prev {
-  top: calc(40% - -25px);
+  top: calc(46% - -25px);
+}
+.swiper-button-next{
+  right: 3px!important;
+}
+.swiper-button-prev{
+  left: 3px!important;
 }
 .link {
   text-decoration: none;
@@ -214,34 +226,34 @@ export default {
   font-size: 17px;
   font-weight: bold;
 }
-.description{
-  width:100%;
+.description {
+  width: 100%;
   padding: 5px;
   margin-top: 8px;
 }
-.show_product{
+.show_product {
   width: auto;
   height: 45px;
   background-color: #4c93df;
   border-radius: 4px;
-  color:black;
+  color: black;
   font-size: 16px;
   font-weight: 400;
-  border:none;
-  transition:all 0.3s;
-  padding:5px;
+  border: none;
+  transition: all 0.3s;
+  padding: 5px;
 }
-.show_product:hover{
+.show_product:hover {
   background-color: var(--blue);
-  color:rgba(255, 255, 255, 0.932);
+  color: rgba(255, 255, 255, 0.932);
 }
-.rape{
+.rape {
   display: block;
   width: 220px;
-  height:45px;
+  height: 45px;
   overflow: hidden;
-  white-space: nowrap;
-  /*overflow-wrap: break-word;*/
+  /* white-space: pre-wrap; */
+  /* overflow-wrap: break-word; */
   text-overflow: ellipsis;
 }
 /* .arrow{
