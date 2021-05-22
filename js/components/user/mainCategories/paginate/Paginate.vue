@@ -158,8 +158,8 @@ export default {
       this.pager = pager;
       // emit change page event to parent component
       this.$emit("changePage", pageOfItems);
-      // let blog = document.getElementById("blog");
-      // window.scrollTo(0, blog.offsetTop);
+      let mount_s=document.getElementById("products").offsetTop;
+      window.scrollTo(0,mount_s);
     },
   },
   watch: {

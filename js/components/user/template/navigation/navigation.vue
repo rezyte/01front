@@ -60,12 +60,16 @@
               </div>
             </div>
           </li>
+            <li class="neww">
+            <a @click.prevent="scroll_to_mega()">مشاهده محصولات</a>
+          </li>
           <li class="new" v-if="!user.is_logined">
             <a href="/users/register/">ثبت نام</a>
           </li>
           <li class="new pb-1" v-if="!user.is_logined">
             <a href="/users/entry/">ورود</a>
           </li>
+        
           <li class="new"><a href="/about_us/">درباره ما</a></li>
           <li class="new"><a href="/blog/posts/">وبلاگ</a></li>
           <li class="new"><a href="/">خانه</a></li>
@@ -166,6 +170,9 @@ export default {
         sikh1.style.webkitTransform = "rotate(0)";
       }
     },
+    scroll_to_mega(){
+      window.scrollTo(0,document.getElementById("footerWrapper").offsetTop)
+    }
   },
 };
 </script>
@@ -252,8 +259,14 @@ li:last-child {
   transition: background-color 0.2s;
   /*background-color: #A2AFD0;*/
 }
+.neww{
+   text-align: center;
+  width: 150px;
+  height: 50px;
+  transition: background-color 0.2s;
+}
 
-.new a {
+.new a,.neww a {
   width:100%;
   height: 100%;
   /* margin:auto 0; */
@@ -263,12 +276,12 @@ li:last-child {
   padding-top: 12px;
 }
 
-.new:hover {
+.new:hover,.neww:hover {
   background-color: rgb(9, 111, 211);
   cursor: pointer;
 }
 
-.new:hover a {
+.new:hover a,.neww:hover a {
   color: white;
   text-decoration: none;
 }

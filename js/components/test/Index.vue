@@ -103,10 +103,16 @@
         </div>
         <div class="notes">
           <div class="note">
-            <p>یاها شقملاقهیارذنذ /ثمقلاهخکسذیرئقذلهقلاسهشلذشقنلا ش/مثلاکشصخلذسمیترذ</p>
+            <p>
+              یاها شقملاقهیارذنذ /ثمقلاهخکسذیرئقذلهقلاسهشلذشقنلا
+              ش/مثلاکشصخلذسمیترذ
+            </p>
           </div>
           <div class="note">
-            <p>ناقل فاتثدصثنبیرندفکات ثقمتاخقد ثقلاهم لثکتبا ثفلمهاصدرقثنلاثقهلا ماثخهباصئدمسایر  فتاد54</p>
+            <p>
+              ناقل فاتثدصثنبیرندفکات ثقمتاخقد ثقلاهم لثکتبا ثفلمهاصدرقثنلاثقهلا
+              ماثخهباصئدمسایر فتاد54
+            </p>
           </div>
           <div class="note">
             <p>ای با بنسح لدححص فمئذثحدفا کنحقتثلخقث نذهخ ثنتاذ م</p>
@@ -157,6 +163,7 @@ export default {
 .order {
   direction: rtl;
   text-align: right;
+  font-family: iranSans !important;
 }
 #title {
   width: max-content;
@@ -214,7 +221,7 @@ export default {
   padding: 6px 20px;
   margin-right: 2%;
 }
-.notes{
+.notes {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -225,15 +232,14 @@ export default {
   margin-top: 10px;
   padding: 10px;
 }
-.note{
+.note {
   width: auto;
   margin: 10px 16px 10px 0;
   background-color: #fff;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
   padding: 10px 10px 0 10px;
 }
-.note p{
+.note p {
   font-size: 17px;
-
 }
 </style>
