@@ -170,6 +170,7 @@ export default {
   margin: auto;
   padding-bottom: 15px;
   padding-top: 15px;
+  box-sizing: border-box;
   /* padding-right: 45px; */
   /* padding-left: 23px; */
   /* background-color: seagreen; */
@@ -184,6 +185,7 @@ export default {
   padding-left: 28px; */
   padding-right: 2.1%;
   padding-left: 2.1%;
+  box-sizing: border-box;
   /* margin: 5px 10px 0 0; */
 }
 .item {
@@ -197,6 +199,7 @@ export default {
   padding-bottom: 10px;
   /* background-color: red; */
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
+  border-radius: 2px;
 
   /* justify-content: space-around; */
 }
@@ -255,6 +258,19 @@ export default {
   /* white-space: pre-wrap; */
   /* overflow-wrap: break-word; */
   text-overflow: ellipsis;
+}
+@media screen and ( max-width:478px){
+  .swiper-button-next{
+  right: 0!important;
+}
+.swiper-button-prev{
+  left: 0!important;
+}
+.item{
+  width: 79%;
+  margin: auto!important;
+  
+}
 }
 /* .arrow{
   color: red!important;
