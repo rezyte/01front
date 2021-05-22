@@ -1,6 +1,6 @@
 <template>
   <!-- <transition name="fade" enter-to-class="animate__animated animate__bounceIn"> -->
-  <div id="comments">
+  <div id="comments" :class="subComment.is_buyers ? 'buyer' : null">
     <div class="info">
       <div id="info">
         <div class="profile">
@@ -32,6 +32,9 @@ export default {
       comment_box.value = "@" + id_comment + ": ";
     },
   },
+  created(){
+    console.log('subbbs',this.subComment)
+  }
 };
 </script>
 
@@ -111,5 +114,8 @@ export default {
 .subComments {
   width: 94%;
   margin: auto;
+}
+.buyer{
+   background-color: rgb(240, 230, 140,0.27)!important;
 }
 </style>

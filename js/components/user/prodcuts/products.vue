@@ -134,8 +134,6 @@ export default {
   mounted() {
     // console.log()
     // console.log("productsmmmm", JSON.parse(this.search_products));
-    console.log("products", JSON.parse(this.products));
-    console.log("comments", this.comments);
     const allImages = document.querySelectorAll(".normal");
     allImages.forEach((img) => {
       img.style.width = "100%";

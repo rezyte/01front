@@ -1,6 +1,6 @@
 <template>
   <!-- <transition name="fade" enter-to-class="animate__animated animate__bounceIn"> -->
-  <div id="comments">
+  <div id="comments" :class="comment.is_buyers ? 'buyer' : null">
     <div id="info">
       <div class="profile">
         <img src="/static/public/images/profile_fake.jpg" alt="تصویر ناقص است">
@@ -45,7 +45,7 @@ export default {
     // }
   },
   created() {
-    // console.log(this.comment)
+    // console.log(this.comment.is_buyers)
   },
   methods: {
     replay(id) {
@@ -149,5 +149,10 @@ export default {
 .subComments {
   width: 94%;
   margin: auto;
+}
+.buyer{
+  background-color: rgb(240, 230, 140,0.27)!important;
+  /* background-colorgba(3, 3, 3, 0.549)c8c!important; */
+
 }
 </style>
