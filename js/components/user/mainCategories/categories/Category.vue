@@ -19,6 +19,7 @@ export default {
   props:['name','picture','slug'],
   created() {
     // this.$emit('subCategories',)
+    console.log(this.picture)
   },
   methods:{
 

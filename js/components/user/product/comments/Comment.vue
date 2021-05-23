@@ -11,6 +11,7 @@
       <div id="username_date">
         <div class="name">
           <p v-text="comment.username"></p>
+          <p v-if="comment.is_buyers">(خریدار)</p>
         </div>
         <div class="date">
           <p v-text="comment.timestamp"></p>
@@ -135,6 +136,10 @@ export default {
   width: 100%;
   height: 40px;
   text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+  align-items: center;
   /* padding: 2px; */
   /* margin-right: 1%; */
 }

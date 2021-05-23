@@ -9,7 +9,8 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 import App from "./components/App.vue";
-import Index from './components/test/Index.vue'
+// import Index from './components/test/Index.vue'
+import Index from './components/test/LandingLent.vue'
 new Vue({
     el: '#app',
     store,

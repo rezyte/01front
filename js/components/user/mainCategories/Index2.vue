@@ -12,6 +12,7 @@
                 <category
                   v-for="category in categories"
                   :name="category.title"
+                  :picture="category.image"
                   :slug="category.slug"
                   v-bind:key="category.index"
                 />
@@ -202,6 +203,7 @@ export default {
   },
   created() {
     console.log("products",JSON.parse(this.products));
+    console.log("categories2",JSON.parse(this.categories2));
   },
   methods: {
     onChangePage(pageOfItems) {

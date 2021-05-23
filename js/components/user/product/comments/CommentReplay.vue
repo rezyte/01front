@@ -12,9 +12,10 @@
         <div id="username_date">
           <div class="name">
             <p v-text="subComment.username"></p>
+            <p v-if="subComment.is_buyers">(خریدار)</p>
           </div>
           <div class="date">
-            <p v-text="subComment.timestamp"></p>
+            <p v-text="comment.timestamp"></p>
           </div>
         </div>
       </div>
@@ -103,12 +104,13 @@ export default {
 .date {
   width: 100%;
 }
-#username_date{
+#username_date {
   width: 200px;
   display: flex;
   flex-direction: column;
 }
-.name p,.date p{
+.name p,
+.date p {
   padding: 5px 10px;
 }
 .name {
@@ -117,6 +119,10 @@ export default {
   text-align: right;
   padding: 2px;
   margin-right: 1%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+  align-items: center;
 }
 .rep {
   width: auto;
