@@ -26,15 +26,23 @@
         <a href="/"><span>/</span>خانه</a>
       </li>
     </ul>
+    <ul v-if="type==='main_category'">
+      <li>
+        <a href="" v-text="JSON.parse(maincategory).title">مین کتگوری</a>
+      </li>
+      <li>
+         <a href="/"><span>/</span>خانه</a>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
   name: "breadCrumb",
-  props: ['product', 'type', 'products'],
+  props: ['product', 'type', 'products','maincategory'],
   created() {
-    console.log(JSON.parse(this.products), 'this.products')
+    console.log(this.mainCategory, 'mainCategory')
   },
   mounted() {
     const bread = this.$refs.bread

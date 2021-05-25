@@ -60,9 +60,6 @@
               </div>
             </div>
           </li>
-            <li class="neww">
-            <a @click.prevent="scroll_to_mega()">مشاهده محصولات</a>
-          </li>
           <li class="new" v-if="!user.is_logined">
             <a href="/users/register/">ثبت نام</a>
           </li>
@@ -72,6 +69,9 @@
         
           <li class="new"><a href="/about_us/">درباره ما</a></li>
           <li class="new"><a href="/blog/posts/">وبلاگ</a></li>
+            <li class="new">
+            <a @click.prevent="scroll_to_mega()">محصولات</a>
+          </li>
           <li class="new"><a href="/">خانه</a></li>
           <!-- <li class="myMenu" @click="toggleSubMenu()">
             <p>دسته بندی محصولات</p>

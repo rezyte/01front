@@ -202,8 +202,8 @@ export default {
     }
   },
   created() {
-    console.log("products",JSON.parse(this.products));
-    console.log("categories2",JSON.parse(this.categories2));
+    // console.log("products",JSON.parse(this.products));
+    // console.log("categories2",JSON.parse(this.categories2));
   },
   methods: {
     onChangePage(pageOfItems) {
@@ -279,9 +279,8 @@ export default {
   width: max-content;
   height: 40px;
   padding-top: 10px;
-  margin: 15px 13px 0 0;
+  margin: 15px 25px 0 0;
   /* text-align: right; */
-  /* background-color: #fff; */
   /* float: right; */
 }
 .title h1 {

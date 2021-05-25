@@ -5,6 +5,7 @@
 {% include "views/template/mainwrapper.html" %}
 
 <user>
+    <bread-crumb type="main_category" maincategory="{{ main_cat }}" products="{{ products }}"></bread-crumb>
     <sub-categories categories2="{{ main_cat }}" products="{{ products }}" blogs="{{blogs}}"></sub-categories>
 </user>
 
