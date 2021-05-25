@@ -92,7 +92,7 @@
                 </div>
                 <input
                   type="hidden"
-                  name="cost_full"
+                  name="fullCost"
                   :value="whole_cost"
                 />
               </form>

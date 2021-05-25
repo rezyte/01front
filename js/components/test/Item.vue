@@ -167,12 +167,4 @@ export default {
 .close {
   float: left !important;
 }
-label {
-  font-size: 15px;
-  font-weight: 600;
-}
-.modal-title {
-  font-size: 19px;
-  font-weight: bold;
-}
 </style>
