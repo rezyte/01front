@@ -17,135 +17,131 @@
     </div>
     <div class="row bg-white">
       <div id="body">
-        <div class="item">
-          <div class="content_item">
-            <div class="digit" id="title_item">
-              <h3>لنت ترمز جلو پراید</h3>
-            </div>
-            <div class="digit" id="picture">
-              <img src="/static/public/images/lent/لنت-ترمز-عقب-پراید-گلد.jpg" alt="" />
-            </div>
-            <div class="digit" id="rete">
-              <div class="rate">rate</div>
-            </div>
-            <div class="digit" id="cost_wholesale">
-              <div class="text">
-                <p>قیمت عمده فروشی:</p>
-              </div>
-              <div class="cost">
-                <div class="counter">
-                  <counter />
-                </div>
-                <div class="price">
-                  <p>45000 تومان</p>
-                </div>
-              </div>
-            </div>
-            <div class="digit" id="cost_retail">
-              <div class="text">
-                <p>قیمت خرده فروشی:</p>
-              </div>
-              <div class="cost">
-                <div class="counter">
-                  <counter />
-                </div>
-                <div class="price">
-                  <p>8000 تومان</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div
+          class="item"
+          v-for="product in JSON.parse(products)"
+          v-bind:key="product.id"
+        >
+          <item
+            :title="product.title"
+            :image="product.image"
+            :whole_price="product.whole_price"
+            :retail_price="product.retail_price"
+            @whole_cost="set_wholeCost"
+          ></item>
         </div>
-        <div class="item">
-          <div class="content_item">
-            <div class="digit" id="title_item">
-              <h3>لنت ترمز جلو پراید</h3>
-            </div>
-            <div class="digit" id="picture">
-              <img src="/static/public/images/lent/12389630_511-600x338.jpg" alt="" />
-            </div>
-            <div class="digit" id="rete">
-              <div class="rate">rate</div>
-            </div>
-            <div class="digit" id="cost_wholesale">
-              <div class="text">
-                <p>قیمت عمده فروشی:</p>
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="modal fade"
+        id="exampleModalCenter"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div>
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  ثبت اطلاعات
+                </h5>
               </div>
-              <div class="cost">
-                <div class="counter">
-                  <counter />
-                </div>
-                <div class="price">
-                  <p>45000 تومان</p>
-                </div>
-              </div>
-            </div>
-            <div class="digit" id="cost_retail">
-              <div class="text">
-                <p>قیمت خرده فروشی:</p>
-              </div>
-              <div class="cost">
-                <div class="counter">
-                  <counter />
-                </div>
-                <div class="price">
-                  <p>8000 تومان</p>
-                </div>
+              <div>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="content_item">
-            <div class="digit" id="title_item">
-              <h3>لنت ترمز جلو پراید</h3>
-            </div>
-            <div class="digit" id="picture">
-              <img src="/static/public/images/lent/لنت-ترمز-عقب-پراید-گلد.jpg" alt="" />
-            </div>
-            <div class="digit" id="rete">
-              <div class="rate">rate</div>
-            </div>
-            <div class="digit" id="cost_wholesale">
-              <div class="text">
-                <p>قیمت عمده فروشی:</p>
-              </div>
-              <div class="cost">
-                <div class="counter">
-                  <counter />
+            <div class="modal-body">
+              <form name="form" action="" method="post">
+                <div class="form-group">
+                  <label for="fullName">نام و نام خانوادگی: </label>
+                  <input
+                    id="fullName"
+                    type="text"
+                    name="fullName"
+                    class="form-control"
+                  />
                 </div>
-                <div class="price">
-                  <p>45000 تومان</p>
+                <div class="form-group">
+                  <label for="phoneNumber">شماره تلفن: </label>
+                  <input
+                    id="phoneNumber"
+                    type="text"
+                    name="phoneNumber"
+                    class="form-control"
+                  />
                 </div>
-              </div>
+                <div class="form-group">
+                  <label for="cost2">قیمت کل:</label>
+                  <input
+                    id="cost2"
+                    type="text"
+                    class="form-control w-25 m-auto"
+                    readonly
+                    :value="whole_cost + ' تومان'"
+                  />
+                </div>
+                <input
+                  type="hidden"
+                  name="cost_full"
+                  :value="whole_cost"
+                />
+              </form>
             </div>
-            <div class="digit" id="cost_retail">
-              <div class="text">
-                <p>قیمت خرده فروشی:</p>
-              </div>
-              <div class="cost">
-                <div class="counter">
-                  <counter />
-                </div>
-                <div class="price">
-                  <p>8000 تومان</p>
-                </div>
-              </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                انصراف
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="register_form()"
+              >
+                ثبت
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- <div class="row bg-warning">3</div> -->
   </div>
 </template>
 
 <script>
-import Counter from "./Counter.vue";
+import Item from "./Item.vue";
 export default {
   name: "LandingLent",
+  props: ["products"],
+  data() {
+    return {
+      whole_cost: "",
+    };
+  },
   components: {
-    Counter,
+    // Counter,
+    Item,
+  },
+  methods: {
+    set_wholeCost(value) {
+      this.whole_cost=value;
+    },
+     register_form() {
+      // console.log(document.forms["form"]);
+      document.forms["form"].submit();
+    },
   },
 };
 </script>
@@ -153,6 +149,7 @@ export default {
 <style scoped>
 #landing_lent {
   width: 100%;
+  padding-top: 25px;
 }
 .heading,
 .title,
@@ -192,77 +189,19 @@ h2 {
   align-content: center;
 }
 .item {
-  width: 300px;
+  width: 310px;
   margin: 15px 10px;
   background-color: #ffffff;
   border-radius: 2px;
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
   padding: 10px 0 15px 0;
 }
-.content_item {
-  width: 100%;
+label {
+  font-size: 15px;
+  font-weight: 600;
 }
-.digit {
-  width: 100%;
-}
-#title_item {
-  text-align: center;
-  padding: 5px 0;
-  box-sizing: border-box;
-  /* padding: 10px 10px 5px 10px; */
-}
-#title_item h3 {
-  font-size: 17px;
+.modal-title {
+  font-size: 19px;
   font-weight: bold;
-}
-#picture {
-  text-align: center;
-  /* padding: 5px 0; */
-  height: 200px;
-}
-#picture img {
-  width: 90%;
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.rate {
-  width: 85%;
-  margin: auto;
-  text-align: center;
-  padding: 10px;
-}
-.text {
-  height: 25px;
-}
-.text p {
-  font-size: 16px;
-  font-weight: bold;
-  padding-right: 20px;
-}
-.cost {
-  width: 100%;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  margin-bottom: 10px;
-}
-.counter {
-  width: 45%;
-  height: 100%;
-  padding-top: 2%;
-}
-.price {
-  width: 53%;
-  height: 100%;
-  padding-top: 2%;
- 
-}
-.price p{
- font-size: 15px;
- font-weight: bold;
- padding-top: 6px;
 }
 </style>
