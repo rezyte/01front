@@ -48,6 +48,7 @@
     "jspdf-html2canvas": "^1.3.2",
     "jw-paginate": "^1.0.4",
     "jw-vue-pagination": "1.0.3",
+    "k-progress": "^1.5.0",
     "leaflet": "^1.6.0",
     "leaflet-geosearch": "^3.0.6",
     "localtunnel": "^2.0.0",

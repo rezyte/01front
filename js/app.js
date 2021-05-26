@@ -8,13 +8,15 @@ import Register from "./components/landingRegisterSupplierPage/Register.vue";
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import CKEditor from 'ckeditor4-vue';
+import KProgress from 'k-progress';
+Vue.component('k-progress', KProgress);
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use( CKEditor );
 import App from "./components/App.vue";
-// import Index from './components/test/Index.vue'
-import LandingLent from './components/test/LandingLent.vue'
+import LandingLent from './components/LandingLent/LandingLent.vue'
+import Index from './components/test/Index2.vue'
 new Vue({
     el: '#app',
     store,
@@ -23,7 +25,7 @@ new Vue({
         LandingLent,
         Company,
         Product,
-        Register
-        // UserPanel
+        Register,
+        Index
     },
 })

@@ -386,8 +386,12 @@ export default {
 
   .cost2 {
     display: block;
+    margin: 10px auto;
+    text-align: center;
   }
-
+  .cost2 p {
+    text-align: center!important;
+  }
   .info {
     width: 100%;
     padding: 10px;

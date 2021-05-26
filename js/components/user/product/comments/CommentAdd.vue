@@ -16,7 +16,7 @@
                 name="username"
                 ref="username"
                 placeholder="نام خودرا وارد کنید"
-                class="form-control w-75"
+                class="form-control w-75 mt-1"
               />
             </div>
             <div class="form-goup mt-2">
@@ -26,7 +26,7 @@
                 name="email"
                 ref="email"
                 placeholder="ایمیل خودرا وارد کنید"
-                class="form-control w-75"
+                class="form-control w-75 mt-1"
               />
             </div>
             <div class="form-group mt-3">
@@ -44,8 +44,14 @@
                 @input="change"
               >
               </textarea>
+              <div class="for_buyer" v-if="is_staff"> 
+                <label for="for_buyer" class="checkbox-inline">
+                  <span>ثبت نظر به عنوان خریدار</span>
+                  <input type="checkbox" name="comment_buyer" id="for_buyer" />
+                </label>
+              </div>
             </div>
-            <input type="hidden" name="id" ref="tag" id="tag" />
+            <input class="ml-5" type="hidden" name="id" ref="tag" id="tag" />
             <!-- <editor
         class="text-right"
           maxlength="500"
@@ -84,6 +90,7 @@
 <script>
 // import Editor from '@tinymce/tinymce-vue'
 export default {
+  props: ["is_staff"],
   components: {
     //   'editor':Editor
   },
@@ -121,18 +128,13 @@ export default {
       }
     },
     sendComment() {
-      console.log(document.querySelector("#commentBox").value);
-      console.log(document.querySelector("#tag").value);
-      document.forms["form_comment"].submit();
-      // let content = this.$refs.comment.value;
-      // let reg = /^[@]+[a-zA-z0-9]{1,5}[:]+[a-zA-Z0-9ژظطزرذدئو شسیبلاتنمکگضصثقفغعهخحجچپ]{1,500}$/gi;
-      // if (content.match(reg) && content.indexOf("@") > -1) {
-      //   this.$store.dispatch("record_replay_comment", this.comment);
-      // } else {
-      //   this.$store.dispatch("record_comment", this.comment);
-      // }
-      // this.comment = "";
-      // this.btnStatus = true;
+      let ch = document.getElementById("for_buyer");
+      console.log(ch.checked);
+      if (!ch.checked) {
+        ch.value = "off";
+      } else {
+        ch.value = "on";
+      }
     },
   },
 };
@@ -155,5 +157,13 @@ div img {
 }
 ::placeholder {
   font-size: 15px;
+}
+.for_buyer {
+  margin-top: 8px;
+}
+#checkbox {
+  width: 16px !important;
+  height: 16px !important;
+  margin-top: 5px !important;
 }
 </style>

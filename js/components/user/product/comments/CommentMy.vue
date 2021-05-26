@@ -1,7 +1,7 @@
 <template>
   <div class="comment_my">
     <div class="add_comment">
-      <comment-add />
+      <comment-add :is_staff="false"/>
     </div>
     <div
       v-if="comments !== 'None'"

@@ -1,6 +1,6 @@
 <template>
   <div class="user">
-<!--    <comment-wrapper />-->
+    <!--    <comment-wrapper />-->
     <slot></slot>
 
     <foot></foot>
@@ -9,28 +9,26 @@
 </template>
 
 <script>
-
 import footer from "./template/footer/footer.vue";
 import buttomIcons from "./template/bottomIconsforPhones/bottomIconsForPhones.vue";
 export default {
   name: "user",
   components: {
     foot: footer,
-    buttomIcons
+    buttomIcons,
   },
 };
 </script>
 
 <style scoped>
-
-*{
-  font-family: iranSans!important;
+* {
+  font-family: iranSans !important;
 }
 .user {
   display: flex;
   flex-direction: column;
   align-items: center;
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
   width: 100%;
 }
 .is-invalid {
