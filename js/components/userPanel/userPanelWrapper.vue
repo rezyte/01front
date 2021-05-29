@@ -15,12 +15,14 @@
 import sideMenu from "./template/sideMenu/sideMenu.vue"
 import userPanelMesages from "./template/userPanelMesages.vue";
 import stickMenu from "./template/stickMenu/stickMenu.vue";
+// import Modal from './modal/accept.vue'
 export default {
 name: "userPanelWrapper",
     components:{
         sideMenu,
         stickMenu,
-      userPanelMesages
+      userPanelMesages,
+      // Modal
     },
   props:['allmessages','user'],
   mounted() {

@@ -337,6 +337,7 @@ legend{
 }
 .btn-re{
   background-color: rgb(9,111,211);
+  color: white!important;
 }
 .btn-active{
   transition:all 0.2s;

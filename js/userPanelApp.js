@@ -1,23 +1,23 @@
 import vue from 'vue'
-import userPanelHeader from "./components/userPanel/template/userPanelHeeader/userPanelHeader.vue";
-import sideMenu from "./components/userPanel/template/sideMenu/sideMenu.vue";
-import userPanelWrapper from "./components/userPanel/userPanelWrapper.vue";
-import installPrompt from "./components/user/template/installPrompt/installPrompt.vue";
-import Vuex from 'vuex'
-import stickMenu from "./components/userPanel/template/stickMenu/stickMenu.vue";
-import accept from "./components/userPanel/miniOrders/accept.vue";
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Vuex from 'vuex'
+
+import userPanelHeader from "./components/userPanel/template/userPanelHeeader/userPanelHeader.vue";
+import sideMenu from "./components/userPanel/template/sideMenu/sideMenu.vue";
+import userPanelWrapper from "./components/userPanel/userPanelWrapper.vue";
+import installPrompt from "./components/user/template/installPrompt/installPrompt.vue";
+import stickMenu from "./components/userPanel/template/stickMenu/stickMenu.vue";
+import MiniOrder from "./components/userpanel/miniorder/Index.vue"
 vue.use(BootstrapVue)
 vue.use(IconsPlugin)
 vue.component('stickMenu', stickMenu);
 vue.use(Vuex)
 import {store} from "./userPanelStore"
-
 import {toggleWrapper} from "./components/userPanel/mixIns/toggleCreateProductWrapper"
 vue.mixin(toggleWrapper)
 vue.mixin({
@@ -33,12 +33,13 @@ const eventBus=new vue()
 const app=new vue({
 	el:"#userPanel",
 	components:{
-		accept,
+		// accept,
 		stickMenu,
 		installPrompt,
 		userPanelHeader,
 		sideMenu,
 		userPanelWrapper,
+		MiniOrder,
 		'index':()=>import("./components/userPanel/index/index.vue"),
 		'createProduct':()=>import("./components/userPanel/createPRoduct/createProduct.vue"),
 		'editProduct':()=>import("./components/userPanel/editProducts/editProduct.vue"),
@@ -57,7 +58,6 @@ const app=new vue({
 		'customerOrganize':()=>import("./components/userPanel/customerOrganization/customerOrganization.vue"),
 		'factor':()=>import("./components/userPanel/factor/factor.vue"),
 		'mobileFactor':()=>import("./components/userPanel/factor/mobileFactor/mobileFactor.vue")
-
 
 	},
 	store

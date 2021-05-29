@@ -2,7 +2,7 @@
   <div id="header">
     <div id="headerWrapper" class="maxIs">
       <div class="logo">
-        <a href="/"><img src="/static/public/images/logo2.webp" alt="" /></a>
+        <a href="/"><img src="/static/public/images/logo2.webp" alt="دمیرکو" title="دمیرکو"/></a>
       </div>
       <div>
         <search-bar></search-bar>

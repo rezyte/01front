@@ -4,7 +4,8 @@
       <h3 v-text="title"></h3>
     </div>
     <div class="digit" id="picture">
-      <img :src="image" alt="" />
+      <!-- <img :src="image" alt="" /> -->
+      <img src="/static/public/images/lent/12389630_511-600x338.jpg" alt="" />
     </div>
     <!-- <div class="digit" id="rete">
               <div class="rate"></div>
