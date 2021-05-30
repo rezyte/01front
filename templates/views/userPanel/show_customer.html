@@ -2,8 +2,8 @@
 {%  include "views/userpanel/template/head.html" %}
 {%  include "views/userpanel/template/sideBar.html" %}
 
-<user-panel-wrapper allmessages="{{request.session.message}}">
-    <mini-order></mini-orders>
+<user-panel-wrapper>
+    <mini-order customer="{{ customer }}" order="{{ order }}"></mini-orders>
 </user-panel-wrapper>
 
 {%  include "views/userpanel/template/footer.html" %}

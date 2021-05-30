@@ -16,7 +16,7 @@ Vue.use(IconsPlugin)
 Vue.use( CKEditor );
 import App from "./components/App.vue";
 import LandingLent from './components/LandingLent/LandingLent.vue'
-import Index from './components/test/Index.vue'
+import Index from './components/test/Index2.vue'
 new Vue({
     el: '#app',
     store,

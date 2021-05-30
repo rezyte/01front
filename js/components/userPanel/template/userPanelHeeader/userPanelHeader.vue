@@ -22,7 +22,7 @@ export default {
 name: "userPanelHeader",
   methods:{
     ...mapActions([
-        // 'toggleSubMenu'
+        'toggleSubMenu'
     ]),
     toggleSubMenu(){
       const sideMenu=document.querySelector('#sideMenu')

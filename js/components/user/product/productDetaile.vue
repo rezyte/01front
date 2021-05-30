@@ -89,7 +89,7 @@
         </div>
       </div>
       <done-message></done-message>
-      <consulate :productId="productDet.slug"></consulate>
+      <consulate :productId="productDet.slug" :title="productDet.title"></consulate>
     </div>
   </div>
 </template>

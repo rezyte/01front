@@ -326,7 +326,6 @@ img {
   top: 1px;
   background: white;
   height: 100%;
-  margin-top: 70px;
   z-index: 555;
   width: 230px;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);

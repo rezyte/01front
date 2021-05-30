@@ -49,6 +49,9 @@ export default {
     // let product = JSON.parse(this.product);
     // this.comments = product.comments;
   },
+  created(){
+    // console.log('product',this.product)
+  },
   // metaInfo() {
   //   const product = JSON.parse(this.product);
   //   return {
