@@ -34,7 +34,7 @@ const app=new vue({
 	el:"#userPanel",
 	components:{
 		// accept,
-		// stickMenu,
+		stickMenu,
 		installPrompt,
 		userPanelHeader,
 		sideMenu,
