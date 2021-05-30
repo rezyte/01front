@@ -1,5 +1,6 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[52],{
 
+<<<<<<< HEAD
 /***/ "./js/components/userPanel/addCategory/plus.vue":
 /*!******************************************************!*\
   !*** ./js/components/userPanel/addCategory/plus.vue ***!
@@ -208,10 +209,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sea
 /*!********************************************************************************************!*\
   !*** ./js/components/userPanel/editCategoryVariations/search.vue?vue&type=script&lang=js& ***!
   \********************************************************************************************/
+=======
+/***/ "./js/components/userPanel/eventBus.js":
+/*!*********************************************!*\
+  !*** ./js/components/userPanel/eventBus.js ***!
+  \*********************************************/
+>>>>>>> improment
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_search_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib!../../../../node_modules/vue-loader/lib??vue-loader-options!./search.vue?vue&type=script&lang=js& */ \"./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./js/components/userPanel/editCategoryVariations/search.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_search_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./js/components/userPanel/editCategoryVariations/search.vue?");
 
 /***/ }),
@@ -467,6 +475,9 @@ eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// lo
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/vue-loader/lib??vue-loader-options!./search.vue?vue&type=style&index=0&id=78f303e8&scoped=true&lang=css& */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib/index.js?!./js/components/userPanel/editCategoryVariations/search.vue?vue&type=style&index=0&id=78f303e8&scoped=true&lang=css&\");\nif(content.__esModule) content = content.default;\nif(typeof content === 'string') content = [[module.i, content, '']];\nif(content.locals) module.exports = content.locals;\n// add the styles to the DOM\nvar add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ \"./node_modules/vue-style-loader/lib/addStylesClient.js\").default\nvar update = add(\"6edcd450\", content, false, {});\n// Hot Module Replacement\nif(false) {}\n\n//# sourceURL=webpack:///./js/components/userPanel/editCategoryVariations/search.vue?./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
+=======
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n\nconst eventBus = new vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n/* harmony default export */ __webpack_exports__[\"default\"] = (eventBus);\n\n//# sourceURL=webpack:///./js/components/userPanel/eventBus.js?");
+>>>>>>> improment
 
 /***/ })
 
