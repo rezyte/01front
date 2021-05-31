@@ -60,16 +60,19 @@
               </div>
             </div>
           </li>
+          <li class="neww">
+            <a @click="show_form()">تأمین کننده ما شوید</a>
+          </li>
           <li class="new" v-if="!user.is_logined">
             <a href="/users/register/">ثبت نام</a>
           </li>
           <li class="new pb-1" v-if="!user.is_logined">
             <a href="/users/entry/">ورود</a>
           </li>
-        
+
           <li class="new"><a href="/about_us/">درباره ما</a></li>
           <li class="new"><a href="/blog/posts/">وبلاگ</a></li>
-            <li class="new">
+          <li class="new">
             <a @click.prevent="scroll_to_mega()">محصولات</a>
           </li>
           <li class="new"><a href="/">خانه</a></li>
@@ -86,6 +89,46 @@
     </div>
     <!-- <transition name='toggleSubMenu' mode='out-in'> -->
     <side-menu v-if="isSubMenuOpen"></side-menu>
+    <div id="form_join_damirco" class="">
+      <div class="form_join_damirco">
+        <div class="close_form bg-primary" @click="hide_form()">
+          <i class="fa fa-times fa-2x icon_close" aria-hidden="true"
+          ></i>
+        </div>
+        <div id="form">
+          <form action="/supplier/q/" method="post">
+            <fieldset>
+              <legend>ثبت نام درصف</legend>
+              <div class="form-group mt-2">
+                <label for="name">نام:</label>
+                <input type="text" class="form-control mt-1" placeholder="نام را وارد کنید"
+                name="name" id="name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="username">نام خانوادگی:</label>
+                <input type="text" class="form-control mt-1" placeholder="نام خانوادگی را وارد کنید"
+                name="username" id="username"
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone_number">شماره تلفن:</label>
+                <input type="text" class="form-control mt-1" placeholder="09xx354xx28"
+                  name="phone_number" id="phone_number"
+                />
+              </div>
+              <div class="form-group">
+                <label for="company">نام شرکت:</label>
+                <input type="text" class="form-control mt-1" placeholder="نام شرکت را وارد کنید"
+                name="company" id="company"
+                />
+              </div>
+              <input type="submit" value="ثبت" class="bt btn-success mr-2">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
     <!-- </transition> -->
   </div>
 </template>
@@ -170,8 +213,17 @@ export default {
         sikh1.style.webkitTransform = "rotate(0)";
       }
     },
-    scroll_to_mega(){
-      window.scrollTo(0,document.getElementById("footerWrapper").offsetTop)
+    scroll_to_mega() {
+      window.scrollTo(0, document.getElementById("footerWrapper").offsetTop);
+    },
+    show_form() {
+      let el=document.querySelector('#form_join_damirco')
+      el.style.display="block"
+    },
+    hide_form(){
+      console.log('hide')
+      let el=document.querySelector('#form_join_damirco')
+      el.style.display="none"
     }
   },
 };
@@ -259,15 +311,16 @@ li:last-child {
   transition: background-color 0.2s;
   /*background-color: #A2AFD0;*/
 }
-.neww{
-   text-align: center;
+.neww {
+  text-align: center;
   width: 150px;
   height: 50px;
   transition: background-color 0.2s;
 }
 
-.new a,.neww a {
-  width:100%;
+.new a,
+.neww a {
+  width: 100%;
   height: 100%;
   /* margin:auto 0; */
   color: black;
@@ -276,12 +329,14 @@ li:last-child {
   padding-top: 12px;
 }
 
-.new:hover,.neww:hover {
+.new:hover,
+.neww:hover {
   background-color: rgb(9, 111, 211);
   cursor: pointer;
 }
 
-.new:hover a,.neww:hover a {
+.new:hover a,
+.neww:hover a {
   color: white;
   text-decoration: none;
 }
@@ -510,5 +565,62 @@ hr {
   #navigation {
     display: none;
   }
+}
+#form_join_damirco {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.688);
+  text-align: right;
+  direction: rtl;
+  display:none;
+}
+.form_join_damirco {
+  width: 50%;
+  /* height: 300px; */
+  position: absolute;
+  left: 26%;
+  top: 8.6%;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.819);
+  border-radius: 4px;
+}
+.close_form,
+#form {
+  width: 100%;
+}
+#form{
+  padding: 15px;
+  box-sizing: border-box;
+}
+#form form{
+  width: 90%;
+  margin: auto;
+}
+.icon_close{
+  margin-left: 15px;
+  margin-top: 10px;
+  float: left;
+  transition:all 0.2s;
+}
+.icon_close:hover{
+  color: rgb(184, 0, 0);
+  cursor: pointer;
+}
+legend{
+  font-size: 19px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.76);
+}
+#form form label{
+font-size: 17px;
+font-weight: bold;
+color: rgba(0, 0, 0, 0.76);
+}
+#form form input::placeholder{
+  font-size: 14px;
 }
 </style>
