@@ -40,15 +40,17 @@
             <div class="head_card">
               <h2>نیاز مشتری</h2>
             </div>
-            <div class="row_card">
-              <p v-text="JSON.parse(order)"></p>
+            <div class="row_card" id="orders">
+              <div class="order" v-for="p in JSON.parse(order)" :key="p.id">
+                <div id="title_order">
+                  <h3 v-text="p.product.title"></h3>
+                </div>
+                <div id="image_order">
+                  <img :src="p.product_image" :alt="p.image_alt" />
+                </div>
+              </div>
+              <!-- <p v-text="JSON.parse(order)"></p> -->
             </div>
-            <!-- <div class="row_card">
-                <p>serthb</p>
-            </div>
-            <div class="row_card">
-                <p>aeh</p>
-            </div> -->
           </div>
           <div class="cards">
             <div class="head_card">
@@ -64,7 +66,11 @@
             <h1>پیشرفت فروش</h1>
           </div>
           <div id="items_sell">
-            <div class="item_sell" v-for="(me ,index) in JSON.parse(customer).messages.messages" :key="index">
+            <div
+              class="item_sell"
+              v-for="(me, index) in JSON.parse(customer).messages.messages"
+              :key="index"
+            >
               <p v-text="me.content"></p>
             </div>
             <!-- <div class="item_sell">
@@ -171,13 +177,11 @@ export default {
     };
   },
   props: ["order", "customer"],
-  created(){
-    console.log('order',JSON.parse(this.order))
-    console.log('customer',JSON.parse(this.customer))
+  created() {
+    console.log("order", JSON.parse(this.order));
+    console.log("customer", JSON.parse(this.customer));
   },
-  computed:{
-    
-  },
+  computed: {},
   methods: {
     show_box_edit() {
       let p = document.getElementById("text_content");
@@ -483,7 +487,48 @@ form textarea::placeholder {
 #btn-edit-cancel:hover {
   background-color: #be2534;
 }
-@media screen and (max-width: 1001px) {
+#orders {
+  height: auto !important;
+  display: flex !important;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+  padding: 15px 10px !important;
+}
+.order {
+  width: 160px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-shadow: 0 5px 6px 3px rgb(226, 226, 226);
+  /* border: 1px solid rgba(0, 0, 0, 0.466); */
+}
+#title_order {
+  width: 100%;
+  /* background-color: red; */
+  text-align: center;
+  padding: 5px;
+  box-sizing: border-box;
+}
+#title_order h3 {
+  font-size: 15px;
+  font-weight: bold;
+}
+#image_order {
+  width: 100%;
+  /* background-color: green; */
+  padding: 5px;
+  box-sizing: border-box;
+  text-align: center;
+}
+#image_order img {
+  width: 100%;
+  height: 80px;
+}
+
+@media screen and (max-width: 1000px) {
   #p_supplier {
     width: 100%;
     right: 0;
