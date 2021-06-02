@@ -23,6 +23,7 @@ import user from "./components/user/user.vue";
 import loadingSpinner from "./components/user/template/loadingSpinner/loadingSpinner.vue";
 // import SubCategories from "./components/user/mainCategories/Index.vue"
 import SubCategories from "./components/user/mainCategories/Index2.vue"
+import AboutSupplier from "./components/user/about_supplier/Index.vue"
 vue.use(VueMeta, {
   // optional pluginOptions
   refreshOnceOnNavigation: true,
@@ -82,7 +83,8 @@ const app = new vue({
     'rulesToUse':()=>import('./components/user/abouts/rulesToUse.vue'),
     'privacy':()=>import('./components/user/abouts/privacy.vue'),
     error,
-    sharePopUp
+    sharePopUp,
+    AboutSupplier
   },
   store,
   // Router

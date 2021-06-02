@@ -7,11 +7,14 @@
     font-family: 'iranSans';
     -webkit-print-color-adjust: exact;
 }
+
 @font-face {
     font-family: iranSans;
     src: url(/static/IRANSansWeb_Light.woff2);
 }
-
+strong{
+    font-weight: bold!important;
+}
 #app{
     display: flex;
     justify-content: center;

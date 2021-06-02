@@ -20,14 +20,18 @@
             </div>
           </div>
         </div>
-        <div class="row" v-if="blog !=='None'">
+        <div class="row" v-if="blog !== 'None'">
           <div class="w-100">
             <div class="title">
               <h1>بلاگ ها</h1>
             </div>
             <div id="blog">
               <div id="item-blog" class="p-4">
-                <blog v-for="post in blogs2" v-bind:key="post.id" :blog="post" />
+                <blog
+                  v-for="post in blogs2"
+                  v-bind:key="post.id"
+                  :blog="post"
+                />
               </div>
             </div>
           </div>
@@ -41,15 +45,15 @@
               <div class="products">
                 <div v-for="item in pageOfItems" :key="item.id">
                   <div class="item">
-                    <a :href="'/product/'+ item.slug" class="link-item">
+                    <a :href="'/product/' + item.slug" class="link-item">
                       <div class="item-origin">
                         <div class="pic">
-                                                                <!-- <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است"> -->
+                          <!-- <img src="/static/public/images/shrink2.png" alt="تصویر ناقص است"> -->
                           <img :src="item.product_image" alt="تصویر ناقص است" />
                         </div>
                         <div class="text">
                           <h1 class="name" v-text="item.title">
-                                                 <!-- jdicbvmdjsikrjfhdmsjciqogldmsjcz.5pdloseuiloi526894253698710 -->
+                            <!-- jdicbvmdjsikrjfhdmsjciqogldmsjcz.5pdloseuiloi526894253698710 -->
                           </h1>
                           <p class="info mt-1" v-text="item.short_description">
                             <!--                      jifhguriopamvk111forqwjfiormbkshhhhhhhhhhhhhhhhhh75698hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcskdclfvpdjflroewhnfkvpahskehdn,lashvkociejrfvhsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq-->
@@ -144,7 +148,7 @@ import Paginate from "./paginate/Paginate.vue";
 // ];
 export default {
   name: "Index2",
-  props: ["categories2","products","blogs"],
+  props: ["categories2", "products", "blogs"],
   data() {
     return {
       // exampleItems,
@@ -185,21 +189,21 @@ export default {
       });
       return array;
     },
-    products2(){
-      if(this.products !=='None'){
-         return JSON.parse(this.products)
-      }else{
+    products2() {
+      if (this.products !== "None") {
+        return JSON.parse(this.products);
+      } else {
         return [];
       }
     },
-    blogs2(){
-      if(this.blogs!=='None'){
+    blogs2() {
+      if (this.blogs !== "None") {
         // console.log()
-        return JSON.parse(this.blogs)
-      }else{
-        return []
+        return JSON.parse(this.blogs);
+      } else {
+        return [];
       }
-    }
+    },
   },
   created() {
     // console.log("products",JSON.parse(this.products));
@@ -503,5 +507,4 @@ export default {
     margin: 0;
   }
 }
-
 </style>

@@ -92,38 +92,62 @@
     <div id="form_join_damirco" class="">
       <div class="form_join_damirco">
         <div class="close_form bg-primary" @click="hide_form()">
-          <i class="fa fa-times fa-2x icon_close" aria-hidden="true"
-          ></i>
+          <i class="fa fa-times fa-2x icon_close" aria-hidden="true"></i>
         </div>
         <div id="form">
           <form action="/supplier/q/" method="post">
             <fieldset>
               <legend>ثبت نام درصف</legend>
               <div class="form-group mt-2">
-                <label for="name">نام:</label>
-                <input type="text" class="form-control mt-1" placeholder="نام را وارد کنید"
-                name="name" id="name"
+                <label for="lname">نام:</label>
+                <input
+                  type="text"
+                  class="form-control mt-1"
+                  placeholder="نام را به فارسی وارد کنید"
+                  name="lname"
+                  id="lname"
+                  maxlength="20"
+                  @input="validate"
                 />
               </div>
               <div class="form-group">
-                <label for="username">نام خانوادگی:</label>
-                <input type="text" class="form-control mt-1" placeholder="نام خانوادگی را وارد کنید"
-                name="username" id="username"
+                <label for="fname">نام خانوادگی:</label>
+                <input
+                  type="text"
+                  class="form-control mt-1"
+                  placeholder="نام خانوادگی به فارسی را وارد کنید"
+                  name="fname"
+                  id="fname"
+                  maxlength="20"
+                  @input="validate"
                 />
               </div>
               <div class="form-group">
                 <label for="phone_number">شماره تلفن:</label>
-                <input type="text" class="form-control mt-1" placeholder="09xx354xx28"
-                  name="phone_number" id="phone_number"
+                <input
+                  type="text"
+                  class="form-control mt-1"
+                  placeholder="09xx354xx28"
+                  name="phone_number"
+                  id="phone_number"
+                  maxlength="11"
+                  @input="validate"
+                  
                 />
               </div>
               <div class="form-group">
                 <label for="company">نام شرکت:</label>
-                <input type="text" class="form-control mt-1" placeholder="نام شرکت را وارد کنید"
-                name="company" id="company"
+                <input
+                  type="text"
+                  class="form-control mt-1"
+                  placeholder="نام شرکت را وارد کنید"
+                  name="company"
+                  id="company"
+                  @input="validate"
+                  maxlength="100"
                 />
               </div>
-              <input type="submit" value="ثبت" class="bt btn-success mr-2">
+              <input type="submit" value="ثبت" class="bt btn-success mr-2" />
             </fieldset>
           </form>
         </div>
@@ -149,6 +173,9 @@ export default {
     ...mapGetters(["isSubMenu"]),
     isSubMenuOpen() {
       return this.isSubMenu;
+    },
+    regularExpression() {
+      return this.$store.getters.regularExpression;
     },
   },
   data() {
@@ -217,14 +244,62 @@ export default {
       window.scrollTo(0, document.getElementById("footerWrapper").offsetTop);
     },
     show_form() {
-      let el=document.querySelector('#form_join_damirco')
-      el.style.display="block"
+      let el = document.querySelector("#form_join_damirco");
+      el.style.display = "block";
     },
-    hide_form(){
-      console.log('hide')
-      let el=document.querySelector('#form_join_damirco')
-      el.style.display="none"
-    }
+    hide_form() {
+      console.log("hide");
+      let el = document.querySelector("#form_join_damirco");
+      el.style.display = "none";
+    },
+    validate(e) {
+      if (e.target.value === "") {
+        e.target.classList.remove("is-valid", "is-invalid");
+      } else {
+        switch (e.target.id) {
+          case 'lname':
+            var res = e.target.value.match(this.regularExpression.regName);
+            if (res) {
+              e.target.classList.add("is-valid");
+              e.target.classList.remove("is-invalid");
+            } else {
+              e.target.classList.add("is-invalid");
+              e.target.classList.remove("is-valid");
+            }
+            break;
+          case 'fname':
+            var res =e.target.value.match(this.regularExpression.regName);
+            if (res) {
+              e.target.classList.add("is-valid");
+              e.target.classList.remove("is-invalid");
+            } else {
+              e.target.classList.add("is-invalid");
+              e.target.classList.remove("is-valid");
+            }
+            break;
+          case 'phone_number':
+            var res =e.target.value.match(this.regularExpression.reg_phoneNumber);
+            if (res) {
+              e.target.classList.add("is-valid");
+              e.target.classList.remove("is-invalid");
+            } else {
+              e.target.classList.add("is-invalid");
+              e.target.classList.remove("is-valid");
+            }
+            break;
+          case 'company':
+            var res =e.target.value.match(this.regularExpression.regNameCompany);
+            if (res) {
+              e.target.classList.add("is-valid");
+              e.target.classList.remove("is-invalid");
+            } else {
+              e.target.classList.add("is-invalid");
+              e.target.classList.remove("is-valid");
+            }
+            break;
+        }
+      }
+    },
   },
 };
 </script>
@@ -576,7 +651,7 @@ hr {
   background-color: rgba(0, 0, 0, 0.688);
   text-align: right;
   direction: rtl;
-  display:none;
+  display: none;
 }
 .form_join_damirco {
   width: 50%;
@@ -592,35 +667,41 @@ hr {
 #form {
   width: 100%;
 }
-#form{
+#form {
   padding: 15px;
   box-sizing: border-box;
 }
-#form form{
+#form form {
   width: 90%;
   margin: auto;
 }
-.icon_close{
+.icon_close {
   margin-left: 15px;
   margin-top: 10px;
   float: left;
-  transition:all 0.2s;
+  transition: all 0.2s;
 }
-.icon_close:hover{
+.icon_close:hover {
   color: rgb(184, 0, 0);
   cursor: pointer;
 }
-legend{
+legend {
   font-size: 19px;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.76);
 }
-#form form label{
-font-size: 17px;
-font-weight: bold;
-color: rgba(0, 0, 0, 0.76);
+#form form label {
+  font-size: 17px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.76);
 }
-#form form input::placeholder{
+#form form input::placeholder {
   font-size: 14px;
+}
+.is-invalid {
+  border: 1px solid #e3356f;
+}
+.is-valid {
+  border: 1px solid #34ce57 !important;
 }
 </style>

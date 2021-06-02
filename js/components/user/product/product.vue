@@ -179,4 +179,7 @@ hr {
     width: 100%;
   }
 }
+strong{
+  font-weight: bold!important;
+}
 </style>
