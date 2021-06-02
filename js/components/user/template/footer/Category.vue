@@ -60,7 +60,7 @@ a:hover {
 }
 
 .category {
-  width: 210px;
+  width: 230px;
   margin-top: 40px;
   margin-bottom: 20px;
   text-align: right;

@@ -89,7 +89,7 @@
     </div>
     <!-- <transition name='toggleSubMenu' mode='out-in'> -->
     <side-menu v-if="isSubMenuOpen"></side-menu>
-    <div id="form_join_damirco" class="">
+    <div id="form_join_damirco">
       <div class="form_join_damirco">
         <div class="close_form bg-primary" @click="hide_form()">
           <i class="fa fa-times fa-2x icon_close" aria-hidden="true"></i>
@@ -115,7 +115,7 @@
                 <input
                   type="text"
                   class="form-control mt-1"
-                  placeholder="نام خانوادگی به فارسی را وارد کنید"
+                  placeholder="نام خانوادگی را به فارسی وارد کنید"
                   name="fname"
                   id="fname"
                   maxlength="20"
@@ -246,6 +246,7 @@ export default {
     show_form() {
       let el = document.querySelector("#form_join_damirco");
       el.style.display = "block";
+      document.querySelector("#lname").focus()
     },
     hide_form() {
       console.log("hide");
@@ -658,7 +659,7 @@ hr {
   /* height: 300px; */
   position: absolute;
   left: 26%;
-  top: 8.6%;
+  top:132px;
   margin: auto;
   background-color: rgba(255, 255, 255, 0.819);
   border-radius: 4px;
