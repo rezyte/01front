@@ -20,7 +20,7 @@
       <div class="replay" @click="replay(comment.id)">پاسخ</div>
     </div>
     <div id="body" class="p-1 pr-5">
-      <p v-text="comment.content"></p>
+      <p v-text="comment.content">nhnh</p>
     </div>
     <!--    <div>-->
     <!--      {{sub_comments(comment.id)}}-->

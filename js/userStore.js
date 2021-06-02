@@ -5,6 +5,14 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
 	state: {
+		regularExpression: {
+            regName: /^[ ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو]{3,20}$/,
+            regUsername: /^[a-zA_Zضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو0-9]{3,20}$/gi,
+            regPassword: /^[\u06F0-\u06F90-9a-zA-Z0-9ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو ]{4,20}$/g,
+            reg_phoneNumber: /^[0-9\u06F0-\u06F90-9]{11}$/gi,
+            regEmail: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+			regNameCompany: /^[ًٌٍ،؛َُِّۀآـ«»,:"ةيژؤإأء<> -؟ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو./a-zA-z0-9\u06F0-\u06F90-9]{3,100}$/,
+        },
 		isSubMenuOpen: false,
 		url: null,
 		categoriesTop: null,
@@ -48,6 +56,9 @@ export const store = new Vuex.Store({
 			let obj = Object.assign({}, newarr)
 			return obj;
 		},
+		regularExpression:state =>{
+			return state.regularExpression
+		}
 	},
 	mutations: {
 		toggleSubMenu: state => {

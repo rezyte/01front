@@ -1,6 +1,6 @@
 <template>
   <div class="row userPanel">
-    <div id="userPanell" class="">
+    <div id="userPanell">
       <form method="post" action="" class="w-100 p-3 form">
         <fieldset>
           <legend class="font-weight-bold mb-3">اطلاعات کاربری</legend>
@@ -100,6 +100,26 @@
               @input="validate(userData.phone_number, 'phoneNumber')"
             />
           </div>
+          <div class="form-group">
+            <label for="email">ایمیل</label>
+            <input
+              type="email"
+              :class="[
+                inValidate.email ? 'is-invalid' : null,
+                validated.email ? 'is-valid' : null,
+                'form-control mr-2 mt-1',
+              ]"
+              required
+              id="email"
+              name="email"
+              :pattern="regEx.regEmail"
+              ref="email"
+              v-model="userData.email"
+              placeholder="ایمیل خود را وارد کنید"
+              title="ایمل اشتباه وارد شده است"
+              @input="validate(userData.email, 'email')"
+            />
+          </div>
         </fieldset>
       </form>
       <input
@@ -127,6 +147,7 @@ export default {
         username: 0,
         companyName: 0,
         phoneNumber: 0,
+        email:0
       },
       validated: {
         firstName: false,
@@ -134,6 +155,7 @@ export default {
         username: false,
         companyName: false,
         phoneNumber: false,
+        email:false
       },
       inValidate: {
         firstName: false,
@@ -141,6 +163,7 @@ export default {
         username: false,
         companyName: false,
         phoneNumber: false,
+        email:false
       },
     };
   },
@@ -234,6 +257,19 @@ export default {
             }
             break;
           }
+          case this.userData.email: {
+            let res = x.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+            if (res) {
+              this.validated.email = true;
+              this.inValidate.email = false;
+              this.okDataForm.email = 1;
+            } else {
+              this.validated.email = false;
+              this.inValidate.email = true;
+              this.okDataForm.email = 2;
+            }
+            break;
+          }
         }
       }
       this.btnStatus = !(
@@ -242,7 +278,8 @@ export default {
         (this.okDataForm.username === 0 || this.okDataForm.username === 1) &&
         (this.okDataForm.companyName === 0 ||
           this.okDataForm.companyName === 1) &&
-        (this.okDataForm.phoneNumber === 0 || this.okDataForm.phoneNumber === 1)
+        (this.okDataForm.phoneNumber === 0 || this.okDataForm.phoneNumber === 1) &&
+        (this.okDataForm.email === 0 || this.okDataForm.email === 1)
       );
     },
     sendForm() {
@@ -282,5 +319,12 @@ export default {
 
 .is-valid {
   border: 1px solid #34ce57 !important;
+}
+label {
+  margin: 2px 0 4px 0;
+  font-weight: 600;
+}
+legend {
+  font-size: 19px;
 }
 </style>

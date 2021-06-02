@@ -447,4 +447,7 @@ h1 {
   font-size: 17px;
 }
 
+strong{
+  font-weight: bold!important;
+}
 </style>
