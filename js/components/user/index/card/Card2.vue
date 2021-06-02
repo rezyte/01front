@@ -189,14 +189,14 @@ export default {
   /* margin: 5px 10px 0 0; */
 }
 .item {
-  width: 85%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
   padding-top: 16px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   /* background-color: red; */
   box-shadow: 0 4px 12px 0 rgba(175, 179, 180, 0.89);
   border-radius: 2px;
