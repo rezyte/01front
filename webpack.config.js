@@ -34,24 +34,54 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        // test: /\.css$/,
-        // use: [
-        //   'vue-style-loader',
-        //   {
-        //     loader: 'css-loader'
-        //   }
-        // ]
-        // test: /\.css$/i,
-        // loader: "css-loader",
-        // options: {
-        //   import: true,
-        // },
         test: /.css$/,
         use: [
           'vue-style-loader',
           'css-loader',
         ]
       },
+      // {
+      //   test:/\.scss$/,
+      //   use:[
+      //     'vue-style-loader',
+      //     'css-loader',
+      //     'sass-loader'
+      //   ]
+      // }
+      // {
+      //   test: /\.sass$/,
+      //   use: [
+      //     'vue-style-loader',
+      //     'css-loader',
+      //     {
+      //       loader: 'sass-loader',
+      //       options: {
+      //         indentedSyntax: true,
+      //         // sass-loader version >= 8
+      //         sassOptions: {
+      //           indentedSyntax: true
+      //         }
+      //       }
+      //     }
+      //   ]
+      // }
+      {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              // you can also read from a file, e.g. `variables.scss`
+              // use `prependData` here if sass-loader version = 8, or
+              // `data` if sass-loader version < 8
+              additionalData: `$color: red;`
+            }
+          }
+        ]
+      }
+      ,
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
@@ -77,7 +107,7 @@ module.exports = {
             }
           }
         ]
-      },
+      }
 
     ]
   },

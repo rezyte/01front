@@ -61,7 +61,8 @@
             </div>
           </li>
           <li class="neww">
-            <a @click="show_form()">تأمین کننده ما شوید</a>
+            <!-- <a @click="show_form()">تأمین کننده ما شوید</a> -->
+            <ButtonSupplier @show_modal="show_form()"/>
           </li>
           <li class="new" v-if="!user.is_logined">
             <a href="/users/register/">ثبت نام</a>
@@ -163,11 +164,14 @@ import flatMenu from "../flatMenu/flatMenu.vue";
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
 import sideMenu from "../sideMenu/sideMenu.vue";
+import ButtonSupplier from './ButtonSupplier.vue'
+
 
 export default {
   components: {
     flatMenu,
     sideMenu,
+    ButtonSupplier
   },
   computed: {
     ...mapGetters(["isSubMenu"]),
@@ -391,11 +395,11 @@ li:last-child {
   text-align: center;
   width: 150px;
   height: 50px;
-  transition: background-color 0.2s;
+  margin-right: 25px;
+  /* transition: background-color 0.2s; */
 }
 
-.new a,
-.neww a {
+.new a{
   width: 100%;
   height: 100%;
   /* margin:auto 0; */
@@ -405,14 +409,12 @@ li:last-child {
   padding-top: 12px;
 }
 
-.new:hover,
-.neww:hover {
+.new:hover {
   background-color: rgb(9, 111, 211);
   cursor: pointer;
 }
 
-.new:hover a,
-.neww:hover a {
+.new:hover a{
   color: white;
   text-decoration: none;
 }

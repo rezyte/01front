@@ -1,11 +1,17 @@
 <template>
-  <div class="centering_container">
-    <button id="button">+</button>
+  <div class="centering_container" @click="show_modal()">
+    <button id="button">تأمین کننده ما شوید</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    show_modal(){
+      this.$emit('show_modal')
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -17,7 +23,7 @@ export default {};
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  // height: 95vh;
   background: #fafafa;
   
   // fun fact: if a container has a background
@@ -33,8 +39,8 @@ button::-moz-focus-inner { border: 0; }
 
 
 button {
-  height: 2em;
-  width: 2em;
+  height: 3.2em;
+  width: max-content;
   
   // use this to keep the pseduo element
   // contained to the button
@@ -42,15 +48,17 @@ button {
   
   background: #2189e8;
   border: none;
-  border-radius: 100%;
+  // border-radius: 45%;
   outline: none;
   transition: all 300ms ease;
   
   // styling icon
   color: #fff;
-  font-size: 2em;
+  font-size: 1em;
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
   line-height: 0.45;
+  padding: 10px 15px;
+  box-sizing: border-box;
   
   // if you decide to use a box-shadow, you don't need
   // the pseudo element
@@ -65,7 +73,7 @@ button {
     left: 50%;
     transform: translate(-50%,-50%);
     transform-origin: center;
-    border-radius: 100%;    
+    // border-radius: 100%;    
     height: 100%;
     width: 100%;
     z-index: -1;
@@ -85,8 +93,9 @@ button {
     // only works with pseudo element
     &:hover, &:focus {
     outline: none;
-    background: tomato;
-    transform: rotate(45deg);
+    // background: tomato;
+    background:#006bcf;
+    // transform: rotate(45deg);
 
       &:after {
         background: repeating-radial-gradient(

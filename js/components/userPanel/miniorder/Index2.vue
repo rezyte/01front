@@ -22,14 +22,14 @@
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>شماره تلفن</span>
               </div>
-              <div class="case"><span>dshvyfylyfv</span></div>
+              <div class="case"><span v-text="JSON.parse(order)[0].phone_number ?JSON.parse(order)[0].phone_number:''"></span></div>
             </div>
             <div class="row_card" id="email_card">
               <div>
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>ایمیل</span>
               </div>
-              <div class="case"><span>biiib@gmail.com</span></div>
+              <div class="case"><span v-text="JSON.parse(order)[0].email"></span></div>
             </div>
             <div class="row_card" id="id_card">
               <div><span>شناسه دمیرکو</span></div>
@@ -66,28 +66,14 @@
             <h1>پیشرفت فروش</h1>
           </div>
           <div id="items_sell">
+            <!-- <div>{{JSON.parse(default_msg).A}}</div> -->
             <div
               class="item_sell"
-              v-for="(me, index) in JSON.parse(customer).messages.messages"
-              :key="index"
+              v-for="me in JSON.parse(default_msg)" v-bind:key="me.id"
+              @click="select_default($event,me.id)"
             >
-              <p v-text="me.content"></p>
+              <p v-text="me.msg"></p>
             </div>
-            <!-- <div class="item_sell">
-              <p>کهشارکعسذنتل</p>
-            </div>
-            <div class="item_sell">
-              <p>گخهثلکبکخهسر</p>
-            </div>
-            <div class="item_sell">
-              <p>اهاهلرکعثلهثسیرلکع</p>
-            </div>
-            <div class="item_sell">
-              <p>عثهلبسخعی</p>
-            </div>
-            <div class="item_sell">
-              <p>خثالکخل</p>
-            </div> -->
           </div>
         </div>
         <!-- <div class="cards-left">
@@ -122,8 +108,8 @@
             <!-- <div id="username">
               <h3>نام کاربری</h3>
             </div> -->
-            <div id="content">
-              <div>
+            <div class="content">
+              <!-- <div>
                 <form action="" id="form_edit">
                   <textarea
                     name="editBox"
@@ -147,20 +133,20 @@
                     />
                   </div>
                 </form>
-              </div>
-              <p id="text_content">قرار حضوری گزاشته شد</p>
+              </div> -->
+              <p class="text_content">قرار حضوری گزاشته شد</p>
             </div>
             <div class="cr">
               <div id="date_item">
                 <i class="fas fa-clock"></i>
                 <span>1/5/1400</span>
               </div>
-              <div class="crud">
+              <!-- <div class="crud">
                 <ul>
                   <li @click="show_box_edit">ویرایش</li>
                   <li>حذف</li>
                 </ul>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -176,10 +162,11 @@ export default {
       box_edit: false,
     };
   },
-  props: ["order", "customer"],
+  props: ["order", "customer","default_msg"],
   created() {
     console.log("order", JSON.parse(this.order));
     console.log("customer", JSON.parse(this.customer));
+    console.log("default_msg", JSON.parse(this.default_msg));
   },
   computed: {},
   methods: {
@@ -201,6 +188,9 @@ export default {
       let form_edit = document.getElementById("form_edit");
       form_edit.style.display = "none";
     },
+    select_default(e,id){
+      this.$store.dispatch('select_default_msg',id)
+    }
   },
 };
 </script>
@@ -232,7 +222,7 @@ span {
   /* overflow: scroll; */
 }
 #card-left {
-  width: 32%;
+  width: 31%;
   background-color: rgb(238, 238, 238);
   border-right: 2px solid rgba(0, 0, 0, 0.123);
 }
@@ -329,8 +319,8 @@ span {
   flex-wrap: wrap;
 }
 .item_sell {
-  width: 130px;
-  height: 32px;
+  width: 150px;
+  height: 50px;
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 5px 6px 3px rgb(226, 226, 226);
@@ -345,7 +335,7 @@ span {
   cursor: pointer;
 }
 .item_sell p {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: bold;
   padding-right: 3px;
 }
@@ -383,7 +373,7 @@ form textarea {
   padding: 5px;
 }
 form textarea::placeholder {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: bold;
   padding-right: 2px;
 }
@@ -403,14 +393,14 @@ form textarea::placeholder {
   font-size: 17px;
   font-weight: bold;
 }
-#content {
+.content {
   width: 100%;
 
   /* background-color: rosybrown; */
   padding: 9px 10px 5px 5px;
   box-sizing: border-box;
 }
-#content p {
+.content p {
   font-size: 14px;
   font-weight: bold;
 }
