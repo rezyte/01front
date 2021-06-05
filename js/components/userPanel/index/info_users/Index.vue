@@ -13,6 +13,7 @@
               required
               placeholder="نام خودرا به فارسی وارد کنید"
               id="firstName"
+              name="fname"
               ref="firstName"
               :class="[
                 inValidate.firstName ? 'is-invalid' : null,
@@ -187,7 +188,7 @@ export default {
       } else {
         switch (x) {
           case this.userData.first_name: {
-            let res = x.match(/^[ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو]{3,15}$/);
+            let res = x.match(/^[ضصثقفغآ ژعهخحجچپشسیبلاتنمکگظطزرذدئو]{3,25}$/);
             if (res) {
               this.validated.firstName = true;
               this.inValidate.firstName = false;
@@ -200,7 +201,7 @@ export default {
             break;
           }
           case this.userData.last_name: {
-            let res = x.match(/^[ضصثقفغعهخحجچپشسیبلاتنمکگظطزرذدئو]{3,15}$/);
+            let res = x.match(/^[ضصثقفغآ ژعهخحجچپشسیبلاتنمکگظطزرذدئو]{3,25}$/);
             if (res) {
               this.validated.lastName = true;
               this.inValidate.lastName = false;
@@ -272,12 +273,11 @@ export default {
           }
         }
       }
-      this.btnStatus = !(
-        this.okDataForm.firstName === 1 &&
-        this.okDataForm.lastName === 1 &&
+      this.btnStatus =!(
+      (this.okDataForm.firstName === 1 || this.okDataForm.firstName===0 )&&
+        (this.okDataForm.lastName === 1 || this.okDataForm.lastName===0) &&
         (this.okDataForm.username === 0 || this.okDataForm.username === 1) &&
-        (this.okDataForm.companyName === 0 ||
-          this.okDataForm.companyName === 1) &&
+        (this.okDataForm.companyName === 0 || this.okDataForm.companyName === 1) &&
         (this.okDataForm.phoneNumber === 0 || this.okDataForm.phoneNumber === 1) &&
         (this.okDataForm.email === 0 || this.okDataForm.email === 1)
       );

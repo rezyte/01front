@@ -97,7 +97,7 @@
         <div class="line"></div>
 
         <li :class="[active.profile ? 'active' : null, 'single']">
-          <a href="/users/userpanel/"> پروفایل <profile></profile></a>
+          <a href="/userpanel/">پروفایل <profile></profile></a>
         </li>
 
         <li class="head" v-if="userInfo.is_superuser">
@@ -228,7 +228,7 @@ export default {
       case "/userpanel/catalogue/order/":
         this.active.other_langoaje_catalog = true;
         break;
-      case "/users/userpanel/":
+      case "/userpanel/":
         this.active.profile = true;
         break;
       case "/categories/create/variation/":

@@ -24,6 +24,7 @@ import loadingSpinner from "./components/user/template/loadingSpinner/loadingSpi
 // import SubCategories from "./components/user/mainCategories/Index.vue"
 import SubCategories from "./components/user/mainCategories/Index2.vue"
 import AboutSupplier from "./components/user/about_supplier/Index.vue"
+// import '/assets/sass/styles.scss'
 vue.use(VueMeta, {
   // optional pluginOptions
   refreshOnceOnNavigation: true,
