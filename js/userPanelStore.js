@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import EventService from './services/EventService.js';
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
@@ -75,6 +75,16 @@ export const store = new Vuex.Store({
         },
         fillCatsFromCreaeProduct: ({commit}, payload) => {
             commit("fillCatsFromCreaeProduct", payload)
+        },
+        select_default_msg({commit},payload){
+            EventService.select_default_msg(payload)
+            .then(response =>{
+                console.log(response)
+            })
+            .catch(error =>[
+                console.log('e',error.response)
+            ])
         }
+        
     }
 })

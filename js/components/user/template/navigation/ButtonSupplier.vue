@@ -1,11 +1,17 @@
 <template>
-  <div class="centering_container">
+  <div class="centering_container" @click="show_modal()">
     <button id="button">تأمین کننده ما شوید</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    show_modal(){
+      this.$emit('show_modal')
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

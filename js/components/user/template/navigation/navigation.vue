@@ -62,7 +62,7 @@
           </li>
           <li class="neww">
             <!-- <a @click="show_form()">تأمین کننده ما شوید</a> -->
-            <ButtonSupplier />
+            <ButtonSupplier @show_modal="show_form()"/>
           </li>
           <li class="new" v-if="!user.is_logined">
             <a href="/users/register/">ثبت نام</a>

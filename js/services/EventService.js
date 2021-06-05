@@ -11,7 +11,11 @@ const apiClient=axios.create({
 }) 
 
 export default{
+    // apiClient,
     get_mainCategory(){
         return apiClient.get('mainCategories')
+    },
+    select_default_msg(msg){
+        return apiClient.post('userpanel/'+msg)
     }
 }
