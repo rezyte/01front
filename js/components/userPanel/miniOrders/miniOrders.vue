@@ -64,7 +64,7 @@
       </div>
       <div class="orderBySearch"></div>
     </div>
-    <div v-if="shouldShow.length > 0" class="table">
+    <div v-if="user.supplier && shouldShow.length > 0" class="table">
       <table v-if="showTable">
         <tr>
           <th>شماره تلفن</th>
@@ -88,6 +88,22 @@
           <td>{{ order.name }}</td>
           <td>{{ order.product.title }}</td>
           <td>{{ order.id }}</td>
+        </tr>
+      </table>
+    </div>
+    <div v-else-if="user.buyer && shouldShow.length > 0" class="table">
+      <table v-if="showTable">
+        <tr>
+          <th>وضعیت</th>
+          <th>توضیحات</th>
+          <th>نام دستگاه</th>
+          <th>شماره</th>
+        </tr>
+        <tr>
+          <td>مشاهده شده</td>
+          <td>bntnfdsbnmmjjy,mui,svsbrtnntynmm</td>
+          <td>thtysrhjuyjyum</td>
+          <td>1</td>
         </tr>
       </table>
     </div>
@@ -125,10 +141,13 @@ import eventBus from "../eventBus.js";
 import info from "./info.vue";
 export default {
   name: "miniOrders",
-  props: ["orders"],
-
+  props: ["orders","current_user"],
   data() {
     return {
+      user:{
+        supplier:false,
+        buyer:false
+      },
       input: null,
       shouldShow: null,
       actualOrders: null,
@@ -155,6 +174,7 @@ export default {
     },
   },
   created() {
+    JSON.parse(this.current_user).is_producer ? this.user.supplier=true : this.user.buyer=true
     this.actualOrders = JSON.parse(this.orders);
     console.log(this.actualOrders);
     this.shouldShow = this.actualOrders;

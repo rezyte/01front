@@ -13,88 +13,95 @@
         <li class="logoLi">
           <a href="/"><img src="/static/public/images/logo.png" alt="" /></a>
         </li>
-        <li
-          :class="[active.my_customer ? 'active' : null, 'single']"
-          v-if="userInfo.is_producer"
-        >
-          <a href="/users/profile/orders" id="my_customers">
-            مشتریان من <customers></customers
-          ></a>
-        </li>
-        <li v-if="userInfo.is_producer" class="head">
-          <div class="bows" @click="openSub($event)" id="bows1">
-            <div class="bowsWrapper" id="bowsWrapper1">
-              <arrow></arrow>
+        <template v-if="user.supplier">
+          <li :class="[active.my_customer ? 'active' : null, 'single']">
+            <a href="/users/profile/orders" id="my_customers">
+              مشتریان من <customers></customers
+            ></a>
+          </li>
+          <li v-if="userInfo.is_producer" class="head">
+            <div class="bows" @click="openSub($event)" id="bows1">
+              <div class="bowsWrapper" id="bowsWrapper1">
+                <arrow></arrow>
+              </div>
+              <div class="sideMenuTitle">
+                <p>محصولات من</p>
+                <product></product>
+              </div>
             </div>
-            <div class="sideMenuTitle">
-              <p>محصولات من</p>
-              <product></product>
+            <div class="sub">
+              <ul>
+                <li :class="active.create_product ? 'active' : null">
+                  <a href="/userpanel/products/create/">اضافه کردن محصول</a>
+                </li>
+                <li :class="active.my_product ? 'active' : null">
+                  <a href="/users/profile/my_products/">محصولات من</a>
+                </li>
+              </ul>
             </div>
+          </li>
+          <div class="line"></div>
+
+          <div class="titr">
+            <p>ابزارهای آماده</p>
           </div>
-          <div class="sub">
-            <ul>
-              <li :class="active.create_product ? 'active' : null">
-                <a href="/userpanel/products/create/">اضافه کردن محصول</a>
-              </li>
-              <li :class="active.my_product ? 'active' : null">
-                <a href="/users/profile/my_products/">محصولات من</a>
-              </li>
-            </ul>
+          <li :class="[active.finish_cost ? 'active' : null, 'single']">
+            <a href="/userpanel/cal_netprice/"
+              >محاسبه قیمت تمام شده<finished-price></finished-price>
+            </a>
+          </li>
+          <li :class="[active.create_pishfactor ? 'active' : null, 'single']">
+            <a href="/userpanel/create_prefactor/"
+              >ساخت پیش فاکتور<factore></factore>
+            </a>
+          </li>
+
+          <div class="line"></div>
+
+          <div class="titr">
+            <p>ابزارهای درحال توسعه</p>
           </div>
-        </li>
-        <div class="line"></div>
-
-        <div class="titr">
-          <p>ابزارهای آماده</p>
-        </div>
-        <li :class="[active.finish_cost ? 'active' : null, 'single']">
-          <a href="/userpanel/cal_netprice/"
-            >محاسبه قیمت تمام شده<finished-price></finished-price>
-          </a>
-        </li>
-        <li :class="[active.create_pishfactor ? 'active' : null, 'single']">
-          <a href="/userpanel/create_prefactor/"
-            >ساخت پیش فاکتور<factore></factore>
-          </a>
-        </li>
-
-        <div class="line"></div>
-
-        <div class="titr">
-          <p>ابزارهای درحال توسعه</p>
-        </div>
-        <li class="single sinlgeDisables" v-if="userInfo.is_producer">
-          <div class="disableWrapperWrapper">
-            <div class="disableWrapper">
-              <p class="diable">مدیریت مشتریان</p>
-              <span>(به زودی)</span>
+          <li class="single sinlgeDisables" v-if="userInfo.is_producer">
+            <div class="disableWrapperWrapper">
+              <div class="disableWrapper">
+                <p class="diable">مدیریت مشتریان</p>
+                <span>(به زودی)</span>
+              </div>
+              <crm></crm>
             </div>
-            <crm></crm>
-          </div>
-        </li>
-        <li class="single sinlgeDisables" v-if="userInfo.is_producer">
-          <div class="disableWrapperWrapper">
-            <div class="disableWrapper">
-              <p class="diable">انبارداری</p>
-              <span>(به زودی)</span>
+          </li>
+          <li class="single sinlgeDisables" v-if="userInfo.is_producer">
+            <div class="disableWrapperWrapper">
+              <div class="disableWrapper">
+                <p class="diable">انبارداری</p>
+                <span>(به زودی)</span>
+              </div>
+              <warehouse></warehouse>
             </div>
-            <warehouse></warehouse>
-          </div>
-        </li>
+          </li>
 
-        <li :class="[active.create_catalog ? 'active' : null, 'single']">
-          <a href="/userpanel/catalogue/create/">
-            ساخت کاتالوگ<catalog></catalog>
-          </a>
-        </li>
-        <li
-          :class="[active.other_langoaje_catalog ? 'active' : null, 'single']"
-        >
-          <a href="/userpanel/catalogue/order/"
-            >کاتالوگ به زبان ها دیگر <other-lang-catalog></other-lang-catalog
-          ></a>
-        </li>
-        <div class="line"></div>
+          <li :class="[active.create_catalog ? 'active' : null, 'single']">
+            <a href="/userpanel/catalogue/create/">
+              ساخت کاتالوگ<catalog></catalog>
+            </a>
+          </li>
+          <li
+            :class="[active.other_langoaje_catalog ? 'active' : null, 'single']"
+          >
+            <a href="/userpanel/catalogue/order/"
+              >کاتالوگ به زبان ها دیگر <other-lang-catalog></other-lang-catalog
+            ></a>
+          </li>
+          <div class="line"></div>
+        </template>
+        <template v-else-if="user.buyer">
+           <li :class="[active.my_estealam ? 'active' : null, 'single']">
+            <a href="/users/profile/orders" id="my_estealam">
+             استعلام های من <customers></customers
+            ></a>
+          </li>
+
+        </template>
 
         <li :class="[active.profile ? 'active' : null, 'single']">
           <a href="/userpanel/">پروفایل <profile></profile></a>
@@ -140,6 +147,7 @@ import crm from "../icons/crm.vue";
 import warehouse from "../icons/warehouse.vue";
 export default {
   name: "sideMenu",
+  props:["current_user"],
   components: {
     arrow,
     finishedPrice,
@@ -154,6 +162,10 @@ export default {
   },
   data() {
     return {
+      user: {
+        supplier: false,
+        buyer: false,
+      },
       active: {
         my_customer: null,
         create_product: null,
@@ -165,11 +177,16 @@ export default {
         profile: null,
         create_category: null,
         edit_category: null,
+        my_estealam:null
       },
     };
   },
   computed: {
     ...mapGetters(["isSubMenuOpen"]),
+  },
+  created(){
+    // console.log('cccur',this.current_user)
+   JSON.parse(this.current_user).is_producer ? this.user.supplier=true : this.user.buyer=true
   },
   methods: {
     ...mapActions(["toggleSubMenu"]),
@@ -206,6 +223,7 @@ export default {
     switch (window.location.pathname) {
       case "/users/profile/orders/":
         this.active.my_customer = true;
+        this.active.my_estealam = true;
         break;
       case "/userpanel/products/create/":
         this.active.create_product = true;
@@ -326,8 +344,8 @@ img {
   #cross {
     display: none;
   }
-  .stickMenu{
-    right: 0!important;
+  .stickMenu {
+    right: 0 !important;
   }
 }
 /* @keyframes comeIn {

@@ -8,28 +8,38 @@
               <img src="" alt="" />
             </div>
             <div id="title">
-              <h1>شرکت سکوی خرید و فروش رسا</h1>
+              <h1 v-if="user.supplier">شرکت سکوی خرید و فروش رسا</h1>
+              <h1 v-else-if="user.buyer">شیرینگ پک اتوماتیک</h1>
             </div>
           </div>
         </div>
         <div class="w-100">
           <div class="cards">
             <div class="head_card">
-              <h2>اطلاعات تماس</h2>
+              <h2 v-if="user.supplier">اطلاعات تماس</h2>
+              <h2 v-else-if="user.buyer">اطلاعات استعلام</h2>
             </div>
             <div class="row_card" id="phone_card">
               <div>
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>شماره تلفن</span>
+                <i v-if="user.supplier" class="fa fa-phone" aria-hidden="true"></i>
+                <span v-if="user.supplier">شماره تلفن</span>
+                <span v-else-if="user.buyer">موضوع</span>
               </div>
-              <div class="case"><span v-text="JSON.parse(order)[0].phone_number ?JSON.parse(order)[0].phone_number:''"></span></div>
+              <div class="case">
+                <span v-if="user.supplier" v-text="JSON.parse(order)[0].phone_number ?JSON.parse(order)[0].phone_number:''"></span>
+                <span v-else-if="user.buyer" >سنعلهعبمهعبغبمهعلهمببعغنبغعبغعبهعکب</span>
+                </div>
             </div>
             <div class="row_card" id="email_card">
               <div>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>ایمیل</span>
+                <i v-if="user.supplier" class="fa fa-envelope" aria-hidden="true"></i>
+                <span v-if="user.supplier">ایمیل</span>
+                <span v-else-if="user.buyer">تاریخ و زمان ثبت</span>
               </div>
-              <div class="case"><span v-text="JSON.parse(order)[0].email"></span></div>
+              <div class="case">
+                <span v-if="user.supplier" v-text="JSON.parse(order)[0].email"></span>
+                <span v-else-if="user.buyer">1400/3/5 12:00</span>
+                </div>
             </div>
             <div class="row_card" id="id_card">
               <div><span>شناسه دمیرکو</span></div>
@@ -38,10 +48,11 @@
           </div>
           <div class="cards" id="customer_requirement">
             <div class="head_card">
-              <h2>نیاز مشتری</h2>
+              <h2 v-if="user.supplier">نیاز مشتری</h2>
+              <h2 v-else-if="user.buyer">توضیحات</h2>
             </div>
             <div class="row_card" id="orders">
-              <div class="order" v-for="p in JSON.parse(order)" :key="p.id">
+              <div v-if="user.supplier" class="order" v-for="p in JSON.parse(order)" :key="p.id">
                 <div id="title_order">
                   <h3 v-text="p.product.title"></h3>
                 </div>
@@ -49,10 +60,13 @@
                   <img :src="p.product_image" :alt="p.image_alt" />
                 </div>
               </div>
-              <!-- <p v-text="JSON.parse(order)"></p> -->
+              <p v-else-if="user.buyer">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quasi esse, molestiae omnis assumenda nulla, perspiciatis corrupti rem recusandae iste amet odit fugiat iusto est 
+                eius beatae, magni officia nemo.
+              </p>
             </div>
           </div>
-          <div class="cards">
+          <div class="cards" v-if="user.supplier">
             <div class="head_card">
               <h2>اطلاعات ارسال شده مشتری</h2>
             </div>
@@ -159,14 +173,17 @@
 export default {
   data() {
     return {
+      user:{
+        supplier:false,
+        buyer:false
+      },
       box_edit: false,
     };
   },
-  props: ["order", "customer","default_msg"],
+  props: ["order", "customer","default_msg","current_user"],
   created() {
-    console.log("order", JSON.parse(this.order));
-    console.log("customer", JSON.parse(this.customer));
-    console.log("default_msg", JSON.parse(this.default_msg));
+    JSON.parse(this.current_user).is_producer ? this.user.supplier=true : this.user.buyer=true
+    // console.log("current_user", JSON.parse(this.current_user));
   },
   computed: {},
   methods: {

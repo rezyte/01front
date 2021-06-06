@@ -1,11 +1,14 @@
+{% load utility_tags %}
 {%  include "views/userpanel/template/header.html" %}
 {%  include "views/userpanel/template/head.html" %}
-{%  include "views/userpanel/template/sideBar.html" %}
-
+<!-- {%  include "views/userpanel/template/sideBar.html" %} -->
+{% if request.user.is_authenticated %}
+{% user_tag request.user.username as current_user %}
+{% endif %}
 
 <user-panel-wrapper>
     
-    <mini-order customer="{{ customer }}" order="{{ order }}" default_msg="{{ default_msg }}"></mini-orders>
+    <mini-order current_user="{{ current_user }}" customer="{{ customer }}" order="{{ order }}" default_msg="{{ default_msg }}"></mini-orders>
 </user-panel-wrapper>
 
 
