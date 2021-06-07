@@ -16,6 +16,8 @@ export default{
         return apiClient.get('mainCategories')
     },
     select_default_msg(msg){
-        return apiClient.post('userpanel/'+msg)
+        let f=new FormData()
+        f.set('note',msg)
+        return apiClient.post('userpanel/msg',f)
     }
 }

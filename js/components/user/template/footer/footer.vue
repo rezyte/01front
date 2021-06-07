@@ -34,7 +34,7 @@ import signUp from "./signUp/signUp.vue";
 import mission from "./mission/mission.vue";
 import abouts from "./abouts/abouts.vue";
 import profileOptions from "../profileOptions/profileOptions.vue";
-import MegaMenu from './MegaMenu.vue';
+import MegaMenu from "./MegaMenu.vue";
 
 export default {
   components: {
@@ -44,10 +44,10 @@ export default {
     abouts,
     mission,
     profileOptions,
-    MegaMenu
+    MegaMenu,
   },
-  created(){
-    this.$store.dispatch('get_mainCategory')
+  created() {
+    this.$store.dispatch("get_mainCategory");
   },
   computed: {
     ...mapGetters(["isOptionsOpen"]),
@@ -70,6 +70,13 @@ export default {
 #footer {
   width: 100%;
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border-top: 1px solid #d9d8d8; */
+  padding-bottom: 30px;
+  /* background: seagreen; */
+  margin-bottom: 0;
 }
 .firstRow {
   width: 100%;
@@ -97,8 +104,8 @@ export default {
 #slicer {
   width: 90%;
   margin: auto;
-  height: 3px;
-  background-color: #9f9f9f;
+  height: 1px;
+  background-color: #9f9f9f9d;
   margin-top: 50px;
 }
 input {
@@ -119,14 +126,6 @@ input {
 form input,
 form button {
   margin-top: 10px;
-}
-#footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #f6f6f4;
-  /* border-top: 1px solid #d9d8d8; */
-  padding-bottom: 30px;
 }
 #footer p,
 #footer a {
@@ -170,13 +169,13 @@ p {
   }
 }
 .secondRow {
+  width: 100%;
+  /* background-color: royalblue; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-
   margin-top: 50px;
 }
 </style>
 <style scoped>
-
 </style>
