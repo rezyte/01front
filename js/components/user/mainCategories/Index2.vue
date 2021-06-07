@@ -5,7 +5,7 @@
         <div class="row">
           <div class="w-100">
             <div class="title">
-              <h1>دسته بندی ها</h1>
+              <h1 v-text="JSON.parse(this.categories2).title">دسته بندی ها</h1>
             </div>
             <div id="categories">
               <div class="categories p-3">

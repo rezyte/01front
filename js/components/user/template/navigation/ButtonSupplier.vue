@@ -39,9 +39,9 @@ button::-moz-focus-inner { border: 0; }
 
 
 button {
-  height: 3.2em;
+  height: 3.05em;
   width: max-content;
-  
+
   // use this to keep the pseduo element
   // contained to the button
   position: relative;
@@ -54,9 +54,10 @@ button {
   
   // styling icon
   color: #fff;
-  font-size: 1em;
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 17px;
+  font-family: iranSans;
   line-height: 0.45;
+  font-weight: bold;
   padding: 10px 15px;
   box-sizing: border-box;
   
