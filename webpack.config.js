@@ -95,15 +95,38 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|svg|jpe?g|gif)$/,
+        test: /\.(svg|gif)$/,
         include: /images/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
-              outputPath: 'images/',
-              publicPath: 'images/'
+              name: '[name].[hash:6].[ext]',
+              // outputPath: '/static/public/images',
+              // publicPath: '/static/public/images',
+              emitFile:true,
+              esModule:false
+            }
+          }
+        ]
+      },
+      {
+        test:/\.(png|jpeg|jpg)$/i,
+        use:[
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash:6].[ext]',
+              // outputPath: '/images/',
+              // publicPath: '/images/',
+              // emitFile:true,
+              // esModule:false
+            }
+          },
+          {
+            loader:'webp-loader',
+            options:{
+              quality:13
             }
           }
         ]
@@ -113,6 +136,10 @@ module.exports = {
   },
   resolve: { alias: { vue: 'vue/dist/vue.esm.js' } },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(
+      // [
+      //   { from: "src/assets", to: "public" },
+      // ]
+    )
   ]
 }
