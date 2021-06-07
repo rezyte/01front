@@ -104,7 +104,7 @@ export default {
 #slicer {
   width: 90%;
   margin: auto;
-  height: 1px;
+  height: 0.9px;
   background-color: #9f9f9f9d;
   margin-top: 50px;
 }

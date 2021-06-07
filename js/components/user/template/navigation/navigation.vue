@@ -251,9 +251,15 @@ export default {
       let el = document.querySelector("#form_join_damirco");
       el.style.display = "block";
       document.querySelector("#lname").focus()
+      let main=document.querySelector(".main");
+      main.style.height=el.offsetHeight-150+"px"
+      main.style.overflow="hidden"
+      
     },
     hide_form() {
-      console.log("hide");
+      let main=document.querySelector(".main");
+      main.style.height='auto'
+      main.style.overflow='visible'
       let el = document.querySelector("#form_join_damirco");
       el.style.display = "none";
     },
@@ -646,7 +652,7 @@ hr {
 }
 #form_join_damirco {
   width: 100%;
-  height: 100%;
+  height: 640px;
   position: absolute;
   top: 0;
   left: 0;
