@@ -1,6 +1,6 @@
 <template>
   <div id="index" class="mainItemPerPage">
-    <div id="topOfIndex" class="shouldCollapse maxIs">
+    <div id="topOfIndex" class="shouldCollapse ">
       <div id="topOfIndexWrapper">
         <slider></slider>
         <categorie :mainCats="JSON.parse(main_categories)"></categorie>
@@ -84,6 +84,7 @@ export default {
 
 .shouldCollapse {
   width: 98% !important;
+  
 }
 
 .digiCardIndex {
@@ -101,6 +102,7 @@ export default {
   justify-content: center;
   width: 100%;
   padding: 20px;
+  box-shadow: 0 0.5px 3px 0 rgba(175, 179, 180, 0.89);
 }
 
 #index {

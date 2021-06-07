@@ -82,6 +82,7 @@ export default {
   justify-content: space-between;
   background-color: white;
   padding-right: 3px;
+ box-shadow: 0 0.5px 3px 0 rgba(175, 179, 180, 0.89);
   /* padding-top: 20px; */
   /* padding:0 2px 10px 0; */
 }

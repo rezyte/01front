@@ -131,6 +131,7 @@ export default {
 #item {
   background: #ffffff;
   margin: 20px 0 0 0;
+  box-shadow: 0 0.5px 3px 0 rgba(175, 179, 180, 0.89);
   /* margin-top: 50px; */
 }
 

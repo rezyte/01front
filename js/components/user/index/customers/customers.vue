@@ -151,6 +151,7 @@ img:hover {
   background-color: white;
   padding-top: 30px;
   padding-bottom: 10px;
+  box-shadow: 0 0.5px 3px 0 rgba(175, 179, 180, 0.89);
 }
 
 .swiper-slide {
