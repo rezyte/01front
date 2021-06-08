@@ -179,13 +179,14 @@ export default {
         edit_category: null,
         my_estealam:null
       },
+      // csrf:document.querySelector('meta[name=csrf]').getAttribute('content')
     };
   },
   computed: {
     ...mapGetters(["isSubMenuOpen"]),
   },
   created(){
-    // console.log('cccur',this.current_user)
+    // console.log('csrf',document.querySelector('meta[name=csrf]').getAttribute('content'))
    JSON.parse(this.current_user).is_producer ? this.user.supplier=true : this.user.buyer=true
   },
   methods: {

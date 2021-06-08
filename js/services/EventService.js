@@ -15,9 +15,11 @@ export default{
     get_mainCategory(){
         return apiClient.get('mainCategories')
     },
-    select_default_msg(msg){
+    select_default_msg(payload){
+        console.log(payload.csrf)
         let f=new FormData()
-        f.set('note',msg)
+        f.set('note',payload.id)
+        f.set('csrf_token',payload.csrf)
         return apiClient.post('userpanel/msg',f)
     }
 }

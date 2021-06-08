@@ -117,8 +117,8 @@
             </form>
           </div>
         </div>
-        <div class="cards-left">
-          <div class="item_note">
+        <div class="cards-left" id="items-note">
+          <div class="item_note" v-for="note in notes" v-bind:key="note.content">
             <!-- <div id="username">
               <h3>نام کاربری</h3>
             </div> -->
@@ -148,19 +148,19 @@
                   </div>
                 </form>
               </div> -->
-              <p class="text_content">قرار حضوری گزاشته شد</p>
+              <p class="text_content" v-text="note.content">قرار حضوری گزاشته شد</p>
             </div>
             <div class="cr">
               <div id="date_item">
                 <i class="fas fa-clock"></i>
-                <span>1/5/1400</span>
+                <span v-text="note.shamsi"></span>
               </div>
               <!-- <div class="crud">
                 <ul>
                   <li @click="show_box_edit">ویرایش</li>
                   <li>حذف</li>
                 </ul>
-              </div> -->
+              </div> --> 
             </div>
           </div>
         </div>
@@ -183,9 +183,15 @@ export default {
   props: ["order", "customer","default_msg","current_user"],
   created() {
     JSON.parse(this.current_user).is_producer ? this.user.supplier=true : this.user.buyer=true
+    console.log(JSON.parse(this.customer))
+    // console.log(JSON.parse(this.customer))
     // console.log("current_user", JSON.parse(this.current_user));
   },
-  computed: {},
+  computed: {
+    notes(){
+      return JSON.parse(this.customer).messages.messages
+    }
+  },
   methods: {
     show_box_edit() {
       let p = document.getElementById("text_content");
@@ -206,7 +212,11 @@ export default {
       form_edit.style.display = "none";
     },
     select_default(e,id){
-      this.$store.dispatch('select_default_msg',id)
+      let data={
+        id:id,
+        csrf:document.querySelector('meta[name=csrf]').getAttribute('content')
+      }
+      this.$store.dispatch('select_default_msg',data)
     }
   },
 };
@@ -231,6 +241,7 @@ span {
   text-align: right;
   background: red;
   padding: 0 15px;
+  box-sizing: border-box;
 }
 #card-right {
   width: 68%;
@@ -239,7 +250,7 @@ span {
   /* overflow: scroll; */
 }
 #card-left {
-  width: 31%;
+  width: 30%;
   background-color: rgb(238, 238, 238);
   border-right: 2px solid rgba(0, 0, 0, 0.123);
 }
@@ -316,9 +327,9 @@ span {
 }
 .cards-left {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   box-sizing: border-box;
-  /* background-color: teal; */
+ 
 }
 .title_cardLeft h1 {
   font-size: 22px;
@@ -395,11 +406,12 @@ form textarea::placeholder {
   padding-right: 2px;
 }
 .item_note {
-  width: 93%;
-  margin: 10px auto;
+  width: 84%;
+  margin: 10px 10px 10px 0;
   background-color: #ffffff;
   border-radius: 2px;
   box-shadow: 0 5px 6px 3px rgb(226, 226, 226);
+  direction: rtl;
 }
 #username {
   width: 100%;
@@ -534,11 +546,37 @@ form textarea::placeholder {
   width: 100%;
   height: 80px;
 }
-
+#items-note{
+  /* height: 460px; */
+  width: 100%!important;
+  height: 415px;
+  /* background-color: rgb(205, 255, 218); */
+  overflow: scroll;
+  direction: ltr;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: flex-end;
+  /* align-content: center; */
+}
 @media screen and (max-width: 1000px) {
   #p_supplier {
     width: 100%;
     right: 0;
+  }
+  #card-left{
+    width: 32%;
+  }
+}
+@media screen and (max-width:625px) {
+   #card-right{
+    width: 100%;
+  }
+   #card-left{
+    width: 100%;
+  }
+  #items-note{
+    align-items: center;
   }
 }
 </style>
