@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import "./css/reset.css";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { store } from './store'

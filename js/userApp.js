@@ -1,4 +1,5 @@
 import vue from "vue";
+import "./css/reset.css";
 import { store } from "./userStore.js";
 import slicer from "./components/user/template/slicer/slicer.vue";
 // import footer from "./components/user/template/footer/footer.vue";

@@ -2,6 +2,7 @@ import Vue from 'vue';
 import {store} from './store';
 import Index from './components/test/Index.vue';
 // import Index from './components/test/paginate/Index.vue';
+import "./css/reset.css";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';

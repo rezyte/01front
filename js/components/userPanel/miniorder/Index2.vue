@@ -152,8 +152,9 @@
             </div>
             <div class="cr">
               <div id="date_item">
-                <i class="fas fa-clock"></i>
-                <span v-text="note.shamsi"></span>
+                <i class="fas fa-clock fa-sm"></i>
+                <small v-text="note.shamsi"></small>
+                <!-- <span ></span> -->
               </div>
               <!-- <div class="crud">
                 <ul>

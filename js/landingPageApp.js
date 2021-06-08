@@ -13,4 +13,5 @@ const landing=new vue({
         simpleLandingPage:index2
     }
 })
-import "./css/landing/shared.css";
+import "./css/reset.css";
+import "./css/shared.css";

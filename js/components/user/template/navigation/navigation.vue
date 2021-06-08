@@ -299,7 +299,7 @@ export default {
             }
             break;
           case 'company':
-            var res =e.target.value.match(this.regularExpression.regNameCompany);
+            var res =e.target.value.match(this.regularExpression.regUsername);
             if (res) {
               e.target.classList.add("is-valid");
               e.target.classList.remove("is-invalid");

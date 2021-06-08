@@ -1,4 +1,5 @@
 import vue from "vue"
+import "./css/reset.css";
 import signup from "./components/signup/signup.vue"
 import signupView from "./components/signup/signupView.vue";
 import verifacation from "./components/signup/verifacation.vue"
