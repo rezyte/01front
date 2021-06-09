@@ -401,7 +401,7 @@ li:last-child {
   text-align: center;
   width: 150px;
   height: 50px;
-  margin-right: 25px;
+  margin-right: 55px;
   /* transition: background-color 0.2s; */
 }
 

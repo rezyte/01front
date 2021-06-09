@@ -39,7 +39,7 @@ button::-moz-focus-inner { border: 0; }
 
 
 button {
-  height: 3.2em;
+  height: 2.6em;
   width: max-content;
   
   // use this to keep the pseduo element
@@ -48,7 +48,7 @@ button {
   
   background: #2189e8;
   border: none;
-  // border-radius: 45%;
+  border-radius: 5px;
   outline: none;
   transition: all 300ms ease;
   

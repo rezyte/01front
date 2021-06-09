@@ -84,8 +84,6 @@
 <script>
 import Category from "./categories/Category.vue";
 import Blog from "./blogs/Blog.vue";
-// import { VueperSlides, VueperSlide } from 'vueperslides'
-// import 'vueperslides/dist/vueperslides.css'
 import Carousel from "./carousel/Carousel.vue";
 import Pagination from "./pagination/Pagination.vue";
 export default {
