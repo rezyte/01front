@@ -39,11 +39,7 @@ button::-moz-focus-inner { border: 0; }
 
 
 button {
-<<<<<<< HEAD
-  height: 3.05em;
-=======
   height: 2.6em;
->>>>>>> improment
   width: max-content;
 
   // use this to keep the pseduo element
