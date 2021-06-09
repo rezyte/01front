@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import {Carousel, Slide} from 'vue-carousel';
+
 import Slider from './customers_list/Slider.vue'
 import Category from "../test/categories/Category.vue";
 import AddressMe from './address/address.vue'
@@ -61,7 +61,6 @@ export default {
   components: {
     Slider,
     Category,
-    Carousel, Slide,
     AddressMe
   },
   data() {

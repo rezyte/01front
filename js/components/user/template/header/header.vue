@@ -94,7 +94,6 @@ input {
 
 <script>
 import axios from "axios";
-import lozad from "lozad";
 import searchBar from "./searchBar.vue";
 import profileOptions from "../profileOptions/profileOptions.vue";
 export default {

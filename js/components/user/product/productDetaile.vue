@@ -97,7 +97,6 @@
 <script>
 // import ImageZoom from 'js-image-zoom'
 import doneMessage from "../../user/template/doneMessage/doneMessage.vue";
-import starRating from "vue-star-rating";
 import consulate from "../prodcuts/consulate.vue";
 import {keepStay} from "../../user/mixIns/keepStay.js";
 import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js";
@@ -135,7 +134,6 @@ export default {
   },
   mixins: [keepStay, adjustElFromTop],
   components: {
-    starRating,
     doneMessage,
     consulate,
   },

@@ -4,7 +4,6 @@ import { store } from "./userStore.js";
 import slicer from "./components/user/template/slicer/slicer.vue";
 // import footer from "./components/user/template/footer/footer.vue";
 import productZoom from "./components/user/product/productZoom.vue";
-import VueMeta from "vue-meta";
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
