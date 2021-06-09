@@ -34,20 +34,20 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /.css$/,
+        test: /\.css$/,
         use: [
           'vue-style-loader',
           'css-loader',
         ]
       },
-      // {
-      //   test:/\.scss$/,
-      //   use:[
-      //     'vue-style-loader',
-      //     'css-loader',
-      //     'sass-loader'
-      //   ]
-      // }
+      {
+        test:/\.scss$/,
+        use:[
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      }
       // {
       //   test: /\.sass$/,
       //   use: [
@@ -65,22 +65,22 @@ module.exports = {
       //     }
       //   ]
       // }
-      {
-        test: /\.scss$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              // you can also read from a file, e.g. `variables.scss`
-              // use `prependData` here if sass-loader version = 8, or
-              // `data` if sass-loader version < 8
-              additionalData: `$color: red;`
-            }
-          }
-        ]
-      }
+      // {
+      //   test: /\.scss$/,
+      //   use: [
+      //     'vue-style-loader',
+      //     'css-loader',
+      //     {
+      //       loader: 'sass-loader',
+      //       options: {
+      //         // you can also read from a file, e.g. `variables.scss`
+      //         // use `prependData` here if sass-loader version = 8, or
+      //         // `data` if sass-loader version < 8
+      //         additionalData: `$color: red;`
+      //       }
+      //     }
+      //   ]
+      // }
       ,
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,

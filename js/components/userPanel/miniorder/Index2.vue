@@ -8,7 +8,16 @@
               <img src="" alt="" />
             </div>
             <div id="title">
-              <h1 v-if="user.supplier">شرکت سکوی خرید و فروش رسا</h1>
+              <h1
+                v-if="user.supplier"
+                v-text="
+                  JSON.parse(customer).company_name
+                    ? JSON.parse(customer).company_name
+                    : ''
+                "
+              >
+                شرکت سکوی خرید و فروش رسا
+              </h1>
               <h1 v-else-if="user.buyer">شیرینگ پک اتوماتیک</h1>
             </div>
           </div>
@@ -21,25 +30,45 @@
             </div>
             <div class="row_card" id="phone_card">
               <div>
-                <i v-if="user.supplier" class="fa fa-phone" aria-hidden="true"></i>
+                <i
+                  v-if="user.supplier"
+                  class="fa fa-phone"
+                  aria-hidden="true"
+                ></i>
                 <span v-if="user.supplier">شماره تلفن</span>
                 <span v-else-if="user.buyer">موضوع</span>
               </div>
               <div class="case">
-                <span v-if="user.supplier" v-text="JSON.parse(order)[0].phone_number ?JSON.parse(order)[0].phone_number:''"></span>
-                <span v-else-if="user.buyer" >سنعلهعبمهعبغبمهعلهمببعغنبغعبغعبهعکب</span>
-                </div>
+                <span
+                  v-if="user.supplier"
+                  v-text="
+                    JSON.parse(order)[0].phone_number
+                      ? JSON.parse(order)[0].phone_number
+                      : ''
+                  "
+                ></span>
+                <span v-else-if="user.buyer"
+                  >سنعلهعبمهعبغبمهعلهمببعغنبغعبغعبهعکب</span
+                >
+              </div>
             </div>
             <div class="row_card" id="email_card">
               <div>
-                <i v-if="user.supplier" class="fa fa-envelope" aria-hidden="true"></i>
+                <i
+                  v-if="user.supplier"
+                  class="fa fa-envelope"
+                  aria-hidden="true"
+                ></i>
                 <span v-if="user.supplier">ایمیل</span>
                 <span v-else-if="user.buyer">تاریخ و زمان ثبت</span>
               </div>
               <div class="case">
-                <span v-if="user.supplier" v-text="JSON.parse(order)[0].email"></span>
+                <span
+                  v-if="user.supplier"
+                  v-text="JSON.parse(order)[0].email"
+                ></span>
                 <span v-else-if="user.buyer">1400/3/5 12:00</span>
-                </div>
+              </div>
             </div>
             <div class="row_card" id="id_card">
               <div><span>شناسه دمیرکو</span></div>
@@ -52,7 +81,12 @@
               <h2 v-else-if="user.buyer">توضیحات</h2>
             </div>
             <div class="row_card" id="orders">
-              <div v-if="user.supplier" class="order" v-for="p in JSON.parse(order)" :key="p.id">
+              <div
+                v-if="user.supplier"
+                class="order"
+                v-for="p in JSON.parse(order)"
+                :key="p.id"
+              >
                 <div id="title_order">
                   <h3 v-text="p.product.title"></h3>
                 </div>
@@ -61,8 +95,10 @@
                 </div>
               </div>
               <p v-else-if="user.buyer">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quasi esse, molestiae omnis assumenda nulla, perspiciatis corrupti rem recusandae iste amet odit fugiat iusto est 
-                eius beatae, magni officia nemo.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+                quasi esse, molestiae omnis assumenda nulla, perspiciatis
+                corrupti rem recusandae iste amet odit fugiat iusto est eius
+                beatae, magni officia nemo.
               </p>
             </div>
           </div>
@@ -83,8 +119,9 @@
             <!-- <div>{{JSON.parse(default_msg).A}}</div> -->
             <div
               class="item_sell"
-              v-for="me in JSON.parse(default_msg)" v-bind:key="me.id"
-              @click="select_default($event,me.id)"
+              v-for="me in JSON.parse(default_msg)"
+              v-bind:key="me.id"
+              @click="select_default($event, me.id)"
             >
               <p v-text="me.msg"></p>
             </div>
@@ -118,7 +155,11 @@
           </div>
         </div>
         <div class="cards-left" id="items-note">
-          <div class="item_note" v-for="note in notes" v-bind:key="note.content">
+          <div
+            class="item_note"
+            v-for="note in notes"
+            v-bind:key="note.content"
+          >
             <!-- <div id="username">
               <h3>نام کاربری</h3>
             </div> -->
@@ -148,7 +189,9 @@
                   </div>
                 </form>
               </div> -->
-              <p class="text_content" v-text="note.content">قرار حضوری گزاشته شد</p>
+              <p class="text_content" v-text="note.content">
+                قرار حضوری گزاشته شد
+              </p>
             </div>
             <div class="cr">
               <div id="date_item">
@@ -161,7 +204,7 @@
                   <li @click="show_box_edit">ویرایش</li>
                   <li>حذف</li>
                 </ul>
-              </div> --> 
+              </div> -->
             </div>
           </div>
         </div>
@@ -174,24 +217,40 @@
 export default {
   data() {
     return {
-      user:{
-        supplier:false,
-        buyer:false
+      user: {
+        supplier: false,
+        buyer: false,
       },
       box_edit: false,
     };
   },
-  props: ["order", "customer","default_msg","current_user"],
+  props: ["order", "customer", "default_msg", "current_user"],
   created() {
-    JSON.parse(this.current_user).is_producer ? this.user.supplier=true : this.user.buyer=true
-    console.log(JSON.parse(this.customer))
+    JSON.parse(this.current_user).is_producer
+      ? (this.user.supplier = true)
+      : (this.user.buyer = true);
+    console.log(JSON.parse(this.customer));
     // console.log(JSON.parse(this.customer))
     // console.log("current_user", JSON.parse(this.current_user));
+    // var session_id = /SESS\w*ID=([^;]+)/i.test(document.cookie) ? RegExp.$1 : false;
+    // var getCookies = function () {
+    //   var pairs = document.cookie.split(";");
+    //   var cookies = {};
+    //   for (var i = 0; i < pairs.length; i++) {
+    //     var pair = pairs[i].split("=");
+    //     cookies[(pair[0] + "").trim()] = unescape(pair.slice(1).join("="));
+    //   }
+    //   return cookies;
+    // };
+    // console.log("session_id", document.cookie.sessionid);
+  },
+  mounted() {
+    
   },
   computed: {
-    notes(){
-      return JSON.parse(this.customer).messages.messages
-    }
+    notes() {
+      return JSON.parse(this.customer).messages.messages;
+    },
   },
   methods: {
     show_box_edit() {
@@ -212,12 +271,12 @@ export default {
       let form_edit = document.getElementById("form_edit");
       form_edit.style.display = "none";
     },
-    select_default(e,id){
-      let data={
-        id:id,
-        csrf:document.querySelector('meta[name=csrf]').getAttribute('content')
-      }
-      this.$store.dispatch('select_default_msg',data)
+    select_default(e, id) {
+      let data = {
+        id: id,
+        csrf: document.querySelector("meta[name=csrf]").getAttribute("content"),
+      };
+      this.$store.dispatch("select_default_msg", data);
     }
   },
 };
@@ -330,7 +389,6 @@ span {
   width: 100%;
   padding: 5px;
   box-sizing: border-box;
- 
 }
 .title_cardLeft h1 {
   font-size: 22px;
@@ -547,9 +605,9 @@ form textarea::placeholder {
   width: 100%;
   height: 80px;
 }
-#items-note{
+#items-note {
   /* height: 460px; */
-  width: 100%!important;
+  width: 100% !important;
   height: 415px;
   /* background-color: rgb(205, 255, 218); */
   overflow: scroll;
@@ -565,18 +623,18 @@ form textarea::placeholder {
     width: 100%;
     right: 0;
   }
-  #card-left{
+  #card-left {
     width: 32%;
   }
 }
-@media screen and (max-width:625px) {
-   #card-right{
+@media screen and (max-width: 625px) {
+  #card-right {
     width: 100%;
   }
-   #card-left{
+  #card-left {
     width: 100%;
   }
-  #items-note{
+  #items-note {
     align-items: center;
   }
 }
