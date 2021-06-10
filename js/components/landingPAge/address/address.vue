@@ -1,5 +1,5 @@
 <template>
-    <div id="address" class="maxIs">
+    <div id="address">
         <mapping></mapping>
         <adresses></adresses>
 

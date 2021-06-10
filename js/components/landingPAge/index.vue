@@ -53,8 +53,8 @@
             </a>
           </div>
         </div>
-        <div class="row">
-          <div class="m-auto w-100">
+        <div class="row text-canter">
+          <div class="m-auto w-100 bg-primary text-center">
             <addressee></addressee>
           </div>
         </div>
