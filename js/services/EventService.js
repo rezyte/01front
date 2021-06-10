@@ -19,7 +19,11 @@ export default{
         console.log(payload.csrf)
         let f=new FormData()
         f.set('note',payload.id)
-        f.set('csrf_token',payload.csrf)
-        return apiClient.post('userpanel/msg',f)
+        // f.set('csrf_token',payload.csrf)
+        return apiClient.post('userpanel/msg',f,{
+            headers:{
+                'X-CSRFToken':payload.csrf
+            }
+        })
     }
 }
