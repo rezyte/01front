@@ -8,7 +8,6 @@ import Register from "./components/landingRegisterSupplierPage/Register.vue";
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import CKEditor from 'ckeditor4-vue';
-Vue.component('k-progress', KProgress);
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
